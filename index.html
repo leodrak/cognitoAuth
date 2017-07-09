@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="cognitoBlog">
+
+<head>
+    <meta charset="utf-8" />
+    <title>AngularJS - Leo Drak</title>
+
+    <!-- Bootstrap dependencies -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Cognito SDK and other dependencies -->
+    <script type="text/javascript" src="lib/jsbn/jsbn.js"></script>
+    <script type="text/javascript" src="lib/jsbn/jsbn2.js"></script>
+    <script type="text/javascript" src="lib/sjcl/sjcl.js"></script>
+    <script type="text/javascript" src="lib/cognito/aws-cognito-sdk.min.js"></script>
+    <script type="text/javascript" src="lib/cognito/amazon-cognito-identity.min.js"></script>
+
+    <script type="text/javascript" src="lib/aws-variables.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="lib/underscore/underscore-min.js"></script>
+    <script src="lib/aws-sdk/aws-sdk.min.js"></script>
+
+    <!-- controllers, services and routes -->
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/controllers/signIn.js"></script>
+    <script type="text/javascript" src="app/controllers/register.js"></script>
+    <script type="text/javascript" src="app/controllers/confirm.js"></script>
+    <script type="text/javascript" src="app/controllers/loggedIn.js"></script>
+    <script type="text/javascript" src="app/services/AuthService.js"></script>
+    <script type="text/javascript" src="app/factories/utils.js"></script>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+</head>
+
+<body>
+
+
+    <div ng-view></div>
+
+
+
+</body>
+</html>
