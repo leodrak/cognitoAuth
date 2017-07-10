@@ -12,22 +12,19 @@ angular.module('cognitoBlog.login', ['cognitoBlog.authService'])
     $scope.login = function(user, isValid) {
 
         if (isValid) {
-            //$ionicLoading.show();
             authService.signin(user).then(function(result) {
-                console.log('Id Token : ' + result.getIdToken().getJwtToken());
+                console.log('Id Token: ' + result.getIdToken().getJwtToken());
                 $location.path('/loggedIn');
             }, function(msg) {
                 console.log(msg);
-                $scope.errormessage = "Unable to sign in user. Please check your username and password.";
-                //$ionicLoading.hide();
                 if ($scope.$$phase != '$digest') {
                     $scope.$apply();
                 }
                 return;
             });
         } else {
-            $scope.errormessage = "There are still invalid fields.";
-            //$ionicLoading.hide();
+            console.log("Probably you have provided invalid login fields");
+
         }
     };
 

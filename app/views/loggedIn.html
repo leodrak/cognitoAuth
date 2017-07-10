@@ -1,9 +1,9 @@
 <div class="container">
     <h2>You are logged in</h2>
-    <button class="btn rounded-btn" ng-click="createDynamoDBItem(true)">Create DynamoDB item</button>
 
-    <button class="btn rounded-btn" ng-click="replaceDynamoDBItem(true)">Replace DynamoDB item</button>
+    <input name="status" type="text" class=" input-underline input-lg" required placeholder="Status" ng-model="status" />
+    <button class="btn rounded-btn" ng-model="status" ng-click="replaceDynamoDBItem(true,status)">Update DynamoDB item</button><br><br>
 
-    <button class="btn rounded-btn" ng-click="scanDynamoDBItems(true)">Scan DynamoDB item</button>
+    <button class="btn rounded-btn" ng-click="scanDynamoDBItems(true)">Scan DynamoDB items</button>
 
 </div>

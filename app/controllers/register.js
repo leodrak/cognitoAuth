@@ -10,20 +10,20 @@ angular.module('cognitoBlog.register', ['cognitoBlog.authService'])
         console.log(newuser);
 
         if (isValid) {
-            //$ionicLoading.show();
+
             authService.signup(newuser).then(function() {
-               // $ionicLoading.hide();
+
                 $location.path('/confirm');
             }, function(msg) {
                 $scope.errormessage = "An unexpected error has occurred. Please try again.";
-                //$ionicLoading.hide();
+
                 $scope.$apply();
                 return;
             });
 
         } else {
             $scope.errormessage = "There are still invalid fields.";
-            //$ionicLoading.hide();
+
             $scope.$apply();
         }
     }

@@ -2,18 +2,11 @@
     <h2>Sign In</h2>
     <form name="loginForm" ng-submit="login(user, true)" novalidate>
         <div class="form-content">
-            <div class="form-group" ng-class="{ 'has-error': loginForm.email.$touched && loginForm.email.$invalid }">
-                <input name="email" type="email" value="leonidad@amazon.co.uk" class="form-control input-underline input-lg" required placeholder="Email" ng-model="user.email" ng-init="user.email='leonidad@amazon.co.uk'" />
-                <div class="help-block" ng-messages="loginForm.email.$error" ng-if="loginForm.email.$touched">
-                    <p ng-message="required">This field is required</p>
-                    <p ng-message="email">This needs to be a valid email</p>
-                </div>
+            <div class="form-group">
+                <input name="email" type="email" value="" class="form-control input-underline input-lg" required placeholder="Email" ng-model="user.email"/>
             </div>
-            <div class="form-group" ng-class="{ 'has-error': loginForm.password.$touched && loginForm.password.$invalid }">
+            <div class="form-group">
                 <input name="password" type="password" class="form-control input-underline input-lg" required placeholder="Password" ng-model="user.password"  />
-                <div class="help-block" ng-messages="loginForm.password.$error" ng-if="loginForm.password.$touched">
-                    <p ng-message="required">This field is required</p>
-                </div>
             </div>
         </div>
         <button class="btn rounded-btn" type="submit">Sign In</button>

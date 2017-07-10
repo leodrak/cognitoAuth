@@ -152,10 +152,6 @@ angular.module('cognitoBlog.authService', ['cognitoBlog.utils'])
                             }
                         });
 
-                        // Instantiate aws sdk service objects now that the credentials have been updated
-                        //var docClient = new AWS.DynamoDB.DocumentClient({ region: 'eu-west-1' });
-                        //var ddbTable = 'CognitoBlog';
-
                         AWS.config.credentials.get(function(err){
                             if (!err) {
                                 var id = AWS.config.credentials.identityId;
@@ -163,6 +159,7 @@ angular.module('cognitoBlog.authService', ['cognitoBlog.utils'])
 
                                 // Instantiate aws sdk service objects now that the credentials have been updated
                                 var docClient = new AWS.DynamoDB.DocumentClient({ region: 'eu-west-1' });
+                                //replace with your own DynamoDB table name
                                 var ddbTable = 'CognitoBlog';
 
                                 var params = {
@@ -170,27 +167,37 @@ angular.module('cognitoBlog.authService', ['cognitoBlog.utils'])
                                     Item:{userid: id}
                                 };
 
-                                docClient.put(params, function(err, data) {
-                                    if (err) console.log(err);
-                                    else console.log(data);
+                                var paramsQuery = {
+                                    TableName : ddbTable,
+                                    KeyConditionExpression: "userid = :id",
+                                    ExpressionAttributeValues: {
+                                        ":id":id
+                                    }
+                                };
+
+                                //Query the table to identify if the user is in the table already. If the user is not in the table add his Congito id as the hash key
+                                docClient.query(paramsQuery, function(err, data) {
+                                    if (err) {
+                                        console.error("Unable to query. Error:", JSON.stringify(err, null, 2));
+                                    } else {
+                                        console.log("Query succeeded.");
+                                        if( data.Items.length == 0) {
+                                            console.log("User first time sign in - adding to table.");
+                                            docClient.put(params, function (err, data) {
+                                                if (err) console.log(err);
+                                                else console.log(data);
+                                            });
+                                        }else{
+                                            console.log("User exists in the table already.");
+                                        }
+
+                                    }
                                 });
+
+
+
                             }
                         });
-
-                        //var cognitoId = "Leo Drakopoulos2";
-                        //console.log('Identity Id is: ' + AWS.config.credentials);
-
-                        // var params = {
-                        //     TableName: ddbTable,
-                        //     Item:{userid: cognitoId}
-                        // };
-                        //
-                        // docClient.put(params, function(err, data) {
-                        //     if (err) console.log(err);
-                        //     else console.log(data);
-                        // });
-
-
                     });
                 } else {
                     deferred.resolve(false);
@@ -204,7 +211,7 @@ angular.module('cognitoBlog.authService', ['cognitoBlog.utils'])
 
         };
 
-        this.updateItemDynamo = function() {
+        this.updateItemDynamo = function(status) {
             var deferred = $q.defer();
             var data = {
                 UserPoolId: YOUR_USER_POOL_ID,
@@ -212,6 +219,8 @@ angular.module('cognitoBlog.authService', ['cognitoBlog.utils'])
                 Paranoia: 8
             };
             var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(data);
+            AWSCognito.config.credentials.clearCachedId();
+
             var cognitoUser = userPool.getCurrentUser();
 
             try {
@@ -247,7 +256,7 @@ angular.module('cognitoBlog.authService', ['cognitoBlog.utils'])
 
                                 var params = {
                                     TableName: ddbTable,
-                                    Item:{userid:id, status:"In Progress"}
+                                    Item:{userid:id, status:status}
                                 };
 
                                 docClient.put(params, function(err, data) {
