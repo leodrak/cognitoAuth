@@ -152,6 +152,7 @@ angular.module('cognitoBlog.authService', ['cognitoBlog.utils'])
                             }
                         });
 
+                        AWS.config.credentials.clearCachedId();
                         AWS.config.credentials.get(function(err){
                             if (!err) {
                                 var id = AWS.config.credentials.identityId;
@@ -218,10 +219,10 @@ angular.module('cognitoBlog.authService', ['cognitoBlog.utils'])
                 ClientId: YOUR_USER_POOL_CLIENT_ID,
                 Paranoia: 8
             };
-            var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(data);
-            AWSCognito.config.credentials.clearCachedId();
 
+            var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(data);
             var cognitoUser = userPool.getCurrentUser();
+
 
             try {
                 if (cognitoUser != null) {
@@ -245,7 +246,9 @@ angular.module('cognitoBlog.authService', ['cognitoBlog.utils'])
                             }
                         });
 
+
                         AWS.config.credentials.get(function(err){
+
                             if (!err) {
                                 var id = AWS.config.credentials.identityId;
                                 console.log('Cognito Identity ID '+ id);
