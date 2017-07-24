@@ -1,4 +1,14 @@
 
+/*
+Copyright 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with the License. A copy of the License is located at
+
+http://aws.amazon.com/apache2.0/
+
+    or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+*/
+
 angular.module('cognitoBlog.authService', ['cognitoBlog.utils'])
     .service('authService', function($q, $_, $localstorage) {
 
@@ -145,7 +155,7 @@ angular.module('cognitoBlog.authService', ['cognitoBlog.utils'])
 
                         AWS.config.region = 'eu-west-1';
                         AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-                            IdentityPoolId : 'eu-west-1:9c6aaf39-ea0b-4934-9b47-a55d7a06f0ff',// your identity pool id here
+                            IdentityPoolId : IDENTITY_POOL_ID,// your identity pool id here
                             Logins : {
                                 // Change the key below according to the specific region your user pool is in.
                                 'cognito-idp.eu-west-1.amazonaws.com/eu-west-1_ILPYKmn7I' : session.getIdToken().getJwtToken()
@@ -160,8 +170,6 @@ angular.module('cognitoBlog.authService', ['cognitoBlog.utils'])
 
                                 // Instantiate aws sdk service objects now that the credentials have been updated
                                 var docClient = new AWS.DynamoDB.DocumentClient({ region: 'eu-west-1' });
-                                //replace with your own DynamoDB table name
-                                var ddbTable = 'CognitoBlog';
 
                                 var params = {
                                     TableName: ddbTable,
@@ -176,7 +184,7 @@ angular.module('cognitoBlog.authService', ['cognitoBlog.utils'])
                                     }
                                 };
 
-                                //Query the table to identify if the user is in the table already. If the user is not in the table add his Congito id as the hash key
+                                //Query the table to identify if the user is in the table already. If the user is not in the table add his Cognito id as the hash key
                                 docClient.query(paramsQuery, function(err, data) {
                                     if (err) {
                                         console.error("Unable to query. Error:", JSON.stringify(err, null, 2));
@@ -239,7 +247,7 @@ angular.module('cognitoBlog.authService', ['cognitoBlog.utils'])
 
                         AWS.config.region = 'eu-west-1';
                         AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-                            IdentityPoolId : 'eu-west-1:9c6aaf39-ea0b-4934-9b47-a55d7a06f0ff',// your identity pool id here
+                            IdentityPoolId : IDENTITY_POOL_ID,// your identity pool id here
                             Logins : {
                                 // Change the key below according to the specific region your user pool is in.
                                 'cognito-idp.eu-west-1.amazonaws.com/eu-west-1_ILPYKmn7I' : session.getIdToken().getJwtToken()
@@ -255,7 +263,7 @@ angular.module('cognitoBlog.authService', ['cognitoBlog.utils'])
 
                                 // Instantiate aws sdk service objects now that the credentials have been updated
                                 var docClient = new AWS.DynamoDB.DocumentClient({ region: 'eu-west-1' });
-                                var ddbTable = 'CognitoBlog';
+                                //var ddbTable = 'CognitoBlog';
 
                                 var params = {
                                     TableName: ddbTable,
@@ -307,7 +315,7 @@ angular.module('cognitoBlog.authService', ['cognitoBlog.utils'])
 
                         AWS.config.region = 'eu-west-1';
                         AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-                            IdentityPoolId : 'eu-west-1:9c6aaf39-ea0b-4934-9b47-a55d7a06f0ff',// your identity pool id here
+                            IdentityPoolId : IDENTITY_POOL_ID,// your identity pool id here
                             Logins : {
                                 // Change the key below according to the specific region your user pool is in.
                                 'cognito-idp.eu-west-1.amazonaws.com/eu-west-1_ILPYKmn7I' : session.getIdToken().getJwtToken()
@@ -319,7 +327,6 @@ angular.module('cognitoBlog.authService', ['cognitoBlog.utils'])
 
                                 // Instantiate aws sdk service objects now that the credentials have been updated
                                 var docClient = new AWS.DynamoDB.DocumentClient({ region: 'eu-west-1' });
-                                var ddbTable = 'CognitoBlog';
 
                                 var params = {
                                     TableName: ddbTable
