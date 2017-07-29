@@ -2,7 +2,190 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7efe2160-a8e2-47cb-8035-85201a1ed681" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular.min.js.gzip" afterPath="$PROJECT_DIR$/bower_components/angular/angular.min.js.gzip" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/AuthService.js" afterPath="$PROJECT_DIR$/app/services/AuthService.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular-route/.bower.json" afterPath="$PROJECT_DIR$/bower_components/angular-route/.bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular-route/angular-route.js" afterPath="$PROJECT_DIR$/bower_components/angular-route/angular-route.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular-route/angular-route.min.js" afterPath="$PROJECT_DIR$/bower_components/angular-route/angular-route.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular-route/bower.json" afterPath="$PROJECT_DIR$/bower_components/angular-route/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular-route/package.json" afterPath="$PROJECT_DIR$/bower_components/angular-route/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/.bower.json" afterPath="$PROJECT_DIR$/bower_components/angular/.bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular.min.js" afterPath="$PROJECT_DIR$/bower_components/angular/angular.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/angular.min.js.map" afterPath="$PROJECT_DIR$/bower_components/angular/angular.min.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/bower.json" afterPath="$PROJECT_DIR$/bower_components/angular/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/angular/package.json" afterPath="$PROJECT_DIR$/bower_components/angular/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/.bower.json" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/.bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/CHANGELOG.md" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/CHANGELOG.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/README.md" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/acm.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/acm.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/acm.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/acm.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/all.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/all.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/all.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/all.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/apigateway.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/apigateway.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/apigateway.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/apigateway.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/applicationautoscaling.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/applicationautoscaling.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/applicationautoscaling.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/applicationautoscaling.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/appstream.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/appstream.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/appstream.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/appstream.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/autoscaling.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/autoscaling.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/autoscaling.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/autoscaling.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/batch.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/batch.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/browser_default.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/browser_default.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/browser_default.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/browser_default.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/budgets.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/budgets.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/budgets.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/budgets.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/clouddirectory.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/clouddirectory.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/clouddirectory.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/clouddirectory.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudformation.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudformation.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudformation.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudformation.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudfront.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudfront.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudfront.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudfront.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudhsm.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudhsm.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudsearch.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudsearch.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudsearchdomain.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudsearchdomain.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudtrail.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudtrail.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudwatch.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudwatch.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudwatch.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudwatch.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudwatchevents.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudwatchevents.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudwatchevents.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudwatchevents.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudwatchlogs.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudwatchlogs.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudwatchlogs.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cloudwatchlogs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/codebuild.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/codebuild.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/codebuild.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/codebuild.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/codecommit.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/codecommit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/codedeploy.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/codedeploy.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/codedeploy.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/codedeploy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/codepipeline.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/codepipeline.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/codepipeline.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/codepipeline.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/codestar.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/codestar.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/codestar.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/codestar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cognitoidentity.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cognitoidentity.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cognitoidentityserviceprovider.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cognitoidentityserviceprovider.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cognitoidentityserviceprovider.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cognitoidentityserviceprovider.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cognitosync.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cognitosync.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/configservice.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/configservice.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/configservice.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/configservice.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cur.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/cur.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/datapipeline.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/datapipeline.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/devicefarm.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/devicefarm.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/directconnect.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/directconnect.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/directoryservice.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/directoryservice.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/directoryservice.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/directoryservice.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/discovery.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/discovery.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/discovery.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/discovery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/dms.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/dms.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/dms.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/dms.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/dynamodb.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/dynamodb.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/dynamodb.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/dynamodb.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/dynamodbstreams.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/dynamodbstreams.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/ec2.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/ec2.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/ec2.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/ec2.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/ecr.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/ecr.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/ecs.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/ecs.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/ecs.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/ecs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/efs.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/efs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/elasticache.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/elasticache.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/elasticbeanstalk.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/elasticbeanstalk.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/elastictranscoder.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/elastictranscoder.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/elb.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/elb.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/elb.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/elb.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/elbv2.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/elbv2.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/elbv2.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/elbv2.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/emr.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/emr.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/emr.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/emr.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/es.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/es.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/firehose.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/firehose.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/gamelift.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/gamelift.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/gamelift.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/gamelift.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/glacier.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/glacier.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/health.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/health.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/iam.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/iam.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/importexport.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/importexport.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/inspector.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/inspector.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/inspector.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/inspector.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/iot.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/iot.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/iot.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/iot.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/iotdata.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/iotdata.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/kinesis.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/kinesis.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/kinesis.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/kinesis.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/kinesisanalytics.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/kinesisanalytics.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/kinesisanalytics.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/kinesisanalytics.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/kms.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/kms.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/kms.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/kms.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/lambda.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/lambda.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/lambda.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/lambda.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/lexmodelbuildingservice.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/lexmodelbuildingservice.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/lexmodelbuildingservice.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/lexmodelbuildingservice.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/lexruntime.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/lexruntime.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/lightsail.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/lightsail.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/lightsail.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/lightsail.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/machinelearning.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/machinelearning.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/marketplacecommerceanalytics.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/marketplacecommerceanalytics.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/marketplacecommerceanalytics.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/marketplacecommerceanalytics.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/marketplacemetering.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/marketplacemetering.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/mobileanalytics.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/mobileanalytics.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/mturk.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/mturk.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/opsworks.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/opsworks.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/opsworks.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/opsworks.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/opsworkscm.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/opsworkscm.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/organizations.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/organizations.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/organizations.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/organizations.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/pinpoint.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/pinpoint.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/pinpoint.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/pinpoint.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/polly.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/polly.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/polly.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/polly.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/rds.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/rds.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/rds.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/rds.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/redshift.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/redshift.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/rekognition.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/rekognition.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/rekognition.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/rekognition.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/resourcegroupstaggingapi.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/resourcegroupstaggingapi.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/resourcegroupstaggingapi.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/resourcegroupstaggingapi.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/route53.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/route53.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/route53.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/route53.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/route53domains.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/route53domains.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/s3.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/s3.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/s3.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/s3.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/servicecatalog.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/servicecatalog.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/servicecatalog.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/servicecatalog.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/ses.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/ses.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/shield.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/shield.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/simpledb.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/simpledb.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/sms.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/sms.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/snowball.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/snowball.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/sns.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/sns.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/sqs.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/sqs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/ssm.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/ssm.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/ssm.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/ssm.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/stepfunctions.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/stepfunctions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/storagegateway.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/storagegateway.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/storagegateway.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/storagegateway.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/sts.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/sts.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/sts.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/sts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/support.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/support.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/swf.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/swf.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/swf.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/swf.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/waf.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/waf.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/waf.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/waf.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/wafregional.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/wafregional.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/wafregional.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/wafregional.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/workdocs.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/workdocs.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/workdocs.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/workdocs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/workspaces.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/workspaces.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/workspaces.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/workspaces.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/xray.d.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/xray.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/clients/xray.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/clients/xray.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/dist/aws-sdk-react-native.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/dist/aws-sdk-react-native.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/dist/aws-sdk.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/dist/aws-sdk.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/dist/aws-sdk.min.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/dist/aws-sdk.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/react-native.js" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/react-native.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/aws-sdk/ts/dynamodb.ts" afterPath="$PROJECT_DIR$/bower_components/aws-sdk/ts/dynamodb.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/bootstrap/.bower.json" afterPath="$PROJECT_DIR$/bower_components/bootstrap/.bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/jquery/.bower.json" afterPath="$PROJECT_DIR$/bower_components/jquery/.bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/aws-variables.js" afterPath="$PROJECT_DIR$/lib/aws-variables.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,7 +204,7 @@
         <entry file="file://$PROJECT_DIR$/app/controllers/confirm.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -37,6 +220,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="AuthService.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/services/AuthService.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2400">
+              <caret line="160" column="69" lean-forward="false" selection-start-line="160" selection-start-column="69" selection-end-line="160" selection-end-column="69" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="loggedIn.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/loggedIn.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -47,51 +240,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/register.html">
+      <file leaf-file-name="confirm.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/confirm.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="3" lean-forward="false" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+            <state relative-caret-position="135">
+              <caret line="9" column="3" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="signIn.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/signIn.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="3" lean-forward="false" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LICENSE" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LICENSE">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
-              <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+            <state relative-caret-position="157">
+              <caret line="15" column="52" lean-forward="false" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -100,21 +263,11 @@
       <file leaf-file-name="aws-variables.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/aws-variables.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="45">
+              <caret line="11" column="58" lean-forward="false" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="58" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="confirm.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/confirm.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="3" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -156,21 +309,21 @@
         <option value="$PROJECT_DIR$/app/views/mainPage.html" />
         <option value="$PROJECT_DIR$/app/services/services.js" />
         <option value="$PROJECT_DIR$/app/controllers/controllers.js" />
-        <option value="$PROJECT_DIR$/app/services/AuthService.js" />
         <option value="$PROJECT_DIR$/app/controllers/register.js" />
         <option value="$PROJECT_DIR$/app/controllers/signIn.js" />
         <option value="$PROJECT_DIR$/app/factories/utils.js" />
         <option value="$PROJECT_DIR$/app/controllers/confirm.js" />
         <option value="$PROJECT_DIR$/app/controllers/loggedIn.js" />
         <option value="$PROJECT_DIR$/app/app.js" />
-        <option value="$PROJECT_DIR$/lib/aws-variables.js" />
         <option value="$PROJECT_DIR$/app/views/confirm.html" />
         <option value="$PROJECT_DIR$/app/views/loggedIn.html" />
         <option value="$PROJECT_DIR$/app/views/register.html" />
         <option value="$PROJECT_DIR$/app/views/signIn.html" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/LICENSE" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/app/services/AuthService.js" />
+        <option value="$PROJECT_DIR$/lib/aws-variables.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -183,7 +336,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="698" />
+    <option name="height" value="707" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -201,22 +354,86 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="cogntitoBlog" />
+              <option name="myItemId" value="AmazonCognitoFine-grainedAuthSample" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="cogntitoBlog" />
+              <option name="myItemId" value="AmazonCognitoFine-grainedAuthSample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmazonCognitoFine-grainedAuthSample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmazonCognitoFine-grainedAuthSample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmazonCognitoFine-grainedAuthSample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmazonCognitoFine-grainedAuthSample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmazonCognitoFine-grainedAuthSample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmazonCognitoFine-grainedAuthSample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmazonCognitoFine-grainedAuthSample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AmazonCognitoFine-grainedAuthSample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -360,25 +577,27 @@
       <workItem from="1500455624838" duration="1762000" />
       <workItem from="1500566186753" duration="505000" />
       <workItem from="1500885974226" duration="3017000" />
+      <workItem from="1501070251246" duration="5793000" />
+      <workItem from="1501365860935" duration="1746000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87809000" />
+    <option name="totallyTimeSpent" value="95348000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="698" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="707" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21683876" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21604449" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21217105" sideWeight="0.5032467" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15346535" sideWeight="0.49675325" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15121952" sideWeight="0.49675325" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -399,7 +618,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/services/services.js" />
     <entry file="file://$PROJECT_DIR$/app/services/AuthService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3645">
@@ -435,9 +653,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -445,7 +660,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -478,9 +692,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -499,9 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -528,9 +736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -582,7 +787,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -590,9 +794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="3" lean-forward="false" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -600,9 +801,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="2" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="2" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -610,43 +808,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/services/AuthService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/confirm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/aws-variables.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -670,7 +831,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="3" lean-forward="false" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -678,23 +838,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="3" lean-forward="false" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
+        <state relative-caret-position="2895">
           <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -702,6 +852,54 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/confirm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/jquery/LICENSE.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/services/AuthService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2400">
+          <caret line="160" column="69" lean-forward="false" selection-start-line="160" selection-start-column="69" selection-end-line="160" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/aws-variables.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="11" column="58" lean-forward="false" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="58" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="15" column="52" lean-forward="false" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
           <folding />
         </state>
       </provider>

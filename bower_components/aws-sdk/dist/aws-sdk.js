@@ -1,4 +1,4 @@
-// AWS SDK for JavaScript v2.48.0
+// AWS SDK for JavaScript v2.92.0
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // License at https://sdk.amazonaws.com/js/BUNDLE_LICENSE.txt
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
@@ -911,6 +911,30 @@ module.exports={
         }
       }
     },
+    "DeleteGatewayResponse": {
+      "http": {
+        "method": "DELETE",
+        "requestUri": "/restapis/{restapi_id}/gatewayresponses/{response_type}",
+        "responseCode": 202
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "restApiId",
+          "responseType"
+        ],
+        "members": {
+          "restApiId": {
+            "location": "uri",
+            "locationName": "restapi_id"
+          },
+          "responseType": {
+            "location": "uri",
+            "locationName": "response_type"
+          }
+        }
+      }
+    },
     "DeleteIntegration": {
       "http": {
         "method": "DELETE",
@@ -1255,7 +1279,7 @@ module.exports={
         }
       },
       "output": {
-        "shape": "S2k"
+        "shape": "S2m"
       }
     },
     "GetAccount": {
@@ -1268,7 +1292,7 @@ module.exports={
         "members": {}
       },
       "output": {
-        "shape": "S2m"
+        "shape": "S2o"
       }
     },
     "GetApiKey": {
@@ -1496,7 +1520,7 @@ module.exports={
         }
       },
       "output": {
-        "shape": "S2k"
+        "shape": "S2m"
       }
     },
     "GetClientCertificates": {
@@ -1526,7 +1550,7 @@ module.exports={
             "locationName": "item",
             "type": "list",
             "member": {
-              "shape": "S2k"
+              "shape": "S2m"
             }
           }
         }
@@ -1853,6 +1877,72 @@ module.exports={
           }
         },
         "payload": "body"
+      }
+    },
+    "GetGatewayResponse": {
+      "http": {
+        "method": "GET",
+        "requestUri": "/restapis/{restapi_id}/gatewayresponses/{response_type}"
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "restApiId",
+          "responseType"
+        ],
+        "members": {
+          "restApiId": {
+            "location": "uri",
+            "locationName": "restapi_id"
+          },
+          "responseType": {
+            "location": "uri",
+            "locationName": "response_type"
+          }
+        }
+      },
+      "output": {
+        "shape": "S3p"
+      }
+    },
+    "GetGatewayResponses": {
+      "http": {
+        "method": "GET",
+        "requestUri": "/restapis/{restapi_id}/gatewayresponses"
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "restApiId"
+        ],
+        "members": {
+          "restApiId": {
+            "location": "uri",
+            "locationName": "restapi_id"
+          },
+          "position": {
+            "location": "querystring",
+            "locationName": "position"
+          },
+          "limit": {
+            "location": "querystring",
+            "locationName": "limit",
+            "type": "integer"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "position": {},
+          "items": {
+            "locationName": "item",
+            "type": "list",
+            "member": {
+              "shape": "S3p"
+            }
+          }
+        }
       }
     },
     "GetIntegration": {
@@ -2353,7 +2443,7 @@ module.exports={
         }
       },
       "output": {
-        "shape": "S4b"
+        "shape": "S4i"
       }
     },
     "GetSdkTypes": {
@@ -2383,7 +2473,7 @@ module.exports={
             "locationName": "item",
             "type": "list",
             "member": {
-              "shape": "S4b"
+              "shape": "S4i"
             }
           }
         }
@@ -2489,7 +2579,7 @@ module.exports={
         }
       },
       "output": {
-        "shape": "S4m"
+        "shape": "S4t"
       }
     },
     "GetUsagePlan": {
@@ -2731,6 +2821,40 @@ module.exports={
       },
       "output": {
         "shape": "S1g"
+      }
+    },
+    "PutGatewayResponse": {
+      "http": {
+        "method": "PUT",
+        "requestUri": "/restapis/{restapi_id}/gatewayresponses/{response_type}",
+        "responseCode": 201
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "restApiId",
+          "responseType"
+        ],
+        "members": {
+          "restApiId": {
+            "location": "uri",
+            "locationName": "restapi_id"
+          },
+          "responseType": {
+            "location": "uri",
+            "locationName": "response_type"
+          },
+          "statusCode": {},
+          "responseParameters": {
+            "shape": "Sk"
+          },
+          "responseTemplates": {
+            "shape": "Sk"
+          }
+        }
+      },
+      "output": {
+        "shape": "S3p"
       }
     },
     "PutIntegration": {
@@ -2977,7 +3101,7 @@ module.exports={
             "locationName": "authorizer_id"
           },
           "headers": {
-            "shape": "S5c"
+            "shape": "S5k"
           },
           "pathWithQueryString": {},
           "body": {},
@@ -3041,7 +3165,7 @@ module.exports={
           "pathWithQueryString": {},
           "body": {},
           "headers": {
-            "shape": "S5c"
+            "shape": "S5k"
           },
           "clientCertificateId": {},
           "stageVariables": {
@@ -3057,7 +3181,7 @@ module.exports={
           },
           "body": {},
           "headers": {
-            "shape": "S5c"
+            "shape": "S5k"
           },
           "log": {},
           "latency": {
@@ -3075,12 +3199,12 @@ module.exports={
         "type": "structure",
         "members": {
           "patchOperations": {
-            "shape": "S5i"
+            "shape": "S5q"
           }
         }
       },
       "output": {
-        "shape": "S2m"
+        "shape": "S2o"
       }
     },
     "UpdateApiKey": {
@@ -3099,7 +3223,7 @@ module.exports={
             "locationName": "api_Key"
           },
           "patchOperations": {
-            "shape": "S5i"
+            "shape": "S5q"
           }
         }
       },
@@ -3128,7 +3252,7 @@ module.exports={
             "locationName": "authorizer_id"
           },
           "patchOperations": {
-            "shape": "S5i"
+            "shape": "S5q"
           }
         }
       },
@@ -3157,7 +3281,7 @@ module.exports={
             "locationName": "base_path"
           },
           "patchOperations": {
-            "shape": "S5i"
+            "shape": "S5q"
           }
         }
       },
@@ -3181,12 +3305,12 @@ module.exports={
             "locationName": "clientcertificate_id"
           },
           "patchOperations": {
-            "shape": "S5i"
+            "shape": "S5q"
           }
         }
       },
       "output": {
-        "shape": "S2k"
+        "shape": "S2m"
       }
     },
     "UpdateDeployment": {
@@ -3210,7 +3334,7 @@ module.exports={
             "locationName": "deployment_id"
           },
           "patchOperations": {
-            "shape": "S5i"
+            "shape": "S5q"
           }
         }
       },
@@ -3239,7 +3363,7 @@ module.exports={
             "locationName": "part_id"
           },
           "patchOperations": {
-            "shape": "S5i"
+            "shape": "S5q"
           }
         }
       },
@@ -3268,7 +3392,7 @@ module.exports={
             "locationName": "doc_version"
           },
           "patchOperations": {
-            "shape": "S5i"
+            "shape": "S5q"
           }
         }
       },
@@ -3292,12 +3416,41 @@ module.exports={
             "locationName": "domain_name"
           },
           "patchOperations": {
-            "shape": "S5i"
+            "shape": "S5q"
           }
         }
       },
       "output": {
         "shape": "Sx"
+      }
+    },
+    "UpdateGatewayResponse": {
+      "http": {
+        "method": "PATCH",
+        "requestUri": "/restapis/{restapi_id}/gatewayresponses/{response_type}"
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "restApiId",
+          "responseType"
+        ],
+        "members": {
+          "restApiId": {
+            "location": "uri",
+            "locationName": "restapi_id"
+          },
+          "responseType": {
+            "location": "uri",
+            "locationName": "response_type"
+          },
+          "patchOperations": {
+            "shape": "S5q"
+          }
+        }
+      },
+      "output": {
+        "shape": "S3p"
       }
     },
     "UpdateIntegration": {
@@ -3326,7 +3479,7 @@ module.exports={
             "locationName": "http_method"
           },
           "patchOperations": {
-            "shape": "S5i"
+            "shape": "S5q"
           }
         }
       },
@@ -3365,7 +3518,7 @@ module.exports={
             "locationName": "status_code"
           },
           "patchOperations": {
-            "shape": "S5i"
+            "shape": "S5q"
           }
         }
       },
@@ -3399,7 +3552,7 @@ module.exports={
             "locationName": "http_method"
           },
           "patchOperations": {
-            "shape": "S5i"
+            "shape": "S5q"
           }
         }
       },
@@ -3439,7 +3592,7 @@ module.exports={
             "locationName": "status_code"
           },
           "patchOperations": {
-            "shape": "S5i"
+            "shape": "S5q"
           }
         }
       },
@@ -3468,7 +3621,7 @@ module.exports={
             "locationName": "model_name"
           },
           "patchOperations": {
-            "shape": "S5i"
+            "shape": "S5q"
           }
         }
       },
@@ -3497,7 +3650,7 @@ module.exports={
             "locationName": "requestvalidator_id"
           },
           "patchOperations": {
-            "shape": "S5i"
+            "shape": "S5q"
           }
         }
       },
@@ -3526,7 +3679,7 @@ module.exports={
             "locationName": "resource_id"
           },
           "patchOperations": {
-            "shape": "S5i"
+            "shape": "S5q"
           }
         }
       },
@@ -3550,7 +3703,7 @@ module.exports={
             "locationName": "restapi_id"
           },
           "patchOperations": {
-            "shape": "S5i"
+            "shape": "S5q"
           }
         }
       },
@@ -3579,7 +3732,7 @@ module.exports={
             "locationName": "stage_name"
           },
           "patchOperations": {
-            "shape": "S5i"
+            "shape": "S5q"
           }
         }
       },
@@ -3608,12 +3761,12 @@ module.exports={
             "locationName": "keyId"
           },
           "patchOperations": {
-            "shape": "S5i"
+            "shape": "S5q"
           }
         }
       },
       "output": {
-        "shape": "S4m"
+        "shape": "S4t"
       }
     },
     "UpdateUsagePlan": {
@@ -3632,7 +3785,7 @@ module.exports={
             "locationName": "usageplanId"
           },
           "patchOperations": {
-            "shape": "S5i"
+            "shape": "S5q"
           }
         }
       },
@@ -4042,7 +4195,7 @@ module.exports={
         "name": {}
       }
     },
-    "S2k": {
+    "S2m": {
       "type": "structure",
       "members": {
         "clientCertificateId": {},
@@ -4056,7 +4209,7 @@ module.exports={
         }
       }
     },
-    "S2m": {
+    "S2o": {
       "type": "structure",
       "members": {
         "cloudwatchRoleArn": {},
@@ -4069,7 +4222,23 @@ module.exports={
         "apiKeyVersion": {}
       }
     },
-    "S4b": {
+    "S3p": {
+      "type": "structure",
+      "members": {
+        "responseType": {},
+        "statusCode": {},
+        "responseParameters": {
+          "shape": "Sk"
+        },
+        "responseTemplates": {
+          "shape": "Sk"
+        },
+        "defaultResponse": {
+          "type": "boolean"
+        }
+      }
+    },
+    "S4i": {
       "type": "structure",
       "members": {
         "id": {},
@@ -4092,7 +4261,7 @@ module.exports={
         }
       }
     },
-    "S4m": {
+    "S4t": {
       "type": "structure",
       "members": {
         "usagePlanId": {},
@@ -4115,12 +4284,12 @@ module.exports={
         }
       }
     },
-    "S5c": {
+    "S5k": {
       "type": "map",
       "key": {},
       "value": {}
     },
-    "S5i": {
+    "S5q": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -4416,19 +4585,11 @@ module.exports={
                 "StepScalingPolicyConfiguration": {
                   "shape": "St"
                 },
+                "TargetTrackingScalingPolicyConfiguration": {
+                  "shape": "S12"
+                },
                 "Alarms": {
-                  "type": "list",
-                  "member": {
-                    "type": "structure",
-                    "required": [
-                      "AlarmName",
-                      "AlarmARN"
-                    ],
-                    "members": {
-                      "AlarmName": {},
-                      "AlarmARN": {}
-                    }
-                  }
+                  "shape": "S1f"
                 },
                 "CreationTime": {
                   "type": "timestamp"
@@ -4457,6 +4618,9 @@ module.exports={
           "PolicyType": {},
           "StepScalingPolicyConfiguration": {
             "shape": "St"
+          },
+          "TargetTrackingScalingPolicyConfiguration": {
+            "shape": "S12"
           }
         }
       },
@@ -4466,7 +4630,10 @@ module.exports={
           "PolicyARN"
         ],
         "members": {
-          "PolicyARN": {}
+          "PolicyARN": {},
+          "Alarms": {
+            "shape": "S1f"
+          }
         }
       }
     },
@@ -4533,6 +4700,75 @@ module.exports={
           "type": "integer"
         },
         "MetricAggregationType": {}
+      }
+    },
+    "S12": {
+      "type": "structure",
+      "required": [
+        "TargetValue"
+      ],
+      "members": {
+        "TargetValue": {
+          "type": "double"
+        },
+        "PredefinedMetricSpecification": {
+          "type": "structure",
+          "required": [
+            "PredefinedMetricType"
+          ],
+          "members": {
+            "PredefinedMetricType": {},
+            "ResourceLabel": {}
+          }
+        },
+        "CustomizedMetricSpecification": {
+          "type": "structure",
+          "required": [
+            "MetricName",
+            "Namespace",
+            "Statistic"
+          ],
+          "members": {
+            "MetricName": {},
+            "Namespace": {},
+            "Dimensions": {
+              "type": "list",
+              "member": {
+                "type": "structure",
+                "required": [
+                  "Name",
+                  "Value"
+                ],
+                "members": {
+                  "Name": {},
+                  "Value": {}
+                }
+              }
+            },
+            "Statistic": {},
+            "Unit": {}
+          }
+        },
+        "ScaleOutCooldown": {
+          "type": "integer"
+        },
+        "ScaleInCooldown": {
+          "type": "integer"
+        }
+      }
+    },
+    "S1f": {
+      "type": "list",
+      "member": {
+        "type": "structure",
+        "required": [
+          "AlarmName",
+          "AlarmARN"
+        ],
+        "members": {
+          "AlarmName": {},
+          "AlarmARN": {}
+        }
       }
     }
   }
@@ -5374,14 +5610,10 @@ module.exports={
                   "type": "integer"
                 },
                 "Alarms": {
-                  "type": "list",
-                  "member": {
-                    "type": "structure",
-                    "members": {
-                      "AlarmName": {},
-                      "AlarmARN": {}
-                    }
-                  }
+                  "shape": "S3w"
+                },
+                "TargetTrackingConfiguration": {
+                  "shape": "S3y"
                 }
               }
             }
@@ -5413,7 +5645,7 @@ module.exports={
         ],
         "members": {
           "Activities": {
-            "shape": "S41"
+            "shape": "S4e"
           },
           "NextToken": {}
         }
@@ -5565,7 +5797,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Activities": {
-            "shape": "S41"
+            "shape": "S4e"
           }
         }
       }
@@ -5619,7 +5851,7 @@ module.exports={
         "members": {
           "AutoScalingGroupName": {},
           "Metrics": {
-            "shape": "S4r"
+            "shape": "S54"
           }
         }
       }
@@ -5634,7 +5866,7 @@ module.exports={
         "members": {
           "AutoScalingGroupName": {},
           "Metrics": {
-            "shape": "S4r"
+            "shape": "S54"
           },
           "Granularity": {}
         }
@@ -5662,7 +5894,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Activities": {
-            "shape": "S41"
+            "shape": "S4e"
           }
         }
       }
@@ -5706,7 +5938,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Activities": {
-            "shape": "S41"
+            "shape": "S4e"
           }
         }
       }
@@ -5759,8 +5991,7 @@ module.exports={
         "type": "structure",
         "required": [
           "AutoScalingGroupName",
-          "PolicyName",
-          "AdjustmentType"
+          "PolicyName"
         ],
         "members": {
           "AutoScalingGroupName": {},
@@ -5785,6 +6016,9 @@ module.exports={
           },
           "EstimatedInstanceWarmup": {
             "type": "integer"
+          },
+          "TargetTrackingConfiguration": {
+            "shape": "S3y"
           }
         }
       },
@@ -5792,7 +6026,10 @@ module.exports={
         "resultWrapper": "PutScalingPolicyResult",
         "type": "structure",
         "members": {
-          "PolicyARN": {}
+          "PolicyARN": {},
+          "Alarms": {
+            "shape": "S3w"
+          }
         }
       }
     },
@@ -5850,7 +6087,7 @@ module.exports={
     },
     "ResumeProcesses": {
       "input": {
-        "shape": "S58"
+        "shape": "S5l"
       }
     },
     "SetDesiredCapacity": {
@@ -5913,7 +6150,7 @@ module.exports={
     },
     "SuspendProcesses": {
       "input": {
-        "shape": "S58"
+        "shape": "S5l"
       }
     },
     "TerminateInstanceInAutoScalingGroup": {
@@ -5935,7 +6172,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Activity": {
-            "shape": "S42"
+            "shape": "S4f"
           }
         }
       }
@@ -6117,13 +6354,75 @@ module.exports={
         }
       }
     },
-    "S41": {
+    "S3w": {
       "type": "list",
       "member": {
-        "shape": "S42"
+        "type": "structure",
+        "members": {
+          "AlarmName": {},
+          "AlarmARN": {}
+        }
       }
     },
-    "S42": {
+    "S3y": {
+      "type": "structure",
+      "required": [
+        "TargetValue"
+      ],
+      "members": {
+        "PredefinedMetricSpecification": {
+          "type": "structure",
+          "required": [
+            "PredefinedMetricType"
+          ],
+          "members": {
+            "PredefinedMetricType": {},
+            "ResourceLabel": {}
+          }
+        },
+        "CustomizedMetricSpecification": {
+          "type": "structure",
+          "required": [
+            "MetricName",
+            "Namespace",
+            "Statistic"
+          ],
+          "members": {
+            "MetricName": {},
+            "Namespace": {},
+            "Dimensions": {
+              "type": "list",
+              "member": {
+                "type": "structure",
+                "required": [
+                  "Name",
+                  "Value"
+                ],
+                "members": {
+                  "Name": {},
+                  "Value": {}
+                }
+              }
+            },
+            "Statistic": {},
+            "Unit": {}
+          }
+        },
+        "TargetValue": {
+          "type": "double"
+        },
+        "DisableScaleIn": {
+          "type": "boolean"
+        }
+      }
+    },
+    "S4e": {
+      "type": "list",
+      "member": {
+        "shape": "S4f"
+      }
+    },
+    "S4f": {
       "type": "structure",
       "required": [
         "ActivityId",
@@ -6151,11 +6450,11 @@ module.exports={
         "Details": {}
       }
     },
-    "S4r": {
+    "S54": {
       "type": "list",
       "member": {}
     },
-    "S58": {
+    "S5l": {
       "type": "structure",
       "required": [
         "AutoScalingGroupName"
@@ -6175,55 +6474,54 @@ module.exports={
   "pagination": {
     "DescribeAutoScalingGroups": {
       "input_token": "NextToken",
-      "output_token": "NextToken",
       "limit_key": "MaxRecords",
+      "output_token": "NextToken",
       "result_key": "AutoScalingGroups"
     },
     "DescribeAutoScalingInstances": {
       "input_token": "NextToken",
-      "output_token": "NextToken",
       "limit_key": "MaxRecords",
+      "output_token": "NextToken",
       "result_key": "AutoScalingInstances"
     },
     "DescribeLaunchConfigurations": {
       "input_token": "NextToken",
-      "output_token": "NextToken",
       "limit_key": "MaxRecords",
+      "output_token": "NextToken",
       "result_key": "LaunchConfigurations"
     },
     "DescribeNotificationConfigurations": {
       "input_token": "NextToken",
-      "output_token": "NextToken",
       "limit_key": "MaxRecords",
+      "output_token": "NextToken",
       "result_key": "NotificationConfigurations"
     },
     "DescribePolicies": {
       "input_token": "NextToken",
-      "output_token": "NextToken",
       "limit_key": "MaxRecords",
+      "output_token": "NextToken",
       "result_key": "ScalingPolicies"
     },
     "DescribeScalingActivities": {
       "input_token": "NextToken",
-      "output_token": "NextToken",
       "limit_key": "MaxRecords",
+      "output_token": "NextToken",
       "result_key": "Activities"
     },
     "DescribeScheduledActions": {
       "input_token": "NextToken",
-      "output_token": "NextToken",
       "limit_key": "MaxRecords",
+      "output_token": "NextToken",
       "result_key": "ScheduledUpdateGroupActions"
     },
     "DescribeTags": {
       "input_token": "NextToken",
-      "output_token": "NextToken",
       "limit_key": "MaxRecords",
+      "output_token": "NextToken",
       "result_key": "Tags"
     }
   }
 }
-
 },{}],9:[function(require,module,exports){
 module.exports={
   "version": "2.0",
@@ -6362,6 +6660,71 @@ module.exports={
         }
       }
     },
+    "CreateStackInstances": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "StackSetName",
+          "Accounts",
+          "Regions"
+        ],
+        "members": {
+          "StackSetName": {},
+          "Accounts": {
+            "shape": "S19"
+          },
+          "Regions": {
+            "shape": "S1b"
+          },
+          "OperationPreferences": {
+            "shape": "S1d"
+          },
+          "OperationId": {
+            "idempotencyToken": true
+          }
+        }
+      },
+      "output": {
+        "resultWrapper": "CreateStackInstancesResult",
+        "type": "structure",
+        "members": {
+          "OperationId": {}
+        }
+      }
+    },
+    "CreateStackSet": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "StackSetName"
+        ],
+        "members": {
+          "StackSetName": {},
+          "Description": {},
+          "TemplateBody": {},
+          "TemplateURL": {},
+          "Parameters": {
+            "shape": "Se"
+          },
+          "Capabilities": {
+            "shape": "Sj"
+          },
+          "Tags": {
+            "shape": "Sp"
+          },
+          "ClientRequestToken": {
+            "idempotencyToken": true
+          }
+        }
+      },
+      "output": {
+        "resultWrapper": "CreateStackSetResult",
+        "type": "structure",
+        "members": {
+          "StackSetId": {}
+        }
+      }
+    },
     "DeleteChangeSet": {
       "input": {
         "type": "structure",
@@ -6394,6 +6757,58 @@ module.exports={
           "RoleARN": {},
           "ClientRequestToken": {}
         }
+      }
+    },
+    "DeleteStackInstances": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "StackSetName",
+          "Accounts",
+          "Regions",
+          "RetainStacks"
+        ],
+        "members": {
+          "StackSetName": {},
+          "Accounts": {
+            "shape": "S19"
+          },
+          "Regions": {
+            "shape": "S1b"
+          },
+          "OperationPreferences": {
+            "shape": "S1d"
+          },
+          "RetainStacks": {
+            "type": "boolean"
+          },
+          "OperationId": {
+            "idempotencyToken": true
+          }
+        }
+      },
+      "output": {
+        "resultWrapper": "DeleteStackInstancesResult",
+        "type": "structure",
+        "members": {
+          "OperationId": {}
+        }
+      }
+    },
+    "DeleteStackSet": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "StackSetName"
+        ],
+        "members": {
+          "StackSetName": {}
+        }
+      },
+      "output": {
+        "resultWrapper": "DeleteStackSetResult",
+        "type": "structure",
+        "members": {}
       }
     },
     "DescribeAccountLimits": {
@@ -6551,6 +6966,38 @@ module.exports={
         }
       }
     },
+    "DescribeStackInstance": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "StackSetName",
+          "StackInstanceAccount",
+          "StackInstanceRegion"
+        ],
+        "members": {
+          "StackSetName": {},
+          "StackInstanceAccount": {},
+          "StackInstanceRegion": {}
+        }
+      },
+      "output": {
+        "resultWrapper": "DescribeStackInstanceResult",
+        "type": "structure",
+        "members": {
+          "StackInstance": {
+            "type": "structure",
+            "members": {
+              "StackSetId": {},
+              "Region": {},
+              "Account": {},
+              "StackId": {},
+              "Status": {},
+              "StatusReason": {}
+            }
+          }
+        }
+      }
+    },
     "DescribeStackResource": {
       "input": {
         "type": "structure",
@@ -6634,6 +7081,82 @@ module.exports={
         }
       }
     },
+    "DescribeStackSet": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "StackSetName"
+        ],
+        "members": {
+          "StackSetName": {}
+        }
+      },
+      "output": {
+        "resultWrapper": "DescribeStackSetResult",
+        "type": "structure",
+        "members": {
+          "StackSet": {
+            "type": "structure",
+            "members": {
+              "StackSetName": {},
+              "StackSetId": {},
+              "Description": {},
+              "Status": {},
+              "TemplateBody": {},
+              "Parameters": {
+                "shape": "Se"
+              },
+              "Capabilities": {
+                "shape": "Sj"
+              },
+              "Tags": {
+                "shape": "Sp"
+              }
+            }
+          }
+        }
+      }
+    },
+    "DescribeStackSetOperation": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "StackSetName",
+          "OperationId"
+        ],
+        "members": {
+          "StackSetName": {},
+          "OperationId": {}
+        }
+      },
+      "output": {
+        "resultWrapper": "DescribeStackSetOperationResult",
+        "type": "structure",
+        "members": {
+          "StackSetOperation": {
+            "type": "structure",
+            "members": {
+              "OperationId": {},
+              "StackSetId": {},
+              "Action": {},
+              "Status": {},
+              "OperationPreferences": {
+                "shape": "S1d"
+              },
+              "RetainStacks": {
+                "type": "boolean"
+              },
+              "CreationTimestamp": {
+                "type": "timestamp"
+              },
+              "EndTimestamp": {
+                "type": "timestamp"
+              }
+            }
+          }
+        }
+      }
+    },
     "DescribeStacks": {
       "input": {
         "type": "structure",
@@ -6690,7 +7213,8 @@ module.exports={
                     "members": {
                       "OutputKey": {},
                       "OutputValue": {},
-                      "Description": {}
+                      "Description": {},
+                      "ExportName": {}
                     }
                   }
                 },
@@ -6787,7 +7311,8 @@ module.exports={
         "members": {
           "TemplateBody": {},
           "TemplateURL": {},
-          "StackName": {}
+          "StackName": {},
+          "StackSetName": {}
         }
       },
       "output": {
@@ -6829,7 +7354,7 @@ module.exports={
           "Version": {},
           "Metadata": {},
           "DeclaredTransforms": {
-            "shape": "S3l"
+            "shape": "S4m"
           }
         }
       }
@@ -6921,6 +7446,44 @@ module.exports={
         }
       }
     },
+    "ListStackInstances": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "StackSetName"
+        ],
+        "members": {
+          "StackSetName": {},
+          "NextToken": {},
+          "MaxResults": {
+            "type": "integer"
+          },
+          "StackInstanceAccount": {},
+          "StackInstanceRegion": {}
+        }
+      },
+      "output": {
+        "resultWrapper": "ListStackInstancesResult",
+        "type": "structure",
+        "members": {
+          "Summaries": {
+            "type": "list",
+            "member": {
+              "type": "structure",
+              "members": {
+                "StackSetId": {},
+                "Region": {},
+                "Account": {},
+                "StackId": {},
+                "Status": {},
+                "StatusReason": {}
+              }
+            }
+          },
+          "NextToken": {}
+        }
+      }
+    },
     "ListStackResources": {
       "input": {
         "type": "structure",
@@ -6955,6 +7518,119 @@ module.exports={
                 },
                 "ResourceStatus": {},
                 "ResourceStatusReason": {}
+              }
+            }
+          },
+          "NextToken": {}
+        }
+      }
+    },
+    "ListStackSetOperationResults": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "StackSetName",
+          "OperationId"
+        ],
+        "members": {
+          "StackSetName": {},
+          "OperationId": {},
+          "NextToken": {},
+          "MaxResults": {
+            "type": "integer"
+          }
+        }
+      },
+      "output": {
+        "resultWrapper": "ListStackSetOperationResultsResult",
+        "type": "structure",
+        "members": {
+          "Summaries": {
+            "type": "list",
+            "member": {
+              "type": "structure",
+              "members": {
+                "Account": {},
+                "Region": {},
+                "Status": {},
+                "StatusReason": {},
+                "AccountGateResult": {
+                  "type": "structure",
+                  "members": {
+                    "Status": {},
+                    "StatusReason": {}
+                  }
+                }
+              }
+            }
+          },
+          "NextToken": {}
+        }
+      }
+    },
+    "ListStackSetOperations": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "StackSetName"
+        ],
+        "members": {
+          "StackSetName": {},
+          "NextToken": {},
+          "MaxResults": {
+            "type": "integer"
+          }
+        }
+      },
+      "output": {
+        "resultWrapper": "ListStackSetOperationsResult",
+        "type": "structure",
+        "members": {
+          "Summaries": {
+            "type": "list",
+            "member": {
+              "type": "structure",
+              "members": {
+                "OperationId": {},
+                "Action": {},
+                "Status": {},
+                "CreationTimestamp": {
+                  "type": "timestamp"
+                },
+                "EndTimestamp": {
+                  "type": "timestamp"
+                }
+              }
+            }
+          },
+          "NextToken": {}
+        }
+      }
+    },
+    "ListStackSets": {
+      "input": {
+        "type": "structure",
+        "members": {
+          "NextToken": {},
+          "MaxResults": {
+            "type": "integer"
+          },
+          "Status": {}
+        }
+      },
+      "output": {
+        "resultWrapper": "ListStackSetsResult",
+        "type": "structure",
+        "members": {
+          "Summaries": {
+            "type": "list",
+            "member": {
+              "type": "structure",
+              "members": {
+                "StackSetName": {},
+                "StackSetId": {},
+                "Description": {},
+                "Status": {}
               }
             }
           },
@@ -7038,6 +7714,24 @@ module.exports={
         }
       }
     },
+    "StopStackSetOperation": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "StackSetName",
+          "OperationId"
+        ],
+        "members": {
+          "StackSetName": {},
+          "OperationId": {}
+        }
+      },
+      "output": {
+        "resultWrapper": "StopStackSetOperationResult",
+        "type": "structure",
+        "members": {}
+      }
+    },
     "UpdateStack": {
       "input": {
         "type": "structure",
@@ -7082,6 +7776,45 @@ module.exports={
         }
       }
     },
+    "UpdateStackSet": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "StackSetName"
+        ],
+        "members": {
+          "StackSetName": {},
+          "Description": {},
+          "TemplateBody": {},
+          "TemplateURL": {},
+          "UsePreviousTemplate": {
+            "type": "boolean"
+          },
+          "Parameters": {
+            "shape": "Se"
+          },
+          "Capabilities": {
+            "shape": "Sj"
+          },
+          "Tags": {
+            "shape": "Sp"
+          },
+          "OperationPreferences": {
+            "shape": "S1d"
+          },
+          "OperationId": {
+            "idempotencyToken": true
+          }
+        }
+      },
+      "output": {
+        "resultWrapper": "UpdateStackSetResult",
+        "type": "structure",
+        "members": {
+          "OperationId": {}
+        }
+      }
+    },
     "ValidateTemplate": {
       "input": {
         "type": "structure",
@@ -7114,7 +7847,7 @@ module.exports={
           },
           "CapabilitiesReason": {},
           "DeclaredTransforms": {
-            "shape": "S3l"
+            "shape": "S4m"
           }
         }
       }
@@ -7150,13 +7883,45 @@ module.exports={
       "type": "list",
       "member": {
         "type": "structure",
+        "required": [
+          "Key",
+          "Value"
+        ],
         "members": {
           "Key": {},
           "Value": {}
         }
       }
     },
-    "S3l": {
+    "S19": {
+      "type": "list",
+      "member": {}
+    },
+    "S1b": {
+      "type": "list",
+      "member": {}
+    },
+    "S1d": {
+      "type": "structure",
+      "members": {
+        "RegionOrder": {
+          "shape": "S1b"
+        },
+        "FailureToleranceCount": {
+          "type": "integer"
+        },
+        "FailureTolerancePercentage": {
+          "type": "integer"
+        },
+        "MaxConcurrentCount": {
+          "type": "integer"
+        },
+        "MaxConcurrentPercentage": {
+          "type": "integer"
+        }
+      }
+    },
+    "S4m": {
       "type": "list",
       "member": {}
     }
@@ -12996,7 +13761,7 @@ module.exports={
           "deploymentGroupsInfo": {
             "type": "list",
             "member": {
-              "shape": "S15"
+              "shape": "S16"
             }
           },
           "errorMessage": {}
@@ -13013,7 +13778,7 @@ module.exports={
         "members": {
           "deploymentId": {},
           "instanceIds": {
-            "shape": "S2d"
+            "shape": "S2g"
           }
         }
       },
@@ -13023,7 +13788,7 @@ module.exports={
           "instancesSummary": {
             "type": "list",
             "member": {
-              "shape": "S2h"
+              "shape": "S2k"
             }
           },
           "errorMessage": {}
@@ -13035,7 +13800,7 @@ module.exports={
         "type": "structure",
         "members": {
           "deploymentIds": {
-            "shape": "S2u"
+            "shape": "S2x"
           }
         }
       },
@@ -13045,7 +13810,7 @@ module.exports={
           "deploymentsInfo": {
             "type": "list",
             "member": {
-              "shape": "S2x"
+              "shape": "S30"
             }
           }
         }
@@ -13066,7 +13831,7 @@ module.exports={
           "instanceInfos": {
             "type": "list",
             "member": {
-              "shape": "S3b"
+              "shape": "S3e"
             }
           }
         }
@@ -13115,14 +13880,15 @@ module.exports={
             "type": "boolean"
           },
           "targetInstances": {
-            "shape": "S35"
+            "shape": "S37"
           },
           "autoRollbackConfiguration": {
-            "shape": "S1t"
+            "shape": "S1u"
           },
           "updateOutdatedInstancesOnly": {
             "type": "boolean"
-          }
+          },
+          "fileExistsBehavior": {}
         }
       },
       "output": {
@@ -13141,7 +13907,7 @@ module.exports={
         "members": {
           "deploymentConfigName": {},
           "minimumHealthyHosts": {
-            "shape": "S3l"
+            "shape": "S3o"
           }
         }
       },
@@ -13165,32 +13931,32 @@ module.exports={
           "deploymentGroupName": {},
           "deploymentConfigName": {},
           "ec2TagFilters": {
-            "shape": "S18"
+            "shape": "S19"
           },
           "onPremisesInstanceTagFilters": {
-            "shape": "S1b"
+            "shape": "S1c"
           },
           "autoScalingGroups": {
-            "shape": "S36"
+            "shape": "S38"
           },
           "serviceRoleArn": {},
           "triggerConfigurations": {
-            "shape": "S1j"
+            "shape": "S1k"
           },
           "alarmConfiguration": {
-            "shape": "S1p"
+            "shape": "S1q"
           },
           "autoRollbackConfiguration": {
-            "shape": "S1t"
+            "shape": "S1u"
           },
           "deploymentStyle": {
-            "shape": "S1w"
+            "shape": "S1x"
           },
           "blueGreenDeploymentConfiguration": {
-            "shape": "S1z"
+            "shape": "S20"
           },
           "loadBalancerInfo": {
-            "shape": "S27"
+            "shape": "S28"
           }
         }
       },
@@ -13239,7 +14005,7 @@ module.exports={
         "type": "structure",
         "members": {
           "hooksNotCleanedUp": {
-            "shape": "S1e"
+            "shape": "S1f"
           }
         }
       }
@@ -13315,7 +14081,7 @@ module.exports={
         "type": "structure",
         "members": {
           "deploymentInfo": {
-            "shape": "S2x"
+            "shape": "S30"
           }
         }
       }
@@ -13339,7 +14105,7 @@ module.exports={
               "deploymentConfigId": {},
               "deploymentConfigName": {},
               "minimumHealthyHosts": {
-                "shape": "S3l"
+                "shape": "S3o"
               },
               "createTime": {
                 "type": "timestamp"
@@ -13365,7 +14131,7 @@ module.exports={
         "type": "structure",
         "members": {
           "deploymentGroupInfo": {
-            "shape": "S15"
+            "shape": "S16"
           }
         }
       }
@@ -13386,7 +14152,7 @@ module.exports={
         "type": "structure",
         "members": {
           "instanceSummary": {
-            "shape": "S2h"
+            "shape": "S2k"
           }
         }
       }
@@ -13405,7 +14171,7 @@ module.exports={
         "type": "structure",
         "members": {
           "instanceInfo": {
-            "shape": "S3b"
+            "shape": "S3e"
           }
         }
       }
@@ -13516,7 +14282,7 @@ module.exports={
         "type": "structure",
         "members": {
           "instancesList": {
-            "shape": "S2d"
+            "shape": "S2g"
           },
           "nextToken": {}
         }
@@ -13550,7 +14316,25 @@ module.exports={
         "type": "structure",
         "members": {
           "deployments": {
-            "shape": "S2u"
+            "shape": "S2x"
+          },
+          "nextToken": {}
+        }
+      }
+    },
+    "ListGitHubAccountTokenNames": {
+      "input": {
+        "type": "structure",
+        "members": {
+          "nextToken": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "tokenNameList": {
+            "type": "list",
+            "member": {}
           },
           "nextToken": {}
         }
@@ -13562,7 +14346,7 @@ module.exports={
         "members": {
           "registrationStatus": {},
           "tagFilters": {
-            "shape": "S1b"
+            "shape": "S1c"
           },
           "nextToken": {}
         }
@@ -13674,32 +14458,32 @@ module.exports={
           "newDeploymentGroupName": {},
           "deploymentConfigName": {},
           "ec2TagFilters": {
-            "shape": "S18"
+            "shape": "S19"
           },
           "onPremisesInstanceTagFilters": {
-            "shape": "S1b"
+            "shape": "S1c"
           },
           "autoScalingGroups": {
-            "shape": "S36"
+            "shape": "S38"
           },
           "serviceRoleArn": {},
           "triggerConfigurations": {
-            "shape": "S1j"
+            "shape": "S1k"
           },
           "alarmConfiguration": {
-            "shape": "S1p"
+            "shape": "S1q"
           },
           "autoRollbackConfiguration": {
-            "shape": "S1t"
+            "shape": "S1u"
           },
           "deploymentStyle": {
-            "shape": "S1w"
+            "shape": "S1x"
           },
           "blueGreenDeploymentConfiguration": {
-            "shape": "S1z"
+            "shape": "S20"
           },
           "loadBalancerInfo": {
-            "shape": "S27"
+            "shape": "S28"
           }
         }
       },
@@ -13707,7 +14491,7 @@ module.exports={
         "type": "structure",
         "members": {
           "hooksNotCleanedUp": {
-            "shape": "S1e"
+            "shape": "S1f"
           }
         }
       }
@@ -13793,10 +14577,11 @@ module.exports={
         },
         "linkedToGitHub": {
           "type": "boolean"
-        }
+        },
+        "gitHubAccountName": {}
       }
     },
-    "S15": {
+    "S16": {
       "type": "structure",
       "members": {
         "applicationName": {},
@@ -13804,39 +14589,45 @@ module.exports={
         "deploymentGroupName": {},
         "deploymentConfigName": {},
         "ec2TagFilters": {
-          "shape": "S18"
+          "shape": "S19"
         },
         "onPremisesInstanceTagFilters": {
-          "shape": "S1b"
+          "shape": "S1c"
         },
         "autoScalingGroups": {
-          "shape": "S1e"
+          "shape": "S1f"
         },
         "serviceRoleArn": {},
         "targetRevision": {
           "shape": "Sb"
         },
         "triggerConfigurations": {
-          "shape": "S1j"
+          "shape": "S1k"
         },
         "alarmConfiguration": {
-          "shape": "S1p"
+          "shape": "S1q"
         },
         "autoRollbackConfiguration": {
-          "shape": "S1t"
+          "shape": "S1u"
         },
         "deploymentStyle": {
-          "shape": "S1w"
+          "shape": "S1x"
         },
         "blueGreenDeploymentConfiguration": {
-          "shape": "S1z"
+          "shape": "S20"
         },
         "loadBalancerInfo": {
-          "shape": "S27"
+          "shape": "S28"
+        },
+        "lastSuccessfulDeployment": {
+          "shape": "S2c"
+        },
+        "lastAttemptedDeployment": {
+          "shape": "S2c"
         }
       }
     },
-    "S18": {
+    "S19": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -13847,7 +14638,7 @@ module.exports={
         }
       }
     },
-    "S1b": {
+    "S1c": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -13858,7 +14649,7 @@ module.exports={
         }
       }
     },
-    "S1e": {
+    "S1f": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -13868,7 +14659,7 @@ module.exports={
         }
       }
     },
-    "S1j": {
+    "S1k": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -13882,7 +14673,7 @@ module.exports={
         }
       }
     },
-    "S1p": {
+    "S1q": {
       "type": "structure",
       "members": {
         "enabled": {
@@ -13902,7 +14693,7 @@ module.exports={
         }
       }
     },
-    "S1t": {
+    "S1u": {
       "type": "structure",
       "members": {
         "enabled": {
@@ -13914,14 +14705,14 @@ module.exports={
         }
       }
     },
-    "S1w": {
+    "S1x": {
       "type": "structure",
       "members": {
         "deploymentType": {},
         "deploymentOption": {}
       }
     },
-    "S1z": {
+    "S20": {
       "type": "structure",
       "members": {
         "terminateBlueInstancesOnDeploymentSuccess": {
@@ -13950,7 +14741,7 @@ module.exports={
         }
       }
     },
-    "S27": {
+    "S28": {
       "type": "structure",
       "members": {
         "elbInfoList": {
@@ -13964,11 +14755,24 @@ module.exports={
         }
       }
     },
-    "S2d": {
+    "S2c": {
+      "type": "structure",
+      "members": {
+        "deploymentId": {},
+        "status": {},
+        "endTime": {
+          "type": "timestamp"
+        },
+        "createTime": {
+          "type": "timestamp"
+        }
+      }
+    },
+    "S2g": {
       "type": "list",
       "member": {}
     },
-    "S2h": {
+    "S2k": {
       "type": "structure",
       "members": {
         "deploymentId": {},
@@ -14005,17 +14809,20 @@ module.exports={
         "instanceType": {}
       }
     },
-    "S2u": {
+    "S2x": {
       "type": "list",
       "member": {}
     },
-    "S2x": {
+    "S30": {
       "type": "structure",
       "members": {
         "applicationName": {},
         "deploymentGroupName": {},
         "deploymentConfigName": {},
         "deploymentId": {},
+        "previousRevision": {
+          "shape": "Sb"
+        },
         "revision": {
           "shape": "Sb"
         },
@@ -14065,7 +14872,7 @@ module.exports={
           "type": "boolean"
         },
         "autoRollbackConfiguration": {
-          "shape": "S1t"
+          "shape": "S1u"
         },
         "updateOutdatedInstancesOnly": {
           "type": "boolean"
@@ -14079,39 +14886,40 @@ module.exports={
           }
         },
         "deploymentStyle": {
-          "shape": "S1w"
+          "shape": "S1x"
         },
         "targetInstances": {
-          "shape": "S35"
+          "shape": "S37"
         },
         "instanceTerminationWaitTimeStarted": {
           "type": "boolean"
         },
         "blueGreenDeploymentConfiguration": {
-          "shape": "S1z"
+          "shape": "S20"
         },
         "loadBalancerInfo": {
-          "shape": "S27"
+          "shape": "S28"
         },
-        "additionalDeploymentStatusInfo": {}
+        "additionalDeploymentStatusInfo": {},
+        "fileExistsBehavior": {}
       }
     },
-    "S35": {
+    "S37": {
       "type": "structure",
       "members": {
         "tagFilters": {
-          "shape": "S18"
+          "shape": "S19"
         },
         "autoScalingGroups": {
-          "shape": "S36"
+          "shape": "S38"
         }
       }
     },
-    "S36": {
+    "S38": {
       "type": "list",
       "member": {}
     },
-    "S3b": {
+    "S3e": {
       "type": "structure",
       "members": {
         "instanceName": {},
@@ -14129,7 +14937,7 @@ module.exports={
         }
       }
     },
-    "S3l": {
+    "S3o": {
       "type": "structure",
       "members": {
         "value": {
@@ -14647,6 +15455,43 @@ module.exports={
         }
       }
     },
+    "ListPipelineExecutions": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "pipelineName"
+        ],
+        "members": {
+          "pipelineName": {},
+          "maxResults": {
+            "type": "integer"
+          },
+          "nextToken": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "pipelineExecutionSummaries": {
+            "type": "list",
+            "member": {
+              "type": "structure",
+              "members": {
+                "pipelineExecutionId": {},
+                "status": {},
+                "startTime": {
+                  "type": "timestamp"
+                },
+                "lastUpdateTime": {
+                  "type": "timestamp"
+                }
+              }
+            }
+          },
+          "nextToken": {}
+        }
+      }
+    },
     "ListPipelines": {
       "input": {
         "type": "structure",
@@ -14825,7 +15670,7 @@ module.exports={
         "members": {
           "jobId": {},
           "failureDetails": {
-            "shape": "S4c"
+            "shape": "S4h"
           }
         }
       }
@@ -14839,11 +15684,11 @@ module.exports={
         "members": {
           "jobId": {},
           "currentRevision": {
-            "shape": "S4f"
+            "shape": "S4k"
           },
           "continuationToken": {},
           "executionDetails": {
-            "shape": "S4h"
+            "shape": "S4m"
           }
         }
       }
@@ -14860,7 +15705,7 @@ module.exports={
           "jobId": {},
           "clientToken": {},
           "failureDetails": {
-            "shape": "S4c"
+            "shape": "S4h"
           }
         }
       }
@@ -14876,11 +15721,11 @@ module.exports={
           "jobId": {},
           "clientToken": {},
           "currentRevision": {
-            "shape": "S4f"
+            "shape": "S4k"
           },
           "continuationToken": {},
           "executionDetails": {
-            "shape": "S4h"
+            "shape": "S4m"
           }
         }
       }
@@ -15270,7 +16115,7 @@ module.exports={
         }
       }
     },
-    "S4c": {
+    "S4h": {
       "type": "structure",
       "required": [
         "type",
@@ -15282,7 +16127,7 @@ module.exports={
         "externalExecutionId": {}
       }
     },
-    "S4f": {
+    "S4k": {
       "type": "structure",
       "required": [
         "revision",
@@ -15297,7 +16142,7 @@ module.exports={
         "revisionSummary": {}
       }
     },
-    "S4h": {
+    "S4m": {
       "type": "structure",
       "members": {
         "summary": {},
@@ -15310,6 +16155,12 @@ module.exports={
   }
 }
 },{}],27:[function(require,module,exports){
+module.exports={
+  "pagination": {
+  }
+}
+
+},{}],28:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -15847,13 +16698,9 @@ module.exports={
     }
   }
 }
-},{}],28:[function(require,module,exports){
-module.exports={
-  "pagination": {
-  }
-}
-
 },{}],29:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],30:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -16382,7 +17229,8 @@ module.exports={
         "type": "structure",
         "required": [
           "PreviousPassword",
-          "ProposedPassword"
+          "ProposedPassword",
+          "AccessToken"
         ],
         "members": {
           "PreviousPassword": {
@@ -16520,6 +17368,42 @@ module.exports={
         }
       }
     },
+    "CreateIdentityProvider": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "UserPoolId",
+          "ProviderName",
+          "ProviderType",
+          "ProviderDetails"
+        ],
+        "members": {
+          "UserPoolId": {},
+          "ProviderName": {},
+          "ProviderType": {},
+          "ProviderDetails": {
+            "shape": "S2y"
+          },
+          "AttributeMapping": {
+            "shape": "S2z"
+          },
+          "IdpIdentifiers": {
+            "shape": "S30"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "required": [
+          "IdentityProvider"
+        ],
+        "members": {
+          "IdentityProvider": {
+            "shape": "S33"
+          }
+        }
+      }
+    },
     "CreateUserImportJob": {
       "input": {
         "type": "structure",
@@ -16538,7 +17422,7 @@ module.exports={
         "type": "structure",
         "members": {
           "UserImportJob": {
-            "shape": "S2y"
+            "shape": "S37"
           }
         }
       }
@@ -16552,16 +17436,19 @@ module.exports={
         "members": {
           "PoolName": {},
           "Policies": {
-            "shape": "S36"
+            "shape": "S3f"
           },
           "LambdaConfig": {
-            "shape": "S39"
+            "shape": "S3i"
           },
           "AutoVerifiedAttributes": {
-            "shape": "S3a"
+            "shape": "S3j"
           },
           "AliasAttributes": {
-            "shape": "S3c"
+            "shape": "S3l"
+          },
+          "UsernameAttributes": {
+            "shape": "S3n"
           },
           "SmsVerificationMessage": {},
           "EmailVerificationMessage": {},
@@ -16569,22 +17456,22 @@ module.exports={
           "SmsAuthenticationMessage": {},
           "MfaConfiguration": {},
           "DeviceConfiguration": {
-            "shape": "S3i"
+            "shape": "S3t"
           },
           "EmailConfiguration": {
-            "shape": "S3j"
+            "shape": "S3u"
           },
           "SmsConfiguration": {
-            "shape": "S3l"
+            "shape": "S3w"
           },
           "UserPoolTags": {
-            "shape": "S3m"
+            "shape": "S3x"
           },
           "AdminCreateUserConfig": {
-            "shape": "S3n"
+            "shape": "S3y"
           },
           "Schema": {
-            "shape": "S3q"
+            "shape": "S41"
           }
         }
       },
@@ -16592,7 +17479,7 @@ module.exports={
         "type": "structure",
         "members": {
           "UserPool": {
-            "shape": "S3s"
+            "shape": "S43"
           }
         }
       }
@@ -16614,13 +17501,32 @@ module.exports={
             "type": "integer"
           },
           "ReadAttributes": {
-            "shape": "S3y"
+            "shape": "S49"
           },
           "WriteAttributes": {
-            "shape": "S3y"
+            "shape": "S49"
           },
           "ExplicitAuthFlows": {
-            "shape": "S40"
+            "shape": "S4b"
+          },
+          "SupportedIdentityProviders": {
+            "shape": "S4d"
+          },
+          "CallbackURLs": {
+            "shape": "S4e"
+          },
+          "LogoutURLs": {
+            "shape": "S4g"
+          },
+          "DefaultRedirectURI": {},
+          "AllowedOAuthFlows": {
+            "shape": "S4h"
+          },
+          "AllowedOAuthScopes": {
+            "shape": "S4j"
+          },
+          "AllowedOAuthFlowsUserPoolClient": {
+            "type": "boolean"
           }
         }
       },
@@ -16628,9 +17534,26 @@ module.exports={
         "type": "structure",
         "members": {
           "UserPoolClient": {
-            "shape": "S43"
+            "shape": "S4m"
           }
         }
+      }
+    },
+    "CreateUserPoolDomain": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "Domain",
+          "UserPoolId"
+        ],
+        "members": {
+          "Domain": {},
+          "UserPoolId": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {}
       }
     },
     "DeleteGroup": {
@@ -16646,9 +17569,25 @@ module.exports={
         }
       }
     },
+    "DeleteIdentityProvider": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "UserPoolId",
+          "ProviderName"
+        ],
+        "members": {
+          "UserPoolId": {},
+          "ProviderName": {}
+        }
+      }
+    },
     "DeleteUser": {
       "input": {
         "type": "structure",
+        "required": [
+          "AccessToken"
+        ],
         "members": {
           "AccessToken": {
             "shape": "S1m"
@@ -16661,7 +17600,8 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "UserAttributeNames"
+          "UserAttributeNames",
+          "AccessToken"
         ],
         "members": {
           "UserAttributeNames": {
@@ -16704,6 +17644,47 @@ module.exports={
         }
       }
     },
+    "DeleteUserPoolDomain": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "Domain",
+          "UserPoolId"
+        ],
+        "members": {
+          "Domain": {},
+          "UserPoolId": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {}
+      }
+    },
+    "DescribeIdentityProvider": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "UserPoolId",
+          "ProviderName"
+        ],
+        "members": {
+          "UserPoolId": {},
+          "ProviderName": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "required": [
+          "IdentityProvider"
+        ],
+        "members": {
+          "IdentityProvider": {
+            "shape": "S33"
+          }
+        }
+      }
+    },
     "DescribeUserImportJob": {
       "input": {
         "type": "structure",
@@ -16720,7 +17701,7 @@ module.exports={
         "type": "structure",
         "members": {
           "UserImportJob": {
-            "shape": "S2y"
+            "shape": "S37"
           }
         }
       }
@@ -16739,7 +17720,7 @@ module.exports={
         "type": "structure",
         "members": {
           "UserPool": {
-            "shape": "S3s"
+            "shape": "S43"
           }
         }
       }
@@ -16762,7 +17743,35 @@ module.exports={
         "type": "structure",
         "members": {
           "UserPoolClient": {
-            "shape": "S43"
+            "shape": "S4m"
+          }
+        }
+      }
+    },
+    "DescribeUserPoolDomain": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "Domain"
+        ],
+        "members": {
+          "Domain": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "DomainDescription": {
+            "type": "structure",
+            "members": {
+              "UserPoolId": {},
+              "AWSAccountId": {},
+              "Domain": {},
+              "S3Bucket": {},
+              "CloudFrontDistribution": {},
+              "Version": {},
+              "Status": {}
+            }
           }
         }
       }
@@ -16804,7 +17813,7 @@ module.exports={
         "type": "structure",
         "members": {
           "CodeDeliveryDetails": {
-            "shape": "S4k"
+            "shape": "S5i"
           }
         }
       },
@@ -16877,9 +17886,36 @@ module.exports={
         }
       }
     },
+    "GetIdentityProviderByIdentifier": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "UserPoolId",
+          "IdpIdentifier"
+        ],
+        "members": {
+          "UserPoolId": {},
+          "IdpIdentifier": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "required": [
+          "IdentityProvider"
+        ],
+        "members": {
+          "IdentityProvider": {
+            "shape": "S33"
+          }
+        }
+      }
+    },
     "GetUser": {
       "input": {
         "type": "structure",
+        "required": [
+          "AccessToken"
+        ],
         "members": {
           "AccessToken": {
             "shape": "S1m"
@@ -16910,6 +17946,7 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
+          "AccessToken",
           "AttributeName"
         ],
         "members": {
@@ -16923,7 +17960,7 @@ module.exports={
         "type": "structure",
         "members": {
           "CodeDeliveryDetails": {
-            "shape": "S4k"
+            "shape": "S5i"
           }
         }
       },
@@ -16932,6 +17969,9 @@ module.exports={
     "GlobalSignOut": {
       "input": {
         "type": "structure",
+        "required": [
+          "AccessToken"
+        ],
         "members": {
           "AccessToken": {
             "shape": "S1m"
@@ -17027,6 +18067,46 @@ module.exports={
         }
       }
     },
+    "ListIdentityProviders": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "UserPoolId"
+        ],
+        "members": {
+          "UserPoolId": {},
+          "MaxResults": {
+            "type": "integer"
+          },
+          "NextToken": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "required": [
+          "Providers"
+        ],
+        "members": {
+          "Providers": {
+            "type": "list",
+            "member": {
+              "type": "structure",
+              "members": {
+                "ProviderName": {},
+                "ProviderType": {},
+                "LastModifiedDate": {
+                  "type": "timestamp"
+                },
+                "CreationDate": {
+                  "type": "timestamp"
+                }
+              }
+            }
+          },
+          "NextToken": {}
+        }
+      }
+    },
     "ListUserImportJobs": {
       "input": {
         "type": "structure",
@@ -17048,7 +18128,7 @@ module.exports={
           "UserImportJobs": {
             "type": "list",
             "member": {
-              "shape": "S2y"
+              "shape": "S37"
             }
           },
           "PaginationToken": {}
@@ -17113,7 +18193,7 @@ module.exports={
                 "Id": {},
                 "Name": {},
                 "LambdaConfig": {
-                  "shape": "S39"
+                  "shape": "S3i"
                 },
                 "Status": {},
                 "LastModifiedDate": {
@@ -17152,7 +18232,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Users": {
-            "shape": "S5m"
+            "shape": "S6r"
           },
           "PaginationToken": {}
         }
@@ -17178,7 +18258,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Users": {
-            "shape": "S5m"
+            "shape": "S6r"
           },
           "NextToken": {}
         }
@@ -17207,7 +18287,7 @@ module.exports={
         "type": "structure",
         "members": {
           "CodeDeliveryDetails": {
-            "shape": "S4k"
+            "shape": "S5i"
           }
         }
       },
@@ -17298,13 +18378,18 @@ module.exports={
       },
       "output": {
         "type": "structure",
+        "required": [
+          "UserConfirmed",
+          "UserSub"
+        ],
         "members": {
           "UserConfirmed": {
             "type": "boolean"
           },
           "CodeDeliveryDetails": {
-            "shape": "S4k"
-          }
+            "shape": "S5i"
+          },
+          "UserSub": {}
         }
       },
       "authtype": "none"
@@ -17325,7 +18410,7 @@ module.exports={
         "type": "structure",
         "members": {
           "UserImportJob": {
-            "shape": "S2y"
+            "shape": "S37"
           }
         }
       }
@@ -17346,7 +18431,7 @@ module.exports={
         "type": "structure",
         "members": {
           "UserImportJob": {
-            "shape": "S2y"
+            "shape": "S37"
           }
         }
       }
@@ -17397,11 +18482,45 @@ module.exports={
         }
       }
     },
+    "UpdateIdentityProvider": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "UserPoolId",
+          "ProviderName"
+        ],
+        "members": {
+          "UserPoolId": {},
+          "ProviderName": {},
+          "ProviderDetails": {
+            "shape": "S2y"
+          },
+          "AttributeMapping": {
+            "shape": "S2z"
+          },
+          "IdpIdentifiers": {
+            "shape": "S30"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "required": [
+          "IdentityProvider"
+        ],
+        "members": {
+          "IdentityProvider": {
+            "shape": "S33"
+          }
+        }
+      }
+    },
     "UpdateUserAttributes": {
       "input": {
         "type": "structure",
         "required": [
-          "UserAttributes"
+          "UserAttributes",
+          "AccessToken"
         ],
         "members": {
           "UserAttributes": {
@@ -17418,7 +18537,7 @@ module.exports={
           "CodeDeliveryDetailsList": {
             "type": "list",
             "member": {
-              "shape": "S4k"
+              "shape": "S5i"
             }
           }
         }
@@ -17434,13 +18553,13 @@ module.exports={
         "members": {
           "UserPoolId": {},
           "Policies": {
-            "shape": "S36"
+            "shape": "S3f"
           },
           "LambdaConfig": {
-            "shape": "S39"
+            "shape": "S3i"
           },
           "AutoVerifiedAttributes": {
-            "shape": "S3a"
+            "shape": "S3j"
           },
           "SmsVerificationMessage": {},
           "EmailVerificationMessage": {},
@@ -17448,19 +18567,19 @@ module.exports={
           "SmsAuthenticationMessage": {},
           "MfaConfiguration": {},
           "DeviceConfiguration": {
-            "shape": "S3i"
+            "shape": "S3t"
           },
           "EmailConfiguration": {
-            "shape": "S3j"
+            "shape": "S3u"
           },
           "SmsConfiguration": {
-            "shape": "S3l"
+            "shape": "S3w"
           },
           "UserPoolTags": {
-            "shape": "S3m"
+            "shape": "S3x"
           },
           "AdminCreateUserConfig": {
-            "shape": "S3n"
+            "shape": "S3y"
           }
         }
       },
@@ -17486,13 +18605,32 @@ module.exports={
             "type": "integer"
           },
           "ReadAttributes": {
-            "shape": "S3y"
+            "shape": "S49"
           },
           "WriteAttributes": {
-            "shape": "S3y"
+            "shape": "S49"
           },
           "ExplicitAuthFlows": {
-            "shape": "S40"
+            "shape": "S4b"
+          },
+          "SupportedIdentityProviders": {
+            "shape": "S4d"
+          },
+          "CallbackURLs": {
+            "shape": "S4e"
+          },
+          "LogoutURLs": {
+            "shape": "S4g"
+          },
+          "DefaultRedirectURI": {},
+          "AllowedOAuthFlows": {
+            "shape": "S4h"
+          },
+          "AllowedOAuthScopes": {
+            "shape": "S4j"
+          },
+          "AllowedOAuthFlowsUserPoolClient": {
+            "type": "boolean"
           }
         }
       },
@@ -17500,7 +18638,7 @@ module.exports={
         "type": "structure",
         "members": {
           "UserPoolClient": {
-            "shape": "S43"
+            "shape": "S4m"
           }
         }
       }
@@ -17509,6 +18647,7 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
+          "AccessToken",
           "AttributeName",
           "Code"
         ],
@@ -17726,6 +18865,43 @@ module.exports={
       "sensitive": true
     },
     "S2y": {
+      "type": "map",
+      "key": {},
+      "value": {}
+    },
+    "S2z": {
+      "type": "map",
+      "key": {},
+      "value": {}
+    },
+    "S30": {
+      "type": "list",
+      "member": {}
+    },
+    "S33": {
+      "type": "structure",
+      "members": {
+        "UserPoolId": {},
+        "ProviderName": {},
+        "ProviderType": {},
+        "ProviderDetails": {
+          "shape": "S2y"
+        },
+        "AttributeMapping": {
+          "shape": "S2z"
+        },
+        "IdpIdentifiers": {
+          "shape": "S30"
+        },
+        "LastModifiedDate": {
+          "type": "timestamp"
+        },
+        "CreationDate": {
+          "type": "timestamp"
+        }
+      }
+    },
+    "S37": {
       "type": "structure",
       "members": {
         "JobName": {},
@@ -17755,7 +18931,7 @@ module.exports={
         "CompletionMessage": {}
       }
     },
-    "S36": {
+    "S3f": {
       "type": "structure",
       "members": {
         "PasswordPolicy": {
@@ -17780,7 +18956,7 @@ module.exports={
         }
       }
     },
-    "S39": {
+    "S3i": {
       "type": "structure",
       "members": {
         "PreSignUp": {},
@@ -17793,15 +18969,19 @@ module.exports={
         "VerifyAuthChallengeResponse": {}
       }
     },
-    "S3a": {
+    "S3j": {
       "type": "list",
       "member": {}
     },
-    "S3c": {
+    "S3l": {
       "type": "list",
       "member": {}
     },
-    "S3i": {
+    "S3n": {
+      "type": "list",
+      "member": {}
+    },
+    "S3t": {
       "type": "structure",
       "members": {
         "ChallengeRequiredOnNewDevice": {
@@ -17812,14 +18992,14 @@ module.exports={
         }
       }
     },
-    "S3j": {
+    "S3u": {
       "type": "structure",
       "members": {
         "SourceArn": {},
         "ReplyToEmailAddress": {}
       }
     },
-    "S3l": {
+    "S3w": {
       "type": "structure",
       "required": [
         "SnsCallerArn"
@@ -17829,12 +19009,12 @@ module.exports={
         "ExternalId": {}
       }
     },
-    "S3m": {
+    "S3x": {
       "type": "map",
       "key": {},
       "value": {}
     },
-    "S3n": {
+    "S3y": {
       "type": "structure",
       "members": {
         "AllowAdminCreateUserOnly": {
@@ -17853,22 +19033,22 @@ module.exports={
         }
       }
     },
-    "S3q": {
+    "S41": {
       "type": "list",
       "member": {
         "shape": "S4"
       }
     },
-    "S3s": {
+    "S43": {
       "type": "structure",
       "members": {
         "Id": {},
         "Name": {},
         "Policies": {
-          "shape": "S36"
+          "shape": "S3f"
         },
         "LambdaConfig": {
-          "shape": "S39"
+          "shape": "S3i"
         },
         "Status": {},
         "LastModifiedDate": {
@@ -17878,13 +19058,16 @@ module.exports={
           "type": "timestamp"
         },
         "SchemaAttributes": {
-          "shape": "S3q"
+          "shape": "S41"
         },
         "AutoVerifiedAttributes": {
-          "shape": "S3a"
+          "shape": "S3j"
         },
         "AliasAttributes": {
-          "shape": "S3c"
+          "shape": "S3l"
+        },
+        "UsernameAttributes": {
+          "shape": "S3n"
         },
         "SmsVerificationMessage": {},
         "EmailVerificationMessage": {},
@@ -17892,36 +19075,56 @@ module.exports={
         "SmsAuthenticationMessage": {},
         "MfaConfiguration": {},
         "DeviceConfiguration": {
-          "shape": "S3i"
+          "shape": "S3t"
         },
         "EstimatedNumberOfUsers": {
           "type": "integer"
         },
         "EmailConfiguration": {
-          "shape": "S3j"
+          "shape": "S3u"
         },
         "SmsConfiguration": {
-          "shape": "S3l"
+          "shape": "S3w"
         },
         "UserPoolTags": {
-          "shape": "S3m"
+          "shape": "S3x"
         },
         "SmsConfigurationFailure": {},
         "EmailConfigurationFailure": {},
         "AdminCreateUserConfig": {
-          "shape": "S3n"
+          "shape": "S3y"
         }
       }
     },
-    "S3y": {
+    "S49": {
       "type": "list",
       "member": {}
     },
-    "S40": {
+    "S4b": {
       "type": "list",
       "member": {}
     },
-    "S43": {
+    "S4d": {
+      "type": "list",
+      "member": {}
+    },
+    "S4e": {
+      "type": "list",
+      "member": {}
+    },
+    "S4g": {
+      "type": "list",
+      "member": {}
+    },
+    "S4h": {
+      "type": "list",
+      "member": {}
+    },
+    "S4j": {
+      "type": "list",
+      "member": {}
+    },
+    "S4m": {
       "type": "structure",
       "members": {
         "UserPoolId": {},
@@ -17943,17 +19146,36 @@ module.exports={
           "type": "integer"
         },
         "ReadAttributes": {
-          "shape": "S3y"
+          "shape": "S49"
         },
         "WriteAttributes": {
-          "shape": "S3y"
+          "shape": "S49"
         },
         "ExplicitAuthFlows": {
-          "shape": "S40"
+          "shape": "S4b"
+        },
+        "SupportedIdentityProviders": {
+          "shape": "S4d"
+        },
+        "CallbackURLs": {
+          "shape": "S4e"
+        },
+        "LogoutURLs": {
+          "shape": "S4g"
+        },
+        "DefaultRedirectURI": {},
+        "AllowedOAuthFlows": {
+          "shape": "S4h"
+        },
+        "AllowedOAuthScopes": {
+          "shape": "S4j"
+        },
+        "AllowedOAuthFlowsUserPoolClient": {
+          "type": "boolean"
         }
       }
     },
-    "S4k": {
+    "S5i": {
       "type": "structure",
       "members": {
         "Destination": {},
@@ -17961,7 +19183,7 @@ module.exports={
         "AttributeName": {}
       }
     },
-    "S5m": {
+    "S6r": {
       "type": "list",
       "member": {
         "shape": "Ss"
@@ -17969,7 +19191,9 @@ module.exports={
     }
   }
 }
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],32:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -18717,7 +19941,7 @@ module.exports={
   },
   "examples": {}
 }
-},{}],31:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -19588,7 +20812,7 @@ module.exports={
     }
   }
 }
-},{}],32:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 module.exports={
   "pagination": {
     "GetResourceConfigHistory": {
@@ -19599,7 +20823,7 @@ module.exports={
     }
   }
 }
-},{}],33:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -19702,7 +20926,7 @@ module.exports={
     }
   }
 }
-},{}],34:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 module.exports={
   "pagination": {
     "DescribeReportDefinitions": {
@@ -19713,7 +20937,7 @@ module.exports={
   }
 }
 
-},{}],35:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -21386,7 +22610,7 @@ module.exports={
     }
   }
 }
-},{}],36:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 module.exports={
   "pagination": {
     "GetOfferingStatus": {
@@ -21464,7 +22688,7 @@ module.exports={
     }
   }
 }
-},{}],37:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -22406,7 +23630,7 @@ module.exports={
     }
   }
 }
-},{}],38:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 module.exports={
   "pagination": {
     "DescribeConnections": {
@@ -22429,7 +23653,7 @@ module.exports={
     }
   }
 }
-},{}],39:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -23094,7 +24318,7 @@ module.exports={
     }
   }
 }
-},{}],40:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 module.exports={
   "pagination": {
     "BatchGetItem": {
@@ -23121,7 +24345,7 @@ module.exports={
     }
   }
 }
-},{}],41:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 module.exports={
   "version": 2,
   "waiters": {
@@ -23158,7 +24382,7 @@ module.exports={
   }
 }
 
-},{}],42:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -24335,11 +25559,11 @@ module.exports={
     }
   }
 }
-},{}],43:[function(require,module,exports){
-arguments[4][40][0].apply(exports,arguments)
-},{"dup":40}],44:[function(require,module,exports){
-arguments[4][41][0].apply(exports,arguments)
-},{"dup":41}],45:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
+arguments[4][42][0].apply(exports,arguments)
+},{"dup":42}],46:[function(require,module,exports){
+arguments[4][43][0].apply(exports,arguments)
+},{"dup":43}],47:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -24409,11 +25633,11 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "Domain": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "Domain": {}
+          }
         }
       },
       "output": {
@@ -24422,11 +25646,11 @@ module.exports={
           "PublicIp": {
             "locationName": "publicIp"
           },
-          "Domain": {
-            "locationName": "domain"
-          },
           "AllocationId": {
             "locationName": "allocationId"
+          },
+          "Domain": {
+            "locationName": "domain"
           }
         }
       }
@@ -24435,13 +25659,16 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
+          "AvailabilityZone",
           "InstanceType",
-          "Quantity",
-          "AvailabilityZone"
+          "Quantity"
         ],
         "members": {
           "AutoPlacement": {
             "locationName": "autoPlacement"
+          },
+          "AvailabilityZone": {
+            "locationName": "availabilityZone"
           },
           "ClientToken": {
             "locationName": "clientToken"
@@ -24452,9 +25679,6 @@ module.exports={
           "Quantity": {
             "locationName": "quantity",
             "type": "integer"
-          },
-          "AvailabilityZone": {
-            "locationName": "availabilityZone"
           }
         }
       },
@@ -24475,28 +25699,28 @@ module.exports={
           "NetworkInterfaceId"
         ],
         "members": {
-          "NetworkInterfaceId": {
-            "locationName": "networkInterfaceId"
+          "Ipv6AddressCount": {
+            "locationName": "ipv6AddressCount",
+            "type": "integer"
           },
           "Ipv6Addresses": {
             "shape": "St",
             "locationName": "ipv6Addresses"
           },
-          "Ipv6AddressCount": {
-            "locationName": "ipv6AddressCount",
-            "type": "integer"
+          "NetworkInterfaceId": {
+            "locationName": "networkInterfaceId"
           }
         }
       },
       "output": {
         "type": "structure",
         "members": {
-          "NetworkInterfaceId": {
-            "locationName": "networkInterfaceId"
-          },
           "AssignedIpv6Addresses": {
             "shape": "St",
             "locationName": "assignedIpv6Addresses"
+          },
+          "NetworkInterfaceId": {
+            "locationName": "networkInterfaceId"
           }
         }
       }
@@ -24508,6 +25732,10 @@ module.exports={
           "NetworkInterfaceId"
         ],
         "members": {
+          "AllowReassignment": {
+            "locationName": "allowReassignment",
+            "type": "boolean"
+          },
           "NetworkInterfaceId": {
             "locationName": "networkInterfaceId"
           },
@@ -24518,10 +25746,6 @@ module.exports={
           "SecondaryPrivateIpAddressCount": {
             "locationName": "secondaryPrivateIpAddressCount",
             "type": "integer"
-          },
-          "AllowReassignment": {
-            "locationName": "allowReassignment",
-            "type": "boolean"
           }
         }
       }
@@ -24530,22 +25754,22 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "AllocationId": {},
+          "InstanceId": {},
+          "PublicIp": {},
+          "AllowReassociation": {
+            "locationName": "allowReassociation",
+            "type": "boolean"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
           },
-          "InstanceId": {},
-          "PublicIp": {},
-          "AllocationId": {},
           "NetworkInterfaceId": {
             "locationName": "networkInterfaceId"
           },
           "PrivateIpAddress": {
             "locationName": "privateIpAddress"
-          },
-          "AllowReassociation": {
-            "locationName": "allowReassociation",
-            "type": "boolean"
           }
         }
       },
@@ -24566,12 +25790,12 @@ module.exports={
           "VpcId"
         ],
         "members": {
+          "DhcpOptionsId": {},
+          "VpcId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "DhcpOptionsId": {},
-          "VpcId": {}
+          }
         }
       }
     },
@@ -24603,19 +25827,19 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "SubnetId",
-          "RouteTableId"
+          "RouteTableId",
+          "SubnetId"
         ],
         "members": {
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
           },
-          "SubnetId": {
-            "locationName": "subnetId"
-          },
           "RouteTableId": {
             "locationName": "routeTableId"
+          },
+          "SubnetId": {
+            "locationName": "subnetId"
           }
         }
       },
@@ -24632,27 +25856,27 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "SubnetId",
-          "Ipv6CidrBlock"
+          "Ipv6CidrBlock",
+          "SubnetId"
         ],
         "members": {
-          "SubnetId": {
-            "locationName": "subnetId"
-          },
           "Ipv6CidrBlock": {
             "locationName": "ipv6CidrBlock"
+          },
+          "SubnetId": {
+            "locationName": "subnetId"
           }
         }
       },
       "output": {
         "type": "structure",
         "members": {
-          "SubnetId": {
-            "locationName": "subnetId"
-          },
           "Ipv6CidrBlockAssociation": {
             "shape": "S1a",
             "locationName": "ipv6CidrBlockAssociation"
+          },
+          "SubnetId": {
+            "locationName": "subnetId"
           }
         }
       }
@@ -24664,24 +25888,24 @@ module.exports={
           "VpcId"
         ],
         "members": {
-          "VpcId": {
-            "locationName": "vpcId"
-          },
           "AmazonProvidedIpv6CidrBlock": {
             "locationName": "amazonProvidedIpv6CidrBlock",
             "type": "boolean"
+          },
+          "VpcId": {
+            "locationName": "vpcId"
           }
         }
       },
       "output": {
         "type": "structure",
         "members": {
-          "VpcId": {
-            "locationName": "vpcId"
-          },
           "Ipv6CidrBlockAssociation": {
             "shape": "S1f",
             "locationName": "ipv6CidrBlockAssociation"
+          },
+          "VpcId": {
+            "locationName": "vpcId"
           }
         }
       }
@@ -24690,24 +25914,24 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
+          "Groups",
           "InstanceId",
-          "VpcId",
-          "Groups"
+          "VpcId"
         ],
         "members": {
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
           },
+          "Groups": {
+            "shape": "S1j",
+            "locationName": "SecurityGroupId"
+          },
           "InstanceId": {
             "locationName": "instanceId"
           },
           "VpcId": {
             "locationName": "vpcId"
-          },
-          "Groups": {
-            "shape": "S1j",
-            "locationName": "SecurityGroupId"
           }
         }
       },
@@ -24746,24 +25970,24 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "NetworkInterfaceId",
+          "DeviceIndex",
           "InstanceId",
-          "DeviceIndex"
+          "NetworkInterfaceId"
         ],
         "members": {
+          "DeviceIndex": {
+            "locationName": "deviceIndex",
+            "type": "integer"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
           },
-          "NetworkInterfaceId": {
-            "locationName": "networkInterfaceId"
-          },
           "InstanceId": {
             "locationName": "instanceId"
           },
-          "DeviceIndex": {
-            "locationName": "deviceIndex",
-            "type": "integer"
+          "NetworkInterfaceId": {
+            "locationName": "networkInterfaceId"
           }
         }
       },
@@ -24780,18 +26004,18 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "VolumeId",
+          "Device",
           "InstanceId",
-          "Device"
+          "VolumeId"
         ],
         "members": {
+          "Device": {},
+          "InstanceId": {},
+          "VolumeId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "VolumeId": {},
-          "InstanceId": {},
-          "Device": {}
+          }
         }
       },
       "output": {
@@ -24802,16 +26026,16 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "VpnGatewayId",
-          "VpcId"
+          "VpcId",
+          "VpnGatewayId"
         ],
         "members": {
+          "VpcId": {},
+          "VpnGatewayId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "VpnGatewayId": {},
-          "VpcId": {}
+          }
         }
       },
       "output": {
@@ -24838,29 +26062,29 @@ module.exports={
           "GroupId": {
             "locationName": "groupId"
           },
-          "SourceSecurityGroupName": {
-            "locationName": "sourceSecurityGroupName"
+          "IpPermissions": {
+            "shape": "S1w",
+            "locationName": "ipPermissions"
           },
-          "SourceSecurityGroupOwnerId": {
-            "locationName": "sourceSecurityGroupOwnerId"
-          },
-          "IpProtocol": {
-            "locationName": "ipProtocol"
+          "CidrIp": {
+            "locationName": "cidrIp"
           },
           "FromPort": {
             "locationName": "fromPort",
             "type": "integer"
           },
+          "IpProtocol": {
+            "locationName": "ipProtocol"
+          },
           "ToPort": {
             "locationName": "toPort",
             "type": "integer"
           },
-          "CidrIp": {
-            "locationName": "cidrIp"
+          "SourceSecurityGroupName": {
+            "locationName": "sourceSecurityGroupName"
           },
-          "IpPermissions": {
-            "shape": "S1w",
-            "locationName": "ipPermissions"
+          "SourceSecurityGroupOwnerId": {
+            "locationName": "sourceSecurityGroupOwnerId"
           }
         }
       }
@@ -24869,24 +26093,24 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
-          "GroupName": {},
-          "GroupId": {},
-          "SourceSecurityGroupName": {},
-          "SourceSecurityGroupOwnerId": {},
-          "IpProtocol": {},
+          "CidrIp": {},
           "FromPort": {
             "type": "integer"
           },
+          "GroupId": {},
+          "GroupName": {},
+          "IpPermissions": {
+            "shape": "S1w"
+          },
+          "IpProtocol": {},
+          "SourceSecurityGroupName": {},
+          "SourceSecurityGroupOwnerId": {},
           "ToPort": {
             "type": "integer"
           },
-          "CidrIp": {},
-          "IpPermissions": {
-            "shape": "S1w"
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       }
@@ -24899,13 +26123,13 @@ module.exports={
           "Storage"
         ],
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
           "InstanceId": {},
           "Storage": {
             "shape": "S28"
+          },
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       },
@@ -24926,11 +26150,11 @@ module.exports={
           "BundleId"
         ],
         "members": {
+          "BundleId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "BundleId": {}
+          }
         }
       },
       "output": {
@@ -24950,12 +26174,12 @@ module.exports={
           "ConversionTaskId"
         ],
         "members": {
+          "ConversionTaskId": {
+            "locationName": "conversionTaskId"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "ConversionTaskId": {
-            "locationName": "conversionTaskId"
           },
           "ReasonMessage": {
             "locationName": "reasonMessage"
@@ -24980,11 +26204,11 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "CancelReason": {},
           "DryRun": {
             "type": "boolean"
           },
-          "ImportTaskId": {},
-          "CancelReason": {}
+          "ImportTaskId": {}
         }
       },
       "output": {
@@ -24993,11 +26217,11 @@ module.exports={
           "ImportTaskId": {
             "locationName": "importTaskId"
           },
-          "State": {
-            "locationName": "state"
-          },
           "PreviousState": {
             "locationName": "previousState"
+          },
+          "State": {
+            "locationName": "state"
           }
         }
       }
@@ -25049,6 +26273,30 @@ module.exports={
       "output": {
         "type": "structure",
         "members": {
+          "SuccessfulFleetRequests": {
+            "locationName": "successfulFleetRequestSet",
+            "type": "list",
+            "member": {
+              "locationName": "item",
+              "type": "structure",
+              "required": [
+                "CurrentSpotFleetRequestState",
+                "PreviousSpotFleetRequestState",
+                "SpotFleetRequestId"
+              ],
+              "members": {
+                "CurrentSpotFleetRequestState": {
+                  "locationName": "currentSpotFleetRequestState"
+                },
+                "PreviousSpotFleetRequestState": {
+                  "locationName": "previousSpotFleetRequestState"
+                },
+                "SpotFleetRequestId": {
+                  "locationName": "spotFleetRequestId"
+                }
+              }
+            }
+          },
           "UnsuccessfulFleetRequests": {
             "locationName": "unsuccessfulFleetRequestSet",
             "type": "list",
@@ -25056,13 +26304,10 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "required": [
-                "SpotFleetRequestId",
-                "Error"
+                "Error",
+                "SpotFleetRequestId"
               ],
               "members": {
-                "SpotFleetRequestId": {
-                  "locationName": "spotFleetRequestId"
-                },
                 "Error": {
                   "locationName": "error",
                   "type": "structure",
@@ -25078,30 +26323,9 @@ module.exports={
                       "locationName": "message"
                     }
                   }
-                }
-              }
-            }
-          },
-          "SuccessfulFleetRequests": {
-            "locationName": "successfulFleetRequestSet",
-            "type": "list",
-            "member": {
-              "locationName": "item",
-              "type": "structure",
-              "required": [
-                "SpotFleetRequestId",
-                "CurrentSpotFleetRequestState",
-                "PreviousSpotFleetRequestState"
-              ],
-              "members": {
+                },
                 "SpotFleetRequestId": {
                   "locationName": "spotFleetRequestId"
-                },
-                "CurrentSpotFleetRequestState": {
-                  "locationName": "currentSpotFleetRequestState"
-                },
-                "PreviousSpotFleetRequestState": {
-                  "locationName": "previousSpotFleetRequestState"
                 }
               }
             }
@@ -25152,16 +26376,16 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "ProductCode",
-          "InstanceId"
+          "InstanceId",
+          "ProductCode"
         ],
         "members": {
+          "InstanceId": {},
+          "ProductCode": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "ProductCode": {},
-          "InstanceId": {}
+          }
         }
       },
       "output": {
@@ -25181,26 +26405,26 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "SourceRegion",
+          "Name",
           "SourceImageId",
-          "Name"
+          "SourceRegion"
         ],
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
-          "SourceRegion": {},
-          "SourceImageId": {},
-          "Name": {},
-          "Description": {},
           "ClientToken": {},
+          "Description": {},
           "Encrypted": {
             "locationName": "encrypted",
             "type": "boolean"
           },
           "KmsKeyId": {
             "locationName": "kmsKeyId"
+          },
+          "Name": {},
+          "SourceImageId": {},
+          "SourceRegion": {},
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       },
@@ -25221,18 +26445,9 @@ module.exports={
           "SourceSnapshotId"
         ],
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
-          "SourceRegion": {},
-          "SourceSnapshotId": {},
           "Description": {},
           "DestinationRegion": {
             "locationName": "destinationRegion"
-          },
-          "PresignedUrl": {
-            "locationName": "presignedUrl"
           },
           "Encrypted": {
             "locationName": "encrypted",
@@ -25240,6 +26455,15 @@ module.exports={
           },
           "KmsKeyId": {
             "locationName": "kmsKeyId"
+          },
+          "PresignedUrl": {
+            "locationName": "presignedUrl"
+          },
+          "SourceRegion": {},
+          "SourceSnapshotId": {},
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       },
@@ -25256,21 +26480,21 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "Type",
+          "BgpAsn",
           "PublicIp",
-          "BgpAsn"
+          "Type"
         ],
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
+          "BgpAsn": {
+            "type": "integer"
           },
-          "Type": {},
           "PublicIp": {
             "locationName": "IpAddress"
           },
-          "BgpAsn": {
-            "type": "integer"
+          "Type": {},
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       },
@@ -25284,6 +26508,25 @@ module.exports={
         }
       }
     },
+    "CreateDefaultVpc": {
+      "input": {
+        "type": "structure",
+        "members": {
+          "DryRun": {
+            "type": "boolean"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "Vpc": {
+            "shape": "S3q",
+            "locationName": "vpc"
+          }
+        }
+      }
+    },
     "CreateDhcpOptions": {
       "input": {
         "type": "structure",
@@ -25291,10 +26534,6 @@ module.exports={
           "DhcpConfigurations"
         ],
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
           "DhcpConfigurations": {
             "locationName": "dhcpConfiguration",
             "type": "list",
@@ -25311,6 +26550,10 @@ module.exports={
                 }
               }
             }
+          },
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       },
@@ -25318,7 +26561,7 @@ module.exports={
         "type": "structure",
         "members": {
           "DhcpOptions": {
-            "shape": "S3s",
+            "shape": "S3y",
             "locationName": "dhcpOptions"
           }
         }
@@ -25331,22 +26574,22 @@ module.exports={
           "VpcId"
         ],
         "members": {
+          "ClientToken": {},
           "DryRun": {
             "type": "boolean"
           },
-          "VpcId": {},
-          "ClientToken": {}
+          "VpcId": {}
         }
       },
       "output": {
         "type": "structure",
         "members": {
-          "EgressOnlyInternetGateway": {
-            "shape": "S3z",
-            "locationName": "egressOnlyInternetGateway"
-          },
           "ClientToken": {
             "locationName": "clientToken"
+          },
+          "EgressOnlyInternetGateway": {
+            "shape": "S45",
+            "locationName": "egressOnlyInternetGateway"
           }
         }
       }
@@ -25355,36 +26598,36 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
+          "DeliverLogsPermissionArn",
+          "LogGroupName",
           "ResourceIds",
           "ResourceType",
-          "TrafficType",
-          "LogGroupName",
-          "DeliverLogsPermissionArn"
+          "TrafficType"
         ],
         "members": {
+          "ClientToken": {},
+          "DeliverLogsPermissionArn": {},
+          "LogGroupName": {},
           "ResourceIds": {
             "shape": "S2z",
             "locationName": "ResourceId"
           },
           "ResourceType": {},
-          "TrafficType": {},
-          "LogGroupName": {},
-          "DeliverLogsPermissionArn": {},
-          "ClientToken": {}
+          "TrafficType": {}
         }
       },
       "output": {
         "type": "structure",
         "members": {
+          "ClientToken": {
+            "locationName": "clientToken"
+          },
           "FlowLogIds": {
             "shape": "S2z",
             "locationName": "flowLogIdSet"
           },
-          "ClientToken": {
-            "locationName": "clientToken"
-          },
           "Unsuccessful": {
-            "shape": "S47",
+            "shape": "S4d",
             "locationName": "unsuccessful"
           }
         }
@@ -25401,10 +26644,10 @@ module.exports={
             "type": "boolean"
           },
           "InputStorageLocation": {
-            "shape": "S4b"
+            "shape": "S4h"
           },
           "LogsStorageLocation": {
-            "shape": "S4b"
+            "shape": "S4h"
           },
           "Description": {},
           "Name": {},
@@ -25431,6 +26674,13 @@ module.exports={
           "Name"
         ],
         "members": {
+          "BlockDeviceMappings": {
+            "shape": "S4k",
+            "locationName": "blockDeviceMapping"
+          },
+          "Description": {
+            "locationName": "description"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
@@ -25441,16 +26691,9 @@ module.exports={
           "Name": {
             "locationName": "name"
           },
-          "Description": {
-            "locationName": "description"
-          },
           "NoReboot": {
             "locationName": "noReboot",
             "type": "boolean"
-          },
-          "BlockDeviceMappings": {
-            "shape": "S4e",
-            "locationName": "blockDeviceMapping"
           }
         }
       },
@@ -25473,21 +26716,15 @@ module.exports={
           "Description": {
             "locationName": "description"
           },
-          "InstanceId": {
-            "locationName": "instanceId"
-          },
-          "TargetEnvironment": {
-            "locationName": "targetEnvironment"
-          },
           "ExportToS3Task": {
             "locationName": "exportToS3",
             "type": "structure",
             "members": {
-              "DiskImageFormat": {
-                "locationName": "diskImageFormat"
-              },
               "ContainerFormat": {
                 "locationName": "containerFormat"
+              },
+              "DiskImageFormat": {
+                "locationName": "diskImageFormat"
               },
               "S3Bucket": {
                 "locationName": "s3Bucket"
@@ -25496,6 +26733,12 @@ module.exports={
                 "locationName": "s3Prefix"
               }
             }
+          },
+          "InstanceId": {
+            "locationName": "instanceId"
+          },
+          "TargetEnvironment": {
+            "locationName": "targetEnvironment"
           }
         }
       },
@@ -25503,7 +26746,7 @@ module.exports={
         "type": "structure",
         "members": {
           "ExportTask": {
-            "shape": "S4p",
+            "shape": "S4v",
             "locationName": "exportTask"
           }
         }
@@ -25523,7 +26766,7 @@ module.exports={
         "type": "structure",
         "members": {
           "InternetGateway": {
-            "shape": "S4v",
+            "shape": "S51",
             "locationName": "internetGateway"
           }
         }
@@ -25536,24 +26779,24 @@ module.exports={
           "KeyName"
         ],
         "members": {
+          "KeyName": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "KeyName": {}
+          }
         }
       },
       "output": {
         "type": "structure",
         "members": {
-          "KeyName": {
-            "locationName": "keyName"
-          },
           "KeyFingerprint": {
             "locationName": "keyFingerprint"
           },
           "KeyMaterial": {
             "locationName": "keyMaterial"
+          },
+          "KeyName": {
+            "locationName": "keyName"
           }
         }
       }
@@ -25562,24 +26805,24 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "SubnetId",
-          "AllocationId"
+          "AllocationId",
+          "SubnetId"
         ],
         "members": {
-          "SubnetId": {},
           "AllocationId": {},
-          "ClientToken": {}
+          "ClientToken": {},
+          "SubnetId": {}
         }
       },
       "output": {
         "type": "structure",
         "members": {
-          "NatGateway": {
-            "shape": "S50",
-            "locationName": "natGateway"
-          },
           "ClientToken": {
             "locationName": "clientToken"
+          },
+          "NatGateway": {
+            "shape": "S56",
+            "locationName": "natGateway"
           }
         }
       }
@@ -25604,7 +26847,7 @@ module.exports={
         "type": "structure",
         "members": {
           "NetworkAcl": {
-            "shape": "S57",
+            "shape": "S5d",
             "locationName": "networkAcl"
           }
         }
@@ -25614,23 +26857,37 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
+          "Egress",
           "NetworkAclId",
-          "RuleNumber",
           "Protocol",
           "RuleAction",
-          "Egress"
+          "RuleNumber"
         ],
         "members": {
+          "CidrBlock": {
+            "locationName": "cidrBlock"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
           },
+          "Egress": {
+            "locationName": "egress",
+            "type": "boolean"
+          },
+          "IcmpTypeCode": {
+            "shape": "S5i",
+            "locationName": "Icmp"
+          },
+          "Ipv6CidrBlock": {
+            "locationName": "ipv6CidrBlock"
+          },
           "NetworkAclId": {
             "locationName": "networkAclId"
           },
-          "RuleNumber": {
-            "locationName": "ruleNumber",
-            "type": "integer"
+          "PortRange": {
+            "shape": "S5j",
+            "locationName": "portRange"
           },
           "Protocol": {
             "locationName": "protocol"
@@ -25638,23 +26895,9 @@ module.exports={
           "RuleAction": {
             "locationName": "ruleAction"
           },
-          "Egress": {
-            "locationName": "egress",
-            "type": "boolean"
-          },
-          "CidrBlock": {
-            "locationName": "cidrBlock"
-          },
-          "Ipv6CidrBlock": {
-            "locationName": "ipv6CidrBlock"
-          },
-          "IcmpTypeCode": {
-            "shape": "S5b",
-            "locationName": "Icmp"
-          },
-          "PortRange": {
-            "shape": "S5c",
-            "locationName": "portRange"
+          "RuleNumber": {
+            "locationName": "ruleNumber",
+            "type": "integer"
           }
         }
       }
@@ -25666,38 +26909,38 @@ module.exports={
           "SubnetId"
         ],
         "members": {
-          "SubnetId": {
-            "locationName": "subnetId"
-          },
           "Description": {
             "locationName": "description"
+          },
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
+          },
+          "Groups": {
+            "shape": "S5n",
+            "locationName": "SecurityGroupId"
+          },
+          "Ipv6AddressCount": {
+            "locationName": "ipv6AddressCount",
+            "type": "integer"
+          },
+          "Ipv6Addresses": {
+            "shape": "S5o",
+            "locationName": "ipv6Addresses"
           },
           "PrivateIpAddress": {
             "locationName": "privateIpAddress"
           },
-          "Groups": {
-            "shape": "S5h",
-            "locationName": "SecurityGroupId"
-          },
           "PrivateIpAddresses": {
-            "shape": "S5i",
+            "shape": "S5q",
             "locationName": "privateIpAddresses"
           },
           "SecondaryPrivateIpAddressCount": {
             "locationName": "secondaryPrivateIpAddressCount",
             "type": "integer"
           },
-          "Ipv6Addresses": {
-            "shape": "S5k",
-            "locationName": "ipv6Addresses"
-          },
-          "Ipv6AddressCount": {
-            "locationName": "ipv6AddressCount",
-            "type": "integer"
-          },
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
+          "SubnetId": {
+            "locationName": "subnetId"
           }
         }
       },
@@ -25705,8 +26948,35 @@ module.exports={
         "type": "structure",
         "members": {
           "NetworkInterface": {
-            "shape": "S5n",
+            "shape": "S5t",
             "locationName": "networkInterface"
+          }
+        }
+      }
+    },
+    "CreateNetworkInterfacePermission": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "NetworkInterfaceId",
+          "Permission"
+        ],
+        "members": {
+          "NetworkInterfaceId": {},
+          "AwsAccountId": {},
+          "AwsService": {},
+          "Permission": {},
+          "DryRun": {
+            "type": "boolean"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "InterfacePermission": {
+            "shape": "S67",
+            "locationName": "interfacePermission"
           }
         }
       }
@@ -25736,14 +27006,14 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "ReservedInstancesId",
+          "ClientToken",
           "InstanceCount",
           "PriceSchedules",
-          "ClientToken"
+          "ReservedInstancesId"
         ],
         "members": {
-          "ReservedInstancesId": {
-            "locationName": "reservedInstancesId"
+          "ClientToken": {
+            "locationName": "clientToken"
           },
           "InstanceCount": {
             "locationName": "instanceCount",
@@ -25756,22 +27026,22 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
-                "Term": {
-                  "locationName": "term",
-                  "type": "long"
+                "CurrencyCode": {
+                  "locationName": "currencyCode"
                 },
                 "Price": {
                   "locationName": "price",
                   "type": "double"
                 },
-                "CurrencyCode": {
-                  "locationName": "currencyCode"
+                "Term": {
+                  "locationName": "term",
+                  "type": "long"
                 }
               }
             }
           },
-          "ClientToken": {
-            "locationName": "clientToken"
+          "ReservedInstancesId": {
+            "locationName": "reservedInstancesId"
           }
         }
       },
@@ -25792,36 +27062,36 @@ module.exports={
           "RouteTableId"
         ],
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
-          "RouteTableId": {
-            "locationName": "routeTableId"
-          },
           "DestinationCidrBlock": {
             "locationName": "destinationCidrBlock"
-          },
-          "GatewayId": {
-            "locationName": "gatewayId"
           },
           "DestinationIpv6CidrBlock": {
             "locationName": "destinationIpv6CidrBlock"
           },
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
+          },
           "EgressOnlyInternetGatewayId": {
             "locationName": "egressOnlyInternetGatewayId"
+          },
+          "GatewayId": {
+            "locationName": "gatewayId"
           },
           "InstanceId": {
             "locationName": "instanceId"
           },
+          "NatGatewayId": {
+            "locationName": "natGatewayId"
+          },
           "NetworkInterfaceId": {
             "locationName": "networkInterfaceId"
           },
+          "RouteTableId": {
+            "locationName": "routeTableId"
+          },
           "VpcPeeringConnectionId": {
             "locationName": "vpcPeeringConnectionId"
-          },
-          "NatGatewayId": {
-            "locationName": "natGatewayId"
           }
         }
       },
@@ -25855,7 +27125,7 @@ module.exports={
         "type": "structure",
         "members": {
           "RouteTable": {
-            "shape": "S68",
+            "shape": "S6k",
             "locationName": "routeTable"
           }
         }
@@ -25865,19 +27135,19 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "GroupName",
-          "Description"
+          "Description",
+          "GroupName"
         ],
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
-          "GroupName": {},
           "Description": {
             "locationName": "GroupDescription"
           },
-          "VpcId": {}
+          "GroupName": {},
+          "VpcId": {},
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
+          }
         }
       },
       "output": {
@@ -25896,16 +27166,16 @@ module.exports={
           "VolumeId"
         ],
         "members": {
+          "Description": {},
+          "VolumeId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "VolumeId": {},
-          "Description": {}
+          }
         }
       },
       "output": {
-        "shape": "S6k"
+        "shape": "S6w"
       }
     },
     "CreateSpotDatafeedSubscription": {
@@ -25915,12 +27185,12 @@ module.exports={
           "Bucket"
         ],
         "members": {
+          "Bucket": {
+            "locationName": "bucket"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "Bucket": {
-            "locationName": "bucket"
           },
           "Prefix": {
             "locationName": "prefix"
@@ -25931,7 +27201,7 @@ module.exports={
         "type": "structure",
         "members": {
           "SpotDatafeedSubscription": {
-            "shape": "S6o",
+            "shape": "S70",
             "locationName": "spotDatafeedSubscription"
           }
         }
@@ -25941,25 +27211,25 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "VpcId",
-          "CidrBlock"
+          "CidrBlock",
+          "VpcId"
         ],
         "members": {
+          "AvailabilityZone": {},
+          "CidrBlock": {},
+          "Ipv6CidrBlock": {},
+          "VpcId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "VpcId": {},
-          "CidrBlock": {},
-          "Ipv6CidrBlock": {},
-          "AvailabilityZone": {}
+          }
         }
       },
       "output": {
         "type": "structure",
         "members": {
           "Subnet": {
-            "shape": "S6t",
+            "shape": "S75",
             "locationName": "subnet"
           }
         }
@@ -25978,7 +27248,7 @@ module.exports={
             "type": "boolean"
           },
           "Resources": {
-            "shape": "S6x",
+            "shape": "S79",
             "locationName": "ResourceId"
           },
           "Tags": {
@@ -25995,32 +27265,32 @@ module.exports={
           "AvailabilityZone"
         ],
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
-          "Size": {
-            "type": "integer"
-          },
-          "SnapshotId": {},
           "AvailabilityZone": {},
-          "VolumeType": {},
-          "Iops": {
-            "type": "integer"
-          },
           "Encrypted": {
             "locationName": "encrypted",
             "type": "boolean"
           },
+          "Iops": {
+            "type": "integer"
+          },
           "KmsKeyId": {},
+          "Size": {
+            "type": "integer"
+          },
+          "SnapshotId": {},
+          "VolumeType": {},
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
+          },
           "TagSpecifications": {
-            "shape": "S6z",
+            "shape": "S7b",
             "locationName": "TagSpecification"
           }
         }
       },
       "output": {
-        "shape": "S72"
+        "shape": "S7e"
       }
     },
     "CreateVpc": {
@@ -26030,17 +27300,17 @@ module.exports={
           "CidrBlock"
         ],
         "members": {
+          "CidrBlock": {},
+          "AmazonProvidedIpv6CidrBlock": {
+            "locationName": "amazonProvidedIpv6CidrBlock",
+            "type": "boolean"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
           },
-          "CidrBlock": {},
           "InstanceTenancy": {
             "locationName": "instanceTenancy"
-          },
-          "AmazonProvidedIpv6CidrBlock": {
-            "locationName": "amazonProvidedIpv6CidrBlock",
-            "type": "boolean"
           }
         }
       },
@@ -26048,7 +27318,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Vpc": {
-            "shape": "S78",
+            "shape": "S3q",
             "locationName": "vpc"
           }
         }
@@ -26058,32 +27328,32 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "VpcId",
-          "ServiceName"
+          "ServiceName",
+          "VpcId"
         ],
         "members": {
+          "ClientToken": {},
           "DryRun": {
             "type": "boolean"
           },
-          "VpcId": {},
-          "ServiceName": {},
           "PolicyDocument": {},
           "RouteTableIds": {
             "shape": "S2z",
             "locationName": "RouteTableId"
           },
-          "ClientToken": {}
+          "ServiceName": {},
+          "VpcId": {}
         }
       },
       "output": {
         "type": "structure",
         "members": {
-          "VpcEndpoint": {
-            "shape": "S7d",
-            "locationName": "vpcEndpoint"
-          },
           "ClientToken": {
             "locationName": "clientToken"
+          },
+          "VpcEndpoint": {
+            "shape": "S7l",
+            "locationName": "vpcEndpoint"
           }
         }
       }
@@ -26096,14 +27366,14 @@ module.exports={
             "locationName": "dryRun",
             "type": "boolean"
           },
-          "VpcId": {
-            "locationName": "vpcId"
+          "PeerOwnerId": {
+            "locationName": "peerOwnerId"
           },
           "PeerVpcId": {
             "locationName": "peerVpcId"
           },
-          "PeerOwnerId": {
-            "locationName": "peerOwnerId"
+          "VpcId": {
+            "locationName": "vpcId"
           }
         }
       },
@@ -26121,18 +27391,18 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "Type",
           "CustomerGatewayId",
+          "Type",
           "VpnGatewayId"
         ],
         "members": {
+          "CustomerGatewayId": {},
+          "Type": {},
+          "VpnGatewayId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
           },
-          "Type": {},
-          "CustomerGatewayId": {},
-          "VpnGatewayId": {},
           "Options": {
             "locationName": "options",
             "type": "structure",
@@ -26149,7 +27419,7 @@ module.exports={
         "type": "structure",
         "members": {
           "VpnConnection": {
-            "shape": "S7k",
+            "shape": "S7s",
             "locationName": "vpnConnection"
           }
         }
@@ -26159,12 +27429,12 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "VpnConnectionId",
-          "DestinationCidrBlock"
+          "DestinationCidrBlock",
+          "VpnConnectionId"
         ],
         "members": {
-          "VpnConnectionId": {},
-          "DestinationCidrBlock": {}
+          "DestinationCidrBlock": {},
+          "VpnConnectionId": {}
         }
       }
     },
@@ -26175,19 +27445,19 @@ module.exports={
           "Type"
         ],
         "members": {
+          "AvailabilityZone": {},
+          "Type": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "Type": {},
-          "AvailabilityZone": {}
+          }
         }
       },
       "output": {
         "type": "structure",
         "members": {
           "VpnGateway": {
-            "shape": "S7w",
+            "shape": "S84",
             "locationName": "vpnGateway"
           }
         }
@@ -26200,11 +27470,11 @@ module.exports={
           "CustomerGatewayId"
         ],
         "members": {
+          "CustomerGatewayId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "CustomerGatewayId": {}
+          }
         }
       }
     },
@@ -26215,11 +27485,11 @@ module.exports={
           "DhcpOptionsId"
         ],
         "members": {
+          "DhcpOptionsId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "DhcpOptionsId": {}
+          }
         }
       }
     },
@@ -26263,7 +27533,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Unsuccessful": {
-            "shape": "S47",
+            "shape": "S4d",
             "locationName": "unsuccessful"
           }
         }
@@ -26293,11 +27563,11 @@ module.exports={
           "KeyName"
         ],
         "members": {
+          "KeyName": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "KeyName": {}
+          }
         }
       }
     },
@@ -26341,13 +27611,17 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
+          "Egress",
           "NetworkAclId",
-          "RuleNumber",
-          "Egress"
+          "RuleNumber"
         ],
         "members": {
           "DryRun": {
             "locationName": "dryRun",
+            "type": "boolean"
+          },
+          "Egress": {
+            "locationName": "egress",
             "type": "boolean"
           },
           "NetworkAclId": {
@@ -26356,10 +27630,6 @@ module.exports={
           "RuleNumber": {
             "locationName": "ruleNumber",
             "type": "integer"
-          },
-          "Egress": {
-            "locationName": "egress",
-            "type": "boolean"
           }
         }
       }
@@ -26377,6 +27647,32 @@ module.exports={
           },
           "NetworkInterfaceId": {
             "locationName": "networkInterfaceId"
+          }
+        }
+      }
+    },
+    "DeleteNetworkInterfacePermission": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "NetworkInterfacePermissionId"
+        ],
+        "members": {
+          "NetworkInterfacePermissionId": {},
+          "Force": {
+            "type": "boolean"
+          },
+          "DryRun": {
+            "type": "boolean"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "Return": {
+            "locationName": "return",
+            "type": "boolean"
           }
         }
       }
@@ -26405,18 +27701,18 @@ module.exports={
           "RouteTableId"
         ],
         "members": {
+          "DestinationCidrBlock": {
+            "locationName": "destinationCidrBlock"
+          },
+          "DestinationIpv6CidrBlock": {
+            "locationName": "destinationIpv6CidrBlock"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
           },
           "RouteTableId": {
             "locationName": "routeTableId"
-          },
-          "DestinationCidrBlock": {
-            "locationName": "destinationCidrBlock"
-          },
-          "DestinationIpv6CidrBlock": {
-            "locationName": "destinationIpv6CidrBlock"
           }
         }
       }
@@ -26442,12 +27738,12 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "GroupId": {},
+          "GroupName": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "GroupName": {},
-          "GroupId": {}
+          }
         }
       }
     },
@@ -26458,11 +27754,11 @@ module.exports={
           "SnapshotId"
         ],
         "members": {
+          "SnapshotId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "SnapshotId": {}
+          }
         }
       }
     },
@@ -26484,11 +27780,11 @@ module.exports={
           "SubnetId"
         ],
         "members": {
+          "SubnetId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "SubnetId": {}
+          }
         }
       }
     },
@@ -26504,7 +27800,7 @@ module.exports={
             "type": "boolean"
           },
           "Resources": {
-            "shape": "S6x",
+            "shape": "S79",
             "locationName": "resourceId"
           },
           "Tags": {
@@ -26521,11 +27817,11 @@ module.exports={
           "VolumeId"
         ],
         "members": {
+          "VolumeId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "VolumeId": {}
+          }
         }
       }
     },
@@ -26536,11 +27832,11 @@ module.exports={
           "VpcId"
         ],
         "members": {
+          "VpcId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "VpcId": {}
+          }
         }
       }
     },
@@ -26564,7 +27860,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Unsuccessful": {
-            "shape": "S47",
+            "shape": "S4d",
             "locationName": "unsuccessful"
           }
         }
@@ -26603,11 +27899,11 @@ module.exports={
           "VpnConnectionId"
         ],
         "members": {
+          "VpnConnectionId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "VpnConnectionId": {}
+          }
         }
       }
     },
@@ -26615,12 +27911,12 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "VpnConnectionId",
-          "DestinationCidrBlock"
+          "DestinationCidrBlock",
+          "VpnConnectionId"
         ],
         "members": {
-          "VpnConnectionId": {},
-          "DestinationCidrBlock": {}
+          "DestinationCidrBlock": {},
+          "VpnConnectionId": {}
         }
       }
     },
@@ -26631,11 +27927,11 @@ module.exports={
           "VpnGatewayId"
         ],
         "members": {
+          "VpnGatewayId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "VpnGatewayId": {}
+          }
         }
       }
     },
@@ -26646,11 +27942,11 @@ module.exports={
           "ImageId"
         ],
         "members": {
+          "ImageId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "ImageId": {}
+          }
         }
       }
     },
@@ -26658,16 +27954,16 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
           "AttributeNames": {
             "locationName": "attributeName",
             "type": "list",
             "member": {
               "locationName": "attributeName"
             }
+          },
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       },
@@ -26707,9 +28003,9 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
           },
           "PublicIps": {
             "locationName": "PublicIp",
@@ -26718,16 +28014,16 @@ module.exports={
               "locationName": "PublicIp"
             }
           },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
-          },
           "AllocationIds": {
             "locationName": "AllocationId",
             "type": "list",
             "member": {
               "locationName": "AllocationId"
             }
+          },
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       },
@@ -26775,9 +28071,9 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
           },
           "ZoneNames": {
             "locationName": "ZoneName",
@@ -26786,9 +28082,9 @@ module.exports={
               "locationName": "ZoneName"
             }
           },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       },
@@ -26802,14 +28098,8 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
-                "ZoneName": {
-                  "locationName": "zoneName"
-                },
                 "State": {
                   "locationName": "zoneState"
-                },
-                "RegionName": {
-                  "locationName": "regionName"
                 },
                 "Messages": {
                   "locationName": "messageSet",
@@ -26823,6 +28113,12 @@ module.exports={
                       }
                     }
                   }
+                },
+                "RegionName": {
+                  "locationName": "regionName"
+                },
+                "ZoneName": {
+                  "locationName": "zoneName"
                 }
               }
             }
@@ -26834,10 +28130,6 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
           "BundleIds": {
             "locationName": "BundleId",
             "type": "list",
@@ -26846,8 +28138,12 @@ module.exports={
             }
           },
           "Filters": {
-            "shape": "S93",
+            "shape": "S9c",
             "locationName": "Filter"
+          },
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       },
@@ -26869,24 +28165,24 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
           },
           "InstanceIds": {
-            "shape": "S9m",
+            "shape": "S9w",
             "locationName": "InstanceId"
-          },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
-          },
-          "NextToken": {
-            "locationName": "nextToken"
           },
           "MaxResults": {
             "locationName": "maxResults",
             "type": "integer"
+          },
+          "NextToken": {
+            "locationName": "nextToken"
           }
         }
       },
@@ -26900,19 +28196,19 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
+                "Groups": {
+                  "shape": "S5w",
+                  "locationName": "groupSet"
+                },
                 "InstanceId": {
                   "locationName": "instanceId"
-                },
-                "VpcId": {
-                  "locationName": "vpcId"
-                },
-                "Groups": {
-                  "shape": "S5p",
-                  "locationName": "groupSet"
                 },
                 "Tags": {
                   "shape": "Sj",
                   "locationName": "tagSet"
+                },
+                "VpcId": {
+                  "locationName": "vpcId"
                 }
               }
             }
@@ -26927,16 +28223,16 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
           "ConversionTaskIds": {
             "locationName": "conversionTaskId",
             "type": "list",
             "member": {
               "locationName": "item"
             }
+          },
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       },
@@ -26947,7 +28243,7 @@ module.exports={
             "locationName": "conversionTasks",
             "type": "list",
             "member": {
-              "shape": "S9u",
+              "shape": "Sa4",
               "locationName": "item"
             }
           }
@@ -26958,10 +28254,6 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
           "CustomerGatewayIds": {
             "locationName": "CustomerGatewayId",
             "type": "list",
@@ -26970,8 +28262,12 @@ module.exports={
             }
           },
           "Filters": {
-            "shape": "S93",
+            "shape": "S9c",
             "locationName": "Filter"
+          },
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       },
@@ -26993,10 +28289,6 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
           "DhcpOptionsIds": {
             "locationName": "DhcpOptionsId",
             "type": "list",
@@ -27005,8 +28297,12 @@ module.exports={
             }
           },
           "Filters": {
-            "shape": "S93",
+            "shape": "S9c",
             "locationName": "Filter"
+          },
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       },
@@ -27017,7 +28313,7 @@ module.exports={
             "locationName": "dhcpOptionsSet",
             "type": "list",
             "member": {
-              "shape": "S3s",
+              "shape": "S3y",
               "locationName": "item"
             }
           }
@@ -27051,9 +28347,79 @@ module.exports={
             "locationName": "egressOnlyInternetGatewaySet",
             "type": "list",
             "member": {
-              "shape": "S3z",
+              "shape": "S45",
               "locationName": "item"
             }
+          },
+          "NextToken": {
+            "locationName": "nextToken"
+          }
+        }
+      }
+    },
+    "DescribeElasticGpus": {
+      "input": {
+        "type": "structure",
+        "members": {
+          "ElasticGpuIds": {
+            "locationName": "ElasticGpuId",
+            "type": "list",
+            "member": {
+              "locationName": "item"
+            }
+          },
+          "DryRun": {
+            "type": "boolean"
+          },
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
+          },
+          "MaxResults": {
+            "type": "integer"
+          },
+          "NextToken": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "ElasticGpuSet": {
+            "locationName": "elasticGpuSet",
+            "type": "list",
+            "member": {
+              "type": "structure",
+              "members": {
+                "ElasticGpuId": {
+                  "locationName": "elasticGpuId"
+                },
+                "AvailabilityZone": {
+                  "locationName": "availabilityZone"
+                },
+                "ElasticGpuType": {
+                  "locationName": "elasticGpuType"
+                },
+                "ElasticGpuHealth": {
+                  "locationName": "elasticGpuHealth",
+                  "type": "structure",
+                  "members": {
+                    "Status": {
+                      "locationName": "status"
+                    }
+                  }
+                },
+                "ElasticGpuState": {
+                  "locationName": "elasticGpuState"
+                },
+                "InstanceId": {
+                  "locationName": "instanceId"
+                }
+              }
+            }
+          },
+          "MaxResults": {
+            "locationName": "maxResults",
+            "type": "integer"
           },
           "NextToken": {
             "locationName": "nextToken"
@@ -27081,7 +28447,7 @@ module.exports={
             "locationName": "exportTaskSet",
             "type": "list",
             "member": {
-              "shape": "S4p",
+              "shape": "S4v",
               "locationName": "item"
             }
           }
@@ -27092,17 +28458,17 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "Filter": {
+            "shape": "S9c"
+          },
           "FlowLogIds": {
             "shape": "S2z",
             "locationName": "FlowLogId"
           },
-          "Filter": {
-            "shape": "S93"
-          },
-          "NextToken": {},
           "MaxResults": {
             "type": "integer"
-          }
+          },
+          "NextToken": {}
         }
       },
       "output": {
@@ -27119,29 +28485,135 @@ module.exports={
                   "locationName": "creationTime",
                   "type": "timestamp"
                 },
+                "DeliverLogsErrorMessage": {
+                  "locationName": "deliverLogsErrorMessage"
+                },
+                "DeliverLogsPermissionArn": {
+                  "locationName": "deliverLogsPermissionArn"
+                },
+                "DeliverLogsStatus": {
+                  "locationName": "deliverLogsStatus"
+                },
                 "FlowLogId": {
                   "locationName": "flowLogId"
                 },
                 "FlowLogStatus": {
                   "locationName": "flowLogStatus"
                 },
+                "LogGroupName": {
+                  "locationName": "logGroupName"
+                },
                 "ResourceId": {
                   "locationName": "resourceId"
                 },
                 "TrafficType": {
                   "locationName": "trafficType"
+                }
+              }
+            }
+          },
+          "NextToken": {
+            "locationName": "nextToken"
+          }
+        }
+      }
+    },
+    "DescribeFpgaImages": {
+      "input": {
+        "type": "structure",
+        "members": {
+          "DryRun": {
+            "type": "boolean"
+          },
+          "FpgaImageIds": {
+            "locationName": "FpgaImageId",
+            "type": "list",
+            "member": {
+              "locationName": "item"
+            }
+          },
+          "Owners": {
+            "shape": "Sb7",
+            "locationName": "Owner"
+          },
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
+          },
+          "NextToken": {},
+          "MaxResults": {
+            "type": "integer"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "FpgaImages": {
+            "locationName": "fpgaImageSet",
+            "type": "list",
+            "member": {
+              "locationName": "item",
+              "type": "structure",
+              "members": {
+                "FpgaImageId": {
+                  "locationName": "fpgaImageId"
                 },
-                "LogGroupName": {
-                  "locationName": "logGroupName"
+                "FpgaImageGlobalId": {
+                  "locationName": "fpgaImageGlobalId"
                 },
-                "DeliverLogsStatus": {
-                  "locationName": "deliverLogsStatus"
+                "Name": {
+                  "locationName": "name"
                 },
-                "DeliverLogsErrorMessage": {
-                  "locationName": "deliverLogsErrorMessage"
+                "Description": {
+                  "locationName": "description"
                 },
-                "DeliverLogsPermissionArn": {
-                  "locationName": "deliverLogsPermissionArn"
+                "ShellVersion": {
+                  "locationName": "shellVersion"
+                },
+                "PciId": {
+                  "locationName": "pciId",
+                  "type": "structure",
+                  "members": {
+                    "DeviceId": {},
+                    "VendorId": {},
+                    "SubsystemId": {},
+                    "SubsystemVendorId": {}
+                  }
+                },
+                "State": {
+                  "locationName": "state",
+                  "type": "structure",
+                  "members": {
+                    "Code": {
+                      "locationName": "code"
+                    },
+                    "Message": {
+                      "locationName": "message"
+                    }
+                  }
+                },
+                "CreateTime": {
+                  "locationName": "createTime",
+                  "type": "timestamp"
+                },
+                "UpdateTime": {
+                  "locationName": "updateTime",
+                  "type": "timestamp"
+                },
+                "OwnerId": {
+                  "locationName": "ownerId"
+                },
+                "OwnerAlias": {
+                  "locationName": "ownerAlias"
+                },
+                "ProductCodes": {
+                  "shape": "Sbg",
+                  "locationName": "productCodes"
+                },
+                "Tags": {
+                  "shape": "Sj",
+                  "locationName": "tags"
                 }
               }
             }
@@ -27156,58 +28628,58 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "OfferingId": {},
-          "MinDuration": {
-            "type": "integer"
+          "Filter": {
+            "shape": "S9c"
           },
           "MaxDuration": {
             "type": "integer"
           },
-          "Filter": {
-            "shape": "S93"
-          },
           "MaxResults": {
             "type": "integer"
           },
-          "NextToken": {}
+          "MinDuration": {
+            "type": "integer"
+          },
+          "NextToken": {},
+          "OfferingId": {}
         }
       },
       "output": {
         "type": "structure",
         "members": {
+          "NextToken": {
+            "locationName": "nextToken"
+          },
           "OfferingSet": {
             "locationName": "offeringSet",
             "type": "list",
             "member": {
               "type": "structure",
               "members": {
-                "OfferingId": {
-                  "locationName": "offeringId"
-                },
-                "InstanceFamily": {
-                  "locationName": "instanceFamily"
-                },
-                "PaymentOption": {
-                  "locationName": "paymentOption"
-                },
-                "UpfrontPrice": {
-                  "locationName": "upfrontPrice"
-                },
-                "HourlyPrice": {
-                  "locationName": "hourlyPrice"
-                },
                 "CurrencyCode": {
                   "locationName": "currencyCode"
                 },
                 "Duration": {
                   "locationName": "duration",
                   "type": "integer"
+                },
+                "HourlyPrice": {
+                  "locationName": "hourlyPrice"
+                },
+                "InstanceFamily": {
+                  "locationName": "instanceFamily"
+                },
+                "OfferingId": {
+                  "locationName": "offeringId"
+                },
+                "PaymentOption": {
+                  "locationName": "paymentOption"
+                },
+                "UpfrontPrice": {
+                  "locationName": "upfrontPrice"
                 }
               }
             }
-          },
-          "NextToken": {
-            "locationName": "nextToken"
           }
         }
       }
@@ -27216,14 +28688,14 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "Filter": {
+            "shape": "S9c"
+          },
           "HostReservationIdSet": {
             "type": "list",
             "member": {
               "locationName": "item"
             }
-          },
-          "Filter": {
-            "shape": "S93"
           },
           "MaxResults": {
             "type": "integer"
@@ -27240,34 +28712,12 @@ module.exports={
             "member": {
               "type": "structure",
               "members": {
-                "HostReservationId": {
-                  "locationName": "hostReservationId"
-                },
-                "HostIdSet": {
-                  "shape": "Sax",
-                  "locationName": "hostIdSet"
-                },
-                "OfferingId": {
-                  "locationName": "offeringId"
-                },
-                "InstanceFamily": {
-                  "locationName": "instanceFamily"
-                },
-                "PaymentOption": {
-                  "locationName": "paymentOption"
-                },
-                "HourlyPrice": {
-                  "locationName": "hourlyPrice"
-                },
-                "UpfrontPrice": {
-                  "locationName": "upfrontPrice"
-                },
-                "CurrencyCode": {
-                  "locationName": "currencyCode"
-                },
                 "Count": {
                   "locationName": "count",
                   "type": "integer"
+                },
+                "CurrencyCode": {
+                  "locationName": "currencyCode"
                 },
                 "Duration": {
                   "locationName": "duration",
@@ -27277,12 +28727,34 @@ module.exports={
                   "locationName": "end",
                   "type": "timestamp"
                 },
+                "HostIdSet": {
+                  "shape": "Sbt",
+                  "locationName": "hostIdSet"
+                },
+                "HostReservationId": {
+                  "locationName": "hostReservationId"
+                },
+                "HourlyPrice": {
+                  "locationName": "hourlyPrice"
+                },
+                "InstanceFamily": {
+                  "locationName": "instanceFamily"
+                },
+                "OfferingId": {
+                  "locationName": "offeringId"
+                },
+                "PaymentOption": {
+                  "locationName": "paymentOption"
+                },
                 "Start": {
                   "locationName": "start",
                   "type": "timestamp"
                 },
                 "State": {
                   "locationName": "state"
+                },
+                "UpfrontPrice": {
+                  "locationName": "upfrontPrice"
                 }
               }
             }
@@ -27297,20 +28769,20 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "HostIds": {
-            "shape": "Sb0",
-            "locationName": "hostId"
+          "Filter": {
+            "shape": "S9c",
+            "locationName": "filter"
           },
-          "NextToken": {
-            "locationName": "nextToken"
+          "HostIds": {
+            "shape": "Sbw",
+            "locationName": "hostId"
           },
           "MaxResults": {
             "locationName": "maxResults",
             "type": "integer"
           },
-          "Filter": {
-            "shape": "S93",
-            "locationName": "filter"
+          "NextToken": {
+            "locationName": "nextToken"
           }
         }
       },
@@ -27324,44 +28796,72 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
-                "HostId": {
-                  "locationName": "hostId"
-                },
                 "AutoPlacement": {
                   "locationName": "autoPlacement"
                 },
-                "HostReservationId": {
-                  "locationName": "hostReservationId"
+                "AvailabilityZone": {
+                  "locationName": "availabilityZone"
+                },
+                "AvailableCapacity": {
+                  "locationName": "availableCapacity",
+                  "type": "structure",
+                  "members": {
+                    "AvailableInstanceCapacity": {
+                      "locationName": "availableInstanceCapacity",
+                      "type": "list",
+                      "member": {
+                        "locationName": "item",
+                        "type": "structure",
+                        "members": {
+                          "AvailableCapacity": {
+                            "locationName": "availableCapacity",
+                            "type": "integer"
+                          },
+                          "InstanceType": {
+                            "locationName": "instanceType"
+                          },
+                          "TotalCapacity": {
+                            "locationName": "totalCapacity",
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    },
+                    "AvailableVCpus": {
+                      "locationName": "availableVCpus",
+                      "type": "integer"
+                    }
+                  }
                 },
                 "ClientToken": {
                   "locationName": "clientToken"
+                },
+                "HostId": {
+                  "locationName": "hostId"
                 },
                 "HostProperties": {
                   "locationName": "hostProperties",
                   "type": "structure",
                   "members": {
-                    "Sockets": {
-                      "locationName": "sockets",
-                      "type": "integer"
-                    },
                     "Cores": {
                       "locationName": "cores",
+                      "type": "integer"
+                    },
+                    "InstanceType": {
+                      "locationName": "instanceType"
+                    },
+                    "Sockets": {
+                      "locationName": "sockets",
                       "type": "integer"
                     },
                     "TotalVCpus": {
                       "locationName": "totalVCpus",
                       "type": "integer"
-                    },
-                    "InstanceType": {
-                      "locationName": "instanceType"
                     }
                   }
                 },
-                "State": {
-                  "locationName": "state"
-                },
-                "AvailabilityZone": {
-                  "locationName": "availabilityZone"
+                "HostReservationId": {
+                  "locationName": "hostReservationId"
                 },
                 "Instances": {
                   "locationName": "instances",
@@ -27379,36 +28879,8 @@ module.exports={
                     }
                   }
                 },
-                "AvailableCapacity": {
-                  "locationName": "availableCapacity",
-                  "type": "structure",
-                  "members": {
-                    "AvailableInstanceCapacity": {
-                      "locationName": "availableInstanceCapacity",
-                      "type": "list",
-                      "member": {
-                        "locationName": "item",
-                        "type": "structure",
-                        "members": {
-                          "InstanceType": {
-                            "locationName": "instanceType"
-                          },
-                          "AvailableCapacity": {
-                            "locationName": "availableCapacity",
-                            "type": "integer"
-                          },
-                          "TotalCapacity": {
-                            "locationName": "totalCapacity",
-                            "type": "integer"
-                          }
-                        }
-                      }
-                    },
-                    "AvailableVCpus": {
-                      "locationName": "availableVCpus",
-                      "type": "integer"
-                    }
-                  }
+                "State": {
+                  "locationName": "state"
                 }
               }
             }
@@ -27431,7 +28903,7 @@ module.exports={
             }
           },
           "Filters": {
-            "shape": "S93",
+            "shape": "S9c",
             "locationName": "Filter"
           },
           "MaxResults": {
@@ -27468,7 +28940,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Statuses": {
-            "shape": "Sbj",
+            "shape": "Scd",
             "locationName": "statusSet"
           }
         }
@@ -27481,11 +28953,11 @@ module.exports={
           "PrincipalArn"
         ],
         "members": {
-          "Resource": {
-            "locationName": "resource"
-          },
           "PrincipalArn": {
             "locationName": "principalArn"
+          },
+          "Resource": {
+            "locationName": "resource"
           }
         }
       },
@@ -27493,7 +28965,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Statuses": {
-            "shape": "Sbj",
+            "shape": "Scd",
             "locationName": "statusSet"
           }
         }
@@ -27503,51 +28975,51 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "ImageId",
-          "Attribute"
+          "Attribute",
+          "ImageId"
         ],
         "members": {
+          "Attribute": {},
+          "ImageId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "ImageId": {},
-          "Attribute": {}
+          }
         }
       },
       "output": {
         "type": "structure",
         "members": {
+          "BlockDeviceMappings": {
+            "shape": "Sck",
+            "locationName": "blockDeviceMapping"
+          },
           "ImageId": {
             "locationName": "imageId"
           },
           "LaunchPermissions": {
-            "shape": "Sbq",
+            "shape": "Scl",
             "locationName": "launchPermission"
           },
           "ProductCodes": {
-            "shape": "Sbt",
+            "shape": "Sbg",
             "locationName": "productCodes"
           },
+          "Description": {
+            "shape": "S42",
+            "locationName": "description"
+          },
           "KernelId": {
-            "shape": "S3w",
+            "shape": "S42",
             "locationName": "kernel"
           },
           "RamdiskId": {
-            "shape": "S3w",
+            "shape": "S42",
             "locationName": "ramdisk"
           },
-          "Description": {
-            "shape": "S3w",
-            "locationName": "description"
-          },
           "SriovNetSupport": {
-            "shape": "S3w",
+            "shape": "S42",
             "locationName": "sriovNetSupport"
-          },
-          "BlockDeviceMappings": {
-            "shape": "Sbw",
-            "locationName": "blockDeviceMapping"
           }
         }
       }
@@ -27556,9 +29028,16 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
+          "ExecutableUsers": {
+            "locationName": "ExecutableBy",
+            "type": "list",
+            "member": {
+              "locationName": "ExecutableBy"
+            }
+          },
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
           },
           "ImageIds": {
             "locationName": "ImageId",
@@ -27568,19 +29047,12 @@ module.exports={
             }
           },
           "Owners": {
-            "shape": "Sbz",
+            "shape": "Sb7",
             "locationName": "Owner"
           },
-          "ExecutableUsers": {
-            "locationName": "ExecutableBy",
-            "type": "list",
-            "member": {
-              "locationName": "ExecutableBy"
-            }
-          },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       },
@@ -27594,54 +29066,57 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
+                "Architecture": {
+                  "locationName": "architecture"
+                },
+                "CreationDate": {
+                  "locationName": "creationDate"
+                },
                 "ImageId": {
                   "locationName": "imageId"
                 },
                 "ImageLocation": {
                   "locationName": "imageLocation"
                 },
-                "State": {
-                  "locationName": "imageState"
-                },
-                "OwnerId": {
-                  "locationName": "imageOwnerId"
-                },
-                "CreationDate": {
-                  "locationName": "creationDate"
+                "ImageType": {
+                  "locationName": "imageType"
                 },
                 "Public": {
                   "locationName": "isPublic",
                   "type": "boolean"
                 },
-                "ProductCodes": {
-                  "shape": "Sbt",
-                  "locationName": "productCodes"
-                },
-                "Architecture": {
-                  "locationName": "architecture"
-                },
-                "ImageType": {
-                  "locationName": "imageType"
-                },
                 "KernelId": {
                   "locationName": "kernelId"
                 },
-                "RamdiskId": {
-                  "locationName": "ramdiskId"
+                "OwnerId": {
+                  "locationName": "imageOwnerId"
                 },
                 "Platform": {
                   "locationName": "platform"
                 },
-                "SriovNetSupport": {
-                  "locationName": "sriovNetSupport"
+                "ProductCodes": {
+                  "shape": "Sbg",
+                  "locationName": "productCodes"
+                },
+                "RamdiskId": {
+                  "locationName": "ramdiskId"
+                },
+                "State": {
+                  "locationName": "imageState"
+                },
+                "BlockDeviceMappings": {
+                  "shape": "Sck",
+                  "locationName": "blockDeviceMapping"
+                },
+                "Description": {
+                  "locationName": "description"
                 },
                 "EnaSupport": {
                   "locationName": "enaSupport",
                   "type": "boolean"
                 },
-                "StateReason": {
-                  "shape": "Sc7",
-                  "locationName": "stateReason"
+                "Hypervisor": {
+                  "locationName": "hypervisor"
                 },
                 "ImageOwnerAlias": {
                   "locationName": "imageOwnerAlias"
@@ -27649,28 +29124,25 @@ module.exports={
                 "Name": {
                   "locationName": "name"
                 },
-                "Description": {
-                  "locationName": "description"
+                "RootDeviceName": {
+                  "locationName": "rootDeviceName"
                 },
                 "RootDeviceType": {
                   "locationName": "rootDeviceType"
                 },
-                "RootDeviceName": {
-                  "locationName": "rootDeviceName"
+                "SriovNetSupport": {
+                  "locationName": "sriovNetSupport"
                 },
-                "BlockDeviceMappings": {
-                  "shape": "Sbw",
-                  "locationName": "blockDeviceMapping"
-                },
-                "VirtualizationType": {
-                  "locationName": "virtualizationType"
+                "StateReason": {
+                  "shape": "Scz",
+                  "locationName": "stateReason"
                 },
                 "Tags": {
                   "shape": "Sj",
                   "locationName": "tagSet"
                 },
-                "Hypervisor": {
-                  "locationName": "hypervisor"
+                "VirtualizationType": {
+                  "locationName": "virtualizationType"
                 }
               }
             }
@@ -27685,17 +29157,17 @@ module.exports={
           "DryRun": {
             "type": "boolean"
           },
+          "Filters": {
+            "shape": "S9c"
+          },
           "ImportTaskIds": {
-            "shape": "Scc",
+            "shape": "Sd2",
             "locationName": "ImportTaskId"
           },
-          "NextToken": {},
           "MaxResults": {
             "type": "integer"
           },
-          "Filters": {
-            "shape": "S93"
-          }
+          "NextToken": {}
         }
       },
       "output": {
@@ -27708,11 +29180,20 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
-                "ImportTaskId": {
-                  "locationName": "importTaskId"
-                },
                 "Architecture": {
                   "locationName": "architecture"
+                },
+                "Description": {
+                  "locationName": "description"
+                },
+                "Hypervisor": {
+                  "locationName": "hypervisor"
+                },
+                "ImageId": {
+                  "locationName": "imageId"
+                },
+                "ImportTaskId": {
+                  "locationName": "importTaskId"
                 },
                 "LicenseType": {
                   "locationName": "licenseType"
@@ -27720,27 +29201,18 @@ module.exports={
                 "Platform": {
                   "locationName": "platform"
                 },
-                "Hypervisor": {
-                  "locationName": "hypervisor"
-                },
-                "Description": {
-                  "locationName": "description"
-                },
-                "SnapshotDetails": {
-                  "shape": "Scg",
-                  "locationName": "snapshotDetailSet"
-                },
-                "ImageId": {
-                  "locationName": "imageId"
-                },
                 "Progress": {
                   "locationName": "progress"
                 },
-                "StatusMessage": {
-                  "locationName": "statusMessage"
+                "SnapshotDetails": {
+                  "shape": "Sd6",
+                  "locationName": "snapshotDetailSet"
                 },
                 "Status": {
                   "locationName": "status"
+                },
+                "StatusMessage": {
+                  "locationName": "statusMessage"
                 }
               }
             }
@@ -27758,17 +29230,17 @@ module.exports={
           "DryRun": {
             "type": "boolean"
           },
+          "Filters": {
+            "shape": "S9c"
+          },
           "ImportTaskIds": {
-            "shape": "Scc",
+            "shape": "Sd2",
             "locationName": "ImportTaskId"
           },
-          "NextToken": {},
           "MaxResults": {
             "type": "integer"
           },
-          "Filters": {
-            "shape": "S93"
-          }
+          "NextToken": {}
         }
       },
       "output": {
@@ -27781,15 +29253,15 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
+                "Description": {
+                  "locationName": "description"
+                },
                 "ImportTaskId": {
                   "locationName": "importTaskId"
                 },
                 "SnapshotTaskDetail": {
-                  "shape": "Scn",
+                  "shape": "Sdd",
                   "locationName": "snapshotTaskDetail"
-                },
-                "Description": {
-                  "locationName": "description"
                 }
               }
             }
@@ -27804,83 +29276,83 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "InstanceId",
-          "Attribute"
+          "Attribute",
+          "InstanceId"
         ],
         "members": {
+          "Attribute": {
+            "locationName": "attribute"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
           },
           "InstanceId": {
             "locationName": "instanceId"
-          },
-          "Attribute": {
-            "locationName": "attribute"
           }
         }
       },
       "output": {
         "type": "structure",
         "members": {
+          "Groups": {
+            "shape": "S5w",
+            "locationName": "groupSet"
+          },
+          "BlockDeviceMappings": {
+            "shape": "Sdh",
+            "locationName": "blockDeviceMapping"
+          },
+          "DisableApiTermination": {
+            "shape": "Sdk",
+            "locationName": "disableApiTermination"
+          },
+          "EnaSupport": {
+            "shape": "Sdk",
+            "locationName": "enaSupport"
+          },
+          "EbsOptimized": {
+            "shape": "Sdk",
+            "locationName": "ebsOptimized"
+          },
           "InstanceId": {
             "locationName": "instanceId"
           },
+          "InstanceInitiatedShutdownBehavior": {
+            "shape": "S42",
+            "locationName": "instanceInitiatedShutdownBehavior"
+          },
           "InstanceType": {
-            "shape": "S3w",
+            "shape": "S42",
             "locationName": "instanceType"
           },
           "KernelId": {
-            "shape": "S3w",
+            "shape": "S42",
             "locationName": "kernel"
           },
-          "RamdiskId": {
-            "shape": "S3w",
-            "locationName": "ramdisk"
-          },
-          "UserData": {
-            "shape": "S3w",
-            "locationName": "userData"
-          },
-          "DisableApiTermination": {
-            "shape": "Scr",
-            "locationName": "disableApiTermination"
-          },
-          "InstanceInitiatedShutdownBehavior": {
-            "shape": "S3w",
-            "locationName": "instanceInitiatedShutdownBehavior"
-          },
-          "RootDeviceName": {
-            "shape": "S3w",
-            "locationName": "rootDeviceName"
-          },
-          "BlockDeviceMappings": {
-            "shape": "Scs",
-            "locationName": "blockDeviceMapping"
-          },
           "ProductCodes": {
-            "shape": "Sbt",
+            "shape": "Sbg",
             "locationName": "productCodes"
           },
-          "EbsOptimized": {
-            "shape": "Scr",
-            "locationName": "ebsOptimized"
+          "RamdiskId": {
+            "shape": "S42",
+            "locationName": "ramdisk"
           },
-          "SriovNetSupport": {
-            "shape": "S3w",
-            "locationName": "sriovNetSupport"
-          },
-          "EnaSupport": {
-            "shape": "Scr",
-            "locationName": "enaSupport"
+          "RootDeviceName": {
+            "shape": "S42",
+            "locationName": "rootDeviceName"
           },
           "SourceDestCheck": {
-            "shape": "Scr",
+            "shape": "Sdk",
             "locationName": "sourceDestCheck"
           },
-          "Groups": {
-            "shape": "S5p",
-            "locationName": "groupSet"
+          "SriovNetSupport": {
+            "shape": "S42",
+            "locationName": "sriovNetSupport"
+          },
+          "UserData": {
+            "shape": "S42",
+            "locationName": "userData"
           }
         }
       }
@@ -27889,21 +29361,21 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
+          },
+          "InstanceIds": {
+            "shape": "S9w",
+            "locationName": "InstanceId"
+          },
+          "MaxResults": {
+            "type": "integer"
+          },
+          "NextToken": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "InstanceIds": {
-            "shape": "S9m",
-            "locationName": "InstanceId"
-          },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
-          },
-          "NextToken": {},
-          "MaxResults": {
-            "type": "integer"
           },
           "IncludeAllInstances": {
             "locationName": "includeAllInstances",
@@ -27921,9 +29393,6 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
-                "InstanceId": {
-                  "locationName": "instanceId"
-                },
                 "AvailabilityZone": {
                   "locationName": "availabilityZone"
                 },
@@ -27940,28 +29409,31 @@ module.exports={
                       "Description": {
                         "locationName": "description"
                       },
-                      "NotBefore": {
-                        "locationName": "notBefore",
-                        "type": "timestamp"
-                      },
                       "NotAfter": {
                         "locationName": "notAfter",
+                        "type": "timestamp"
+                      },
+                      "NotBefore": {
+                        "locationName": "notBefore",
                         "type": "timestamp"
                       }
                     }
                   }
                 },
+                "InstanceId": {
+                  "locationName": "instanceId"
+                },
                 "InstanceState": {
-                  "shape": "Sd2",
+                  "shape": "Sds",
                   "locationName": "instanceState"
                 },
-                "SystemStatus": {
-                  "shape": "Sd4",
-                  "locationName": "systemStatus"
-                },
                 "InstanceStatus": {
-                  "shape": "Sd4",
+                  "shape": "Sdu",
                   "locationName": "instanceStatus"
+                },
+                "SystemStatus": {
+                  "shape": "Sdu",
+                  "locationName": "systemStatus"
                 }
               }
             }
@@ -27976,24 +29448,24 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
+          },
+          "InstanceIds": {
+            "shape": "S9w",
+            "locationName": "InstanceId"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
           },
-          "InstanceIds": {
-            "shape": "S9m",
-            "locationName": "InstanceId"
-          },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
-          },
-          "NextToken": {
-            "locationName": "nextToken"
-          },
           "MaxResults": {
             "locationName": "maxResults",
             "type": "integer"
+          },
+          "NextToken": {
+            "locationName": "nextToken"
           }
         }
       },
@@ -28004,7 +29476,7 @@ module.exports={
             "locationName": "reservationSet",
             "type": "list",
             "member": {
-              "shape": "Sdd",
+              "shape": "Se3",
               "locationName": "item"
             }
           },
@@ -28018,6 +29490,10 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
@@ -28025,10 +29501,6 @@ module.exports={
           "InternetGatewayIds": {
             "shape": "S2z",
             "locationName": "internetGatewayId"
-          },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
           }
         }
       },
@@ -28039,7 +29511,7 @@ module.exports={
             "locationName": "internetGatewaySet",
             "type": "list",
             "member": {
-              "shape": "S4v",
+              "shape": "S51",
               "locationName": "item"
             }
           }
@@ -28050,9 +29522,9 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
           },
           "KeyNames": {
             "locationName": "KeyName",
@@ -28061,9 +29533,9 @@ module.exports={
               "locationName": "KeyName"
             }
           },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       },
@@ -28077,11 +29549,11 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
-                "KeyName": {
-                  "locationName": "keyName"
-                },
                 "KeyFingerprint": {
                   "locationName": "keyFingerprint"
+                },
+                "KeyName": {
+                  "locationName": "keyName"
                 }
               }
             }
@@ -28093,24 +29565,24 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "filter"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
           },
-          "PublicIps": {
-            "shape": "S2z",
-            "locationName": "publicIp"
+          "MaxResults": {
+            "locationName": "maxResults",
+            "type": "integer"
           },
           "NextToken": {
             "locationName": "nextToken"
           },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "filter"
-          },
-          "MaxResults": {
-            "locationName": "maxResults",
-            "type": "integer"
+          "PublicIps": {
+            "shape": "S2z",
+            "locationName": "publicIp"
           }
         }
       },
@@ -28124,11 +29596,11 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
-                "PublicIp": {
-                  "locationName": "publicIp"
-                },
                 "MoveStatus": {
                   "locationName": "moveStatus"
+                },
+                "PublicIp": {
+                  "locationName": "publicIp"
                 }
               }
             }
@@ -28143,15 +29615,15 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "NatGatewayIds": {
-            "shape": "S2z",
-            "locationName": "NatGatewayId"
-          },
           "Filter": {
-            "shape": "S93"
+            "shape": "S9c"
           },
           "MaxResults": {
             "type": "integer"
+          },
+          "NatGatewayIds": {
+            "shape": "S2z",
+            "locationName": "NatGatewayId"
           },
           "NextToken": {}
         }
@@ -28163,7 +29635,7 @@ module.exports={
             "locationName": "natGatewaySet",
             "type": "list",
             "member": {
-              "shape": "S50",
+              "shape": "S56",
               "locationName": "item"
             }
           },
@@ -28177,6 +29649,10 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
@@ -28184,10 +29660,6 @@ module.exports={
           "NetworkAclIds": {
             "shape": "S2z",
             "locationName": "NetworkAclId"
-          },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
           }
         }
       },
@@ -28198,7 +29670,7 @@ module.exports={
             "locationName": "networkAclSet",
             "type": "list",
             "member": {
-              "shape": "S57",
+              "shape": "S5d",
               "locationName": "item"
             }
           }
@@ -28212,39 +29684,75 @@ module.exports={
           "NetworkInterfaceId"
         ],
         "members": {
+          "Attribute": {
+            "locationName": "attribute"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
           },
           "NetworkInterfaceId": {
             "locationName": "networkInterfaceId"
-          },
-          "Attribute": {
-            "locationName": "attribute"
           }
         }
       },
       "output": {
         "type": "structure",
         "members": {
+          "Attachment": {
+            "shape": "S5v",
+            "locationName": "attachment"
+          },
+          "Description": {
+            "shape": "S42",
+            "locationName": "description"
+          },
+          "Groups": {
+            "shape": "S5w",
+            "locationName": "groupSet"
+          },
           "NetworkInterfaceId": {
             "locationName": "networkInterfaceId"
           },
-          "Description": {
-            "shape": "S3w",
-            "locationName": "description"
-          },
           "SourceDestCheck": {
-            "shape": "Scr",
+            "shape": "Sdk",
             "locationName": "sourceDestCheck"
+          }
+        }
+      }
+    },
+    "DescribeNetworkInterfacePermissions": {
+      "input": {
+        "type": "structure",
+        "members": {
+          "NetworkInterfacePermissionIds": {
+            "locationName": "NetworkInterfacePermissionId",
+            "type": "list",
+            "member": {}
           },
-          "Groups": {
-            "shape": "S5p",
-            "locationName": "groupSet"
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
           },
-          "Attachment": {
-            "shape": "S5r",
-            "locationName": "attachment"
+          "NextToken": {},
+          "MaxResults": {
+            "type": "integer"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "NetworkInterfacePermissions": {
+            "locationName": "networkInterfacePermissions",
+            "type": "list",
+            "member": {
+              "shape": "S67",
+              "locationName": "item"
+            }
+          },
+          "NextToken": {
+            "locationName": "nextToken"
           }
         }
       }
@@ -28253,6 +29761,10 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "filter"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
@@ -28263,10 +29775,6 @@ module.exports={
             "member": {
               "locationName": "item"
             }
-          },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "filter"
           }
         }
       },
@@ -28277,7 +29785,7 @@ module.exports={
             "locationName": "networkInterfaceSet",
             "type": "list",
             "member": {
-              "shape": "S5n",
+              "shape": "S5t",
               "locationName": "item"
             }
           }
@@ -28288,6 +29796,10 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
@@ -28296,10 +29808,6 @@ module.exports={
             "locationName": "groupName",
             "type": "list",
             "member": {}
-          },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
           }
         }
       },
@@ -28316,11 +29824,11 @@ module.exports={
                 "GroupName": {
                   "locationName": "groupName"
                 },
-                "Strategy": {
-                  "locationName": "strategy"
-                },
                 "State": {
                   "locationName": "state"
+                },
+                "Strategy": {
+                  "locationName": "strategy"
                 }
               }
             }
@@ -28335,23 +29843,26 @@ module.exports={
           "DryRun": {
             "type": "boolean"
           },
-          "PrefixListIds": {
-            "shape": "S2z",
-            "locationName": "PrefixListId"
-          },
           "Filters": {
-            "shape": "S93",
+            "shape": "S9c",
             "locationName": "Filter"
           },
           "MaxResults": {
             "type": "integer"
           },
-          "NextToken": {}
+          "NextToken": {},
+          "PrefixListIds": {
+            "shape": "S2z",
+            "locationName": "PrefixListId"
+          }
         }
       },
       "output": {
         "type": "structure",
         "members": {
+          "NextToken": {
+            "locationName": "nextToken"
+          },
           "PrefixLists": {
             "locationName": "prefixListSet",
             "type": "list",
@@ -28359,21 +29870,18 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
+                "Cidrs": {
+                  "shape": "S2z",
+                  "locationName": "cidrSet"
+                },
                 "PrefixListId": {
                   "locationName": "prefixListId"
                 },
                 "PrefixListName": {
                   "locationName": "prefixListName"
-                },
-                "Cidrs": {
-                  "shape": "S2z",
-                  "locationName": "cidrSet"
                 }
               }
             }
-          },
-          "NextToken": {
-            "locationName": "nextToken"
           }
         }
       }
@@ -28382,9 +29890,9 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
           },
           "RegionNames": {
             "locationName": "RegionName",
@@ -28393,9 +29901,9 @@ module.exports={
               "locationName": "RegionName"
             }
           },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       },
@@ -28409,11 +29917,11 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
-                "RegionName": {
-                  "locationName": "regionName"
-                },
                 "Endpoint": {
                   "locationName": "regionEndpoint"
+                },
+                "RegionName": {
+                  "locationName": "regionName"
                 }
               }
             }
@@ -28425,22 +29933,22 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
+          },
+          "OfferingClass": {},
+          "ReservedInstancesIds": {
+            "shape": "Sfu",
+            "locationName": "ReservedInstancesId"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
           },
-          "ReservedInstancesIds": {
-            "shape": "Sex",
-            "locationName": "ReservedInstancesId"
-          },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
-          },
           "OfferingType": {
             "locationName": "offeringType"
-          },
-          "OfferingClass": {}
+          }
         }
       },
       "output": {
@@ -28453,30 +29961,16 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
-                "ReservedInstancesId": {
-                  "locationName": "reservedInstancesId"
-                },
-                "InstanceType": {
-                  "locationName": "instanceType"
-                },
                 "AvailabilityZone": {
                   "locationName": "availabilityZone"
-                },
-                "Start": {
-                  "locationName": "start",
-                  "type": "timestamp"
-                },
-                "End": {
-                  "locationName": "end",
-                  "type": "timestamp"
                 },
                 "Duration": {
                   "locationName": "duration",
                   "type": "long"
                 },
-                "UsagePrice": {
-                  "locationName": "usagePrice",
-                  "type": "float"
+                "End": {
+                  "locationName": "end",
+                  "type": "timestamp"
                 },
                 "FixedPrice": {
                   "locationName": "fixedPrice",
@@ -28486,34 +29980,48 @@ module.exports={
                   "locationName": "instanceCount",
                   "type": "integer"
                 },
+                "InstanceType": {
+                  "locationName": "instanceType"
+                },
                 "ProductDescription": {
                   "locationName": "productDescription"
+                },
+                "ReservedInstancesId": {
+                  "locationName": "reservedInstancesId"
+                },
+                "Start": {
+                  "locationName": "start",
+                  "type": "timestamp"
                 },
                 "State": {
                   "locationName": "state"
                 },
-                "Tags": {
-                  "shape": "Sj",
-                  "locationName": "tagSet"
+                "UsagePrice": {
+                  "locationName": "usagePrice",
+                  "type": "float"
+                },
+                "CurrencyCode": {
+                  "locationName": "currencyCode"
                 },
                 "InstanceTenancy": {
                   "locationName": "instanceTenancy"
                 },
-                "CurrencyCode": {
-                  "locationName": "currencyCode"
+                "OfferingClass": {
+                  "locationName": "offeringClass"
                 },
                 "OfferingType": {
                   "locationName": "offeringType"
                 },
                 "RecurringCharges": {
-                  "shape": "Sf6",
+                  "shape": "Sg2",
                   "locationName": "recurringCharges"
-                },
-                "OfferingClass": {
-                  "locationName": "offeringClass"
                 },
                 "Scope": {
                   "locationName": "scope"
+                },
+                "Tags": {
+                  "shape": "Sj",
+                  "locationName": "tagSet"
                 }
               }
             }
@@ -28525,15 +30033,15 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
+          },
           "ReservedInstancesId": {
             "locationName": "reservedInstancesId"
           },
           "ReservedInstancesListingId": {
             "locationName": "reservedInstancesListingId"
-          },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
           }
         }
       },
@@ -28551,6 +30059,10 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
+          },
           "ReservedInstancesModificationIds": {
             "locationName": "ReservedInstancesModificationId",
             "type": "list",
@@ -28560,16 +30072,15 @@ module.exports={
           },
           "NextToken": {
             "locationName": "nextToken"
-          },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
           }
         }
       },
       "output": {
         "type": "structure",
         "members": {
+          "NextToken": {
+            "locationName": "nextToken"
+          },
           "ReservedInstancesModifications": {
             "locationName": "reservedInstancesModificationsSet",
             "type": "list",
@@ -28577,8 +30088,33 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
-                "ReservedInstancesModificationId": {
-                  "locationName": "reservedInstancesModificationId"
+                "ClientToken": {
+                  "locationName": "clientToken"
+                },
+                "CreateDate": {
+                  "locationName": "createDate",
+                  "type": "timestamp"
+                },
+                "EffectiveDate": {
+                  "locationName": "effectiveDate",
+                  "type": "timestamp"
+                },
+                "ModificationResults": {
+                  "locationName": "modificationResultSet",
+                  "type": "list",
+                  "member": {
+                    "locationName": "item",
+                    "type": "structure",
+                    "members": {
+                      "ReservedInstancesId": {
+                        "locationName": "reservedInstancesId"
+                      },
+                      "TargetConfiguration": {
+                        "shape": "Sgf",
+                        "locationName": "targetConfiguration"
+                      }
+                    }
+                  }
                 },
                 "ReservedInstancesIds": {
                   "locationName": "reservedInstancesSet",
@@ -28593,34 +30129,8 @@ module.exports={
                     }
                   }
                 },
-                "ModificationResults": {
-                  "locationName": "modificationResultSet",
-                  "type": "list",
-                  "member": {
-                    "locationName": "item",
-                    "type": "structure",
-                    "members": {
-                      "ReservedInstancesId": {
-                        "locationName": "reservedInstancesId"
-                      },
-                      "TargetConfiguration": {
-                        "shape": "Sfl",
-                        "locationName": "targetConfiguration"
-                      }
-                    }
-                  }
-                },
-                "CreateDate": {
-                  "locationName": "createDate",
-                  "type": "timestamp"
-                },
-                "UpdateDate": {
-                  "locationName": "updateDate",
-                  "type": "timestamp"
-                },
-                "EffectiveDate": {
-                  "locationName": "effectiveDate",
-                  "type": "timestamp"
+                "ReservedInstancesModificationId": {
+                  "locationName": "reservedInstancesModificationId"
                 },
                 "Status": {
                   "locationName": "status"
@@ -28628,14 +30138,12 @@ module.exports={
                 "StatusMessage": {
                   "locationName": "statusMessage"
                 },
-                "ClientToken": {
-                  "locationName": "clientToken"
+                "UpdateDate": {
+                  "locationName": "updateDate",
+                  "type": "timestamp"
                 }
               }
             }
-          },
-          "NextToken": {
-            "locationName": "nextToken"
           }
         }
       }
@@ -28644,48 +30152,48 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
-          "ReservedInstancesOfferingIds": {
-            "locationName": "ReservedInstancesOfferingId",
-            "type": "list",
-            "member": {}
-          },
-          "InstanceType": {},
           "AvailabilityZone": {},
-          "ProductDescription": {},
           "Filters": {
-            "shape": "S93",
+            "shape": "S9c",
             "locationName": "Filter"
-          },
-          "InstanceTenancy": {
-            "locationName": "instanceTenancy"
-          },
-          "OfferingType": {
-            "locationName": "offeringType"
-          },
-          "NextToken": {
-            "locationName": "nextToken"
-          },
-          "MaxResults": {
-            "locationName": "maxResults",
-            "type": "integer"
           },
           "IncludeMarketplace": {
             "type": "boolean"
           },
-          "MinDuration": {
-            "type": "long"
-          },
+          "InstanceType": {},
           "MaxDuration": {
             "type": "long"
           },
           "MaxInstanceCount": {
             "type": "integer"
           },
-          "OfferingClass": {}
+          "MinDuration": {
+            "type": "long"
+          },
+          "OfferingClass": {},
+          "ProductDescription": {},
+          "ReservedInstancesOfferingIds": {
+            "locationName": "ReservedInstancesOfferingId",
+            "type": "list",
+            "member": {}
+          },
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
+          },
+          "InstanceTenancy": {
+            "locationName": "instanceTenancy"
+          },
+          "MaxResults": {
+            "locationName": "maxResults",
+            "type": "integer"
+          },
+          "NextToken": {
+            "locationName": "nextToken"
+          },
+          "OfferingType": {
+            "locationName": "offeringType"
+          }
         }
       },
       "output": {
@@ -28698,12 +30206,6 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
-                "ReservedInstancesOfferingId": {
-                  "locationName": "reservedInstancesOfferingId"
-                },
-                "InstanceType": {
-                  "locationName": "instanceType"
-                },
                 "AvailabilityZone": {
                   "locationName": "availabilityZone"
                 },
@@ -28711,33 +30213,38 @@ module.exports={
                   "locationName": "duration",
                   "type": "long"
                 },
-                "UsagePrice": {
-                  "locationName": "usagePrice",
-                  "type": "float"
-                },
                 "FixedPrice": {
                   "locationName": "fixedPrice",
                   "type": "float"
                 },
+                "InstanceType": {
+                  "locationName": "instanceType"
+                },
                 "ProductDescription": {
                   "locationName": "productDescription"
                 },
-                "InstanceTenancy": {
-                  "locationName": "instanceTenancy"
+                "ReservedInstancesOfferingId": {
+                  "locationName": "reservedInstancesOfferingId"
+                },
+                "UsagePrice": {
+                  "locationName": "usagePrice",
+                  "type": "float"
                 },
                 "CurrencyCode": {
                   "locationName": "currencyCode"
                 },
-                "OfferingType": {
-                  "locationName": "offeringType"
-                },
-                "RecurringCharges": {
-                  "shape": "Sf6",
-                  "locationName": "recurringCharges"
+                "InstanceTenancy": {
+                  "locationName": "instanceTenancy"
                 },
                 "Marketplace": {
                   "locationName": "marketplace",
                   "type": "boolean"
+                },
+                "OfferingClass": {
+                  "locationName": "offeringClass"
+                },
+                "OfferingType": {
+                  "locationName": "offeringType"
                 },
                 "PricingDetails": {
                   "locationName": "pricingDetailsSet",
@@ -28746,19 +30253,20 @@ module.exports={
                     "locationName": "item",
                     "type": "structure",
                     "members": {
-                      "Price": {
-                        "locationName": "price",
-                        "type": "double"
-                      },
                       "Count": {
                         "locationName": "count",
                         "type": "integer"
+                      },
+                      "Price": {
+                        "locationName": "price",
+                        "type": "double"
                       }
                     }
                   }
                 },
-                "OfferingClass": {
-                  "locationName": "offeringClass"
+                "RecurringCharges": {
+                  "shape": "Sg2",
+                  "locationName": "recurringCharges"
                 },
                 "Scope": {
                   "locationName": "scope"
@@ -28776,6 +30284,10 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
@@ -28783,10 +30295,6 @@ module.exports={
           "RouteTableIds": {
             "shape": "S2z",
             "locationName": "RouteTableId"
-          },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
           }
         }
       },
@@ -28797,7 +30305,7 @@ module.exports={
             "locationName": "routeTableSet",
             "type": "list",
             "member": {
-              "shape": "S68",
+              "shape": "S6k",
               "locationName": "item"
             }
           }
@@ -28808,13 +30316,42 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "Recurrence",
-          "FirstSlotStartTimeRange"
+          "FirstSlotStartTimeRange",
+          "Recurrence"
         ],
         "members": {
           "DryRun": {
             "type": "boolean"
           },
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
+          },
+          "FirstSlotStartTimeRange": {
+            "type": "structure",
+            "required": [
+              "EarliestTime",
+              "LatestTime"
+            ],
+            "members": {
+              "EarliestTime": {
+                "type": "timestamp"
+              },
+              "LatestTime": {
+                "type": "timestamp"
+              }
+            }
+          },
+          "MaxResults": {
+            "type": "integer"
+          },
+          "MaxSlotDurationInHours": {
+            "type": "integer"
+          },
+          "MinSlotDurationInHours": {
+            "type": "integer"
+          },
+          "NextToken": {},
           "Recurrence": {
             "type": "structure",
             "members": {
@@ -28835,35 +30372,6 @@ module.exports={
               },
               "OccurrenceUnit": {}
             }
-          },
-          "FirstSlotStartTimeRange": {
-            "type": "structure",
-            "required": [
-              "EarliestTime",
-              "LatestTime"
-            ],
-            "members": {
-              "EarliestTime": {
-                "type": "timestamp"
-              },
-              "LatestTime": {
-                "type": "timestamp"
-              }
-            }
-          },
-          "MinSlotDurationInHours": {
-            "type": "integer"
-          },
-          "MaxSlotDurationInHours": {
-            "type": "integer"
-          },
-          "NextToken": {},
-          "MaxResults": {
-            "type": "integer"
-          },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
           }
         }
       },
@@ -28880,28 +30388,12 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
-                "InstanceType": {
-                  "locationName": "instanceType"
-                },
-                "Platform": {
-                  "locationName": "platform"
-                },
-                "NetworkPlatform": {
-                  "locationName": "networkPlatform"
-                },
                 "AvailabilityZone": {
                   "locationName": "availabilityZone"
                 },
-                "PurchaseToken": {
-                  "locationName": "purchaseToken"
-                },
-                "SlotDurationInHours": {
-                  "locationName": "slotDurationInHours",
+                "AvailableInstanceCount": {
+                  "locationName": "availableInstanceCount",
                   "type": "integer"
-                },
-                "Recurrence": {
-                  "shape": "Sg3",
-                  "locationName": "recurrence"
                 },
                 "FirstSlotStartTime": {
                   "locationName": "firstSlotStartTime",
@@ -28910,20 +30402,36 @@ module.exports={
                 "HourlyPrice": {
                   "locationName": "hourlyPrice"
                 },
-                "TotalScheduledInstanceHours": {
-                  "locationName": "totalScheduledInstanceHours",
-                  "type": "integer"
+                "InstanceType": {
+                  "locationName": "instanceType"
                 },
-                "AvailableInstanceCount": {
-                  "locationName": "availableInstanceCount",
+                "MaxTermDurationInDays": {
+                  "locationName": "maxTermDurationInDays",
                   "type": "integer"
                 },
                 "MinTermDurationInDays": {
                   "locationName": "minTermDurationInDays",
                   "type": "integer"
                 },
-                "MaxTermDurationInDays": {
-                  "locationName": "maxTermDurationInDays",
+                "NetworkPlatform": {
+                  "locationName": "networkPlatform"
+                },
+                "Platform": {
+                  "locationName": "platform"
+                },
+                "PurchaseToken": {
+                  "locationName": "purchaseToken"
+                },
+                "Recurrence": {
+                  "shape": "Sgz",
+                  "locationName": "recurrence"
+                },
+                "SlotDurationInHours": {
+                  "locationName": "slotDurationInHours",
+                  "type": "integer"
+                },
+                "TotalScheduledInstanceHours": {
+                  "locationName": "totalScheduledInstanceHours",
                   "type": "integer"
                 }
               }
@@ -28939,6 +30447,14 @@ module.exports={
           "DryRun": {
             "type": "boolean"
           },
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
+          },
+          "MaxResults": {
+            "type": "integer"
+          },
+          "NextToken": {},
           "ScheduledInstanceIds": {
             "locationName": "ScheduledInstanceId",
             "type": "list",
@@ -28956,14 +30472,6 @@ module.exports={
                 "type": "timestamp"
               }
             }
-          },
-          "NextToken": {},
-          "MaxResults": {
-            "type": "integer"
-          },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
           }
         }
       },
@@ -28977,7 +30485,7 @@ module.exports={
             "locationName": "scheduledInstanceSet",
             "type": "list",
             "member": {
-              "shape": "Sga",
+              "shape": "Sh6",
               "locationName": "item"
             }
           }
@@ -29035,21 +30543,21 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
-          "GroupNames": {
-            "shape": "Sgh",
-            "locationName": "GroupName"
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
           },
           "GroupIds": {
             "shape": "S1j",
             "locationName": "GroupId"
           },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
+          "GroupNames": {
+            "shape": "Shd",
+            "locationName": "GroupName"
+          },
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       },
@@ -29063,32 +30571,32 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
-                "OwnerId": {
-                  "locationName": "ownerId"
+                "Description": {
+                  "locationName": "groupDescription"
                 },
                 "GroupName": {
                   "locationName": "groupName"
-                },
-                "GroupId": {
-                  "locationName": "groupId"
-                },
-                "Description": {
-                  "locationName": "groupDescription"
                 },
                 "IpPermissions": {
                   "shape": "S1w",
                   "locationName": "ipPermissions"
                 },
+                "OwnerId": {
+                  "locationName": "ownerId"
+                },
+                "GroupId": {
+                  "locationName": "groupId"
+                },
                 "IpPermissionsEgress": {
                   "shape": "S1w",
                   "locationName": "ipPermissionsEgress"
                 },
-                "VpcId": {
-                  "locationName": "vpcId"
-                },
                 "Tags": {
                   "shape": "Sj",
                   "locationName": "tagSet"
+                },
+                "VpcId": {
+                  "locationName": "vpcId"
                 }
               }
             }
@@ -29100,31 +30608,31 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "SnapshotId",
-          "Attribute"
+          "Attribute",
+          "SnapshotId"
         ],
         "members": {
+          "Attribute": {},
+          "SnapshotId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "SnapshotId": {},
-          "Attribute": {}
+          }
         }
       },
       "output": {
         "type": "structure",
         "members": {
-          "SnapshotId": {
-            "locationName": "snapshotId"
-          },
           "CreateVolumePermissions": {
-            "shape": "Sgo",
+            "shape": "Shk",
             "locationName": "createVolumePermission"
           },
           "ProductCodes": {
-            "shape": "Sbt",
+            "shape": "Sbg",
             "locationName": "productCodes"
+          },
+          "SnapshotId": {
+            "locationName": "snapshotId"
           }
         }
       }
@@ -29133,9 +30641,22 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
+          },
+          "MaxResults": {
+            "type": "integer"
+          },
+          "NextToken": {},
+          "OwnerIds": {
+            "shape": "Sb7",
+            "locationName": "Owner"
+          },
+          "RestorableByUserIds": {
+            "locationName": "RestorableBy",
+            "type": "list",
+            "member": {}
           },
           "SnapshotIds": {
             "locationName": "SnapshotId",
@@ -29144,22 +30665,9 @@ module.exports={
               "locationName": "SnapshotId"
             }
           },
-          "OwnerIds": {
-            "shape": "Sbz",
-            "locationName": "Owner"
-          },
-          "RestorableByUserIds": {
-            "locationName": "RestorableBy",
-            "type": "list",
-            "member": {}
-          },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
-          },
-          "NextToken": {},
-          "MaxResults": {
-            "type": "integer"
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       },
@@ -29170,7 +30678,7 @@ module.exports={
             "locationName": "snapshotSet",
             "type": "list",
             "member": {
-              "shape": "S6k",
+              "shape": "S6w",
               "locationName": "item"
             }
           },
@@ -29194,7 +30702,7 @@ module.exports={
         "type": "structure",
         "members": {
           "SpotDatafeedSubscription": {
-            "shape": "S6o",
+            "shape": "S70",
             "locationName": "spotDatafeedSubscription"
           }
         }
@@ -29211,28 +30719,25 @@ module.exports={
             "locationName": "dryRun",
             "type": "boolean"
           },
-          "SpotFleetRequestId": {
-            "locationName": "spotFleetRequestId"
+          "MaxResults": {
+            "locationName": "maxResults",
+            "type": "integer"
           },
           "NextToken": {
             "locationName": "nextToken"
           },
-          "MaxResults": {
-            "locationName": "maxResults",
-            "type": "integer"
+          "SpotFleetRequestId": {
+            "locationName": "spotFleetRequestId"
           }
         }
       },
       "output": {
         "type": "structure",
         "required": [
-          "SpotFleetRequestId",
-          "ActiveInstances"
+          "ActiveInstances",
+          "SpotFleetRequestId"
         ],
         "members": {
-          "SpotFleetRequestId": {
-            "locationName": "spotFleetRequestId"
-          },
           "ActiveInstances": {
             "locationName": "activeInstanceSet",
             "type": "list",
@@ -29240,11 +30745,11 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
-                "InstanceType": {
-                  "locationName": "instanceType"
-                },
                 "InstanceId": {
                   "locationName": "instanceId"
+                },
+                "InstanceType": {
+                  "locationName": "instanceType"
                 },
                 "SpotInstanceRequestId": {
                   "locationName": "spotInstanceRequestId"
@@ -29257,6 +30762,9 @@ module.exports={
           },
           "NextToken": {
             "locationName": "nextToken"
+          },
+          "SpotFleetRequestId": {
+            "locationName": "spotFleetRequestId"
           }
         }
       }
@@ -29273,45 +30781,34 @@ module.exports={
             "locationName": "dryRun",
             "type": "boolean"
           },
-          "SpotFleetRequestId": {
-            "locationName": "spotFleetRequestId"
-          },
           "EventType": {
             "locationName": "eventType"
-          },
-          "StartTime": {
-            "locationName": "startTime",
-            "type": "timestamp"
-          },
-          "NextToken": {
-            "locationName": "nextToken"
           },
           "MaxResults": {
             "locationName": "maxResults",
             "type": "integer"
+          },
+          "NextToken": {
+            "locationName": "nextToken"
+          },
+          "SpotFleetRequestId": {
+            "locationName": "spotFleetRequestId"
+          },
+          "StartTime": {
+            "locationName": "startTime",
+            "type": "timestamp"
           }
         }
       },
       "output": {
         "type": "structure",
         "required": [
-          "SpotFleetRequestId",
-          "StartTime",
+          "HistoryRecords",
           "LastEvaluatedTime",
-          "HistoryRecords"
+          "SpotFleetRequestId",
+          "StartTime"
         ],
         "members": {
-          "SpotFleetRequestId": {
-            "locationName": "spotFleetRequestId"
-          },
-          "StartTime": {
-            "locationName": "startTime",
-            "type": "timestamp"
-          },
-          "LastEvaluatedTime": {
-            "locationName": "lastEvaluatedTime",
-            "type": "timestamp"
-          },
           "HistoryRecords": {
             "locationName": "historyRecordSet",
             "type": "list",
@@ -29319,38 +30816,49 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "required": [
-                "Timestamp",
+                "EventInformation",
                 "EventType",
-                "EventInformation"
+                "Timestamp"
               ],
               "members": {
-                "Timestamp": {
-                  "locationName": "timestamp",
-                  "type": "timestamp"
-                },
-                "EventType": {
-                  "locationName": "eventType"
-                },
                 "EventInformation": {
                   "locationName": "eventInformation",
                   "type": "structure",
                   "members": {
-                    "InstanceId": {
-                      "locationName": "instanceId"
+                    "EventDescription": {
+                      "locationName": "eventDescription"
                     },
                     "EventSubType": {
                       "locationName": "eventSubType"
                     },
-                    "EventDescription": {
-                      "locationName": "eventDescription"
+                    "InstanceId": {
+                      "locationName": "instanceId"
                     }
                   }
+                },
+                "EventType": {
+                  "locationName": "eventType"
+                },
+                "Timestamp": {
+                  "locationName": "timestamp",
+                  "type": "timestamp"
                 }
               }
             }
           },
+          "LastEvaluatedTime": {
+            "locationName": "lastEvaluatedTime",
+            "type": "timestamp"
+          },
           "NextToken": {
             "locationName": "nextToken"
+          },
+          "SpotFleetRequestId": {
+            "locationName": "spotFleetRequestId"
+          },
+          "StartTime": {
+            "locationName": "startTime",
+            "type": "timestamp"
           }
         }
       }
@@ -29363,16 +30871,16 @@ module.exports={
             "locationName": "dryRun",
             "type": "boolean"
           },
-          "SpotFleetRequestIds": {
-            "shape": "S2z",
-            "locationName": "spotFleetRequestId"
+          "MaxResults": {
+            "locationName": "maxResults",
+            "type": "integer"
           },
           "NextToken": {
             "locationName": "nextToken"
           },
-          "MaxResults": {
-            "locationName": "maxResults",
-            "type": "integer"
+          "SpotFleetRequestIds": {
+            "shape": "S2z",
+            "locationName": "spotFleetRequestId"
           }
         }
       },
@@ -29382,6 +30890,9 @@ module.exports={
           "SpotFleetRequestConfigs"
         ],
         "members": {
+          "NextToken": {
+            "locationName": "nextToken"
+          },
           "SpotFleetRequestConfigs": {
             "locationName": "spotFleetRequestConfigSet",
             "type": "list",
@@ -29389,34 +30900,31 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "required": [
-                "SpotFleetRequestId",
-                "SpotFleetRequestState",
+                "CreateTime",
                 "SpotFleetRequestConfig",
-                "CreateTime"
+                "SpotFleetRequestId",
+                "SpotFleetRequestState"
               ],
               "members": {
-                "SpotFleetRequestId": {
-                  "locationName": "spotFleetRequestId"
-                },
-                "SpotFleetRequestState": {
-                  "locationName": "spotFleetRequestState"
-                },
-                "SpotFleetRequestConfig": {
-                  "shape": "Shc",
-                  "locationName": "spotFleetRequestConfig"
+                "ActivityStatus": {
+                  "locationName": "activityStatus"
                 },
                 "CreateTime": {
                   "locationName": "createTime",
                   "type": "timestamp"
                 },
-                "ActivityStatus": {
-                  "locationName": "activityStatus"
+                "SpotFleetRequestConfig": {
+                  "shape": "Si9",
+                  "locationName": "spotFleetRequestConfig"
+                },
+                "SpotFleetRequestId": {
+                  "locationName": "spotFleetRequestId"
+                },
+                "SpotFleetRequestState": {
+                  "locationName": "spotFleetRequestState"
                 }
               }
             }
-          },
-          "NextToken": {
-            "locationName": "nextToken"
           }
         }
       }
@@ -29425,6 +30933,10 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
@@ -29432,10 +30944,6 @@ module.exports={
           "SpotInstanceRequestIds": {
             "shape": "S39",
             "locationName": "SpotInstanceRequestId"
-          },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
           }
         }
       },
@@ -29443,7 +30951,7 @@ module.exports={
         "type": "structure",
         "members": {
           "SpotInstanceRequests": {
-            "shape": "Shp",
+            "shape": "Sin",
             "locationName": "spotInstanceRequestSet"
           }
         }
@@ -29453,13 +30961,16 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
+          },
+          "AvailabilityZone": {
+            "locationName": "availabilityZone"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "StartTime": {
-            "locationName": "startTime",
-            "type": "timestamp"
           },
           "EndTime": {
             "locationName": "endTime",
@@ -29470,30 +30981,30 @@ module.exports={
             "type": "list",
             "member": {}
           },
-          "ProductDescriptions": {
-            "locationName": "ProductDescription",
-            "type": "list",
-            "member": {}
-          },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
-          },
-          "AvailabilityZone": {
-            "locationName": "availabilityZone"
-          },
           "MaxResults": {
             "locationName": "maxResults",
             "type": "integer"
           },
           "NextToken": {
             "locationName": "nextToken"
+          },
+          "ProductDescriptions": {
+            "locationName": "ProductDescription",
+            "type": "list",
+            "member": {}
+          },
+          "StartTime": {
+            "locationName": "startTime",
+            "type": "timestamp"
           }
         }
       },
       "output": {
         "type": "structure",
         "members": {
+          "NextToken": {
+            "locationName": "nextToken"
+          },
           "SpotPriceHistory": {
             "locationName": "spotPriceHistorySet",
             "type": "list",
@@ -29501,6 +31012,9 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
+                "AvailabilityZone": {
+                  "locationName": "availabilityZone"
+                },
                 "InstanceType": {
                   "locationName": "instanceType"
                 },
@@ -29513,15 +31027,9 @@ module.exports={
                 "Timestamp": {
                   "locationName": "timestamp",
                   "type": "timestamp"
-                },
-                "AvailabilityZone": {
-                  "locationName": "availabilityZone"
                 }
               }
             }
-          },
-          "NextToken": {
-            "locationName": "nextToken"
           }
         }
       }
@@ -29536,16 +31044,19 @@ module.exports={
           "DryRun": {
             "type": "boolean"
           },
-          "VpcId": {},
           "MaxResults": {
             "type": "integer"
           },
-          "NextToken": {}
+          "NextToken": {},
+          "VpcId": {}
         }
       },
       "output": {
         "type": "structure",
         "members": {
+          "NextToken": {
+            "locationName": "nextToken"
+          },
           "StaleSecurityGroupSet": {
             "locationName": "staleSecurityGroupSet",
             "type": "list",
@@ -29556,31 +31067,28 @@ module.exports={
                 "GroupId"
               ],
               "members": {
+                "Description": {
+                  "locationName": "description"
+                },
                 "GroupId": {
                   "locationName": "groupId"
                 },
                 "GroupName": {
                   "locationName": "groupName"
                 },
-                "Description": {
-                  "locationName": "description"
-                },
-                "VpcId": {
-                  "locationName": "vpcId"
-                },
                 "StaleIpPermissions": {
-                  "shape": "Si6",
+                  "shape": "Sj4",
                   "locationName": "staleIpPermissions"
                 },
                 "StaleIpPermissionsEgress": {
-                  "shape": "Si6",
+                  "shape": "Sj4",
                   "locationName": "staleIpPermissionsEgress"
+                },
+                "VpcId": {
+                  "locationName": "vpcId"
                 }
               }
             }
-          },
-          "NextToken": {
-            "locationName": "nextToken"
           }
         }
       }
@@ -29589,9 +31097,9 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
           },
           "SubnetIds": {
             "locationName": "SubnetId",
@@ -29600,9 +31108,9 @@ module.exports={
               "locationName": "SubnetId"
             }
           },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       },
@@ -29613,7 +31121,7 @@ module.exports={
             "locationName": "subnetSet",
             "type": "list",
             "member": {
-              "shape": "S6t",
+              "shape": "S75",
               "locationName": "item"
             }
           }
@@ -29629,7 +31137,7 @@ module.exports={
             "type": "boolean"
           },
           "Filters": {
-            "shape": "S93",
+            "shape": "S9c",
             "locationName": "Filter"
           },
           "MaxResults": {
@@ -29644,6 +31152,9 @@ module.exports={
       "output": {
         "type": "structure",
         "members": {
+          "NextToken": {
+            "locationName": "nextToken"
+          },
           "Tags": {
             "locationName": "tagSet",
             "type": "list",
@@ -29651,23 +31162,20 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
+                "Key": {
+                  "locationName": "key"
+                },
                 "ResourceId": {
                   "locationName": "resourceId"
                 },
                 "ResourceType": {
                   "locationName": "resourceType"
                 },
-                "Key": {
-                  "locationName": "key"
-                },
                 "Value": {
                   "locationName": "value"
                 }
               }
             }
-          },
-          "NextToken": {
-            "locationName": "nextToken"
           }
         }
       }
@@ -29679,27 +31187,27 @@ module.exports={
           "VolumeId"
         ],
         "members": {
+          "Attribute": {},
+          "VolumeId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "VolumeId": {},
-          "Attribute": {}
+          }
         }
       },
       "output": {
         "type": "structure",
         "members": {
-          "VolumeId": {
-            "locationName": "volumeId"
-          },
           "AutoEnableIO": {
-            "shape": "Scr",
+            "shape": "Sdk",
             "locationName": "autoEnableIO"
           },
           "ProductCodes": {
-            "shape": "Sbt",
+            "shape": "Sbg",
             "locationName": "productCodes"
+          },
+          "VolumeId": {
+            "locationName": "volumeId"
           }
         }
       }
@@ -29708,27 +31216,30 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
+          },
+          "MaxResults": {
+            "type": "integer"
+          },
+          "NextToken": {},
+          "VolumeIds": {
+            "shape": "Sjl",
+            "locationName": "VolumeId"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "VolumeIds": {
-            "shape": "Sin",
-            "locationName": "VolumeId"
-          },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
-          },
-          "NextToken": {},
-          "MaxResults": {
-            "type": "integer"
           }
         }
       },
       "output": {
         "type": "structure",
         "members": {
+          "NextToken": {
+            "locationName": "nextToken"
+          },
           "VolumeStatuses": {
             "locationName": "volumeStatusSet",
             "type": "list",
@@ -29736,19 +31247,65 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
-                "VolumeId": {
-                  "locationName": "volumeId"
+                "Actions": {
+                  "locationName": "actionsSet",
+                  "type": "list",
+                  "member": {
+                    "locationName": "item",
+                    "type": "structure",
+                    "members": {
+                      "Code": {
+                        "locationName": "code"
+                      },
+                      "Description": {
+                        "locationName": "description"
+                      },
+                      "EventId": {
+                        "locationName": "eventId"
+                      },
+                      "EventType": {
+                        "locationName": "eventType"
+                      }
+                    }
+                  }
                 },
                 "AvailabilityZone": {
                   "locationName": "availabilityZone"
+                },
+                "Events": {
+                  "locationName": "eventsSet",
+                  "type": "list",
+                  "member": {
+                    "locationName": "item",
+                    "type": "structure",
+                    "members": {
+                      "Description": {
+                        "locationName": "description"
+                      },
+                      "EventId": {
+                        "locationName": "eventId"
+                      },
+                      "EventType": {
+                        "locationName": "eventType"
+                      },
+                      "NotAfter": {
+                        "locationName": "notAfter",
+                        "type": "timestamp"
+                      },
+                      "NotBefore": {
+                        "locationName": "notBefore",
+                        "type": "timestamp"
+                      }
+                    }
+                  }
+                },
+                "VolumeId": {
+                  "locationName": "volumeId"
                 },
                 "VolumeStatus": {
                   "locationName": "volumeStatus",
                   "type": "structure",
                   "members": {
-                    "Status": {
-                      "locationName": "status"
-                    },
                     "Details": {
                       "locationName": "details",
                       "type": "list",
@@ -29764,63 +31321,14 @@ module.exports={
                           }
                         }
                       }
-                    }
-                  }
-                },
-                "Events": {
-                  "locationName": "eventsSet",
-                  "type": "list",
-                  "member": {
-                    "locationName": "item",
-                    "type": "structure",
-                    "members": {
-                      "EventType": {
-                        "locationName": "eventType"
-                      },
-                      "Description": {
-                        "locationName": "description"
-                      },
-                      "NotBefore": {
-                        "locationName": "notBefore",
-                        "type": "timestamp"
-                      },
-                      "NotAfter": {
-                        "locationName": "notAfter",
-                        "type": "timestamp"
-                      },
-                      "EventId": {
-                        "locationName": "eventId"
-                      }
-                    }
-                  }
-                },
-                "Actions": {
-                  "locationName": "actionsSet",
-                  "type": "list",
-                  "member": {
-                    "locationName": "item",
-                    "type": "structure",
-                    "members": {
-                      "Code": {
-                        "locationName": "code"
-                      },
-                      "Description": {
-                        "locationName": "description"
-                      },
-                      "EventType": {
-                        "locationName": "eventType"
-                      },
-                      "EventId": {
-                        "locationName": "eventId"
-                      }
+                    },
+                    "Status": {
+                      "locationName": "status"
                     }
                   }
                 }
               }
             }
-          },
-          "NextToken": {
-            "locationName": "nextToken"
           }
         }
       }
@@ -29829,24 +31337,24 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
+          },
+          "VolumeIds": {
+            "shape": "Sjl",
+            "locationName": "VolumeId"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
           },
-          "VolumeIds": {
-            "shape": "Sin",
-            "locationName": "VolumeId"
-          },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
-          },
-          "NextToken": {
-            "locationName": "nextToken"
-          },
           "MaxResults": {
             "locationName": "maxResults",
             "type": "integer"
+          },
+          "NextToken": {
+            "locationName": "nextToken"
           }
         }
       },
@@ -29857,7 +31365,7 @@ module.exports={
             "locationName": "volumeSet",
             "type": "list",
             "member": {
-              "shape": "S72",
+              "shape": "S7e",
               "locationName": "item"
             }
           },
@@ -29875,11 +31383,11 @@ module.exports={
             "type": "boolean"
           },
           "VolumeIds": {
-            "shape": "Sin",
+            "shape": "Sjl",
             "locationName": "VolumeId"
           },
           "Filters": {
-            "shape": "S93",
+            "shape": "S9c",
             "locationName": "Filter"
           },
           "NextToken": {},
@@ -29895,7 +31403,7 @@ module.exports={
             "locationName": "volumeModificationSet",
             "type": "list",
             "member": {
-              "shape": "Sj6",
+              "shape": "Sk4",
               "locationName": "item"
             }
           },
@@ -29909,16 +31417,16 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "VpcId",
-          "Attribute"
+          "Attribute",
+          "VpcId"
         ],
         "members": {
+          "Attribute": {},
+          "VpcId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "VpcId": {},
-          "Attribute": {}
+          }
         }
       },
       "output": {
@@ -29927,13 +31435,13 @@ module.exports={
           "VpcId": {
             "locationName": "vpcId"
           },
-          "EnableDnsSupport": {
-            "shape": "Scr",
-            "locationName": "enableDnsSupport"
-          },
           "EnableDnsHostnames": {
-            "shape": "Scr",
+            "shape": "Sdk",
             "locationName": "enableDnsHostnames"
+          },
+          "EnableDnsSupport": {
+            "shape": "Sdk",
+            "locationName": "enableDnsSupport"
           }
         }
       }
@@ -29942,17 +31450,17 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
           },
           "VpcIds": {
-            "shape": "Sjc",
+            "shape": "Ska",
             "locationName": "VpcId"
-          },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
           }
         }
       },
@@ -29966,9 +31474,6 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
-                "VpcId": {
-                  "locationName": "vpcId"
-                },
                 "ClassicLinkEnabled": {
                   "locationName": "classicLinkEnabled",
                   "type": "boolean"
@@ -29976,6 +31481,9 @@ module.exports={
                 "Tags": {
                   "shape": "Sj",
                   "locationName": "tagSet"
+                },
+                "VpcId": {
+                  "locationName": "vpcId"
                 }
               }
             }
@@ -29987,21 +31495,24 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "VpcIds": {
-            "shape": "Sjc"
-          },
           "MaxResults": {
             "locationName": "maxResults",
             "type": "integer"
           },
           "NextToken": {
             "locationName": "nextToken"
+          },
+          "VpcIds": {
+            "shape": "Ska"
           }
         }
       },
       "output": {
         "type": "structure",
         "members": {
+          "NextToken": {
+            "locationName": "nextToken"
+          },
           "Vpcs": {
             "locationName": "vpcs",
             "type": "list",
@@ -30009,18 +31520,15 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
-                "VpcId": {
-                  "locationName": "vpcId"
-                },
                 "ClassicLinkDnsSupported": {
                   "locationName": "classicLinkDnsSupported",
                   "type": "boolean"
+                },
+                "VpcId": {
+                  "locationName": "vpcId"
                 }
               }
             }
-          },
-          "NextToken": {
-            "locationName": "nextToken"
           }
         }
       }
@@ -30041,12 +31549,12 @@ module.exports={
       "output": {
         "type": "structure",
         "members": {
+          "NextToken": {
+            "locationName": "nextToken"
+          },
           "ServiceNames": {
             "shape": "S2z",
             "locationName": "serviceNameSet"
-          },
-          "NextToken": {
-            "locationName": "nextToken"
           }
         }
       }
@@ -30058,33 +31566,33 @@ module.exports={
           "DryRun": {
             "type": "boolean"
           },
-          "VpcEndpointIds": {
-            "shape": "S2z",
-            "locationName": "VpcEndpointId"
-          },
           "Filters": {
-            "shape": "S93",
+            "shape": "S9c",
             "locationName": "Filter"
           },
           "MaxResults": {
             "type": "integer"
           },
-          "NextToken": {}
+          "NextToken": {},
+          "VpcEndpointIds": {
+            "shape": "S2z",
+            "locationName": "VpcEndpointId"
+          }
         }
       },
       "output": {
         "type": "structure",
         "members": {
+          "NextToken": {
+            "locationName": "nextToken"
+          },
           "VpcEndpoints": {
             "locationName": "vpcEndpointSet",
             "type": "list",
             "member": {
-              "shape": "S7d",
+              "shape": "S7l",
               "locationName": "item"
             }
-          },
-          "NextToken": {
-            "locationName": "nextToken"
           }
         }
       }
@@ -30093,6 +31601,10 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
@@ -30100,10 +31612,6 @@ module.exports={
           "VpcPeeringConnectionIds": {
             "shape": "S2z",
             "locationName": "VpcPeeringConnectionId"
-          },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
           }
         }
       },
@@ -30125,9 +31633,9 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
           },
           "VpcIds": {
             "locationName": "VpcId",
@@ -30136,9 +31644,9 @@ module.exports={
               "locationName": "VpcId"
             }
           },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       },
@@ -30149,7 +31657,7 @@ module.exports={
             "locationName": "vpcSet",
             "type": "list",
             "member": {
-              "shape": "S78",
+              "shape": "S3q",
               "locationName": "item"
             }
           }
@@ -30160,9 +31668,9 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
           },
           "VpnConnectionIds": {
             "locationName": "VpnConnectionId",
@@ -30171,9 +31679,9 @@ module.exports={
               "locationName": "VpnConnectionId"
             }
           },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       },
@@ -30184,7 +31692,7 @@ module.exports={
             "locationName": "vpnConnectionSet",
             "type": "list",
             "member": {
-              "shape": "S7k",
+              "shape": "S7s",
               "locationName": "item"
             }
           }
@@ -30195,9 +31703,9 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
+          "Filters": {
+            "shape": "S9c",
+            "locationName": "Filter"
           },
           "VpnGatewayIds": {
             "locationName": "VpnGatewayId",
@@ -30206,9 +31714,9 @@ module.exports={
               "locationName": "VpnGatewayId"
             }
           },
-          "Filters": {
-            "shape": "S93",
-            "locationName": "Filter"
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       },
@@ -30219,7 +31727,7 @@ module.exports={
             "locationName": "vpnGatewaySet",
             "type": "list",
             "member": {
-              "shape": "S7w",
+              "shape": "S84",
               "locationName": "item"
             }
           }
@@ -30284,12 +31792,12 @@ module.exports={
           "AttachmentId"
         ],
         "members": {
+          "AttachmentId": {
+            "locationName": "attachmentId"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "AttachmentId": {
-            "locationName": "attachmentId"
           },
           "Force": {
             "locationName": "force",
@@ -30305,14 +31813,14 @@ module.exports={
           "VolumeId"
         ],
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
-          "VolumeId": {},
-          "InstanceId": {},
           "Device": {},
           "Force": {
+            "type": "boolean"
+          },
+          "InstanceId": {},
+          "VolumeId": {},
+          "DryRun": {
+            "locationName": "dryRun",
             "type": "boolean"
           }
         }
@@ -30325,16 +31833,16 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "VpnGatewayId",
-          "VpcId"
+          "VpcId",
+          "VpnGatewayId"
         ],
         "members": {
+          "VpcId": {},
+          "VpnGatewayId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "VpnGatewayId": {},
-          "VpcId": {}
+          }
         }
       }
     },
@@ -30342,12 +31850,12 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "RouteTableId",
-          "GatewayId"
+          "GatewayId",
+          "RouteTableId"
         ],
         "members": {
-          "RouteTableId": {},
-          "GatewayId": {}
+          "GatewayId": {},
+          "RouteTableId": {}
         }
       }
     },
@@ -30398,12 +31906,12 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "AssociationId": {},
+          "PublicIp": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "PublicIp": {},
-          "AssociationId": {}
+          }
         }
       }
     },
@@ -30434,12 +31942,12 @@ module.exports={
           "AssociationId"
         ],
         "members": {
+          "AssociationId": {
+            "locationName": "associationId"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "AssociationId": {
-            "locationName": "associationId"
           }
         }
       }
@@ -30459,12 +31967,12 @@ module.exports={
       "output": {
         "type": "structure",
         "members": {
-          "SubnetId": {
-            "locationName": "subnetId"
-          },
           "Ipv6CidrBlockAssociation": {
             "shape": "S1a",
             "locationName": "ipv6CidrBlockAssociation"
+          },
+          "SubnetId": {
+            "locationName": "subnetId"
           }
         }
       }
@@ -30484,12 +31992,12 @@ module.exports={
       "output": {
         "type": "structure",
         "members": {
-          "VpcId": {
-            "locationName": "vpcId"
-          },
           "Ipv6CidrBlockAssociation": {
             "shape": "S1f",
             "locationName": "ipv6CidrBlockAssociation"
+          },
+          "VpcId": {
+            "locationName": "vpcId"
           }
         }
       }
@@ -30498,12 +32006,12 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "RouteTableId",
-          "GatewayId"
+          "GatewayId",
+          "RouteTableId"
         ],
         "members": {
-          "RouteTableId": {},
-          "GatewayId": {}
+          "GatewayId": {},
+          "RouteTableId": {}
         }
       }
     },
@@ -30574,11 +32082,11 @@ module.exports={
           "InstanceId"
         ],
         "members": {
+          "InstanceId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "InstanceId": {}
+          }
         }
       },
       "output": {
@@ -30587,12 +32095,12 @@ module.exports={
           "InstanceId": {
             "locationName": "instanceId"
           },
+          "Output": {
+            "locationName": "output"
+          },
           "Timestamp": {
             "locationName": "timestamp",
             "type": "timestamp"
-          },
-          "Output": {
-            "locationName": "output"
           }
         }
       }
@@ -30616,11 +32124,11 @@ module.exports={
       "output": {
         "type": "structure",
         "members": {
-          "InstanceId": {
-            "locationName": "instanceId"
-          },
           "ImageData": {
             "locationName": "imageData"
+          },
+          "InstanceId": {
+            "locationName": "instanceId"
           }
         }
       }
@@ -30629,31 +32137,31 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "OfferingId",
-          "HostIdSet"
+          "HostIdSet",
+          "OfferingId"
         ],
         "members": {
-          "OfferingId": {},
           "HostIdSet": {
-            "shape": "Sky"
-          }
+            "shape": "Slw"
+          },
+          "OfferingId": {}
         }
       },
       "output": {
         "type": "structure",
         "members": {
-          "Purchase": {
-            "shape": "Sl0",
-            "locationName": "purchase"
+          "CurrencyCode": {
+            "locationName": "currencyCode"
           },
-          "TotalUpfrontPrice": {
-            "locationName": "totalUpfrontPrice"
+          "Purchase": {
+            "shape": "Sly",
+            "locationName": "purchase"
           },
           "TotalHourlyPrice": {
             "locationName": "totalHourlyPrice"
           },
-          "CurrencyCode": {
-            "locationName": "currencyCode"
+          "TotalUpfrontPrice": {
+            "locationName": "totalUpfrontPrice"
           }
         }
       }
@@ -30665,11 +32173,11 @@ module.exports={
           "InstanceId"
         ],
         "members": {
+          "InstanceId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "InstanceId": {}
+          }
         }
       },
       "output": {
@@ -30678,12 +32186,12 @@ module.exports={
           "InstanceId": {
             "locationName": "instanceId"
           },
+          "PasswordData": {
+            "locationName": "passwordData"
+          },
           "Timestamp": {
             "locationName": "timestamp",
             "type": "timestamp"
-          },
-          "PasswordData": {
-            "locationName": "passwordData"
           }
         }
       }
@@ -30711,6 +32219,24 @@ module.exports={
       "output": {
         "type": "structure",
         "members": {
+          "CurrencyCode": {
+            "locationName": "currencyCode"
+          },
+          "IsValidExchange": {
+            "locationName": "isValidExchange",
+            "type": "boolean"
+          },
+          "OutputReservedInstancesWillExpireAt": {
+            "locationName": "outputReservedInstancesWillExpireAt",
+            "type": "timestamp"
+          },
+          "PaymentDue": {
+            "locationName": "paymentDue"
+          },
+          "ReservedInstanceValueRollup": {
+            "shape": "Sm4",
+            "locationName": "reservedInstanceValueRollup"
+          },
           "ReservedInstanceValueSet": {
             "locationName": "reservedInstanceValueSet",
             "type": "list",
@@ -30718,19 +32244,19 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
+                "ReservationValue": {
+                  "shape": "Sm4",
+                  "locationName": "reservationValue"
+                },
                 "ReservedInstanceId": {
                   "locationName": "reservedInstanceId"
-                },
-                "ReservationValue": {
-                  "shape": "Sl8",
-                  "locationName": "reservationValue"
                 }
               }
             }
           },
-          "ReservedInstanceValueRollup": {
-            "shape": "Sl8",
-            "locationName": "reservedInstanceValueRollup"
+          "TargetConfigurationValueRollup": {
+            "shape": "Sm4",
+            "locationName": "targetConfigurationValueRollup"
           },
           "TargetConfigurationValueSet": {
             "locationName": "targetConfigurationValueSet",
@@ -30739,43 +32265,25 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
+                "ReservationValue": {
+                  "shape": "Sm4",
+                  "locationName": "reservationValue"
+                },
                 "TargetConfiguration": {
                   "locationName": "targetConfiguration",
                   "type": "structure",
                   "members": {
-                    "OfferingId": {
-                      "locationName": "offeringId"
-                    },
                     "InstanceCount": {
                       "locationName": "instanceCount",
                       "type": "integer"
+                    },
+                    "OfferingId": {
+                      "locationName": "offeringId"
                     }
                   }
-                },
-                "ReservationValue": {
-                  "shape": "Sl8",
-                  "locationName": "reservationValue"
                 }
               }
             }
-          },
-          "TargetConfigurationValueRollup": {
-            "shape": "Sl8",
-            "locationName": "targetConfigurationValueRollup"
-          },
-          "PaymentDue": {
-            "locationName": "paymentDue"
-          },
-          "CurrencyCode": {
-            "locationName": "currencyCode"
-          },
-          "OutputReservedInstancesWillExpireAt": {
-            "locationName": "outputReservedInstancesWillExpireAt",
-            "type": "timestamp"
-          },
-          "IsValidExchange": {
-            "locationName": "isValidExchange",
-            "type": "boolean"
           },
           "ValidationFailureReason": {
             "locationName": "validationFailureReason"
@@ -30787,9 +32295,11 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "DryRun": {
-            "type": "boolean"
+          "Architecture": {},
+          "ClientData": {
+            "shape": "Smb"
           },
+          "ClientToken": {},
           "Description": {},
           "DiskContainers": {
             "locationName": "DiskContainer",
@@ -30799,35 +32309,42 @@ module.exports={
               "type": "structure",
               "members": {
                 "Description": {},
+                "DeviceName": {},
                 "Format": {},
+                "SnapshotId": {},
                 "Url": {},
                 "UserBucket": {
-                  "shape": "Slf"
-                },
-                "DeviceName": {},
-                "SnapshotId": {}
+                  "shape": "Sme"
+                }
               }
             }
           },
-          "LicenseType": {},
-          "Hypervisor": {},
-          "Architecture": {},
-          "Platform": {},
-          "ClientData": {
-            "shape": "Slg"
+          "DryRun": {
+            "type": "boolean"
           },
-          "ClientToken": {},
+          "Hypervisor": {},
+          "LicenseType": {},
+          "Platform": {},
           "RoleName": {}
         }
       },
       "output": {
         "type": "structure",
         "members": {
-          "ImportTaskId": {
-            "locationName": "importTaskId"
-          },
           "Architecture": {
             "locationName": "architecture"
+          },
+          "Description": {
+            "locationName": "description"
+          },
+          "Hypervisor": {
+            "locationName": "hypervisor"
+          },
+          "ImageId": {
+            "locationName": "imageId"
+          },
+          "ImportTaskId": {
+            "locationName": "importTaskId"
           },
           "LicenseType": {
             "locationName": "licenseType"
@@ -30835,27 +32352,18 @@ module.exports={
           "Platform": {
             "locationName": "platform"
           },
-          "Hypervisor": {
-            "locationName": "hypervisor"
-          },
-          "Description": {
-            "locationName": "description"
-          },
-          "SnapshotDetails": {
-            "shape": "Scg",
-            "locationName": "snapshotDetailSet"
-          },
-          "ImageId": {
-            "locationName": "imageId"
-          },
           "Progress": {
             "locationName": "progress"
           },
-          "StatusMessage": {
-            "locationName": "statusMessage"
+          "SnapshotDetails": {
+            "shape": "Sd6",
+            "locationName": "snapshotDetailSet"
           },
           "Status": {
             "locationName": "status"
+          },
+          "StatusMessage": {
+            "locationName": "statusMessage"
           }
         }
       }
@@ -30867,30 +32375,66 @@ module.exports={
           "Platform"
         ],
         "members": {
+          "Description": {
+            "locationName": "description"
+          },
+          "DiskImages": {
+            "locationName": "diskImage",
+            "type": "list",
+            "member": {
+              "type": "structure",
+              "members": {
+                "Description": {},
+                "Image": {
+                  "shape": "Smj"
+                },
+                "Volume": {
+                  "shape": "Smk"
+                }
+              }
+            }
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "Description": {
-            "locationName": "description"
           },
           "LaunchSpecification": {
             "locationName": "launchSpecification",
             "type": "structure",
             "members": {
+              "AdditionalInfo": {
+                "locationName": "additionalInfo"
+              },
               "Architecture": {
                 "locationName": "architecture"
               },
-              "GroupNames": {
-                "shape": "Slk",
-                "locationName": "GroupName"
-              },
               "GroupIds": {
-                "shape": "S5h",
+                "shape": "S5n",
                 "locationName": "GroupId"
               },
-              "AdditionalInfo": {
-                "locationName": "additionalInfo"
+              "GroupNames": {
+                "shape": "Smm",
+                "locationName": "GroupName"
+              },
+              "InstanceInitiatedShutdownBehavior": {
+                "locationName": "instanceInitiatedShutdownBehavior"
+              },
+              "InstanceType": {
+                "locationName": "instanceType"
+              },
+              "Monitoring": {
+                "locationName": "monitoring",
+                "type": "boolean"
+              },
+              "Placement": {
+                "shape": "Se9",
+                "locationName": "placement"
+              },
+              "PrivateIpAddress": {
+                "locationName": "privateIpAddress"
+              },
+              "SubnetId": {
+                "locationName": "subnetId"
               },
               "UserData": {
                 "locationName": "userData",
@@ -30899,42 +32443,6 @@ module.exports={
                   "Data": {
                     "locationName": "data"
                   }
-                }
-              },
-              "InstanceType": {
-                "locationName": "instanceType"
-              },
-              "Placement": {
-                "shape": "Sdh",
-                "locationName": "placement"
-              },
-              "Monitoring": {
-                "locationName": "monitoring",
-                "type": "boolean"
-              },
-              "SubnetId": {
-                "locationName": "subnetId"
-              },
-              "InstanceInitiatedShutdownBehavior": {
-                "locationName": "instanceInitiatedShutdownBehavior"
-              },
-              "PrivateIpAddress": {
-                "locationName": "privateIpAddress"
-              }
-            }
-          },
-          "DiskImages": {
-            "locationName": "diskImage",
-            "type": "list",
-            "member": {
-              "type": "structure",
-              "members": {
-                "Image": {
-                  "shape": "Slp"
-                },
-                "Description": {},
-                "Volume": {
-                  "shape": "Slq"
                 }
               }
             }
@@ -30948,7 +32456,7 @@ module.exports={
         "type": "structure",
         "members": {
           "ConversionTask": {
-            "shape": "S9u",
+            "shape": "Sa4",
             "locationName": "conversionTask"
           }
         }
@@ -30978,11 +32486,11 @@ module.exports={
       "output": {
         "type": "structure",
         "members": {
-          "KeyName": {
-            "locationName": "keyName"
-          },
           "KeyFingerprint": {
             "locationName": "keyFingerprint"
+          },
+          "KeyName": {
+            "locationName": "keyName"
           }
         }
       }
@@ -30991,9 +32499,10 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "DryRun": {
-            "type": "boolean"
+          "ClientData": {
+            "shape": "Smb"
           },
+          "ClientToken": {},
           "Description": {},
           "DiskContainer": {
             "type": "structure",
@@ -31002,29 +32511,28 @@ module.exports={
               "Format": {},
               "Url": {},
               "UserBucket": {
-                "shape": "Slf"
+                "shape": "Sme"
               }
             }
           },
-          "ClientData": {
-            "shape": "Slg"
+          "DryRun": {
+            "type": "boolean"
           },
-          "ClientToken": {},
           "RoleName": {}
         }
       },
       "output": {
         "type": "structure",
         "members": {
+          "Description": {
+            "locationName": "description"
+          },
           "ImportTaskId": {
             "locationName": "importTaskId"
           },
           "SnapshotTaskDetail": {
-            "shape": "Scn",
+            "shape": "Sdd",
             "locationName": "snapshotTaskDetail"
-          },
-          "Description": {
-            "locationName": "description"
           }
         }
       }
@@ -31038,22 +32546,22 @@ module.exports={
           "Volume"
         ],
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
           "AvailabilityZone": {
             "locationName": "availabilityZone"
-          },
-          "Image": {
-            "shape": "Slp",
-            "locationName": "image"
           },
           "Description": {
             "locationName": "description"
           },
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
+          },
+          "Image": {
+            "shape": "Smj",
+            "locationName": "image"
+          },
           "Volume": {
-            "shape": "Slq",
+            "shape": "Smk",
             "locationName": "volume"
           }
         }
@@ -31062,7 +32570,7 @@ module.exports={
         "type": "structure",
         "members": {
           "ConversionTask": {
-            "shape": "S9u",
+            "shape": "Sa4",
             "locationName": "conversionTask"
           }
         }
@@ -31072,16 +32580,16 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "HostIds",
-          "AutoPlacement"
+          "AutoPlacement",
+          "HostIds"
         ],
         "members": {
-          "HostIds": {
-            "shape": "Sb0",
-            "locationName": "hostId"
-          },
           "AutoPlacement": {
             "locationName": "autoPlacement"
+          },
+          "HostIds": {
+            "shape": "Sbw",
+            "locationName": "hostId"
           }
         }
       },
@@ -31093,7 +32601,7 @@ module.exports={
             "locationName": "successful"
           },
           "Unsuccessful": {
-            "shape": "Sm1",
+            "shape": "Smz",
             "locationName": "unsuccessful"
           }
         }
@@ -31118,20 +32626,20 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
+          "PrincipalArn",
           "Resource",
-          "UseLongIds",
-          "PrincipalArn"
+          "UseLongIds"
         ],
         "members": {
+          "PrincipalArn": {
+            "locationName": "principalArn"
+          },
           "Resource": {
             "locationName": "resource"
           },
           "UseLongIds": {
             "locationName": "useLongIds",
             "type": "boolean"
-          },
-          "PrincipalArn": {
-            "locationName": "principalArn"
           }
         }
       }
@@ -31143,16 +32651,29 @@ module.exports={
           "ImageId"
         ],
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
+          "Attribute": {},
+          "Description": {
+            "shape": "S42"
           },
           "ImageId": {},
-          "Attribute": {},
+          "LaunchPermission": {
+            "type": "structure",
+            "members": {
+              "Add": {
+                "shape": "Scl"
+              },
+              "Remove": {
+                "shape": "Scl"
+              }
+            }
+          },
           "OperationType": {},
-          "UserIds": {
-            "shape": "Sm6",
-            "locationName": "UserId"
+          "ProductCodes": {
+            "locationName": "ProductCode",
+            "type": "list",
+            "member": {
+              "locationName": "ProductCode"
+            }
           },
           "UserGroups": {
             "locationName": "UserGroup",
@@ -31161,27 +32682,14 @@ module.exports={
               "locationName": "UserGroup"
             }
           },
-          "ProductCodes": {
-            "locationName": "ProductCode",
-            "type": "list",
-            "member": {
-              "locationName": "ProductCode"
-            }
+          "UserIds": {
+            "shape": "Sn7",
+            "locationName": "UserId"
           },
           "Value": {},
-          "LaunchPermission": {
-            "type": "structure",
-            "members": {
-              "Add": {
-                "shape": "Sbq"
-              },
-              "Remove": {
-                "shape": "Sbq"
-              }
-            }
-          },
-          "Description": {
-            "shape": "S3w"
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       }
@@ -31193,18 +32701,11 @@ module.exports={
           "InstanceId"
         ],
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
-          "InstanceId": {
-            "locationName": "instanceId"
+          "SourceDestCheck": {
+            "shape": "Sdk"
           },
           "Attribute": {
             "locationName": "attribute"
-          },
-          "Value": {
-            "locationName": "value"
           },
           "BlockDeviceMappings": {
             "locationName": "blockDeviceMapping",
@@ -31220,42 +32721,66 @@ module.exports={
                   "locationName": "ebs",
                   "type": "structure",
                   "members": {
-                    "VolumeId": {
-                      "locationName": "volumeId"
-                    },
                     "DeleteOnTermination": {
                       "locationName": "deleteOnTermination",
                       "type": "boolean"
+                    },
+                    "VolumeId": {
+                      "locationName": "volumeId"
                     }
                   }
                 },
-                "VirtualName": {
-                  "locationName": "virtualName"
-                },
                 "NoDevice": {
                   "locationName": "noDevice"
+                },
+                "VirtualName": {
+                  "locationName": "virtualName"
                 }
               }
             }
           },
-          "SourceDestCheck": {
-            "shape": "Scr"
-          },
           "DisableApiTermination": {
-            "shape": "Scr",
+            "shape": "Sdk",
             "locationName": "disableApiTermination"
           },
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
+          },
+          "EbsOptimized": {
+            "shape": "Sdk",
+            "locationName": "ebsOptimized"
+          },
+          "EnaSupport": {
+            "shape": "Sdk",
+            "locationName": "enaSupport"
+          },
+          "Groups": {
+            "shape": "S1j",
+            "locationName": "GroupId"
+          },
+          "InstanceId": {
+            "locationName": "instanceId"
+          },
+          "InstanceInitiatedShutdownBehavior": {
+            "shape": "S42",
+            "locationName": "instanceInitiatedShutdownBehavior"
+          },
           "InstanceType": {
-            "shape": "S3w",
+            "shape": "S42",
             "locationName": "instanceType"
           },
           "Kernel": {
-            "shape": "S3w",
+            "shape": "S42",
             "locationName": "kernel"
           },
           "Ramdisk": {
-            "shape": "S3w",
+            "shape": "S42",
             "locationName": "ramdisk"
+          },
+          "SriovNetSupport": {
+            "shape": "S42",
+            "locationName": "sriovNetSupport"
           },
           "UserData": {
             "locationName": "userData",
@@ -31267,25 +32792,8 @@ module.exports={
               }
             }
           },
-          "InstanceInitiatedShutdownBehavior": {
-            "shape": "S3w",
-            "locationName": "instanceInitiatedShutdownBehavior"
-          },
-          "Groups": {
-            "shape": "S1j",
-            "locationName": "GroupId"
-          },
-          "EbsOptimized": {
-            "shape": "Scr",
-            "locationName": "ebsOptimized"
-          },
-          "SriovNetSupport": {
-            "shape": "S3w",
-            "locationName": "sriovNetSupport"
-          },
-          "EnaSupport": {
-            "shape": "Scr",
-            "locationName": "enaSupport"
+          "Value": {
+            "locationName": "value"
           }
         }
       }
@@ -31297,17 +32805,17 @@ module.exports={
           "InstanceId"
         ],
         "members": {
-          "InstanceId": {
-            "locationName": "instanceId"
-          },
-          "Tenancy": {
-            "locationName": "tenancy"
-          },
           "Affinity": {
             "locationName": "affinity"
           },
           "HostId": {
             "locationName": "hostId"
+          },
+          "InstanceId": {
+            "locationName": "instanceId"
+          },
+          "Tenancy": {
+            "locationName": "tenancy"
           }
         }
       },
@@ -31328,25 +32836,6 @@ module.exports={
           "NetworkInterfaceId"
         ],
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
-          "NetworkInterfaceId": {
-            "locationName": "networkInterfaceId"
-          },
-          "Description": {
-            "shape": "S3w",
-            "locationName": "description"
-          },
-          "SourceDestCheck": {
-            "shape": "Scr",
-            "locationName": "sourceDestCheck"
-          },
-          "Groups": {
-            "shape": "S5h",
-            "locationName": "SecurityGroupId"
-          },
           "Attachment": {
             "locationName": "attachment",
             "type": "structure",
@@ -31359,6 +32848,25 @@ module.exports={
                 "type": "boolean"
               }
             }
+          },
+          "Description": {
+            "shape": "S42",
+            "locationName": "description"
+          },
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
+          },
+          "Groups": {
+            "shape": "S5n",
+            "locationName": "SecurityGroupId"
+          },
+          "NetworkInterfaceId": {
+            "locationName": "networkInterfaceId"
+          },
+          "SourceDestCheck": {
+            "shape": "Sdk",
+            "locationName": "sourceDestCheck"
           }
         }
       }
@@ -31371,18 +32879,18 @@ module.exports={
           "TargetConfigurations"
         ],
         "members": {
+          "ReservedInstancesIds": {
+            "shape": "Sfu",
+            "locationName": "ReservedInstancesId"
+          },
           "ClientToken": {
             "locationName": "clientToken"
-          },
-          "ReservedInstancesIds": {
-            "shape": "Sex",
-            "locationName": "ReservedInstancesId"
           },
           "TargetConfigurations": {
             "locationName": "ReservedInstancesConfigurationSetItemType",
             "type": "list",
             "member": {
-              "shape": "Sfl",
+              "shape": "Sgf",
               "locationName": "item"
             }
           }
@@ -31404,31 +32912,31 @@ module.exports={
           "SnapshotId"
         ],
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
-          "SnapshotId": {},
           "Attribute": {},
-          "OperationType": {},
-          "UserIds": {
-            "shape": "Sm6",
-            "locationName": "UserId"
-          },
-          "GroupNames": {
-            "shape": "Sgh",
-            "locationName": "UserGroup"
-          },
           "CreateVolumePermission": {
             "type": "structure",
             "members": {
               "Add": {
-                "shape": "Sgo"
+                "shape": "Shk"
               },
               "Remove": {
-                "shape": "Sgo"
+                "shape": "Shk"
               }
             }
+          },
+          "GroupNames": {
+            "shape": "Shd",
+            "locationName": "UserGroup"
+          },
+          "OperationType": {},
+          "SnapshotId": {},
+          "UserIds": {
+            "shape": "Sn7",
+            "locationName": "UserId"
+          },
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       }
@@ -31440,15 +32948,15 @@ module.exports={
           "SpotFleetRequestId"
         ],
         "members": {
+          "ExcessCapacityTerminationPolicy": {
+            "locationName": "excessCapacityTerminationPolicy"
+          },
           "SpotFleetRequestId": {
             "locationName": "spotFleetRequestId"
           },
           "TargetCapacity": {
             "locationName": "targetCapacity",
             "type": "integer"
-          },
-          "ExcessCapacityTerminationPolicy": {
-            "locationName": "excessCapacityTerminationPolicy"
           }
         }
       },
@@ -31469,14 +32977,14 @@ module.exports={
           "SubnetId"
         ],
         "members": {
-          "SubnetId": {
-            "locationName": "subnetId"
+          "AssignIpv6AddressOnCreation": {
+            "shape": "Sdk"
           },
           "MapPublicIpOnLaunch": {
-            "shape": "Scr"
+            "shape": "Sdk"
           },
-          "AssignIpv6AddressOnCreation": {
-            "shape": "Scr"
+          "SubnetId": {
+            "locationName": "subnetId"
           }
         }
       }
@@ -31505,7 +33013,7 @@ module.exports={
         "type": "structure",
         "members": {
           "VolumeModification": {
-            "shape": "Sj6",
+            "shape": "Sk4",
             "locationName": "volumeModification"
           }
         }
@@ -31518,13 +33026,13 @@ module.exports={
           "VolumeId"
         ],
         "members": {
+          "AutoEnableIO": {
+            "shape": "Sdk"
+          },
+          "VolumeId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "VolumeId": {},
-          "AutoEnableIO": {
-            "shape": "Scr"
           }
         }
       }
@@ -31536,14 +33044,14 @@ module.exports={
           "VpcId"
         ],
         "members": {
-          "VpcId": {
-            "locationName": "vpcId"
+          "EnableDnsHostnames": {
+            "shape": "Sdk"
           },
           "EnableDnsSupport": {
-            "shape": "Scr"
+            "shape": "Sdk"
           },
-          "EnableDnsHostnames": {
-            "shape": "Scr"
+          "VpcId": {
+            "locationName": "vpcId"
           }
         }
       }
@@ -31555,22 +33063,22 @@ module.exports={
           "VpcEndpointId"
         ],
         "members": {
-          "DryRun": {
-            "type": "boolean"
-          },
-          "VpcEndpointId": {},
-          "ResetPolicy": {
-            "type": "boolean"
-          },
-          "PolicyDocument": {},
           "AddRouteTableIds": {
             "shape": "S2z",
             "locationName": "AddRouteTableId"
           },
+          "DryRun": {
+            "type": "boolean"
+          },
+          "PolicyDocument": {},
           "RemoveRouteTableIds": {
             "shape": "S2z",
             "locationName": "RemoveRouteTableId"
-          }
+          },
+          "ResetPolicy": {
+            "type": "boolean"
+          },
+          "VpcEndpointId": {}
         }
       },
       "output": {
@@ -31590,28 +33098,28 @@ module.exports={
           "VpcPeeringConnectionId"
         ],
         "members": {
+          "AccepterPeeringConnectionOptions": {
+            "shape": "Sny"
+          },
           "DryRun": {
             "type": "boolean"
           },
-          "VpcPeeringConnectionId": {},
           "RequesterPeeringConnectionOptions": {
-            "shape": "Sn0"
+            "shape": "Sny"
           },
-          "AccepterPeeringConnectionOptions": {
-            "shape": "Sn0"
-          }
+          "VpcPeeringConnectionId": {}
         }
       },
       "output": {
         "type": "structure",
         "members": {
-          "RequesterPeeringConnectionOptions": {
-            "shape": "Sn2",
-            "locationName": "requesterPeeringConnectionOptions"
-          },
           "AccepterPeeringConnectionOptions": {
-            "shape": "Sn2",
+            "shape": "So0",
             "locationName": "accepterPeeringConnectionOptions"
+          },
+          "RequesterPeeringConnectionOptions": {
+            "shape": "So0",
+            "locationName": "requesterPeeringConnectionOptions"
           }
         }
       }
@@ -31623,13 +33131,13 @@ module.exports={
           "InstanceIds"
         ],
         "members": {
+          "InstanceIds": {
+            "shape": "S9w",
+            "locationName": "InstanceId"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "InstanceIds": {
-            "shape": "S9m",
-            "locationName": "InstanceId"
           }
         }
       },
@@ -31637,7 +33145,7 @@ module.exports={
         "type": "structure",
         "members": {
           "InstanceMonitorings": {
-            "shape": "Sn5",
+            "shape": "So3",
             "locationName": "instancesSet"
           }
         }
@@ -31675,37 +33183,37 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "OfferingId",
-          "HostIdSet"
+          "HostIdSet",
+          "OfferingId"
         ],
         "members": {
-          "OfferingId": {},
+          "ClientToken": {},
+          "CurrencyCode": {},
           "HostIdSet": {
-            "shape": "Sky"
+            "shape": "Slw"
           },
           "LimitPrice": {},
-          "CurrencyCode": {},
-          "ClientToken": {}
+          "OfferingId": {}
         }
       },
       "output": {
         "type": "structure",
         "members": {
-          "Purchase": {
-            "shape": "Sl0",
-            "locationName": "purchase"
-          },
-          "TotalUpfrontPrice": {
-            "locationName": "totalUpfrontPrice"
-          },
-          "TotalHourlyPrice": {
-            "locationName": "totalHourlyPrice"
+          "ClientToken": {
+            "locationName": "clientToken"
           },
           "CurrencyCode": {
             "locationName": "currencyCode"
           },
-          "ClientToken": {
-            "locationName": "clientToken"
+          "Purchase": {
+            "shape": "Sly",
+            "locationName": "purchase"
+          },
+          "TotalHourlyPrice": {
+            "locationName": "totalHourlyPrice"
+          },
+          "TotalUpfrontPrice": {
+            "locationName": "totalUpfrontPrice"
           }
         }
       }
@@ -31714,17 +33222,17 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "ReservedInstancesOfferingId",
-          "InstanceCount"
+          "InstanceCount",
+          "ReservedInstancesOfferingId"
         ],
         "members": {
+          "InstanceCount": {
+            "type": "integer"
+          },
+          "ReservedInstancesOfferingId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "ReservedInstancesOfferingId": {},
-          "InstanceCount": {
-            "type": "integer"
           },
           "LimitPrice": {
             "locationName": "limitPrice",
@@ -31757,11 +33265,11 @@ module.exports={
           "PurchaseRequests"
         ],
         "members": {
-          "DryRun": {
-            "type": "boolean"
-          },
           "ClientToken": {
             "idempotencyToken": true
+          },
+          "DryRun": {
+            "type": "boolean"
           },
           "PurchaseRequests": {
             "locationName": "PurchaseRequest",
@@ -31770,14 +33278,14 @@ module.exports={
               "locationName": "PurchaseRequest",
               "type": "structure",
               "required": [
-                "PurchaseToken",
-                "InstanceCount"
+                "InstanceCount",
+                "PurchaseToken"
               ],
               "members": {
-                "PurchaseToken": {},
                 "InstanceCount": {
                   "type": "integer"
-                }
+                },
+                "PurchaseToken": {}
               }
             }
           }
@@ -31790,7 +33298,7 @@ module.exports={
             "locationName": "scheduledInstanceSet",
             "type": "list",
             "member": {
-              "shape": "Sga",
+              "shape": "Sh6",
               "locationName": "item"
             }
           }
@@ -31804,13 +33312,13 @@ module.exports={
           "InstanceIds"
         ],
         "members": {
+          "InstanceIds": {
+            "shape": "S9w",
+            "locationName": "InstanceId"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "InstanceIds": {
-            "shape": "S9m",
-            "locationName": "InstanceId"
           }
         }
       }
@@ -31822,25 +33330,30 @@ module.exports={
           "Name"
         ],
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
           "ImageLocation": {},
-          "Name": {
-            "locationName": "name"
+          "Architecture": {
+            "locationName": "architecture"
+          },
+          "BlockDeviceMappings": {
+            "shape": "S4k",
+            "locationName": "BlockDeviceMapping"
           },
           "Description": {
             "locationName": "description"
           },
-          "Architecture": {
-            "locationName": "architecture"
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
+          },
+          "EnaSupport": {
+            "locationName": "enaSupport",
+            "type": "boolean"
           },
           "KernelId": {
             "locationName": "kernelId"
           },
-          "RamdiskId": {
-            "locationName": "ramdiskId"
+          "Name": {
+            "locationName": "name"
           },
           "BillingProducts": {
             "locationName": "BillingProduct",
@@ -31849,22 +33362,17 @@ module.exports={
               "locationName": "item"
             }
           },
+          "RamdiskId": {
+            "locationName": "ramdiskId"
+          },
           "RootDeviceName": {
             "locationName": "rootDeviceName"
-          },
-          "BlockDeviceMappings": {
-            "shape": "S4e",
-            "locationName": "BlockDeviceMapping"
-          },
-          "VirtualizationType": {
-            "locationName": "virtualizationType"
           },
           "SriovNetSupport": {
             "locationName": "sriovNetSupport"
           },
-          "EnaSupport": {
-            "locationName": "enaSupport",
-            "type": "boolean"
+          "VirtualizationType": {
+            "locationName": "virtualizationType"
           }
         }
       },
@@ -31907,12 +33415,12 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "AllocationId": {},
+          "PublicIp": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "PublicIp": {},
-          "AllocationId": {}
+          }
         }
       }
     },
@@ -31924,7 +33432,7 @@ module.exports={
         ],
         "members": {
           "HostIds": {
-            "shape": "Sb0",
+            "shape": "Sbw",
             "locationName": "hostId"
           }
         }
@@ -31937,7 +33445,7 @@ module.exports={
             "locationName": "successful"
           },
           "Unsuccessful": {
-            "shape": "Sm1",
+            "shape": "Smz",
             "locationName": "unsuccessful"
           }
         }
@@ -31975,12 +33483,12 @@ module.exports={
           "NetworkAclId"
         ],
         "members": {
+          "AssociationId": {
+            "locationName": "associationId"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "AssociationId": {
-            "locationName": "associationId"
           },
           "NetworkAclId": {
             "locationName": "networkAclId"
@@ -32000,23 +33508,37 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
+          "Egress",
           "NetworkAclId",
-          "RuleNumber",
           "Protocol",
           "RuleAction",
-          "Egress"
+          "RuleNumber"
         ],
         "members": {
+          "CidrBlock": {
+            "locationName": "cidrBlock"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
           },
+          "Egress": {
+            "locationName": "egress",
+            "type": "boolean"
+          },
+          "IcmpTypeCode": {
+            "shape": "S5i",
+            "locationName": "Icmp"
+          },
+          "Ipv6CidrBlock": {
+            "locationName": "ipv6CidrBlock"
+          },
           "NetworkAclId": {
             "locationName": "networkAclId"
           },
-          "RuleNumber": {
-            "locationName": "ruleNumber",
-            "type": "integer"
+          "PortRange": {
+            "shape": "S5j",
+            "locationName": "portRange"
           },
           "Protocol": {
             "locationName": "protocol"
@@ -32024,23 +33546,9 @@ module.exports={
           "RuleAction": {
             "locationName": "ruleAction"
           },
-          "Egress": {
-            "locationName": "egress",
-            "type": "boolean"
-          },
-          "CidrBlock": {
-            "locationName": "cidrBlock"
-          },
-          "Ipv6CidrBlock": {
-            "locationName": "ipv6CidrBlock"
-          },
-          "IcmpTypeCode": {
-            "shape": "S5b",
-            "locationName": "Icmp"
-          },
-          "PortRange": {
-            "shape": "S5c",
-            "locationName": "portRange"
+          "RuleNumber": {
+            "locationName": "ruleNumber",
+            "type": "integer"
           }
         }
       }
@@ -32052,36 +33560,36 @@ module.exports={
           "RouteTableId"
         ],
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
-          "RouteTableId": {
-            "locationName": "routeTableId"
-          },
           "DestinationCidrBlock": {
             "locationName": "destinationCidrBlock"
-          },
-          "GatewayId": {
-            "locationName": "gatewayId"
           },
           "DestinationIpv6CidrBlock": {
             "locationName": "destinationIpv6CidrBlock"
           },
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
+          },
           "EgressOnlyInternetGatewayId": {
             "locationName": "egressOnlyInternetGatewayId"
+          },
+          "GatewayId": {
+            "locationName": "gatewayId"
           },
           "InstanceId": {
             "locationName": "instanceId"
           },
+          "NatGatewayId": {
+            "locationName": "natGatewayId"
+          },
           "NetworkInterfaceId": {
             "locationName": "networkInterfaceId"
           },
+          "RouteTableId": {
+            "locationName": "routeTableId"
+          },
           "VpcPeeringConnectionId": {
             "locationName": "vpcPeeringConnectionId"
-          },
-          "NatGatewayId": {
-            "locationName": "natGatewayId"
           }
         }
       }
@@ -32094,12 +33602,12 @@ module.exports={
           "RouteTableId"
         ],
         "members": {
+          "AssociationId": {
+            "locationName": "associationId"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "AssociationId": {
-            "locationName": "associationId"
           },
           "RouteTableId": {
             "locationName": "routeTableId"
@@ -32120,28 +33628,24 @@ module.exports={
         "type": "structure",
         "required": [
           "Instances",
-          "Status",
-          "ReasonCodes"
+          "ReasonCodes",
+          "Status"
         ],
         "members": {
+          "Description": {
+            "locationName": "description"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
           },
-          "Instances": {
-            "shape": "S9m",
-            "locationName": "instanceId"
-          },
-          "Status": {
-            "locationName": "status"
-          },
-          "StartTime": {
-            "locationName": "startTime",
-            "type": "timestamp"
-          },
           "EndTime": {
             "locationName": "endTime",
             "type": "timestamp"
+          },
+          "Instances": {
+            "shape": "S9w",
+            "locationName": "instanceId"
           },
           "ReasonCodes": {
             "locationName": "reasonCode",
@@ -32150,8 +33654,12 @@ module.exports={
               "locationName": "item"
             }
           },
-          "Description": {
-            "locationName": "description"
+          "StartTime": {
+            "locationName": "startTime",
+            "type": "timestamp"
+          },
+          "Status": {
+            "locationName": "status"
           }
         }
       }
@@ -32168,7 +33676,7 @@ module.exports={
             "type": "boolean"
           },
           "SpotFleetRequestConfig": {
-            "shape": "Shc",
+            "shape": "Si9",
             "locationName": "spotFleetRequestConfig"
           }
         }
@@ -32192,19 +33700,90 @@ module.exports={
           "SpotPrice"
         ],
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
+          "AvailabilityZoneGroup": {
+            "locationName": "availabilityZoneGroup"
           },
-          "SpotPrice": {
-            "locationName": "spotPrice"
+          "BlockDurationMinutes": {
+            "locationName": "blockDurationMinutes",
+            "type": "integer"
           },
           "ClientToken": {
             "locationName": "clientToken"
           },
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
+          },
           "InstanceCount": {
             "locationName": "instanceCount",
             "type": "integer"
+          },
+          "LaunchGroup": {
+            "locationName": "launchGroup"
+          },
+          "LaunchSpecification": {
+            "type": "structure",
+            "members": {
+              "SecurityGroupIds": {
+                "shape": "S2z",
+                "locationName": "SecurityGroupId"
+              },
+              "SecurityGroups": {
+                "shape": "S2z",
+                "locationName": "SecurityGroup"
+              },
+              "AddressingType": {
+                "locationName": "addressingType"
+              },
+              "BlockDeviceMappings": {
+                "shape": "Sck",
+                "locationName": "blockDeviceMapping"
+              },
+              "EbsOptimized": {
+                "locationName": "ebsOptimized",
+                "type": "boolean"
+              },
+              "IamInstanceProfile": {
+                "shape": "S11",
+                "locationName": "iamInstanceProfile"
+              },
+              "ImageId": {
+                "locationName": "imageId"
+              },
+              "InstanceType": {
+                "locationName": "instanceType"
+              },
+              "KernelId": {
+                "locationName": "kernelId"
+              },
+              "KeyName": {
+                "locationName": "keyName"
+              },
+              "Monitoring": {
+                "shape": "Siq",
+                "locationName": "monitoring"
+              },
+              "NetworkInterfaces": {
+                "shape": "Sif",
+                "locationName": "NetworkInterface"
+              },
+              "Placement": {
+                "shape": "Sih",
+                "locationName": "placement"
+              },
+              "RamdiskId": {
+                "locationName": "ramdiskId"
+              },
+              "SubnetId": {
+                "locationName": "subnetId"
+              },
+              "UserData": {
+                "locationName": "userData"
+              }
+            }
+          },
+          "SpotPrice": {
+            "locationName": "spotPrice"
           },
           "Type": {
             "locationName": "type"
@@ -32216,77 +33795,6 @@ module.exports={
           "ValidUntil": {
             "locationName": "validUntil",
             "type": "timestamp"
-          },
-          "LaunchGroup": {
-            "locationName": "launchGroup"
-          },
-          "AvailabilityZoneGroup": {
-            "locationName": "availabilityZoneGroup"
-          },
-          "BlockDurationMinutes": {
-            "locationName": "blockDurationMinutes",
-            "type": "integer"
-          },
-          "LaunchSpecification": {
-            "type": "structure",
-            "members": {
-              "ImageId": {
-                "locationName": "imageId"
-              },
-              "KeyName": {
-                "locationName": "keyName"
-              },
-              "SecurityGroups": {
-                "shape": "S2z",
-                "locationName": "SecurityGroup"
-              },
-              "UserData": {
-                "locationName": "userData"
-              },
-              "AddressingType": {
-                "locationName": "addressingType"
-              },
-              "InstanceType": {
-                "locationName": "instanceType"
-              },
-              "Placement": {
-                "shape": "Shf",
-                "locationName": "placement"
-              },
-              "KernelId": {
-                "locationName": "kernelId"
-              },
-              "RamdiskId": {
-                "locationName": "ramdiskId"
-              },
-              "BlockDeviceMappings": {
-                "shape": "Sbw",
-                "locationName": "blockDeviceMapping"
-              },
-              "SubnetId": {
-                "locationName": "subnetId"
-              },
-              "NetworkInterfaces": {
-                "shape": "Shh",
-                "locationName": "NetworkInterface"
-              },
-              "IamInstanceProfile": {
-                "shape": "S11",
-                "locationName": "iamInstanceProfile"
-              },
-              "EbsOptimized": {
-                "locationName": "ebsOptimized",
-                "type": "boolean"
-              },
-              "Monitoring": {
-                "shape": "Shv",
-                "locationName": "monitoring"
-              },
-              "SecurityGroupIds": {
-                "shape": "S2z",
-                "locationName": "SecurityGroupId"
-              }
-            }
           }
         }
       },
@@ -32294,7 +33802,7 @@ module.exports={
         "type": "structure",
         "members": {
           "SpotInstanceRequests": {
-            "shape": "Shp",
+            "shape": "Sin",
             "locationName": "spotInstanceRequestSet"
           }
         }
@@ -32304,16 +33812,16 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "ImageId",
-          "Attribute"
+          "Attribute",
+          "ImageId"
         ],
         "members": {
+          "Attribute": {},
+          "ImageId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "ImageId": {},
-          "Attribute": {}
+          }
         }
       }
     },
@@ -32321,19 +33829,19 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "InstanceId",
-          "Attribute"
+          "Attribute",
+          "InstanceId"
         ],
         "members": {
+          "Attribute": {
+            "locationName": "attribute"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
           },
           "InstanceId": {
             "locationName": "instanceId"
-          },
-          "Attribute": {
-            "locationName": "attribute"
           }
         }
       }
@@ -32362,16 +33870,16 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "SnapshotId",
-          "Attribute"
+          "Attribute",
+          "SnapshotId"
         ],
         "members": {
+          "Attribute": {},
+          "SnapshotId": {},
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "SnapshotId": {},
-          "Attribute": {}
+          }
         }
       }
     },
@@ -32394,11 +33902,11 @@ module.exports={
       "output": {
         "type": "structure",
         "members": {
-          "Status": {
-            "locationName": "status"
-          },
           "PublicIp": {
             "locationName": "publicIp"
+          },
+          "Status": {
+            "locationName": "status"
           }
         }
       }
@@ -32417,29 +33925,29 @@ module.exports={
           "GroupId": {
             "locationName": "groupId"
           },
-          "SourceSecurityGroupName": {
-            "locationName": "sourceSecurityGroupName"
+          "IpPermissions": {
+            "shape": "S1w",
+            "locationName": "ipPermissions"
           },
-          "SourceSecurityGroupOwnerId": {
-            "locationName": "sourceSecurityGroupOwnerId"
-          },
-          "IpProtocol": {
-            "locationName": "ipProtocol"
+          "CidrIp": {
+            "locationName": "cidrIp"
           },
           "FromPort": {
             "locationName": "fromPort",
             "type": "integer"
           },
+          "IpProtocol": {
+            "locationName": "ipProtocol"
+          },
           "ToPort": {
             "locationName": "toPort",
             "type": "integer"
           },
-          "CidrIp": {
-            "locationName": "cidrIp"
+          "SourceSecurityGroupName": {
+            "locationName": "sourceSecurityGroupName"
           },
-          "IpPermissions": {
-            "shape": "S1w",
-            "locationName": "ipPermissions"
+          "SourceSecurityGroupOwnerId": {
+            "locationName": "sourceSecurityGroupOwnerId"
           }
         }
       }
@@ -32448,24 +33956,24 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
-          },
-          "GroupName": {},
-          "GroupId": {},
-          "SourceSecurityGroupName": {},
-          "SourceSecurityGroupOwnerId": {},
-          "IpProtocol": {},
+          "CidrIp": {},
           "FromPort": {
             "type": "integer"
           },
+          "GroupId": {},
+          "GroupName": {},
+          "IpPermissions": {
+            "shape": "S1w"
+          },
+          "IpProtocol": {},
+          "SourceSecurityGroupName": {},
+          "SourceSecurityGroupOwnerId": {},
           "ToPort": {
             "type": "integer"
           },
-          "CidrIp": {},
-          "IpPermissions": {
-            "shape": "S1w"
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           }
         }
       }
@@ -32475,131 +33983,126 @@ module.exports={
         "type": "structure",
         "required": [
           "ImageId",
-          "MinCount",
-          "MaxCount"
+          "MaxCount",
+          "MinCount"
         ],
         "members": {
-          "DryRun": {
-            "locationName": "dryRun",
-            "type": "boolean"
+          "BlockDeviceMappings": {
+            "shape": "S4k",
+            "locationName": "BlockDeviceMapping"
           },
           "ImageId": {},
-          "MinCount": {
+          "InstanceType": {},
+          "Ipv6AddressCount": {
             "type": "integer"
           },
+          "Ipv6Addresses": {
+            "shape": "S5o",
+            "locationName": "Ipv6Address"
+          },
+          "KernelId": {},
+          "KeyName": {},
           "MaxCount": {
             "type": "integer"
           },
-          "KeyName": {},
-          "SecurityGroups": {
-            "shape": "Slk",
-            "locationName": "SecurityGroup"
-          },
-          "SecurityGroupIds": {
-            "shape": "S5h",
-            "locationName": "SecurityGroupId"
-          },
-          "UserData": {},
-          "InstanceType": {},
-          "Placement": {
-            "shape": "Sdh"
-          },
-          "KernelId": {},
-          "RamdiskId": {},
-          "BlockDeviceMappings": {
-            "shape": "S4e",
-            "locationName": "BlockDeviceMapping"
+          "MinCount": {
+            "type": "integer"
           },
           "Monitoring": {
-            "shape": "Shv"
+            "shape": "Siq"
+          },
+          "Placement": {
+            "shape": "Se9"
+          },
+          "RamdiskId": {},
+          "SecurityGroupIds": {
+            "shape": "S5n",
+            "locationName": "SecurityGroupId"
+          },
+          "SecurityGroups": {
+            "shape": "Smm",
+            "locationName": "SecurityGroup"
           },
           "SubnetId": {},
-          "DisableApiTermination": {
-            "locationName": "disableApiTermination",
-            "type": "boolean"
-          },
-          "InstanceInitiatedShutdownBehavior": {
-            "locationName": "instanceInitiatedShutdownBehavior"
-          },
-          "PrivateIpAddress": {
-            "locationName": "privateIpAddress"
-          },
-          "Ipv6Addresses": {
-            "shape": "S5k",
-            "locationName": "Ipv6Address"
-          },
-          "Ipv6AddressCount": {
-            "type": "integer"
+          "UserData": {},
+          "AdditionalInfo": {
+            "locationName": "additionalInfo"
           },
           "ClientToken": {
             "locationName": "clientToken"
           },
-          "AdditionalInfo": {
-            "locationName": "additionalInfo"
+          "DisableApiTermination": {
+            "locationName": "disableApiTermination",
+            "type": "boolean"
           },
-          "NetworkInterfaces": {
-            "shape": "Shh",
-            "locationName": "networkInterface"
-          },
-          "IamInstanceProfile": {
-            "shape": "S11",
-            "locationName": "iamInstanceProfile"
+          "DryRun": {
+            "locationName": "dryRun",
+            "type": "boolean"
           },
           "EbsOptimized": {
             "locationName": "ebsOptimized",
             "type": "boolean"
           },
+          "IamInstanceProfile": {
+            "shape": "S11",
+            "locationName": "iamInstanceProfile"
+          },
+          "InstanceInitiatedShutdownBehavior": {
+            "locationName": "instanceInitiatedShutdownBehavior"
+          },
+          "NetworkInterfaces": {
+            "shape": "Sif",
+            "locationName": "networkInterface"
+          },
+          "PrivateIpAddress": {
+            "locationName": "privateIpAddress"
+          },
+          "ElasticGpuSpecification": {
+            "type": "list",
+            "member": {
+              "locationName": "item",
+              "type": "structure",
+              "required": [
+                "Type"
+              ],
+              "members": {
+                "Type": {}
+              }
+            }
+          },
           "TagSpecifications": {
-            "shape": "S6z",
+            "shape": "S7b",
             "locationName": "TagSpecification"
           }
         }
       },
       "output": {
-        "shape": "Sdd"
+        "shape": "Se3"
       }
     },
     "RunScheduledInstances": {
       "input": {
         "type": "structure",
         "required": [
-          "ScheduledInstanceId",
-          "LaunchSpecification"
+          "LaunchSpecification",
+          "ScheduledInstanceId"
         ],
         "members": {
-          "DryRun": {
-            "type": "boolean"
-          },
           "ClientToken": {
             "idempotencyToken": true
+          },
+          "DryRun": {
+            "type": "boolean"
           },
           "InstanceCount": {
             "type": "integer"
           },
-          "ScheduledInstanceId": {},
           "LaunchSpecification": {
             "type": "structure",
             "required": [
               "ImageId"
             ],
             "members": {
-              "ImageId": {},
-              "KeyName": {},
-              "SecurityGroupIds": {
-                "shape": "Som",
-                "locationName": "SecurityGroupId"
-              },
-              "UserData": {},
-              "Placement": {
-                "type": "structure",
-                "members": {
-                  "AvailabilityZone": {},
-                  "GroupName": {}
-                }
-              },
-              "KernelId": {},
-              "InstanceType": {},
-              "RamdiskId": {},
               "BlockDeviceMappings": {
                 "locationName": "BlockDeviceMapping",
                 "type": "list",
@@ -32608,30 +34111,44 @@ module.exports={
                   "type": "structure",
                   "members": {
                     "DeviceName": {},
-                    "NoDevice": {},
-                    "VirtualName": {},
                     "Ebs": {
                       "type": "structure",
                       "members": {
+                        "DeleteOnTermination": {
+                          "type": "boolean"
+                        },
+                        "Encrypted": {
+                          "type": "boolean"
+                        },
+                        "Iops": {
+                          "type": "integer"
+                        },
                         "SnapshotId": {},
                         "VolumeSize": {
                           "type": "integer"
                         },
-                        "DeleteOnTermination": {
-                          "type": "boolean"
-                        },
-                        "VolumeType": {},
-                        "Iops": {
-                          "type": "integer"
-                        },
-                        "Encrypted": {
-                          "type": "boolean"
-                        }
+                        "VolumeType": {}
                       }
-                    }
+                    },
+                    "NoDevice": {},
+                    "VirtualName": {}
                   }
                 }
               },
+              "EbsOptimized": {
+                "type": "boolean"
+              },
+              "IamInstanceProfile": {
+                "type": "structure",
+                "members": {
+                  "Arn": {},
+                  "Name": {}
+                }
+              },
+              "ImageId": {},
+              "InstanceType": {},
+              "KernelId": {},
+              "KeyName": {},
               "Monitoring": {
                 "type": "structure",
                 "members": {
@@ -32640,7 +34157,6 @@ module.exports={
                   }
                 }
               },
-              "SubnetId": {},
               "NetworkInterfaces": {
                 "locationName": "NetworkInterface",
                 "type": "list",
@@ -32648,39 +34164,22 @@ module.exports={
                   "locationName": "NetworkInterface",
                   "type": "structure",
                   "members": {
-                    "NetworkInterfaceId": {},
-                    "DeviceIndex": {
-                      "type": "integer"
-                    },
-                    "SubnetId": {},
-                    "Description": {},
-                    "PrivateIpAddress": {},
-                    "PrivateIpAddressConfigs": {
-                      "locationName": "PrivateIpAddressConfig",
-                      "type": "list",
-                      "member": {
-                        "locationName": "PrivateIpAddressConfigSet",
-                        "type": "structure",
-                        "members": {
-                          "PrivateIpAddress": {},
-                          "Primary": {
-                            "type": "boolean"
-                          }
-                        }
-                      }
-                    },
-                    "SecondaryPrivateIpAddressCount": {
-                      "type": "integer"
-                    },
                     "AssociatePublicIpAddress": {
                       "type": "boolean"
                     },
-                    "Groups": {
-                      "shape": "Som",
-                      "locationName": "Group"
-                    },
                     "DeleteOnTermination": {
                       "type": "boolean"
+                    },
+                    "Description": {},
+                    "DeviceIndex": {
+                      "type": "integer"
+                    },
+                    "Groups": {
+                      "shape": "Spt",
+                      "locationName": "Group"
+                    },
+                    "Ipv6AddressCount": {
+                      "type": "integer"
                     },
                     "Ipv6Addresses": {
                       "locationName": "Ipv6Address",
@@ -32693,24 +34192,46 @@ module.exports={
                         }
                       }
                     },
-                    "Ipv6AddressCount": {
+                    "NetworkInterfaceId": {},
+                    "PrivateIpAddress": {},
+                    "PrivateIpAddressConfigs": {
+                      "locationName": "PrivateIpAddressConfig",
+                      "type": "list",
+                      "member": {
+                        "locationName": "PrivateIpAddressConfigSet",
+                        "type": "structure",
+                        "members": {
+                          "Primary": {
+                            "type": "boolean"
+                          },
+                          "PrivateIpAddress": {}
+                        }
+                      }
+                    },
+                    "SecondaryPrivateIpAddressCount": {
                       "type": "integer"
-                    }
+                    },
+                    "SubnetId": {}
                   }
                 }
               },
-              "IamInstanceProfile": {
+              "Placement": {
                 "type": "structure",
                 "members": {
-                  "Arn": {},
-                  "Name": {}
+                  "AvailabilityZone": {},
+                  "GroupName": {}
                 }
               },
-              "EbsOptimized": {
-                "type": "boolean"
-              }
+              "RamdiskId": {},
+              "SecurityGroupIds": {
+                "shape": "Spt",
+                "locationName": "SecurityGroupId"
+              },
+              "SubnetId": {},
+              "UserData": {}
             }
-          }
+          },
+          "ScheduledInstanceId": {}
         }
       },
       "output": {
@@ -32734,7 +34255,7 @@ module.exports={
         ],
         "members": {
           "InstanceIds": {
-            "shape": "S9m",
+            "shape": "S9w",
             "locationName": "InstanceId"
           },
           "AdditionalInfo": {
@@ -32750,7 +34271,7 @@ module.exports={
         "type": "structure",
         "members": {
           "StartingInstances": {
-            "shape": "Sp4",
+            "shape": "Sq4",
             "locationName": "instancesSet"
           }
         }
@@ -32763,13 +34284,13 @@ module.exports={
           "InstanceIds"
         ],
         "members": {
+          "InstanceIds": {
+            "shape": "S9w",
+            "locationName": "InstanceId"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "InstanceIds": {
-            "shape": "S9m",
-            "locationName": "InstanceId"
           },
           "Force": {
             "locationName": "force",
@@ -32781,7 +34302,7 @@ module.exports={
         "type": "structure",
         "members": {
           "StoppingInstances": {
-            "shape": "Sp4",
+            "shape": "Sq4",
             "locationName": "instancesSet"
           }
         }
@@ -32794,13 +34315,13 @@ module.exports={
           "InstanceIds"
         ],
         "members": {
+          "InstanceIds": {
+            "shape": "S9w",
+            "locationName": "InstanceId"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "InstanceIds": {
-            "shape": "S9m",
-            "locationName": "InstanceId"
           }
         }
       },
@@ -32808,7 +34329,7 @@ module.exports={
         "type": "structure",
         "members": {
           "TerminatingInstances": {
-            "shape": "Sp4",
+            "shape": "Sq4",
             "locationName": "instancesSet"
           }
         }
@@ -32818,16 +34339,16 @@ module.exports={
       "input": {
         "type": "structure",
         "required": [
-          "NetworkInterfaceId",
-          "Ipv6Addresses"
+          "Ipv6Addresses",
+          "NetworkInterfaceId"
         ],
         "members": {
-          "NetworkInterfaceId": {
-            "locationName": "networkInterfaceId"
-          },
           "Ipv6Addresses": {
             "shape": "St",
             "locationName": "ipv6Addresses"
+          },
+          "NetworkInterfaceId": {
+            "locationName": "networkInterfaceId"
           }
         }
       },
@@ -32869,13 +34390,13 @@ module.exports={
           "InstanceIds"
         ],
         "members": {
+          "InstanceIds": {
+            "shape": "S9w",
+            "locationName": "InstanceId"
+          },
           "DryRun": {
             "locationName": "dryRun",
             "type": "boolean"
-          },
-          "InstanceIds": {
-            "shape": "S9m",
-            "locationName": "InstanceId"
           }
         }
       },
@@ -32883,7 +34404,7 @@ module.exports={
         "type": "structure",
         "members": {
           "InstanceMonitorings": {
-            "shape": "Sn5",
+            "shape": "So3",
             "locationName": "instancesSet"
           }
         }
@@ -32906,10 +34427,10 @@ module.exports={
           "OfferingId"
         ],
         "members": {
-          "OfferingId": {},
           "InstanceCount": {
             "type": "integer"
-          }
+          },
+          "OfferingId": {}
         }
       }
     },
@@ -32955,12 +34476,6 @@ module.exports={
         "CidrBlock": {
           "locationName": "cidrBlock"
         },
-        "OwnerId": {
-          "locationName": "ownerId"
-        },
-        "VpcId": {
-          "locationName": "vpcId"
-        },
         "Ipv6CidrBlockSet": {
           "locationName": "ipv6CidrBlockSet",
           "type": "list",
@@ -32974,10 +34489,17 @@ module.exports={
             }
           }
         },
+        "OwnerId": {
+          "locationName": "ownerId"
+        },
         "PeeringOptions": {
           "locationName": "peeringOptions",
           "type": "structure",
           "members": {
+            "AllowDnsResolutionFromRemoteVpc": {
+              "locationName": "allowDnsResolutionFromRemoteVpc",
+              "type": "boolean"
+            },
             "AllowEgressFromLocalClassicLinkToRemoteVpc": {
               "locationName": "allowEgressFromLocalClassicLinkToRemoteVpc",
               "type": "boolean"
@@ -32985,12 +34507,11 @@ module.exports={
             "AllowEgressFromLocalVpcToRemoteClassicLink": {
               "locationName": "allowEgressFromLocalVpcToRemoteClassicLink",
               "type": "boolean"
-            },
-            "AllowDnsResolutionFromRemoteVpc": {
-              "locationName": "allowDnsResolutionFromRemoteVpc",
-              "type": "boolean"
             }
           }
+        },
+        "VpcId": {
+          "locationName": "vpcId"
         }
       }
     },
@@ -33074,6 +34595,9 @@ module.exports={
     "S1a": {
       "type": "structure",
       "members": {
+        "AssociationId": {
+          "locationName": "associationId"
+        },
         "Ipv6CidrBlock": {
           "locationName": "ipv6CidrBlock"
         },
@@ -33088,15 +34612,15 @@ module.exports={
               "locationName": "statusMessage"
             }
           }
-        },
-        "AssociationId": {
-          "locationName": "associationId"
         }
       }
     },
     "S1f": {
       "type": "structure",
       "members": {
+        "AssociationId": {
+          "locationName": "associationId"
+        },
         "Ipv6CidrBlock": {
           "locationName": "ipv6CidrBlock"
         },
@@ -33111,9 +34635,6 @@ module.exports={
               "locationName": "statusMessage"
             }
           }
-        },
-        "AssociationId": {
-          "locationName": "associationId"
         }
       }
     },
@@ -33126,21 +34647,21 @@ module.exports={
     "S1p": {
       "type": "structure",
       "members": {
-        "VolumeId": {
-          "locationName": "volumeId"
-        },
-        "InstanceId": {
-          "locationName": "instanceId"
+        "AttachTime": {
+          "locationName": "attachTime",
+          "type": "timestamp"
         },
         "Device": {
           "locationName": "device"
         },
+        "InstanceId": {
+          "locationName": "instanceId"
+        },
         "State": {
           "locationName": "status"
         },
-        "AttachTime": {
-          "locationName": "attachTime",
-          "type": "timestamp"
+        "VolumeId": {
+          "locationName": "volumeId"
         },
         "DeleteOnTermination": {
           "locationName": "deleteOnTermination",
@@ -33151,11 +34672,11 @@ module.exports={
     "S1t": {
       "type": "structure",
       "members": {
-        "VpcId": {
-          "locationName": "vpcId"
-        },
         "State": {
           "locationName": "state"
+        },
+        "VpcId": {
+          "locationName": "vpcId"
         }
       }
     },
@@ -33165,24 +34686,12 @@ module.exports={
         "locationName": "item",
         "type": "structure",
         "members": {
-          "IpProtocol": {
-            "locationName": "ipProtocol"
-          },
           "FromPort": {
             "locationName": "fromPort",
             "type": "integer"
           },
-          "ToPort": {
-            "locationName": "toPort",
-            "type": "integer"
-          },
-          "UserIdGroupPairs": {
-            "locationName": "groups",
-            "type": "list",
-            "member": {
-              "shape": "S1z",
-              "locationName": "item"
-            }
+          "IpProtocol": {
+            "locationName": "ipProtocol"
           },
           "IpRanges": {
             "locationName": "ipRanges",
@@ -33222,30 +34731,42 @@ module.exports={
                 }
               }
             }
+          },
+          "ToPort": {
+            "locationName": "toPort",
+            "type": "integer"
+          },
+          "UserIdGroupPairs": {
+            "locationName": "groups",
+            "type": "list",
+            "member": {
+              "shape": "S25",
+              "locationName": "item"
+            }
           }
         }
       }
     },
-    "S1z": {
+    "S25": {
       "type": "structure",
       "members": {
-        "UserId": {
-          "locationName": "userId"
+        "GroupId": {
+          "locationName": "groupId"
         },
         "GroupName": {
           "locationName": "groupName"
         },
-        "GroupId": {
-          "locationName": "groupId"
+        "PeeringStatus": {
+          "locationName": "peeringStatus"
+        },
+        "UserId": {
+          "locationName": "userId"
         },
         "VpcId": {
           "locationName": "vpcId"
         },
         "VpcPeeringConnectionId": {
           "locationName": "vpcPeeringConnectionId"
-        },
-        "PeeringStatus": {
-          "locationName": "peeringStatus"
         }
       }
     },
@@ -33255,13 +34776,13 @@ module.exports={
         "S3": {
           "type": "structure",
           "members": {
+            "AWSAccessKeyId": {},
             "Bucket": {
               "locationName": "bucket"
             },
             "Prefix": {
               "locationName": "prefix"
             },
-            "AWSAccessKeyId": {},
             "UploadPolicy": {
               "locationName": "uploadPolicy",
               "type": "blob"
@@ -33276,29 +34797,8 @@ module.exports={
     "S2c": {
       "type": "structure",
       "members": {
-        "InstanceId": {
-          "locationName": "instanceId"
-        },
         "BundleId": {
           "locationName": "bundleId"
-        },
-        "State": {
-          "locationName": "state"
-        },
-        "StartTime": {
-          "locationName": "startTime",
-          "type": "timestamp"
-        },
-        "UpdateTime": {
-          "locationName": "updateTime",
-          "type": "timestamp"
-        },
-        "Storage": {
-          "shape": "S28",
-          "locationName": "storage"
-        },
-        "Progress": {
-          "locationName": "progress"
         },
         "BundleTaskError": {
           "locationName": "error",
@@ -33311,6 +34811,27 @@ module.exports={
               "locationName": "message"
             }
           }
+        },
+        "InstanceId": {
+          "locationName": "instanceId"
+        },
+        "Progress": {
+          "locationName": "progress"
+        },
+        "StartTime": {
+          "locationName": "startTime",
+          "type": "timestamp"
+        },
+        "State": {
+          "locationName": "state"
+        },
+        "Storage": {
+          "shape": "S28",
+          "locationName": "storage"
+        },
+        "UpdateTime": {
+          "locationName": "updateTime",
+          "type": "timestamp"
         }
       }
     },
@@ -33320,25 +34841,12 @@ module.exports={
         "locationName": "item",
         "type": "structure",
         "members": {
-          "ReservedInstancesListingId": {
-            "locationName": "reservedInstancesListingId"
-          },
-          "ReservedInstancesId": {
-            "locationName": "reservedInstancesId"
+          "ClientToken": {
+            "locationName": "clientToken"
           },
           "CreateDate": {
             "locationName": "createDate",
             "type": "timestamp"
-          },
-          "UpdateDate": {
-            "locationName": "updateDate",
-            "type": "timestamp"
-          },
-          "Status": {
-            "locationName": "status"
-          },
-          "StatusMessage": {
-            "locationName": "statusMessage"
           },
           "InstanceCounts": {
             "locationName": "instanceCounts",
@@ -33347,12 +34855,12 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
-                "State": {
-                  "locationName": "state"
-                },
                 "InstanceCount": {
                   "locationName": "instanceCount",
                   "type": "integer"
+                },
+                "State": {
+                  "locationName": "state"
                 }
               }
             }
@@ -33364,30 +34872,43 @@ module.exports={
               "locationName": "item",
               "type": "structure",
               "members": {
-                "Term": {
-                  "locationName": "term",
-                  "type": "long"
+                "Active": {
+                  "locationName": "active",
+                  "type": "boolean"
+                },
+                "CurrencyCode": {
+                  "locationName": "currencyCode"
                 },
                 "Price": {
                   "locationName": "price",
                   "type": "double"
                 },
-                "CurrencyCode": {
-                  "locationName": "currencyCode"
-                },
-                "Active": {
-                  "locationName": "active",
-                  "type": "boolean"
+                "Term": {
+                  "locationName": "term",
+                  "type": "long"
                 }
               }
             }
+          },
+          "ReservedInstancesId": {
+            "locationName": "reservedInstancesId"
+          },
+          "ReservedInstancesListingId": {
+            "locationName": "reservedInstancesListingId"
+          },
+          "Status": {
+            "locationName": "status"
+          },
+          "StatusMessage": {
+            "locationName": "statusMessage"
           },
           "Tags": {
             "shape": "Sj",
             "locationName": "tagSet"
           },
-          "ClientToken": {
-            "locationName": "clientToken"
+          "UpdateDate": {
+            "locationName": "updateDate",
+            "type": "timestamp"
           }
         }
       }
@@ -33407,8 +34928,14 @@ module.exports={
     "S3n": {
       "type": "structure",
       "members": {
+        "BgpAsn": {
+          "locationName": "bgpAsn"
+        },
         "CustomerGatewayId": {
           "locationName": "customerGatewayId"
+        },
+        "IpAddress": {
+          "locationName": "ipAddress"
         },
         "State": {
           "locationName": "state"
@@ -33416,11 +34943,41 @@ module.exports={
         "Type": {
           "locationName": "type"
         },
-        "IpAddress": {
-          "locationName": "ipAddress"
+        "Tags": {
+          "shape": "Sj",
+          "locationName": "tagSet"
+        }
+      }
+    },
+    "S3q": {
+      "type": "structure",
+      "members": {
+        "CidrBlock": {
+          "locationName": "cidrBlock"
         },
-        "BgpAsn": {
-          "locationName": "bgpAsn"
+        "DhcpOptionsId": {
+          "locationName": "dhcpOptionsId"
+        },
+        "State": {
+          "locationName": "state"
+        },
+        "VpcId": {
+          "locationName": "vpcId"
+        },
+        "InstanceTenancy": {
+          "locationName": "instanceTenancy"
+        },
+        "Ipv6CidrBlockAssociationSet": {
+          "locationName": "ipv6CidrBlockAssociationSet",
+          "type": "list",
+          "member": {
+            "shape": "S1f",
+            "locationName": "item"
+          }
+        },
+        "IsDefault": {
+          "locationName": "isDefault",
+          "type": "boolean"
         },
         "Tags": {
           "shape": "Sj",
@@ -33428,12 +34985,9 @@ module.exports={
         }
       }
     },
-    "S3s": {
+    "S3y": {
       "type": "structure",
       "members": {
-        "DhcpOptionsId": {
-          "locationName": "dhcpOptionsId"
-        },
         "DhcpConfigurations": {
           "locationName": "dhcpConfigurationSet",
           "type": "list",
@@ -33448,12 +35002,15 @@ module.exports={
                 "locationName": "valueSet",
                 "type": "list",
                 "member": {
-                  "shape": "S3w",
+                  "shape": "S42",
                   "locationName": "item"
                 }
               }
             }
           }
+        },
+        "DhcpOptionsId": {
+          "locationName": "dhcpOptionsId"
         },
         "Tags": {
           "shape": "Sj",
@@ -33461,7 +35018,7 @@ module.exports={
         }
       }
     },
-    "S3w": {
+    "S42": {
       "type": "structure",
       "members": {
         "Value": {
@@ -33469,49 +35026,46 @@ module.exports={
         }
       }
     },
-    "S3z": {
+    "S45": {
       "type": "structure",
       "members": {
+        "Attachments": {
+          "shape": "S46",
+          "locationName": "attachmentSet"
+        },
         "EgressOnlyInternetGatewayId": {
           "locationName": "egressOnlyInternetGatewayId"
-        },
-        "Attachments": {
-          "shape": "S41",
-          "locationName": "attachmentSet"
         }
       }
     },
-    "S41": {
+    "S46": {
       "type": "list",
       "member": {
         "locationName": "item",
         "type": "structure",
         "members": {
-          "VpcId": {
-            "locationName": "vpcId"
-          },
           "State": {
             "locationName": "state"
+          },
+          "VpcId": {
+            "locationName": "vpcId"
           }
         }
       }
     },
-    "S47": {
+    "S4d": {
       "type": "list",
       "member": {
-        "shape": "S48",
+        "shape": "S4e",
         "locationName": "item"
       }
     },
-    "S48": {
+    "S4e": {
       "type": "structure",
       "required": [
         "Error"
       ],
       "members": {
-        "ResourceId": {
-          "locationName": "resourceId"
-        },
         "Error": {
           "locationName": "error",
           "type": "structure",
@@ -33527,36 +35081,51 @@ module.exports={
               "locationName": "message"
             }
           }
+        },
+        "ResourceId": {
+          "locationName": "resourceId"
         }
       }
     },
-    "S4b": {
+    "S4h": {
       "type": "structure",
       "members": {
         "Bucket": {},
         "Key": {}
       }
     },
-    "S4e": {
+    "S4k": {
       "type": "list",
       "member": {
-        "shape": "S4f",
+        "shape": "S4l",
         "locationName": "BlockDeviceMapping"
       }
     },
-    "S4f": {
+    "S4l": {
       "type": "structure",
       "members": {
-        "VirtualName": {
-          "locationName": "virtualName"
-        },
         "DeviceName": {
           "locationName": "deviceName"
+        },
+        "VirtualName": {
+          "locationName": "virtualName"
         },
         "Ebs": {
           "locationName": "ebs",
           "type": "structure",
           "members": {
+            "Encrypted": {
+              "locationName": "encrypted",
+              "type": "boolean"
+            },
+            "DeleteOnTermination": {
+              "locationName": "deleteOnTermination",
+              "type": "boolean"
+            },
+            "Iops": {
+              "locationName": "iops",
+              "type": "integer"
+            },
             "SnapshotId": {
               "locationName": "snapshotId"
             },
@@ -33564,20 +35133,8 @@ module.exports={
               "locationName": "volumeSize",
               "type": "integer"
             },
-            "DeleteOnTermination": {
-              "locationName": "deleteOnTermination",
-              "type": "boolean"
-            },
             "VolumeType": {
               "locationName": "volumeType"
-            },
-            "Iops": {
-              "locationName": "iops",
-              "type": "integer"
-            },
-            "Encrypted": {
-              "locationName": "encrypted",
-              "type": "boolean"
             }
           }
         },
@@ -33586,20 +35143,32 @@ module.exports={
         }
       }
     },
-    "S4p": {
+    "S4v": {
       "type": "structure",
       "members": {
-        "ExportTaskId": {
-          "locationName": "exportTaskId"
-        },
         "Description": {
           "locationName": "description"
         },
-        "State": {
-          "locationName": "state"
+        "ExportTaskId": {
+          "locationName": "exportTaskId"
         },
-        "StatusMessage": {
-          "locationName": "statusMessage"
+        "ExportToS3Task": {
+          "locationName": "exportToS3",
+          "type": "structure",
+          "members": {
+            "ContainerFormat": {
+              "locationName": "containerFormat"
+            },
+            "DiskImageFormat": {
+              "locationName": "diskImageFormat"
+            },
+            "S3Bucket": {
+              "locationName": "s3Bucket"
+            },
+            "S3Key": {
+              "locationName": "s3Key"
+            }
+          }
         },
         "InstanceExportDetails": {
           "locationName": "instanceExport",
@@ -33613,35 +35182,23 @@ module.exports={
             }
           }
         },
-        "ExportToS3Task": {
-          "locationName": "exportToS3",
-          "type": "structure",
-          "members": {
-            "DiskImageFormat": {
-              "locationName": "diskImageFormat"
-            },
-            "ContainerFormat": {
-              "locationName": "containerFormat"
-            },
-            "S3Bucket": {
-              "locationName": "s3Bucket"
-            },
-            "S3Key": {
-              "locationName": "s3Key"
-            }
-          }
+        "State": {
+          "locationName": "state"
+        },
+        "StatusMessage": {
+          "locationName": "statusMessage"
         }
       }
     },
-    "S4v": {
+    "S51": {
       "type": "structure",
       "members": {
+        "Attachments": {
+          "shape": "S46",
+          "locationName": "attachmentSet"
+        },
         "InternetGatewayId": {
           "locationName": "internetGatewayId"
-        },
-        "Attachments": {
-          "shape": "S41",
-          "locationName": "attachmentSet"
         },
         "Tags": {
           "shape": "Sj",
@@ -33649,18 +35206,9 @@ module.exports={
         }
       }
     },
-    "S50": {
+    "S56": {
       "type": "structure",
       "members": {
-        "VpcId": {
-          "locationName": "vpcId"
-        },
-        "SubnetId": {
-          "locationName": "subnetId"
-        },
-        "NatGatewayId": {
-          "locationName": "natGatewayId"
-        },
         "CreateTime": {
           "locationName": "createTime",
           "type": "timestamp"
@@ -33669,6 +35217,12 @@ module.exports={
           "locationName": "deleteTime",
           "type": "timestamp"
         },
+        "FailureCode": {
+          "locationName": "failureCode"
+        },
+        "FailureMessage": {
+          "locationName": "failureMessage"
+        },
         "NatGatewayAddresses": {
           "locationName": "natGatewayAddressSet",
           "type": "list",
@@ -33676,106 +35230,61 @@ module.exports={
             "locationName": "item",
             "type": "structure",
             "members": {
-              "PublicIp": {
-                "locationName": "publicIp"
-              },
               "AllocationId": {
                 "locationName": "allocationId"
+              },
+              "NetworkInterfaceId": {
+                "locationName": "networkInterfaceId"
               },
               "PrivateIp": {
                 "locationName": "privateIp"
               },
-              "NetworkInterfaceId": {
-                "locationName": "networkInterfaceId"
+              "PublicIp": {
+                "locationName": "publicIp"
               }
+            }
+          }
+        },
+        "NatGatewayId": {
+          "locationName": "natGatewayId"
+        },
+        "ProvisionedBandwidth": {
+          "locationName": "provisionedBandwidth",
+          "type": "structure",
+          "members": {
+            "ProvisionTime": {
+              "locationName": "provisionTime",
+              "type": "timestamp"
+            },
+            "Provisioned": {
+              "locationName": "provisioned"
+            },
+            "RequestTime": {
+              "locationName": "requestTime",
+              "type": "timestamp"
+            },
+            "Requested": {
+              "locationName": "requested"
+            },
+            "Status": {
+              "locationName": "status"
             }
           }
         },
         "State": {
           "locationName": "state"
         },
-        "FailureCode": {
-          "locationName": "failureCode"
-        },
-        "FailureMessage": {
-          "locationName": "failureMessage"
-        },
-        "ProvisionedBandwidth": {
-          "locationName": "provisionedBandwidth",
-          "type": "structure",
-          "members": {
-            "Provisioned": {
-              "locationName": "provisioned"
-            },
-            "Requested": {
-              "locationName": "requested"
-            },
-            "RequestTime": {
-              "locationName": "requestTime",
-              "type": "timestamp"
-            },
-            "ProvisionTime": {
-              "locationName": "provisionTime",
-              "type": "timestamp"
-            },
-            "Status": {
-              "locationName": "status"
-            }
-          }
-        }
-      }
-    },
-    "S57": {
-      "type": "structure",
-      "members": {
-        "NetworkAclId": {
-          "locationName": "networkAclId"
+        "SubnetId": {
+          "locationName": "subnetId"
         },
         "VpcId": {
           "locationName": "vpcId"
-        },
-        "IsDefault": {
-          "locationName": "default",
-          "type": "boolean"
-        },
-        "Entries": {
-          "locationName": "entrySet",
-          "type": "list",
-          "member": {
-            "locationName": "item",
-            "type": "structure",
-            "members": {
-              "RuleNumber": {
-                "locationName": "ruleNumber",
-                "type": "integer"
-              },
-              "Protocol": {
-                "locationName": "protocol"
-              },
-              "RuleAction": {
-                "locationName": "ruleAction"
-              },
-              "Egress": {
-                "locationName": "egress",
-                "type": "boolean"
-              },
-              "CidrBlock": {
-                "locationName": "cidrBlock"
-              },
-              "Ipv6CidrBlock": {
-                "locationName": "ipv6CidrBlock"
-              },
-              "IcmpTypeCode": {
-                "shape": "S5b",
-                "locationName": "icmpTypeCode"
-              },
-              "PortRange": {
-                "shape": "S5c",
-                "locationName": "portRange"
-              }
-            }
-          }
-        },
+        }
+      }
+    },
+    "S5d": {
+      "type": "structure",
+      "members": {
         "Associations": {
           "locationName": "associationSet",
           "type": "list",
@@ -33795,26 +35304,74 @@ module.exports={
             }
           }
         },
+        "Entries": {
+          "locationName": "entrySet",
+          "type": "list",
+          "member": {
+            "locationName": "item",
+            "type": "structure",
+            "members": {
+              "CidrBlock": {
+                "locationName": "cidrBlock"
+              },
+              "Egress": {
+                "locationName": "egress",
+                "type": "boolean"
+              },
+              "IcmpTypeCode": {
+                "shape": "S5i",
+                "locationName": "icmpTypeCode"
+              },
+              "Ipv6CidrBlock": {
+                "locationName": "ipv6CidrBlock"
+              },
+              "PortRange": {
+                "shape": "S5j",
+                "locationName": "portRange"
+              },
+              "Protocol": {
+                "locationName": "protocol"
+              },
+              "RuleAction": {
+                "locationName": "ruleAction"
+              },
+              "RuleNumber": {
+                "locationName": "ruleNumber",
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "IsDefault": {
+          "locationName": "default",
+          "type": "boolean"
+        },
+        "NetworkAclId": {
+          "locationName": "networkAclId"
+        },
         "Tags": {
           "shape": "Sj",
           "locationName": "tagSet"
+        },
+        "VpcId": {
+          "locationName": "vpcId"
         }
       }
     },
-    "S5b": {
+    "S5i": {
       "type": "structure",
       "members": {
-        "Type": {
-          "locationName": "type",
-          "type": "integer"
-        },
         "Code": {
           "locationName": "code",
           "type": "integer"
+        },
+        "Type": {
+          "locationName": "type",
+          "type": "integer"
         }
       }
     },
-    "S5c": {
+    "S5j": {
       "type": "structure",
       "members": {
         "From": {
@@ -33827,32 +35384,13 @@ module.exports={
         }
       }
     },
-    "S5h": {
+    "S5n": {
       "type": "list",
       "member": {
         "locationName": "SecurityGroupId"
       }
     },
-    "S5i": {
-      "type": "list",
-      "member": {
-        "locationName": "item",
-        "type": "structure",
-        "required": [
-          "PrivateIpAddress"
-        ],
-        "members": {
-          "PrivateIpAddress": {
-            "locationName": "privateIpAddress"
-          },
-          "Primary": {
-            "locationName": "primary",
-            "type": "boolean"
-          }
-        }
-      }
-    },
-    "S5k": {
+    "S5o": {
       "type": "list",
       "member": {
         "locationName": "item",
@@ -33864,17 +35402,35 @@ module.exports={
         }
       }
     },
-    "S5n": {
+    "S5q": {
+      "type": "list",
+      "member": {
+        "locationName": "item",
+        "type": "structure",
+        "required": [
+          "PrivateIpAddress"
+        ],
+        "members": {
+          "Primary": {
+            "locationName": "primary",
+            "type": "boolean"
+          },
+          "PrivateIpAddress": {
+            "locationName": "privateIpAddress"
+          }
+        }
+      }
+    },
+    "S5t": {
       "type": "structure",
       "members": {
-        "NetworkInterfaceId": {
-          "locationName": "networkInterfaceId"
+        "Association": {
+          "shape": "S5u",
+          "locationName": "association"
         },
-        "SubnetId": {
-          "locationName": "subnetId"
-        },
-        "VpcId": {
-          "locationName": "vpcId"
+        "Attachment": {
+          "shape": "S5v",
+          "locationName": "attachment"
         },
         "AvailabilityZone": {
           "locationName": "availabilityZone"
@@ -33882,71 +35438,12 @@ module.exports={
         "Description": {
           "locationName": "description"
         },
-        "OwnerId": {
-          "locationName": "ownerId"
-        },
-        "RequesterId": {
-          "locationName": "requesterId"
-        },
-        "RequesterManaged": {
-          "locationName": "requesterManaged",
-          "type": "boolean"
-        },
-        "Status": {
-          "locationName": "status"
-        },
-        "MacAddress": {
-          "locationName": "macAddress"
-        },
-        "PrivateIpAddress": {
-          "locationName": "privateIpAddress"
-        },
-        "PrivateDnsName": {
-          "locationName": "privateDnsName"
-        },
-        "SourceDestCheck": {
-          "locationName": "sourceDestCheck",
-          "type": "boolean"
-        },
         "Groups": {
-          "shape": "S5p",
+          "shape": "S5w",
           "locationName": "groupSet"
         },
-        "Attachment": {
-          "shape": "S5r",
-          "locationName": "attachment"
-        },
-        "Association": {
-          "shape": "S5s",
-          "locationName": "association"
-        },
-        "TagSet": {
-          "shape": "Sj",
-          "locationName": "tagSet"
-        },
-        "PrivateIpAddresses": {
-          "locationName": "privateIpAddressesSet",
-          "type": "list",
-          "member": {
-            "locationName": "item",
-            "type": "structure",
-            "members": {
-              "PrivateIpAddress": {
-                "locationName": "privateIpAddress"
-              },
-              "PrivateDnsName": {
-                "locationName": "privateDnsName"
-              },
-              "Primary": {
-                "locationName": "primary",
-                "type": "boolean"
-              },
-              "Association": {
-                "shape": "S5s",
-                "locationName": "association"
-              }
-            }
-          }
+        "InterfaceType": {
+          "locationName": "interfaceType"
         },
         "Ipv6Addresses": {
           "locationName": "ipv6AddressesSet",
@@ -33961,12 +35458,121 @@ module.exports={
             }
           }
         },
-        "InterfaceType": {
-          "locationName": "interfaceType"
+        "MacAddress": {
+          "locationName": "macAddress"
+        },
+        "NetworkInterfaceId": {
+          "locationName": "networkInterfaceId"
+        },
+        "OwnerId": {
+          "locationName": "ownerId"
+        },
+        "PrivateDnsName": {
+          "locationName": "privateDnsName"
+        },
+        "PrivateIpAddress": {
+          "locationName": "privateIpAddress"
+        },
+        "PrivateIpAddresses": {
+          "locationName": "privateIpAddressesSet",
+          "type": "list",
+          "member": {
+            "locationName": "item",
+            "type": "structure",
+            "members": {
+              "Association": {
+                "shape": "S5u",
+                "locationName": "association"
+              },
+              "Primary": {
+                "locationName": "primary",
+                "type": "boolean"
+              },
+              "PrivateDnsName": {
+                "locationName": "privateDnsName"
+              },
+              "PrivateIpAddress": {
+                "locationName": "privateIpAddress"
+              }
+            }
+          }
+        },
+        "RequesterId": {
+          "locationName": "requesterId"
+        },
+        "RequesterManaged": {
+          "locationName": "requesterManaged",
+          "type": "boolean"
+        },
+        "SourceDestCheck": {
+          "locationName": "sourceDestCheck",
+          "type": "boolean"
+        },
+        "Status": {
+          "locationName": "status"
+        },
+        "SubnetId": {
+          "locationName": "subnetId"
+        },
+        "TagSet": {
+          "shape": "Sj",
+          "locationName": "tagSet"
+        },
+        "VpcId": {
+          "locationName": "vpcId"
         }
       }
     },
-    "S5p": {
+    "S5u": {
+      "type": "structure",
+      "members": {
+        "AllocationId": {
+          "locationName": "allocationId"
+        },
+        "AssociationId": {
+          "locationName": "associationId"
+        },
+        "IpOwnerId": {
+          "locationName": "ipOwnerId"
+        },
+        "PublicDnsName": {
+          "locationName": "publicDnsName"
+        },
+        "PublicIp": {
+          "locationName": "publicIp"
+        }
+      }
+    },
+    "S5v": {
+      "type": "structure",
+      "members": {
+        "AttachTime": {
+          "locationName": "attachTime",
+          "type": "timestamp"
+        },
+        "AttachmentId": {
+          "locationName": "attachmentId"
+        },
+        "DeleteOnTermination": {
+          "locationName": "deleteOnTermination",
+          "type": "boolean"
+        },
+        "DeviceIndex": {
+          "locationName": "deviceIndex",
+          "type": "integer"
+        },
+        "InstanceId": {
+          "locationName": "instanceId"
+        },
+        "InstanceOwnerId": {
+          "locationName": "instanceOwnerId"
+        },
+        "Status": {
+          "locationName": "status"
+        }
+      }
+    },
+    "S5w": {
       "type": "list",
       "member": {
         "locationName": "item",
@@ -33981,110 +35587,41 @@ module.exports={
         }
       }
     },
-    "S5r": {
+    "S67": {
       "type": "structure",
       "members": {
-        "AttachmentId": {
-          "locationName": "attachmentId"
+        "NetworkInterfacePermissionId": {
+          "locationName": "networkInterfacePermissionId"
         },
-        "InstanceId": {
-          "locationName": "instanceId"
+        "NetworkInterfaceId": {
+          "locationName": "networkInterfaceId"
         },
-        "InstanceOwnerId": {
-          "locationName": "instanceOwnerId"
+        "AwsAccountId": {
+          "locationName": "awsAccountId"
         },
-        "DeviceIndex": {
-          "locationName": "deviceIndex",
-          "type": "integer"
+        "AwsService": {
+          "locationName": "awsService"
         },
-        "Status": {
-          "locationName": "status"
+        "Permission": {
+          "locationName": "permission"
         },
-        "AttachTime": {
-          "locationName": "attachTime",
-          "type": "timestamp"
-        },
-        "DeleteOnTermination": {
-          "locationName": "deleteOnTermination",
-          "type": "boolean"
-        }
-      }
-    },
-    "S5s": {
-      "type": "structure",
-      "members": {
-        "PublicIp": {
-          "locationName": "publicIp"
-        },
-        "PublicDnsName": {
-          "locationName": "publicDnsName"
-        },
-        "IpOwnerId": {
-          "locationName": "ipOwnerId"
-        },
-        "AllocationId": {
-          "locationName": "allocationId"
-        },
-        "AssociationId": {
-          "locationName": "associationId"
-        }
-      }
-    },
-    "S68": {
-      "type": "structure",
-      "members": {
-        "RouteTableId": {
-          "locationName": "routeTableId"
-        },
-        "VpcId": {
-          "locationName": "vpcId"
-        },
-        "Routes": {
-          "locationName": "routeSet",
-          "type": "list",
-          "member": {
-            "locationName": "item",
-            "type": "structure",
-            "members": {
-              "DestinationCidrBlock": {
-                "locationName": "destinationCidrBlock"
-              },
-              "DestinationPrefixListId": {
-                "locationName": "destinationPrefixListId"
-              },
-              "GatewayId": {
-                "locationName": "gatewayId"
-              },
-              "InstanceId": {
-                "locationName": "instanceId"
-              },
-              "InstanceOwnerId": {
-                "locationName": "instanceOwnerId"
-              },
-              "NetworkInterfaceId": {
-                "locationName": "networkInterfaceId"
-              },
-              "VpcPeeringConnectionId": {
-                "locationName": "vpcPeeringConnectionId"
-              },
-              "NatGatewayId": {
-                "locationName": "natGatewayId"
-              },
-              "State": {
-                "locationName": "state"
-              },
-              "Origin": {
-                "locationName": "origin"
-              },
-              "DestinationIpv6CidrBlock": {
-                "locationName": "destinationIpv6CidrBlock"
-              },
-              "EgressOnlyInternetGatewayId": {
-                "locationName": "egressOnlyInternetGatewayId"
-              }
+        "PermissionState": {
+          "locationName": "permissionState",
+          "type": "structure",
+          "members": {
+            "State": {
+              "locationName": "state"
+            },
+            "StatusMessage": {
+              "locationName": "statusMessage"
             }
           }
-        },
+        }
+      }
+    },
+    "S6k": {
+      "type": "structure",
+      "members": {
         "Associations": {
           "locationName": "associationSet",
           "type": "list",
@@ -34092,6 +35629,10 @@ module.exports={
             "locationName": "item",
             "type": "structure",
             "members": {
+              "Main": {
+                "locationName": "main",
+                "type": "boolean"
+              },
               "RouteTableAssociationId": {
                 "locationName": "routeTableAssociationId"
               },
@@ -34100,17 +35641,9 @@ module.exports={
               },
               "SubnetId": {
                 "locationName": "subnetId"
-              },
-              "Main": {
-                "locationName": "main",
-                "type": "boolean"
               }
             }
           }
-        },
-        "Tags": {
-          "shape": "Sj",
-          "locationName": "tagSet"
         },
         "PropagatingVgws": {
           "locationName": "propagatingVgwSet",
@@ -34124,17 +35657,93 @@ module.exports={
               }
             }
           }
+        },
+        "RouteTableId": {
+          "locationName": "routeTableId"
+        },
+        "Routes": {
+          "locationName": "routeSet",
+          "type": "list",
+          "member": {
+            "locationName": "item",
+            "type": "structure",
+            "members": {
+              "DestinationCidrBlock": {
+                "locationName": "destinationCidrBlock"
+              },
+              "DestinationIpv6CidrBlock": {
+                "locationName": "destinationIpv6CidrBlock"
+              },
+              "DestinationPrefixListId": {
+                "locationName": "destinationPrefixListId"
+              },
+              "EgressOnlyInternetGatewayId": {
+                "locationName": "egressOnlyInternetGatewayId"
+              },
+              "GatewayId": {
+                "locationName": "gatewayId"
+              },
+              "InstanceId": {
+                "locationName": "instanceId"
+              },
+              "InstanceOwnerId": {
+                "locationName": "instanceOwnerId"
+              },
+              "NatGatewayId": {
+                "locationName": "natGatewayId"
+              },
+              "NetworkInterfaceId": {
+                "locationName": "networkInterfaceId"
+              },
+              "Origin": {
+                "locationName": "origin"
+              },
+              "State": {
+                "locationName": "state"
+              },
+              "VpcPeeringConnectionId": {
+                "locationName": "vpcPeeringConnectionId"
+              }
+            }
+          }
+        },
+        "Tags": {
+          "shape": "Sj",
+          "locationName": "tagSet"
+        },
+        "VpcId": {
+          "locationName": "vpcId"
         }
       }
     },
-    "S6k": {
+    "S6w": {
       "type": "structure",
       "members": {
+        "DataEncryptionKeyId": {
+          "locationName": "dataEncryptionKeyId"
+        },
+        "Description": {
+          "locationName": "description"
+        },
+        "Encrypted": {
+          "locationName": "encrypted",
+          "type": "boolean"
+        },
+        "KmsKeyId": {
+          "locationName": "kmsKeyId"
+        },
+        "OwnerId": {
+          "locationName": "ownerId"
+        },
+        "Progress": {
+          "locationName": "progress"
+        },
         "SnapshotId": {
           "locationName": "snapshotId"
         },
-        "VolumeId": {
-          "locationName": "volumeId"
+        "StartTime": {
+          "locationName": "startTime",
+          "type": "timestamp"
         },
         "State": {
           "locationName": "status"
@@ -34142,18 +35751,8 @@ module.exports={
         "StateMessage": {
           "locationName": "statusMessage"
         },
-        "StartTime": {
-          "locationName": "startTime",
-          "type": "timestamp"
-        },
-        "Progress": {
-          "locationName": "progress"
-        },
-        "OwnerId": {
-          "locationName": "ownerId"
-        },
-        "Description": {
-          "locationName": "description"
+        "VolumeId": {
+          "locationName": "volumeId"
         },
         "VolumeSize": {
           "locationName": "volumeSize",
@@ -34165,41 +35764,31 @@ module.exports={
         "Tags": {
           "shape": "Sj",
           "locationName": "tagSet"
-        },
-        "Encrypted": {
-          "locationName": "encrypted",
-          "type": "boolean"
-        },
-        "KmsKeyId": {
-          "locationName": "kmsKeyId"
-        },
-        "DataEncryptionKeyId": {
-          "locationName": "dataEncryptionKeyId"
         }
       }
     },
-    "S6o": {
+    "S70": {
       "type": "structure",
       "members": {
-        "OwnerId": {
-          "locationName": "ownerId"
-        },
         "Bucket": {
           "locationName": "bucket"
+        },
+        "Fault": {
+          "shape": "S71",
+          "locationName": "fault"
+        },
+        "OwnerId": {
+          "locationName": "ownerId"
         },
         "Prefix": {
           "locationName": "prefix"
         },
         "State": {
           "locationName": "state"
-        },
-        "Fault": {
-          "shape": "S6q",
-          "locationName": "fault"
         }
       }
     },
-    "S6q": {
+    "S71": {
       "type": "structure",
       "members": {
         "Code": {
@@ -34210,39 +35799,18 @@ module.exports={
         }
       }
     },
-    "S6t": {
+    "S75": {
       "type": "structure",
       "members": {
-        "SubnetId": {
-          "locationName": "subnetId"
-        },
-        "State": {
-          "locationName": "state"
-        },
-        "VpcId": {
-          "locationName": "vpcId"
-        },
-        "CidrBlock": {
-          "locationName": "cidrBlock"
-        },
-        "Ipv6CidrBlockAssociationSet": {
-          "locationName": "ipv6CidrBlockAssociationSet",
-          "type": "list",
-          "member": {
-            "shape": "S1a",
-            "locationName": "item"
-          }
-        },
-        "AssignIpv6AddressOnCreation": {
-          "locationName": "assignIpv6AddressOnCreation",
-          "type": "boolean"
+        "AvailabilityZone": {
+          "locationName": "availabilityZone"
         },
         "AvailableIpAddressCount": {
           "locationName": "availableIpAddressCount",
           "type": "integer"
         },
-        "AvailabilityZone": {
-          "locationName": "availabilityZone"
+        "CidrBlock": {
+          "locationName": "cidrBlock"
         },
         "DefaultForAz": {
           "locationName": "defaultForAz",
@@ -34252,17 +35820,38 @@ module.exports={
           "locationName": "mapPublicIpOnLaunch",
           "type": "boolean"
         },
+        "State": {
+          "locationName": "state"
+        },
+        "SubnetId": {
+          "locationName": "subnetId"
+        },
+        "VpcId": {
+          "locationName": "vpcId"
+        },
+        "AssignIpv6AddressOnCreation": {
+          "locationName": "assignIpv6AddressOnCreation",
+          "type": "boolean"
+        },
+        "Ipv6CidrBlockAssociationSet": {
+          "locationName": "ipv6CidrBlockAssociationSet",
+          "type": "list",
+          "member": {
+            "shape": "S1a",
+            "locationName": "item"
+          }
+        },
         "Tags": {
           "shape": "Sj",
           "locationName": "tagSet"
         }
       }
     },
-    "S6x": {
+    "S79": {
       "type": "list",
       "member": {}
     },
-    "S6z": {
+    "S7b": {
       "type": "list",
       "member": {
         "locationName": "item",
@@ -34278,29 +35867,9 @@ module.exports={
         }
       }
     },
-    "S72": {
+    "S7e": {
       "type": "structure",
       "members": {
-        "VolumeId": {
-          "locationName": "volumeId"
-        },
-        "Size": {
-          "locationName": "size",
-          "type": "integer"
-        },
-        "SnapshotId": {
-          "locationName": "snapshotId"
-        },
-        "AvailabilityZone": {
-          "locationName": "availabilityZone"
-        },
-        "State": {
-          "locationName": "status"
-        },
-        "CreateTime": {
-          "locationName": "createTime",
-          "type": "timestamp"
-        },
         "Attachments": {
           "locationName": "attachmentSet",
           "type": "list",
@@ -34309,16 +35878,12 @@ module.exports={
             "locationName": "item"
           }
         },
-        "Tags": {
-          "shape": "Sj",
-          "locationName": "tagSet"
+        "AvailabilityZone": {
+          "locationName": "availabilityZone"
         },
-        "VolumeType": {
-          "locationName": "volumeType"
-        },
-        "Iops": {
-          "locationName": "iops",
-          "type": "integer"
+        "CreateTime": {
+          "locationName": "createTime",
+          "type": "timestamp"
         },
         "Encrypted": {
           "locationName": "encrypted",
@@ -34326,59 +35891,39 @@ module.exports={
         },
         "KmsKeyId": {
           "locationName": "kmsKeyId"
-        }
-      }
-    },
-    "S78": {
-      "type": "structure",
-      "members": {
-        "VpcId": {
-          "locationName": "vpcId"
+        },
+        "Size": {
+          "locationName": "size",
+          "type": "integer"
+        },
+        "SnapshotId": {
+          "locationName": "snapshotId"
         },
         "State": {
-          "locationName": "state"
+          "locationName": "status"
         },
-        "CidrBlock": {
-          "locationName": "cidrBlock"
+        "VolumeId": {
+          "locationName": "volumeId"
         },
-        "DhcpOptionsId": {
-          "locationName": "dhcpOptionsId"
+        "Iops": {
+          "locationName": "iops",
+          "type": "integer"
         },
         "Tags": {
           "shape": "Sj",
           "locationName": "tagSet"
         },
-        "InstanceTenancy": {
-          "locationName": "instanceTenancy"
-        },
-        "IsDefault": {
-          "locationName": "isDefault",
-          "type": "boolean"
-        },
-        "Ipv6CidrBlockAssociationSet": {
-          "locationName": "ipv6CidrBlockAssociationSet",
-          "type": "list",
-          "member": {
-            "shape": "S1f",
-            "locationName": "item"
-          }
+        "VolumeType": {
+          "locationName": "volumeType"
         }
       }
     },
-    "S7d": {
+    "S7l": {
       "type": "structure",
       "members": {
-        "VpcEndpointId": {
-          "locationName": "vpcEndpointId"
-        },
-        "VpcId": {
-          "locationName": "vpcId"
-        },
-        "ServiceName": {
-          "locationName": "serviceName"
-        },
-        "State": {
-          "locationName": "state"
+        "CreationTimestamp": {
+          "locationName": "creationTimestamp",
+          "type": "timestamp"
         },
         "PolicyDocument": {
           "locationName": "policyDocument"
@@ -34387,63 +35932,40 @@ module.exports={
           "shape": "S2z",
           "locationName": "routeTableIdSet"
         },
-        "CreationTimestamp": {
-          "locationName": "creationTimestamp",
-          "type": "timestamp"
-        }
-      }
-    },
-    "S7k": {
-      "type": "structure",
-      "members": {
-        "VpnConnectionId": {
-          "locationName": "vpnConnectionId"
+        "ServiceName": {
+          "locationName": "serviceName"
         },
         "State": {
           "locationName": "state"
         },
+        "VpcEndpointId": {
+          "locationName": "vpcEndpointId"
+        },
+        "VpcId": {
+          "locationName": "vpcId"
+        }
+      }
+    },
+    "S7s": {
+      "type": "structure",
+      "members": {
         "CustomerGatewayConfiguration": {
           "locationName": "customerGatewayConfiguration"
-        },
-        "Type": {
-          "locationName": "type"
         },
         "CustomerGatewayId": {
           "locationName": "customerGatewayId"
         },
+        "State": {
+          "locationName": "state"
+        },
+        "Type": {
+          "locationName": "type"
+        },
+        "VpnConnectionId": {
+          "locationName": "vpnConnectionId"
+        },
         "VpnGatewayId": {
           "locationName": "vpnGatewayId"
-        },
-        "Tags": {
-          "shape": "Sj",
-          "locationName": "tagSet"
-        },
-        "VgwTelemetry": {
-          "locationName": "vgwTelemetry",
-          "type": "list",
-          "member": {
-            "locationName": "item",
-            "type": "structure",
-            "members": {
-              "OutsideIpAddress": {
-                "locationName": "outsideIpAddress"
-              },
-              "Status": {
-                "locationName": "status"
-              },
-              "LastStatusChange": {
-                "locationName": "lastStatusChange",
-                "type": "timestamp"
-              },
-              "StatusMessage": {
-                "locationName": "statusMessage"
-              },
-              "AcceptedRouteCount": {
-                "locationName": "acceptedRouteCount",
-                "type": "integer"
-              }
-            }
-          }
         },
         "Options": {
           "locationName": "options",
@@ -34473,23 +35995,51 @@ module.exports={
               }
             }
           }
+        },
+        "Tags": {
+          "shape": "Sj",
+          "locationName": "tagSet"
+        },
+        "VgwTelemetry": {
+          "locationName": "vgwTelemetry",
+          "type": "list",
+          "member": {
+            "locationName": "item",
+            "type": "structure",
+            "members": {
+              "AcceptedRouteCount": {
+                "locationName": "acceptedRouteCount",
+                "type": "integer"
+              },
+              "LastStatusChange": {
+                "locationName": "lastStatusChange",
+                "type": "timestamp"
+              },
+              "OutsideIpAddress": {
+                "locationName": "outsideIpAddress"
+              },
+              "Status": {
+                "locationName": "status"
+              },
+              "StatusMessage": {
+                "locationName": "statusMessage"
+              }
+            }
+          }
         }
       }
     },
-    "S7w": {
+    "S84": {
       "type": "structure",
       "members": {
-        "VpnGatewayId": {
-          "locationName": "vpnGatewayId"
+        "AvailabilityZone": {
+          "locationName": "availabilityZone"
         },
         "State": {
           "locationName": "state"
         },
         "Type": {
           "locationName": "type"
-        },
-        "AvailabilityZone": {
-          "locationName": "availabilityZone"
         },
         "VpcAttachments": {
           "locationName": "attachments",
@@ -34499,13 +36049,16 @@ module.exports={
             "locationName": "item"
           }
         },
+        "VpnGatewayId": {
+          "locationName": "vpnGatewayId"
+        },
         "Tags": {
           "shape": "Sj",
           "locationName": "tagSet"
         }
       }
     },
-    "S93": {
+    "S9c": {
       "type": "list",
       "member": {
         "locationName": "Filter",
@@ -34519,13 +36072,13 @@ module.exports={
         }
       }
     },
-    "S9m": {
+    "S9w": {
       "type": "list",
       "member": {
         "locationName": "InstanceId"
       }
     },
-    "S9u": {
+    "Sa4": {
       "type": "structure",
       "required": [
         "ConversionTaskId",
@@ -34545,46 +36098,8 @@ module.exports={
             "Volumes"
           ],
           "members": {
-            "Volumes": {
-              "locationName": "volumes",
-              "type": "list",
-              "member": {
-                "locationName": "item",
-                "type": "structure",
-                "required": [
-                  "BytesConverted",
-                  "AvailabilityZone",
-                  "Image",
-                  "Volume",
-                  "Status"
-                ],
-                "members": {
-                  "BytesConverted": {
-                    "locationName": "bytesConverted",
-                    "type": "long"
-                  },
-                  "AvailabilityZone": {
-                    "locationName": "availabilityZone"
-                  },
-                  "Image": {
-                    "shape": "S9y",
-                    "locationName": "image"
-                  },
-                  "Volume": {
-                    "shape": "S9z",
-                    "locationName": "volume"
-                  },
-                  "Status": {
-                    "locationName": "status"
-                  },
-                  "StatusMessage": {
-                    "locationName": "statusMessage"
-                  },
-                  "Description": {
-                    "locationName": "description"
-                  }
-                }
-              }
+            "Description": {
+              "locationName": "description"
             },
             "InstanceId": {
               "locationName": "instanceId"
@@ -34592,8 +36107,46 @@ module.exports={
             "Platform": {
               "locationName": "platform"
             },
-            "Description": {
-              "locationName": "description"
+            "Volumes": {
+              "locationName": "volumes",
+              "type": "list",
+              "member": {
+                "locationName": "item",
+                "type": "structure",
+                "required": [
+                  "AvailabilityZone",
+                  "BytesConverted",
+                  "Image",
+                  "Status",
+                  "Volume"
+                ],
+                "members": {
+                  "AvailabilityZone": {
+                    "locationName": "availabilityZone"
+                  },
+                  "BytesConverted": {
+                    "locationName": "bytesConverted",
+                    "type": "long"
+                  },
+                  "Description": {
+                    "locationName": "description"
+                  },
+                  "Image": {
+                    "shape": "Sa9",
+                    "locationName": "image"
+                  },
+                  "Status": {
+                    "locationName": "status"
+                  },
+                  "StatusMessage": {
+                    "locationName": "statusMessage"
+                  },
+                  "Volume": {
+                    "shape": "Saa",
+                    "locationName": "volume"
+                  }
+                }
+              }
             }
           }
         },
@@ -34601,28 +36154,28 @@ module.exports={
           "locationName": "importVolume",
           "type": "structure",
           "required": [
-            "BytesConverted",
             "AvailabilityZone",
+            "BytesConverted",
             "Image",
             "Volume"
           ],
           "members": {
+            "AvailabilityZone": {
+              "locationName": "availabilityZone"
+            },
             "BytesConverted": {
               "locationName": "bytesConverted",
               "type": "long"
-            },
-            "AvailabilityZone": {
-              "locationName": "availabilityZone"
             },
             "Description": {
               "locationName": "description"
             },
             "Image": {
-              "shape": "S9y",
+              "shape": "Sa9",
               "locationName": "image"
             },
             "Volume": {
-              "shape": "S9z",
+              "shape": "Saa",
               "locationName": "volume"
             }
           }
@@ -34639,92 +36192,51 @@ module.exports={
         }
       }
     },
-    "S9y": {
+    "Sa9": {
       "type": "structure",
       "required": [
         "Format",
-        "Size",
-        "ImportManifestUrl"
+        "ImportManifestUrl",
+        "Size"
       ],
       "members": {
+        "Checksum": {
+          "locationName": "checksum"
+        },
         "Format": {
           "locationName": "format"
-        },
-        "Size": {
-          "locationName": "size",
-          "type": "long"
         },
         "ImportManifestUrl": {
           "locationName": "importManifestUrl"
         },
-        "Checksum": {
-          "locationName": "checksum"
+        "Size": {
+          "locationName": "size",
+          "type": "long"
         }
       }
     },
-    "S9z": {
+    "Saa": {
       "type": "structure",
       "required": [
         "Id"
       ],
       "members": {
+        "Id": {
+          "locationName": "id"
+        },
         "Size": {
           "locationName": "size",
           "type": "long"
-        },
-        "Id": {
-          "locationName": "id"
         }
       }
     },
-    "Sax": {
+    "Sb7": {
       "type": "list",
       "member": {
-        "locationName": "item"
+        "locationName": "Owner"
       }
     },
-    "Sb0": {
-      "type": "list",
-      "member": {
-        "locationName": "item"
-      }
-    },
-    "Sbj": {
-      "type": "list",
-      "member": {
-        "locationName": "item",
-        "type": "structure",
-        "members": {
-          "Resource": {
-            "locationName": "resource"
-          },
-          "UseLongIds": {
-            "locationName": "useLongIds",
-            "type": "boolean"
-          },
-          "Deadline": {
-            "locationName": "deadline",
-            "type": "timestamp"
-          }
-        }
-      }
-    },
-    "Sbq": {
-      "type": "list",
-      "member": {
-        "locationName": "item",
-        "type": "structure",
-        "members": {
-          "UserId": {
-            "locationName": "userId"
-          },
-          "Group": {
-            "locationName": "group"
-          }
-        }
-      }
-    },
-    "Sbt": {
+    "Sbg": {
       "type": "list",
       "member": {
         "locationName": "item",
@@ -34739,20 +36251,61 @@ module.exports={
         }
       }
     },
-    "Sbw": {
+    "Sbt": {
       "type": "list",
       "member": {
-        "shape": "S4f",
         "locationName": "item"
       }
     },
-    "Sbz": {
+    "Sbw": {
       "type": "list",
       "member": {
-        "locationName": "Owner"
+        "locationName": "item"
       }
     },
-    "Sc7": {
+    "Scd": {
+      "type": "list",
+      "member": {
+        "locationName": "item",
+        "type": "structure",
+        "members": {
+          "Deadline": {
+            "locationName": "deadline",
+            "type": "timestamp"
+          },
+          "Resource": {
+            "locationName": "resource"
+          },
+          "UseLongIds": {
+            "locationName": "useLongIds",
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "Sck": {
+      "type": "list",
+      "member": {
+        "shape": "S4l",
+        "locationName": "item"
+      }
+    },
+    "Scl": {
+      "type": "list",
+      "member": {
+        "locationName": "item",
+        "type": "structure",
+        "members": {
+          "Group": {
+            "locationName": "group"
+          },
+          "UserId": {
+            "locationName": "userId"
+          }
+        }
+      }
+    },
+    "Scz": {
       "type": "structure",
       "members": {
         "Code": {
@@ -34763,54 +36316,54 @@ module.exports={
         }
       }
     },
-    "Scc": {
+    "Sd2": {
       "type": "list",
       "member": {
         "locationName": "ImportTaskId"
       }
     },
-    "Scg": {
+    "Sd6": {
       "type": "list",
       "member": {
         "locationName": "item",
         "type": "structure",
         "members": {
+          "Description": {
+            "locationName": "description"
+          },
+          "DeviceName": {
+            "locationName": "deviceName"
+          },
           "DiskImageSize": {
             "locationName": "diskImageSize",
             "type": "double"
           },
-          "Description": {
-            "locationName": "description"
-          },
           "Format": {
             "locationName": "format"
+          },
+          "Progress": {
+            "locationName": "progress"
+          },
+          "SnapshotId": {
+            "locationName": "snapshotId"
+          },
+          "Status": {
+            "locationName": "status"
+          },
+          "StatusMessage": {
+            "locationName": "statusMessage"
           },
           "Url": {
             "locationName": "url"
           },
           "UserBucket": {
-            "shape": "Sci",
+            "shape": "Sd8",
             "locationName": "userBucket"
-          },
-          "DeviceName": {
-            "locationName": "deviceName"
-          },
-          "SnapshotId": {
-            "locationName": "snapshotId"
-          },
-          "Progress": {
-            "locationName": "progress"
-          },
-          "StatusMessage": {
-            "locationName": "statusMessage"
-          },
-          "Status": {
-            "locationName": "status"
           }
         }
       }
     },
-    "Sci": {
+    "Sd8": {
       "type": "structure",
       "members": {
         "S3Bucket": {
@@ -34821,50 +36374,41 @@ module.exports={
         }
       }
     },
-    "Scn": {
+    "Sdd": {
       "type": "structure",
       "members": {
+        "Description": {
+          "locationName": "description"
+        },
         "DiskImageSize": {
           "locationName": "diskImageSize",
           "type": "double"
         },
-        "Description": {
-          "locationName": "description"
-        },
         "Format": {
           "locationName": "format"
+        },
+        "Progress": {
+          "locationName": "progress"
+        },
+        "SnapshotId": {
+          "locationName": "snapshotId"
+        },
+        "Status": {
+          "locationName": "status"
+        },
+        "StatusMessage": {
+          "locationName": "statusMessage"
         },
         "Url": {
           "locationName": "url"
         },
         "UserBucket": {
-          "shape": "Sci",
+          "shape": "Sd8",
           "locationName": "userBucket"
-        },
-        "SnapshotId": {
-          "locationName": "snapshotId"
-        },
-        "Progress": {
-          "locationName": "progress"
-        },
-        "StatusMessage": {
-          "locationName": "statusMessage"
-        },
-        "Status": {
-          "locationName": "status"
         }
       }
     },
-    "Scr": {
-      "type": "structure",
-      "members": {
-        "Value": {
-          "locationName": "value",
-          "type": "boolean"
-        }
-      }
-    },
-    "Scs": {
+    "Sdh": {
       "type": "list",
       "member": {
         "locationName": "item",
@@ -34877,12 +36421,6 @@ module.exports={
             "locationName": "ebs",
             "type": "structure",
             "members": {
-              "VolumeId": {
-                "locationName": "volumeId"
-              },
-              "Status": {
-                "locationName": "status"
-              },
               "AttachTime": {
                 "locationName": "attachTime",
                 "type": "timestamp"
@@ -34890,13 +36428,28 @@ module.exports={
               "DeleteOnTermination": {
                 "locationName": "deleteOnTermination",
                 "type": "boolean"
+              },
+              "Status": {
+                "locationName": "status"
+              },
+              "VolumeId": {
+                "locationName": "volumeId"
               }
             }
           }
         }
       }
     },
-    "Sd2": {
+    "Sdk": {
+      "type": "structure",
+      "members": {
+        "Value": {
+          "locationName": "value",
+          "type": "boolean"
+        }
+      }
+    },
+    "Sds": {
       "type": "structure",
       "members": {
         "Code": {
@@ -34908,12 +36461,9 @@ module.exports={
         }
       }
     },
-    "Sd4": {
+    "Sdu": {
       "type": "structure",
       "members": {
-        "Status": {
-          "locationName": "status"
-        },
         "Details": {
           "locationName": "details",
           "type": "list",
@@ -34921,35 +36471,29 @@ module.exports={
             "locationName": "item",
             "type": "structure",
             "members": {
+              "ImpairedSince": {
+                "locationName": "impairedSince",
+                "type": "timestamp"
+              },
               "Name": {
                 "locationName": "name"
               },
               "Status": {
                 "locationName": "status"
-              },
-              "ImpairedSince": {
-                "locationName": "impairedSince",
-                "type": "timestamp"
               }
             }
           }
+        },
+        "Status": {
+          "locationName": "status"
         }
       }
     },
-    "Sdd": {
+    "Se3": {
       "type": "structure",
       "members": {
-        "ReservationId": {
-          "locationName": "reservationId"
-        },
-        "OwnerId": {
-          "locationName": "ownerId"
-        },
-        "RequesterId": {
-          "locationName": "requesterId"
-        },
         "Groups": {
-          "shape": "S5p",
+          "shape": "S5w",
           "locationName": "groupSet"
         },
         "Instances": {
@@ -34959,59 +36503,65 @@ module.exports={
             "locationName": "item",
             "type": "structure",
             "members": {
-              "InstanceId": {
-                "locationName": "instanceId"
-              },
-              "ImageId": {
-                "locationName": "imageId"
-              },
-              "State": {
-                "shape": "Sd2",
-                "locationName": "instanceState"
-              },
-              "PrivateDnsName": {
-                "locationName": "privateDnsName"
-              },
-              "PublicDnsName": {
-                "locationName": "dnsName"
-              },
-              "StateTransitionReason": {
-                "locationName": "reason"
-              },
-              "KeyName": {
-                "locationName": "keyName"
-              },
               "AmiLaunchIndex": {
                 "locationName": "amiLaunchIndex",
                 "type": "integer"
               },
-              "ProductCodes": {
-                "shape": "Sbt",
-                "locationName": "productCodes"
+              "ImageId": {
+                "locationName": "imageId"
+              },
+              "InstanceId": {
+                "locationName": "instanceId"
               },
               "InstanceType": {
                 "locationName": "instanceType"
+              },
+              "KernelId": {
+                "locationName": "kernelId"
+              },
+              "KeyName": {
+                "locationName": "keyName"
               },
               "LaunchTime": {
                 "locationName": "launchTime",
                 "type": "timestamp"
               },
+              "Monitoring": {
+                "shape": "Se7",
+                "locationName": "monitoring"
+              },
               "Placement": {
-                "shape": "Sdh",
+                "shape": "Se9",
                 "locationName": "placement"
-              },
-              "KernelId": {
-                "locationName": "kernelId"
-              },
-              "RamdiskId": {
-                "locationName": "ramdiskId"
               },
               "Platform": {
                 "locationName": "platform"
               },
-              "Monitoring": {
-                "shape": "Sdi",
-                "locationName": "monitoring"
+              "PrivateDnsName": {
+                "locationName": "privateDnsName"
+              },
+              "PrivateIpAddress": {
+                "locationName": "privateIpAddress"
+              },
+              "ProductCodes": {
+                "shape": "Sbg",
+                "locationName": "productCodes"
+              },
+              "PublicDnsName": {
+                "locationName": "dnsName"
+              },
+              "PublicIpAddress": {
+                "locationName": "ipAddress"
+              },
+              "RamdiskId": {
+                "locationName": "ramdiskId"
+              },
+              "State": {
+                "shape": "Sds",
+                "locationName": "instanceState"
+              },
+              "StateTransitionReason": {
+                "locationName": "reason"
               },
               "SubnetId": {
                 "locationName": "subnetId"
@@ -35019,55 +36569,55 @@ module.exports={
               "VpcId": {
                 "locationName": "vpcId"
               },
-              "PrivateIpAddress": {
-                "locationName": "privateIpAddress"
-              },
-              "PublicIpAddress": {
-                "locationName": "ipAddress"
-              },
-              "StateReason": {
-                "shape": "Sc7",
-                "locationName": "stateReason"
-              },
               "Architecture": {
                 "locationName": "architecture"
               },
-              "RootDeviceType": {
-                "locationName": "rootDeviceType"
-              },
-              "RootDeviceName": {
-                "locationName": "rootDeviceName"
-              },
               "BlockDeviceMappings": {
-                "shape": "Scs",
+                "shape": "Sdh",
                 "locationName": "blockDeviceMapping"
-              },
-              "VirtualizationType": {
-                "locationName": "virtualizationType"
-              },
-              "InstanceLifecycle": {
-                "locationName": "instanceLifecycle"
-              },
-              "SpotInstanceRequestId": {
-                "locationName": "spotInstanceRequestId"
               },
               "ClientToken": {
                 "locationName": "clientToken"
               },
-              "Tags": {
-                "shape": "Sj",
-                "locationName": "tagSet"
+              "EbsOptimized": {
+                "locationName": "ebsOptimized",
+                "type": "boolean"
               },
-              "SecurityGroups": {
-                "shape": "S5p",
-                "locationName": "groupSet"
-              },
-              "SourceDestCheck": {
-                "locationName": "sourceDestCheck",
+              "EnaSupport": {
+                "locationName": "enaSupport",
                 "type": "boolean"
               },
               "Hypervisor": {
                 "locationName": "hypervisor"
+              },
+              "IamInstanceProfile": {
+                "shape": "S14",
+                "locationName": "iamInstanceProfile"
+              },
+              "InstanceLifecycle": {
+                "locationName": "instanceLifecycle"
+              },
+              "ElasticGpuAssociations": {
+                "locationName": "elasticGpuAssociationSet",
+                "type": "list",
+                "member": {
+                  "locationName": "item",
+                  "type": "structure",
+                  "members": {
+                    "ElasticGpuId": {
+                      "locationName": "elasticGpuId"
+                    },
+                    "ElasticGpuAssociationId": {
+                      "locationName": "elasticGpuAssociationId"
+                    },
+                    "ElasticGpuAssociationState": {
+                      "locationName": "elasticGpuAssociationState"
+                    },
+                    "ElasticGpuAssociationTime": {
+                      "locationName": "elasticGpuAssociationTime"
+                    }
+                  }
+                }
               },
               "NetworkInterfaces": {
                 "locationName": "networkInterfaceSet",
@@ -35076,47 +36626,24 @@ module.exports={
                   "locationName": "item",
                   "type": "structure",
                   "members": {
-                    "NetworkInterfaceId": {
-                      "locationName": "networkInterfaceId"
-                    },
-                    "SubnetId": {
-                      "locationName": "subnetId"
-                    },
-                    "VpcId": {
-                      "locationName": "vpcId"
-                    },
-                    "Description": {
-                      "locationName": "description"
-                    },
-                    "OwnerId": {
-                      "locationName": "ownerId"
-                    },
-                    "Status": {
-                      "locationName": "status"
-                    },
-                    "MacAddress": {
-                      "locationName": "macAddress"
-                    },
-                    "PrivateIpAddress": {
-                      "locationName": "privateIpAddress"
-                    },
-                    "PrivateDnsName": {
-                      "locationName": "privateDnsName"
-                    },
-                    "SourceDestCheck": {
-                      "locationName": "sourceDestCheck",
-                      "type": "boolean"
-                    },
-                    "Groups": {
-                      "shape": "S5p",
-                      "locationName": "groupSet"
+                    "Association": {
+                      "shape": "Sef",
+                      "locationName": "association"
                     },
                     "Attachment": {
                       "locationName": "attachment",
                       "type": "structure",
                       "members": {
+                        "AttachTime": {
+                          "locationName": "attachTime",
+                          "type": "timestamp"
+                        },
                         "AttachmentId": {
                           "locationName": "attachmentId"
+                        },
+                        "DeleteOnTermination": {
+                          "locationName": "deleteOnTermination",
+                          "type": "boolean"
                         },
                         "DeviceIndex": {
                           "locationName": "deviceIndex",
@@ -35124,20 +36651,34 @@ module.exports={
                         },
                         "Status": {
                           "locationName": "status"
-                        },
-                        "AttachTime": {
-                          "locationName": "attachTime",
-                          "type": "timestamp"
-                        },
-                        "DeleteOnTermination": {
-                          "locationName": "deleteOnTermination",
-                          "type": "boolean"
                         }
                       }
                     },
-                    "Association": {
-                      "shape": "Sdo",
-                      "locationName": "association"
+                    "Description": {
+                      "locationName": "description"
+                    },
+                    "Groups": {
+                      "shape": "S5w",
+                      "locationName": "groupSet"
+                    },
+                    "Ipv6Addresses": {
+                      "shape": "S5o",
+                      "locationName": "ipv6AddressesSet"
+                    },
+                    "MacAddress": {
+                      "locationName": "macAddress"
+                    },
+                    "NetworkInterfaceId": {
+                      "locationName": "networkInterfaceId"
+                    },
+                    "OwnerId": {
+                      "locationName": "ownerId"
+                    },
+                    "PrivateDnsName": {
+                      "locationName": "privateDnsName"
+                    },
+                    "PrivateIpAddress": {
+                      "locationName": "privateIpAddress"
                     },
                     "PrivateIpAddresses": {
                       "locationName": "privateIpAddressesSet",
@@ -35146,71 +36687,85 @@ module.exports={
                         "locationName": "item",
                         "type": "structure",
                         "members": {
-                          "PrivateIpAddress": {
-                            "locationName": "privateIpAddress"
-                          },
-                          "PrivateDnsName": {
-                            "locationName": "privateDnsName"
+                          "Association": {
+                            "shape": "Sef",
+                            "locationName": "association"
                           },
                           "Primary": {
                             "locationName": "primary",
                             "type": "boolean"
                           },
-                          "Association": {
-                            "shape": "Sdo",
-                            "locationName": "association"
+                          "PrivateDnsName": {
+                            "locationName": "privateDnsName"
+                          },
+                          "PrivateIpAddress": {
+                            "locationName": "privateIpAddress"
                           }
                         }
                       }
                     },
-                    "Ipv6Addresses": {
-                      "shape": "S5k",
-                      "locationName": "ipv6AddressesSet"
+                    "SourceDestCheck": {
+                      "locationName": "sourceDestCheck",
+                      "type": "boolean"
+                    },
+                    "Status": {
+                      "locationName": "status"
+                    },
+                    "SubnetId": {
+                      "locationName": "subnetId"
+                    },
+                    "VpcId": {
+                      "locationName": "vpcId"
                     }
                   }
                 }
               },
-              "IamInstanceProfile": {
-                "shape": "S14",
-                "locationName": "iamInstanceProfile"
+              "RootDeviceName": {
+                "locationName": "rootDeviceName"
               },
-              "EbsOptimized": {
-                "locationName": "ebsOptimized",
+              "RootDeviceType": {
+                "locationName": "rootDeviceType"
+              },
+              "SecurityGroups": {
+                "shape": "S5w",
+                "locationName": "groupSet"
+              },
+              "SourceDestCheck": {
+                "locationName": "sourceDestCheck",
                 "type": "boolean"
+              },
+              "SpotInstanceRequestId": {
+                "locationName": "spotInstanceRequestId"
               },
               "SriovNetSupport": {
                 "locationName": "sriovNetSupport"
               },
-              "EnaSupport": {
-                "locationName": "enaSupport",
-                "type": "boolean"
+              "StateReason": {
+                "shape": "Scz",
+                "locationName": "stateReason"
+              },
+              "Tags": {
+                "shape": "Sj",
+                "locationName": "tagSet"
+              },
+              "VirtualizationType": {
+                "locationName": "virtualizationType"
               }
             }
           }
+        },
+        "OwnerId": {
+          "locationName": "ownerId"
+        },
+        "RequesterId": {
+          "locationName": "requesterId"
+        },
+        "ReservationId": {
+          "locationName": "reservationId"
         }
       }
     },
-    "Sdh": {
-      "type": "structure",
-      "members": {
-        "AvailabilityZone": {
-          "locationName": "availabilityZone"
-        },
-        "GroupName": {
-          "locationName": "groupName"
-        },
-        "Tenancy": {
-          "locationName": "tenancy"
-        },
-        "HostId": {
-          "locationName": "hostId"
-        },
-        "Affinity": {
-          "locationName": "affinity"
-        }
-      }
-    },
-    "Sdi": {
+    "Se7": {
       "type": "structure",
       "members": {
         "State": {
@@ -35218,50 +36773,70 @@ module.exports={
         }
       }
     },
-    "Sdo": {
-      "type": "structure",
-      "members": {
-        "PublicIp": {
-          "locationName": "publicIp"
-        },
-        "PublicDnsName": {
-          "locationName": "publicDnsName"
-        },
-        "IpOwnerId": {
-          "locationName": "ipOwnerId"
-        }
-      }
-    },
-    "Sex": {
-      "type": "list",
-      "member": {
-        "locationName": "ReservedInstancesId"
-      }
-    },
-    "Sf6": {
-      "type": "list",
-      "member": {
-        "locationName": "item",
-        "type": "structure",
-        "members": {
-          "Frequency": {
-            "locationName": "frequency"
-          },
-          "Amount": {
-            "locationName": "amount",
-            "type": "double"
-          }
-        }
-      }
-    },
-    "Sfl": {
+    "Se9": {
       "type": "structure",
       "members": {
         "AvailabilityZone": {
           "locationName": "availabilityZone"
         },
-        "Platform": {
-          "locationName": "platform"
+        "Affinity": {
+          "locationName": "affinity"
+        },
+        "GroupName": {
+          "locationName": "groupName"
+        },
+        "HostId": {
+          "locationName": "hostId"
+        },
+        "Tenancy": {
+          "locationName": "tenancy"
+        },
+        "SpreadDomain": {
+          "locationName": "spreadDomain"
+        }
+      }
+    },
+    "Sef": {
+      "type": "structure",
+      "members": {
+        "IpOwnerId": {
+          "locationName": "ipOwnerId"
+        },
+        "PublicDnsName": {
+          "locationName": "publicDnsName"
+        },
+        "PublicIp": {
+          "locationName": "publicIp"
+        }
+      }
+    },
+    "Sfu": {
+      "type": "list",
+      "member": {
+        "locationName": "ReservedInstancesId"
+      }
+    },
+    "Sg2": {
+      "type": "list",
+      "member": {
+        "locationName": "item",
+        "type": "structure",
+        "members": {
+          "Amount": {
+            "locationName": "amount",
+            "type": "double"
+          },
+          "Frequency": {
+            "locationName": "frequency"
+          }
+        }
+      }
+    },
+    "Sgf": {
+      "type": "structure",
+      "members": {
+        "AvailabilityZone": {
+          "locationName": "availabilityZone"
         },
         "InstanceCount": {
           "locationName": "instanceCount",
@@ -35270,12 +36845,15 @@ module.exports={
         "InstanceType": {
           "locationName": "instanceType"
         },
+        "Platform": {
+          "locationName": "platform"
+        },
         "Scope": {
           "locationName": "scope"
         }
       }
     },
-    "Sg3": {
+    "Sgz": {
       "type": "structure",
       "members": {
         "Frequency": {
@@ -35302,116 +36880,107 @@ module.exports={
         }
       }
     },
-    "Sga": {
+    "Sh6": {
       "type": "structure",
       "members": {
-        "ScheduledInstanceId": {
-          "locationName": "scheduledInstanceId"
-        },
-        "InstanceType": {
-          "locationName": "instanceType"
-        },
-        "Platform": {
-          "locationName": "platform"
-        },
-        "NetworkPlatform": {
-          "locationName": "networkPlatform"
-        },
         "AvailabilityZone": {
           "locationName": "availabilityZone"
         },
-        "SlotDurationInHours": {
-          "locationName": "slotDurationInHours",
-          "type": "integer"
-        },
-        "Recurrence": {
-          "shape": "Sg3",
-          "locationName": "recurrence"
-        },
-        "PreviousSlotEndTime": {
-          "locationName": "previousSlotEndTime",
-          "type": "timestamp"
-        },
-        "NextSlotStartTime": {
-          "locationName": "nextSlotStartTime",
+        "CreateDate": {
+          "locationName": "createDate",
           "type": "timestamp"
         },
         "HourlyPrice": {
           "locationName": "hourlyPrice"
         },
-        "TotalScheduledInstanceHours": {
-          "locationName": "totalScheduledInstanceHours",
-          "type": "integer"
-        },
         "InstanceCount": {
           "locationName": "instanceCount",
           "type": "integer"
         },
-        "TermStartDate": {
-          "locationName": "termStartDate",
+        "InstanceType": {
+          "locationName": "instanceType"
+        },
+        "NetworkPlatform": {
+          "locationName": "networkPlatform"
+        },
+        "NextSlotStartTime": {
+          "locationName": "nextSlotStartTime",
           "type": "timestamp"
+        },
+        "Platform": {
+          "locationName": "platform"
+        },
+        "PreviousSlotEndTime": {
+          "locationName": "previousSlotEndTime",
+          "type": "timestamp"
+        },
+        "Recurrence": {
+          "shape": "Sgz",
+          "locationName": "recurrence"
+        },
+        "ScheduledInstanceId": {
+          "locationName": "scheduledInstanceId"
+        },
+        "SlotDurationInHours": {
+          "locationName": "slotDurationInHours",
+          "type": "integer"
         },
         "TermEndDate": {
           "locationName": "termEndDate",
           "type": "timestamp"
         },
-        "CreateDate": {
-          "locationName": "createDate",
+        "TermStartDate": {
+          "locationName": "termStartDate",
           "type": "timestamp"
+        },
+        "TotalScheduledInstanceHours": {
+          "locationName": "totalScheduledInstanceHours",
+          "type": "integer"
         }
       }
     },
-    "Sgh": {
+    "Shd": {
       "type": "list",
       "member": {
         "locationName": "GroupName"
       }
     },
-    "Sgo": {
+    "Shk": {
       "type": "list",
       "member": {
         "locationName": "item",
         "type": "structure",
         "members": {
-          "UserId": {
-            "locationName": "userId"
-          },
           "Group": {
             "locationName": "group"
+          },
+          "UserId": {
+            "locationName": "userId"
           }
         }
       }
     },
-    "Shc": {
+    "Si9": {
       "type": "structure",
       "required": [
-        "SpotPrice",
-        "TargetCapacity",
         "IamFleetRole",
-        "LaunchSpecifications"
+        "LaunchSpecifications",
+        "SpotPrice",
+        "TargetCapacity"
       ],
       "members": {
+        "AllocationStrategy": {
+          "locationName": "allocationStrategy"
+        },
         "ClientToken": {
           "locationName": "clientToken"
         },
-        "SpotPrice": {
-          "locationName": "spotPrice"
+        "ExcessCapacityTerminationPolicy": {
+          "locationName": "excessCapacityTerminationPolicy"
         },
-        "TargetCapacity": {
-          "locationName": "targetCapacity",
-          "type": "integer"
-        },
-        "ValidFrom": {
-          "locationName": "validFrom",
-          "type": "timestamp"
-        },
-        "ValidUntil": {
-          "locationName": "validUntil",
-          "type": "timestamp"
-        },
-        "TerminateInstancesWithExpiration": {
-          "locationName": "terminateInstancesWithExpiration",
-          "type": "boolean"
+        "FulfilledCapacity": {
+          "locationName": "fulfilledCapacity",
+          "type": "double"
         },
         "IamFleetRole": {
           "locationName": "iamFleetRole"
@@ -35423,38 +36992,36 @@ module.exports={
             "locationName": "item",
             "type": "structure",
             "members": {
-              "ImageId": {
-                "locationName": "imageId"
-              },
-              "KeyName": {
-                "locationName": "keyName"
-              },
               "SecurityGroups": {
-                "shape": "S5p",
+                "shape": "S5w",
                 "locationName": "groupSet"
-              },
-              "UserData": {
-                "locationName": "userData"
               },
               "AddressingType": {
                 "locationName": "addressingType"
               },
+              "BlockDeviceMappings": {
+                "shape": "Sck",
+                "locationName": "blockDeviceMapping"
+              },
+              "EbsOptimized": {
+                "locationName": "ebsOptimized",
+                "type": "boolean"
+              },
+              "IamInstanceProfile": {
+                "shape": "S11",
+                "locationName": "iamInstanceProfile"
+              },
+              "ImageId": {
+                "locationName": "imageId"
+              },
               "InstanceType": {
                 "locationName": "instanceType"
-              },
-              "Placement": {
-                "shape": "Shf",
-                "locationName": "placement"
               },
               "KernelId": {
                 "locationName": "kernelId"
               },
-              "RamdiskId": {
-                "locationName": "ramdiskId"
-              },
-              "BlockDeviceMappings": {
-                "shape": "Sbw",
-                "locationName": "blockDeviceMapping"
+              "KeyName": {
+                "locationName": "keyName"
               },
               "Monitoring": {
                 "locationName": "monitoring",
@@ -35466,43 +37033,71 @@ module.exports={
                   }
                 }
               },
+              "NetworkInterfaces": {
+                "shape": "Sif",
+                "locationName": "networkInterfaceSet"
+              },
+              "Placement": {
+                "shape": "Sih",
+                "locationName": "placement"
+              },
+              "RamdiskId": {
+                "locationName": "ramdiskId"
+              },
+              "SpotPrice": {
+                "locationName": "spotPrice"
+              },
               "SubnetId": {
                 "locationName": "subnetId"
               },
-              "NetworkInterfaces": {
-                "shape": "Shh",
-                "locationName": "networkInterfaceSet"
-              },
-              "IamInstanceProfile": {
-                "shape": "S11",
-                "locationName": "iamInstanceProfile"
-              },
-              "EbsOptimized": {
-                "locationName": "ebsOptimized",
-                "type": "boolean"
+              "UserData": {
+                "locationName": "userData"
               },
               "WeightedCapacity": {
                 "locationName": "weightedCapacity",
                 "type": "double"
               },
-              "SpotPrice": {
-                "locationName": "spotPrice"
+              "TagSpecifications": {
+                "locationName": "tagSpecificationSet",
+                "type": "list",
+                "member": {
+                  "locationName": "item",
+                  "type": "structure",
+                  "members": {
+                    "ResourceType": {
+                      "locationName": "resourceType"
+                    },
+                    "Tags": {
+                      "shape": "Sj",
+                      "locationName": "tag"
+                    }
+                  }
+                }
               }
             }
           }
         },
-        "ExcessCapacityTerminationPolicy": {
-          "locationName": "excessCapacityTerminationPolicy"
+        "SpotPrice": {
+          "locationName": "spotPrice"
         },
-        "AllocationStrategy": {
-          "locationName": "allocationStrategy"
+        "TargetCapacity": {
+          "locationName": "targetCapacity",
+          "type": "integer"
         },
-        "FulfilledCapacity": {
-          "locationName": "fulfilledCapacity",
-          "type": "double"
+        "TerminateInstancesWithExpiration": {
+          "locationName": "terminateInstancesWithExpiration",
+          "type": "boolean"
         },
         "Type": {
           "locationName": "type"
+        },
+        "ValidFrom": {
+          "locationName": "validFrom",
+          "type": "timestamp"
+        },
+        "ValidUntil": {
+          "locationName": "validUntil",
+          "type": "timestamp"
         },
         "ReplaceUnhealthyInstances": {
           "locationName": "replaceUnhealthyInstances",
@@ -35510,7 +37105,62 @@ module.exports={
         }
       }
     },
-    "Shf": {
+    "Sif": {
+      "type": "list",
+      "member": {
+        "locationName": "item",
+        "type": "structure",
+        "members": {
+          "AssociatePublicIpAddress": {
+            "locationName": "associatePublicIpAddress",
+            "type": "boolean"
+          },
+          "DeleteOnTermination": {
+            "locationName": "deleteOnTermination",
+            "type": "boolean"
+          },
+          "Description": {
+            "locationName": "description"
+          },
+          "DeviceIndex": {
+            "locationName": "deviceIndex",
+            "type": "integer"
+          },
+          "Groups": {
+            "shape": "S5n",
+            "locationName": "SecurityGroupId"
+          },
+          "Ipv6AddressCount": {
+            "locationName": "ipv6AddressCount",
+            "type": "integer"
+          },
+          "Ipv6Addresses": {
+            "shape": "S5o",
+            "locationName": "ipv6AddressesSet",
+            "queryName": "Ipv6Addresses"
+          },
+          "NetworkInterfaceId": {
+            "locationName": "networkInterfaceId"
+          },
+          "PrivateIpAddress": {
+            "locationName": "privateIpAddress"
+          },
+          "PrivateIpAddresses": {
+            "shape": "S5q",
+            "locationName": "privateIpAddressesSet",
+            "queryName": "PrivateIpAddresses"
+          },
+          "SecondaryPrivateIpAddressCount": {
+            "locationName": "secondaryPrivateIpAddressCount",
+            "type": "integer"
+          },
+          "SubnetId": {
+            "locationName": "subnetId"
+          }
+        }
+      }
+    },
+    "Sih": {
       "type": "structure",
       "members": {
         "AvailabilityZone": {
@@ -35524,82 +37174,108 @@ module.exports={
         }
       }
     },
-    "Shh": {
+    "Sin": {
       "type": "list",
       "member": {
         "locationName": "item",
         "type": "structure",
         "members": {
-          "NetworkInterfaceId": {
-            "locationName": "networkInterfaceId"
+          "ActualBlockHourlyPrice": {
+            "locationName": "actualBlockHourlyPrice"
           },
-          "DeviceIndex": {
-            "locationName": "deviceIndex",
+          "AvailabilityZoneGroup": {
+            "locationName": "availabilityZoneGroup"
+          },
+          "BlockDurationMinutes": {
+            "locationName": "blockDurationMinutes",
             "type": "integer"
           },
-          "SubnetId": {
-            "locationName": "subnetId"
+          "CreateTime": {
+            "locationName": "createTime",
+            "type": "timestamp"
           },
-          "Description": {
-            "locationName": "description"
+          "Fault": {
+            "shape": "S71",
+            "locationName": "fault"
           },
-          "PrivateIpAddress": {
-            "locationName": "privateIpAddress"
+          "InstanceId": {
+            "locationName": "instanceId"
           },
-          "Groups": {
-            "shape": "S5h",
-            "locationName": "SecurityGroupId"
+          "LaunchGroup": {
+            "locationName": "launchGroup"
           },
-          "DeleteOnTermination": {
-            "locationName": "deleteOnTermination",
-            "type": "boolean"
+          "LaunchSpecification": {
+            "locationName": "launchSpecification",
+            "type": "structure",
+            "members": {
+              "UserData": {
+                "locationName": "userData"
+              },
+              "SecurityGroups": {
+                "shape": "S5w",
+                "locationName": "groupSet"
+              },
+              "AddressingType": {
+                "locationName": "addressingType"
+              },
+              "BlockDeviceMappings": {
+                "shape": "Sck",
+                "locationName": "blockDeviceMapping"
+              },
+              "EbsOptimized": {
+                "locationName": "ebsOptimized",
+                "type": "boolean"
+              },
+              "IamInstanceProfile": {
+                "shape": "S11",
+                "locationName": "iamInstanceProfile"
+              },
+              "ImageId": {
+                "locationName": "imageId"
+              },
+              "InstanceType": {
+                "locationName": "instanceType"
+              },
+              "KernelId": {
+                "locationName": "kernelId"
+              },
+              "KeyName": {
+                "locationName": "keyName"
+              },
+              "NetworkInterfaces": {
+                "shape": "Sif",
+                "locationName": "networkInterfaceSet"
+              },
+              "Placement": {
+                "shape": "Sih",
+                "locationName": "placement"
+              },
+              "RamdiskId": {
+                "locationName": "ramdiskId"
+              },
+              "SubnetId": {
+                "locationName": "subnetId"
+              },
+              "Monitoring": {
+                "shape": "Siq",
+                "locationName": "monitoring"
+              }
+            }
           },
-          "PrivateIpAddresses": {
-            "shape": "S5i",
-            "locationName": "privateIpAddressesSet",
-            "queryName": "PrivateIpAddresses"
+          "LaunchedAvailabilityZone": {
+            "locationName": "launchedAvailabilityZone"
           },
-          "SecondaryPrivateIpAddressCount": {
-            "locationName": "secondaryPrivateIpAddressCount",
-            "type": "integer"
+          "ProductDescription": {
+            "locationName": "productDescription"
           },
-          "AssociatePublicIpAddress": {
-            "locationName": "associatePublicIpAddress",
-            "type": "boolean"
-          },
-          "Ipv6Addresses": {
-            "shape": "S5k",
-            "locationName": "ipv6AddressesSet",
-            "queryName": "Ipv6Addresses"
-          },
-          "Ipv6AddressCount": {
-            "locationName": "ipv6AddressCount",
-            "type": "integer"
-          }
-        }
-      }
-    },
-    "Shp": {
-      "type": "list",
-      "member": {
-        "locationName": "item",
-        "type": "structure",
-        "members": {
           "SpotInstanceRequestId": {
             "locationName": "spotInstanceRequestId"
           },
           "SpotPrice": {
             "locationName": "spotPrice"
           },
-          "Type": {
-            "locationName": "type"
-          },
           "State": {
             "locationName": "state"
-          },
-          "Fault": {
-            "shape": "S6q",
-            "locationName": "fault"
           },
           "Status": {
             "locationName": "status",
@@ -35608,14 +37284,21 @@ module.exports={
               "Code": {
                 "locationName": "code"
               },
+              "Message": {
+                "locationName": "message"
+              },
               "UpdateTime": {
                 "locationName": "updateTime",
                 "type": "timestamp"
-              },
-              "Message": {
-                "locationName": "message"
               }
             }
+          },
+          "Tags": {
+            "shape": "Sj",
+            "locationName": "tagSet"
+          },
+          "Type": {
+            "locationName": "type"
           },
           "ValidFrom": {
             "locationName": "validFrom",
@@ -35624,99 +37307,11 @@ module.exports={
           "ValidUntil": {
             "locationName": "validUntil",
             "type": "timestamp"
-          },
-          "LaunchGroup": {
-            "locationName": "launchGroup"
-          },
-          "AvailabilityZoneGroup": {
-            "locationName": "availabilityZoneGroup"
-          },
-          "LaunchSpecification": {
-            "locationName": "launchSpecification",
-            "type": "structure",
-            "members": {
-              "ImageId": {
-                "locationName": "imageId"
-              },
-              "KeyName": {
-                "locationName": "keyName"
-              },
-              "SecurityGroups": {
-                "shape": "S5p",
-                "locationName": "groupSet"
-              },
-              "UserData": {
-                "locationName": "userData"
-              },
-              "AddressingType": {
-                "locationName": "addressingType"
-              },
-              "InstanceType": {
-                "locationName": "instanceType"
-              },
-              "Placement": {
-                "shape": "Shf",
-                "locationName": "placement"
-              },
-              "KernelId": {
-                "locationName": "kernelId"
-              },
-              "RamdiskId": {
-                "locationName": "ramdiskId"
-              },
-              "BlockDeviceMappings": {
-                "shape": "Sbw",
-                "locationName": "blockDeviceMapping"
-              },
-              "SubnetId": {
-                "locationName": "subnetId"
-              },
-              "NetworkInterfaces": {
-                "shape": "Shh",
-                "locationName": "networkInterfaceSet"
-              },
-              "IamInstanceProfile": {
-                "shape": "S11",
-                "locationName": "iamInstanceProfile"
-              },
-              "EbsOptimized": {
-                "locationName": "ebsOptimized",
-                "type": "boolean"
-              },
-              "Monitoring": {
-                "shape": "Shv",
-                "locationName": "monitoring"
-              }
-            }
-          },
-          "InstanceId": {
-            "locationName": "instanceId"
-          },
-          "CreateTime": {
-            "locationName": "createTime",
-            "type": "timestamp"
-          },
-          "ProductDescription": {
-            "locationName": "productDescription"
-          },
-          "BlockDurationMinutes": {
-            "locationName": "blockDurationMinutes",
-            "type": "integer"
-          },
-          "ActualBlockHourlyPrice": {
-            "locationName": "actualBlockHourlyPrice"
-          },
-          "Tags": {
-            "shape": "Sj",
-            "locationName": "tagSet"
-          },
-          "LaunchedAvailabilityZone": {
-            "locationName": "launchedAvailabilityZone"
           }
         }
       }
     },
-    "Shv": {
+    "Siq": {
       "type": "structure",
       "required": [
         "Enabled"
@@ -35728,7 +37323,7 @@ module.exports={
         }
       }
     },
-    "Si6": {
+    "Sj4": {
       "type": "list",
       "member": {
         "locationName": "item",
@@ -35763,20 +37358,20 @@ module.exports={
             "locationName": "groups",
             "type": "list",
             "member": {
-              "shape": "S1z",
+              "shape": "S25",
               "locationName": "item"
             }
           }
         }
       }
     },
-    "Sin": {
+    "Sjl": {
       "type": "list",
       "member": {
         "locationName": "VolumeId"
       }
     },
-    "Sj6": {
+    "Sk4": {
       "type": "structure",
       "members": {
         "VolumeId": {
@@ -35824,29 +37419,39 @@ module.exports={
         }
       }
     },
-    "Sjc": {
+    "Ska": {
       "type": "list",
       "member": {
         "locationName": "VpcId"
       }
     },
-    "Sky": {
+    "Slw": {
       "type": "list",
       "member": {
         "locationName": "item"
       }
     },
-    "Sl0": {
+    "Sly": {
       "type": "list",
       "member": {
         "type": "structure",
         "members": {
+          "CurrencyCode": {
+            "locationName": "currencyCode"
+          },
+          "Duration": {
+            "locationName": "duration",
+            "type": "integer"
+          },
+          "HostIdSet": {
+            "shape": "Sbt",
+            "locationName": "hostIdSet"
+          },
           "HostReservationId": {
             "locationName": "hostReservationId"
           },
-          "HostIdSet": {
-            "shape": "Sax",
-            "locationName": "hostIdSet"
+          "HourlyPrice": {
+            "locationName": "hourlyPrice"
           },
           "InstanceFamily": {
             "locationName": "instanceFamily"
@@ -35856,83 +37461,67 @@ module.exports={
           },
           "UpfrontPrice": {
             "locationName": "upfrontPrice"
-          },
-          "HourlyPrice": {
-            "locationName": "hourlyPrice"
-          },
-          "CurrencyCode": {
-            "locationName": "currencyCode"
-          },
-          "Duration": {
-            "locationName": "duration",
-            "type": "integer"
           }
         }
       }
     },
-    "Sl8": {
+    "Sm4": {
       "type": "structure",
       "members": {
+        "HourlyPrice": {
+          "locationName": "hourlyPrice"
+        },
         "RemainingTotalValue": {
           "locationName": "remainingTotalValue"
         },
         "RemainingUpfrontValue": {
           "locationName": "remainingUpfrontValue"
-        },
-        "HourlyPrice": {
-          "locationName": "hourlyPrice"
         }
       }
     },
-    "Slf": {
+    "Smb": {
       "type": "structure",
       "members": {
-        "S3Bucket": {},
-        "S3Key": {}
-      }
-    },
-    "Slg": {
-      "type": "structure",
-      "members": {
-        "UploadStart": {
-          "type": "timestamp"
-        },
+        "Comment": {},
         "UploadEnd": {
           "type": "timestamp"
         },
         "UploadSize": {
           "type": "double"
         },
-        "Comment": {}
+        "UploadStart": {
+          "type": "timestamp"
+        }
       }
     },
-    "Slk": {
-      "type": "list",
-      "member": {
-        "locationName": "SecurityGroup"
+    "Sme": {
+      "type": "structure",
+      "members": {
+        "S3Bucket": {},
+        "S3Key": {}
       }
     },
-    "Slp": {
+    "Smj": {
       "type": "structure",
       "required": [
-        "Format",
         "Bytes",
+        "Format",
         "ImportManifestUrl"
       ],
       "members": {
-        "Format": {
-          "locationName": "format"
-        },
         "Bytes": {
           "locationName": "bytes",
           "type": "long"
+        },
+        "Format": {
+          "locationName": "format"
         },
         "ImportManifestUrl": {
           "locationName": "importManifestUrl"
         }
       }
     },
-    "Slq": {
+    "Smk": {
       "type": "structure",
       "required": [
         "Size"
@@ -35944,36 +37533,46 @@ module.exports={
         }
       }
     },
-    "Sm1": {
+    "Smm": {
       "type": "list",
       "member": {
-        "shape": "S48",
+        "locationName": "SecurityGroup"
+      }
+    },
+    "Smz": {
+      "type": "list",
+      "member": {
+        "shape": "S4e",
         "locationName": "item"
       }
     },
-    "Sm6": {
+    "Sn7": {
       "type": "list",
       "member": {
         "locationName": "UserId"
       }
     },
-    "Sn0": {
+    "Sny": {
       "type": "structure",
       "members": {
+        "AllowDnsResolutionFromRemoteVpc": {
+          "type": "boolean"
+        },
         "AllowEgressFromLocalClassicLinkToRemoteVpc": {
           "type": "boolean"
         },
         "AllowEgressFromLocalVpcToRemoteClassicLink": {
           "type": "boolean"
-        },
-        "AllowDnsResolutionFromRemoteVpc": {
-          "type": "boolean"
         }
       }
     },
-    "Sn2": {
+    "So0": {
       "type": "structure",
       "members": {
+        "AllowDnsResolutionFromRemoteVpc": {
+          "locationName": "allowDnsResolutionFromRemoteVpc",
+          "type": "boolean"
+        },
         "AllowEgressFromLocalClassicLinkToRemoteVpc": {
           "locationName": "allowEgressFromLocalClassicLinkToRemoteVpc",
           "type": "boolean"
@@ -35981,14 +37580,10 @@ module.exports={
         "AllowEgressFromLocalVpcToRemoteClassicLink": {
           "locationName": "allowEgressFromLocalVpcToRemoteClassicLink",
           "type": "boolean"
-        },
-        "AllowDnsResolutionFromRemoteVpc": {
-          "locationName": "allowDnsResolutionFromRemoteVpc",
-          "type": "boolean"
         }
       }
     },
-    "Sn5": {
+    "So3": {
       "type": "list",
       "member": {
         "locationName": "item",
@@ -35998,33 +37593,33 @@ module.exports={
             "locationName": "instanceId"
           },
           "Monitoring": {
-            "shape": "Sdi",
+            "shape": "Se7",
             "locationName": "monitoring"
           }
         }
       }
     },
-    "Som": {
+    "Spt": {
       "type": "list",
       "member": {
         "locationName": "SecurityGroupId"
       }
     },
-    "Sp4": {
+    "Sq4": {
       "type": "list",
       "member": {
         "locationName": "item",
         "type": "structure",
         "members": {
+          "CurrentState": {
+            "shape": "Sds",
+            "locationName": "currentState"
+          },
           "InstanceId": {
             "locationName": "instanceId"
           },
-          "CurrentState": {
-            "shape": "Sd2",
-            "locationName": "currentState"
-          },
           "PreviousState": {
-            "shape": "Sd2",
+            "shape": "Sds",
             "locationName": "previousState"
           }
         }
@@ -36032,7 +37627,7 @@ module.exports={
     }
   }
 }
-},{}],46:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 module.exports={
   "pagination": {
     "DescribeAccountAttributes": {
@@ -36177,7 +37772,7 @@ module.exports={
     }
   }
 }
-},{}],47:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 module.exports={
   "version": 2,
   "waiters": {
@@ -36790,7 +38385,7 @@ module.exports={
   }
 }
 
-},{}],48:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -37343,7 +38938,7 @@ module.exports={
     }
   }
 }
-},{}],49:[function(require,module,exports){
+},{}],51:[function(require,module,exports){
 module.exports={
   "pagination": {
     "ListImages": {
@@ -37367,7 +38962,7 @@ module.exports={
   }
 }
 
-},{}],50:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -38315,6 +39910,9 @@ module.exports={
         "agentUpdateStatus": {},
         "attributes": {
           "shape": "Sp"
+        },
+        "registeredAt": {
+          "type": "timestamp"
         }
       }
     },
@@ -38647,6 +40245,15 @@ module.exports={
               },
               "environment": {
                 "shape": "S1h"
+              },
+              "cpu": {
+                "type": "integer"
+              },
+              "memory": {
+                "type": "integer"
+              },
+              "memoryReservation": {
+                "type": "integer"
               }
             }
           }
@@ -38672,49 +40279,48 @@ module.exports={
     }
   }
 }
-},{}],51:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 module.exports={
-	"pagination": {
-		"ListClusters": {
-			"input_token": "nextToken",
-			"output_token": "nextToken",
-			"limit_key": "maxResults",
-			"result_key": "clusterArns"
-		},
-		"ListContainerInstances": {
-			"input_token": "nextToken",
-			"output_token": "nextToken",
-			"limit_key": "maxResults",
-			"result_key": "containerInstanceArns"
-		},
-		"ListTaskDefinitions": {
-			"input_token": "nextToken",
-			"output_token": "nextToken",
-			"limit_key": "maxResults",
-			"result_key": "taskDefinitionArns"
-		},
-		"ListTaskDefinitionFamilies": {
-			"input_token": "nextToken",
-			"output_token": "nextToken",
-			"limit_key": "maxResults",
-			"result_key": "families"
-		},
-		"ListTasks": {
-			"input_token": "nextToken",
-			"output_token": "nextToken",
-			"limit_key": "maxResults",
-			"result_key": "taskArns"
-		},
-		"ListServices": {
-			"input_token": "nextToken",
-			"output_token": "nextToken",
-			"limit_key": "maxResults",
-			"result_key": "serviceArns"
-		}
-	}
+  "pagination": {
+    "ListClusters": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "clusterArns"
+    },
+    "ListContainerInstances": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "containerInstanceArns"
+    },
+    "ListServices": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "serviceArns"
+    },
+    "ListTaskDefinitionFamilies": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "families"
+    },
+    "ListTaskDefinitions": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "taskDefinitionArns"
+    },
+    "ListTasks": {
+      "input_token": "nextToken",
+      "limit_key": "maxResults",
+      "output_token": "nextToken",
+      "result_key": "taskArns"
+    }
+  }
 }
-
-},{}],52:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 module.exports={
   "version": 2,
   "waiters": {
@@ -38809,7 +40415,7 @@ module.exports={
   }
 }
 
-},{}],53:[function(require,module,exports){
+},{}],55:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -40410,7 +42016,7 @@ module.exports={
     }
   }
 }
-},{}],54:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 module.exports={
   "pagination": {
     "DescribeCacheClusters": {
@@ -40487,7 +42093,7 @@ module.exports={
     }
   }
 }
-},{}],55:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 module.exports={
     "version":2,
     "waiters":{
@@ -40632,7 +42238,7 @@ module.exports={
     }
 }
 
-},{}],56:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -42212,7 +43818,7 @@ module.exports={
     }
   }
 }
-},{}],57:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
 module.exports={
   "pagination": {
     "DescribeApplicationVersions": {
@@ -42238,16 +43844,413 @@ module.exports={
     }
   }
 }
-},{}],58:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
-    "uid": "elasticloadbalancing-2012-06-01",
+    "apiVersion": "2015-02-01",
+    "endpointPrefix": "elasticfilesystem",
+    "protocol": "rest-json",
+    "serviceAbbreviation": "EFS",
+    "serviceFullName": "Amazon Elastic File System",
+    "signatureVersion": "v4",
+    "uid": "elasticfilesystem-2015-02-01"
+  },
+  "operations": {
+    "CreateFileSystem": {
+      "http": {
+        "requestUri": "/2015-02-01/file-systems",
+        "responseCode": 201
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "CreationToken"
+        ],
+        "members": {
+          "CreationToken": {},
+          "PerformanceMode": {}
+        }
+      },
+      "output": {
+        "shape": "S4"
+      }
+    },
+    "CreateMountTarget": {
+      "http": {
+        "requestUri": "/2015-02-01/mount-targets",
+        "responseCode": 200
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "FileSystemId",
+          "SubnetId"
+        ],
+        "members": {
+          "FileSystemId": {},
+          "SubnetId": {},
+          "IpAddress": {},
+          "SecurityGroups": {
+            "shape": "Sg"
+          }
+        }
+      },
+      "output": {
+        "shape": "Si"
+      }
+    },
+    "CreateTags": {
+      "http": {
+        "requestUri": "/2015-02-01/create-tags/{FileSystemId}",
+        "responseCode": 204
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "FileSystemId",
+          "Tags"
+        ],
+        "members": {
+          "FileSystemId": {
+            "location": "uri",
+            "locationName": "FileSystemId"
+          },
+          "Tags": {
+            "shape": "Sm"
+          }
+        }
+      }
+    },
+    "DeleteFileSystem": {
+      "http": {
+        "method": "DELETE",
+        "requestUri": "/2015-02-01/file-systems/{FileSystemId}",
+        "responseCode": 204
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "FileSystemId"
+        ],
+        "members": {
+          "FileSystemId": {
+            "location": "uri",
+            "locationName": "FileSystemId"
+          }
+        }
+      }
+    },
+    "DeleteMountTarget": {
+      "http": {
+        "method": "DELETE",
+        "requestUri": "/2015-02-01/mount-targets/{MountTargetId}",
+        "responseCode": 204
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "MountTargetId"
+        ],
+        "members": {
+          "MountTargetId": {
+            "location": "uri",
+            "locationName": "MountTargetId"
+          }
+        }
+      }
+    },
+    "DeleteTags": {
+      "http": {
+        "requestUri": "/2015-02-01/delete-tags/{FileSystemId}",
+        "responseCode": 204
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "FileSystemId",
+          "TagKeys"
+        ],
+        "members": {
+          "FileSystemId": {
+            "location": "uri",
+            "locationName": "FileSystemId"
+          },
+          "TagKeys": {
+            "type": "list",
+            "member": {}
+          }
+        }
+      }
+    },
+    "DescribeFileSystems": {
+      "http": {
+        "method": "GET",
+        "requestUri": "/2015-02-01/file-systems",
+        "responseCode": 200
+      },
+      "input": {
+        "type": "structure",
+        "members": {
+          "MaxItems": {
+            "location": "querystring",
+            "locationName": "MaxItems",
+            "type": "integer"
+          },
+          "Marker": {
+            "location": "querystring",
+            "locationName": "Marker"
+          },
+          "CreationToken": {
+            "location": "querystring",
+            "locationName": "CreationToken"
+          },
+          "FileSystemId": {
+            "location": "querystring",
+            "locationName": "FileSystemId"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "Marker": {},
+          "FileSystems": {
+            "type": "list",
+            "member": {
+              "shape": "S4"
+            }
+          },
+          "NextMarker": {}
+        }
+      }
+    },
+    "DescribeMountTargetSecurityGroups": {
+      "http": {
+        "method": "GET",
+        "requestUri": "/2015-02-01/mount-targets/{MountTargetId}/security-groups",
+        "responseCode": 200
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "MountTargetId"
+        ],
+        "members": {
+          "MountTargetId": {
+            "location": "uri",
+            "locationName": "MountTargetId"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "required": [
+          "SecurityGroups"
+        ],
+        "members": {
+          "SecurityGroups": {
+            "shape": "Sg"
+          }
+        }
+      }
+    },
+    "DescribeMountTargets": {
+      "http": {
+        "method": "GET",
+        "requestUri": "/2015-02-01/mount-targets",
+        "responseCode": 200
+      },
+      "input": {
+        "type": "structure",
+        "members": {
+          "MaxItems": {
+            "location": "querystring",
+            "locationName": "MaxItems",
+            "type": "integer"
+          },
+          "Marker": {
+            "location": "querystring",
+            "locationName": "Marker"
+          },
+          "FileSystemId": {
+            "location": "querystring",
+            "locationName": "FileSystemId"
+          },
+          "MountTargetId": {
+            "location": "querystring",
+            "locationName": "MountTargetId"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "Marker": {},
+          "MountTargets": {
+            "type": "list",
+            "member": {
+              "shape": "Si"
+            }
+          },
+          "NextMarker": {}
+        }
+      }
+    },
+    "DescribeTags": {
+      "http": {
+        "method": "GET",
+        "requestUri": "/2015-02-01/tags/{FileSystemId}/",
+        "responseCode": 200
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "FileSystemId"
+        ],
+        "members": {
+          "MaxItems": {
+            "location": "querystring",
+            "locationName": "MaxItems",
+            "type": "integer"
+          },
+          "Marker": {
+            "location": "querystring",
+            "locationName": "Marker"
+          },
+          "FileSystemId": {
+            "location": "uri",
+            "locationName": "FileSystemId"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "required": [
+          "Tags"
+        ],
+        "members": {
+          "Marker": {},
+          "Tags": {
+            "shape": "Sm"
+          },
+          "NextMarker": {}
+        }
+      }
+    },
+    "ModifyMountTargetSecurityGroups": {
+      "http": {
+        "method": "PUT",
+        "requestUri": "/2015-02-01/mount-targets/{MountTargetId}/security-groups",
+        "responseCode": 204
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "MountTargetId"
+        ],
+        "members": {
+          "MountTargetId": {
+            "location": "uri",
+            "locationName": "MountTargetId"
+          },
+          "SecurityGroups": {
+            "shape": "Sg"
+          }
+        }
+      }
+    }
+  },
+  "shapes": {
+    "S4": {
+      "type": "structure",
+      "required": [
+        "OwnerId",
+        "CreationToken",
+        "FileSystemId",
+        "CreationTime",
+        "LifeCycleState",
+        "NumberOfMountTargets",
+        "SizeInBytes",
+        "PerformanceMode"
+      ],
+      "members": {
+        "OwnerId": {},
+        "CreationToken": {},
+        "FileSystemId": {},
+        "CreationTime": {
+          "type": "timestamp"
+        },
+        "LifeCycleState": {},
+        "Name": {},
+        "NumberOfMountTargets": {
+          "type": "integer"
+        },
+        "SizeInBytes": {
+          "type": "structure",
+          "required": [
+            "Value"
+          ],
+          "members": {
+            "Value": {
+              "type": "long"
+            },
+            "Timestamp": {
+              "type": "timestamp"
+            }
+          }
+        },
+        "PerformanceMode": {}
+      }
+    },
+    "Sg": {
+      "type": "list",
+      "member": {}
+    },
+    "Si": {
+      "type": "structure",
+      "required": [
+        "MountTargetId",
+        "FileSystemId",
+        "SubnetId",
+        "LifeCycleState"
+      ],
+      "members": {
+        "OwnerId": {},
+        "MountTargetId": {},
+        "FileSystemId": {},
+        "SubnetId": {},
+        "LifeCycleState": {},
+        "IpAddress": {},
+        "NetworkInterfaceId": {}
+      }
+    },
+    "Sm": {
+      "type": "list",
+      "member": {
+        "type": "structure",
+        "required": [
+          "Key",
+          "Value"
+        ],
+        "members": {
+          "Key": {},
+          "Value": {}
+        }
+      }
+    }
+  }
+}
+},{}],61:[function(require,module,exports){
+module.exports={
+  "version": "2.0",
+  "metadata": {
     "apiVersion": "2012-06-01",
     "endpointPrefix": "elasticloadbalancing",
     "protocol": "query",
     "serviceFullName": "Elastic Load Balancing",
     "signatureVersion": "v4",
+    "uid": "elasticloadbalancing-2012-06-01",
     "xmlNamespace": "http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/"
   },
   "operations": {
@@ -42552,6 +44555,34 @@ module.exports={
         }
       }
     },
+    "DescribeAccountLimits": {
+      "input": {
+        "type": "structure",
+        "members": {
+          "Marker": {},
+          "PageSize": {
+            "type": "integer"
+          }
+        }
+      },
+      "output": {
+        "resultWrapper": "DescribeAccountLimitsResult",
+        "type": "structure",
+        "members": {
+          "Limits": {
+            "type": "list",
+            "member": {
+              "type": "structure",
+              "members": {
+                "Name": {},
+                "Max": {}
+              }
+            }
+          },
+          "NextMarker": {}
+        }
+      }
+    },
     "DescribeInstanceHealth": {
       "input": {
         "type": "structure",
@@ -42599,7 +44630,7 @@ module.exports={
         "type": "structure",
         "members": {
           "LoadBalancerAttributes": {
-            "shape": "S22"
+            "shape": "S2a"
           }
         }
       }
@@ -42610,7 +44641,7 @@ module.exports={
         "members": {
           "LoadBalancerName": {},
           "PolicyNames": {
-            "shape": "S2k"
+            "shape": "S2s"
           }
         }
       },
@@ -42716,7 +44747,7 @@ module.exports={
                         "shape": "Sy"
                       },
                       "PolicyNames": {
-                        "shape": "S2k"
+                        "shape": "S2s"
                       }
                     }
                   }
@@ -42747,7 +44778,7 @@ module.exports={
                       }
                     },
                     "OtherPolicies": {
-                      "shape": "S2k"
+                      "shape": "S2s"
                     }
                   }
                 },
@@ -42760,7 +44791,7 @@ module.exports={
                         "type": "integer"
                       },
                       "PolicyNames": {
-                        "shape": "S2k"
+                        "shape": "S2s"
                       }
                     }
                   }
@@ -42913,7 +44944,7 @@ module.exports={
         "members": {
           "LoadBalancerName": {},
           "LoadBalancerAttributes": {
-            "shape": "S22"
+            "shape": "S2a"
           }
         }
       },
@@ -42923,7 +44954,7 @@ module.exports={
         "members": {
           "LoadBalancerName": {},
           "LoadBalancerAttributes": {
-            "shape": "S22"
+            "shape": "S2a"
           }
         }
       }
@@ -43016,7 +45047,7 @@ module.exports={
             "type": "integer"
           },
           "PolicyNames": {
-            "shape": "S2k"
+            "shape": "S2s"
           }
         }
       },
@@ -43040,7 +45071,7 @@ module.exports={
             "type": "integer"
           },
           "PolicyNames": {
-            "shape": "S2k"
+            "shape": "S2s"
           }
         }
       },
@@ -43140,7 +45171,7 @@ module.exports={
         }
       }
     },
-    "S22": {
+    "S2a": {
       "type": "structure",
       "members": {
         "CrossZoneLoadBalancing": {
@@ -43207,13 +45238,13 @@ module.exports={
         }
       }
     },
-    "S2k": {
+    "S2s": {
       "type": "list",
       "member": {}
     }
   }
 }
-},{}],59:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 module.exports={
   "pagination": {
     "DescribeInstanceHealth": {
@@ -43232,8 +45263,7 @@ module.exports={
     }
   }
 }
-
-},{}],60:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 module.exports={
     "version":2,
     "waiters":{
@@ -43275,6 +45305,11 @@ module.exports={
                     "expected":"InService",
                     "matcher":"pathAll",
                     "state":"success"
+                },
+                {
+                    "matcher": "error",
+                    "expected": "InvalidInstance",
+                    "state": "retry"
                 }
             ],
             "delay":15,
@@ -43284,7 +45319,7 @@ module.exports={
     }
 }
 
-},{}],61:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -43548,6 +45583,34 @@ module.exports={
         "members": {}
       }
     },
+    "DescribeAccountLimits": {
+      "input": {
+        "type": "structure",
+        "members": {
+          "Marker": {},
+          "PageSize": {
+            "type": "integer"
+          }
+        }
+      },
+      "output": {
+        "resultWrapper": "DescribeAccountLimitsResult",
+        "type": "structure",
+        "members": {
+          "Limits": {
+            "type": "list",
+            "member": {
+              "type": "structure",
+              "members": {
+                "Name": {},
+                "Max": {}
+              }
+            }
+          },
+          "NextMarker": {}
+        }
+      }
+    },
     "DescribeListeners": {
       "input": {
         "type": "structure",
@@ -43589,7 +45652,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Attributes": {
-            "shape": "S2l"
+            "shape": "S2r"
           }
         }
       }
@@ -43630,6 +45693,10 @@ module.exports={
           "RuleArns": {
             "type": "list",
             "member": {}
+          },
+          "Marker": {},
+          "PageSize": {
+            "type": "integer"
           }
         }
       },
@@ -43639,7 +45706,8 @@ module.exports={
         "members": {
           "Rules": {
             "shape": "S1j"
-          }
+          },
+          "NextMarker": {}
         }
       }
     },
@@ -43736,7 +45804,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Attributes": {
-            "shape": "S3c"
+            "shape": "S3i"
           }
         }
       }
@@ -43852,7 +45920,7 @@ module.exports={
         "members": {
           "LoadBalancerArn": {},
           "Attributes": {
-            "shape": "S2l"
+            "shape": "S2r"
           }
         }
       },
@@ -43861,7 +45929,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Attributes": {
-            "shape": "S2l"
+            "shape": "S2r"
           }
         }
       }
@@ -43940,7 +46008,7 @@ module.exports={
         "members": {
           "TargetGroupArn": {},
           "Attributes": {
-            "shape": "S3c"
+            "shape": "S3i"
           }
         }
       },
@@ -43949,7 +46017,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Attributes": {
-            "shape": "S3c"
+            "shape": "S3i"
           }
         }
       }
@@ -44308,7 +46376,7 @@ module.exports={
         }
       }
     },
-    "S2l": {
+    "S2r": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -44318,7 +46386,7 @@ module.exports={
         }
       }
     },
-    "S3c": {
+    "S3i": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -44330,7 +46398,7 @@ module.exports={
     }
   }
 }
-},{}],62:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 module.exports={
   "pagination": {
     "DescribeListeners": {
@@ -44350,7 +46418,7 @@ module.exports={
     }
   }
 }
-},{}],63:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 module.exports={
   "version": 2,
   "waiters": {
@@ -44416,7 +46484,7 @@ module.exports={
   }
 }
 
-},{}],64:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -44664,7 +46732,12 @@ module.exports={
               },
               "SecurityConfiguration": {},
               "AutoScalingRole": {},
-              "ScaleDownBehavior": {}
+              "ScaleDownBehavior": {},
+              "CustomAmiId": {},
+              "EbsRootVolumeSize": {
+                "type": "integer"
+              },
+              "RepoUpgradeOnBoot": {}
             }
           }
         }
@@ -44794,7 +46867,7 @@ module.exports={
                     "Ec2KeyName": {},
                     "Ec2SubnetId": {},
                     "Placement": {
-                      "shape": "S2t"
+                      "shape": "S2u"
                     },
                     "KeepJobFlowAliveWhenNoSteps": {
                       "type": "boolean"
@@ -44846,13 +46919,13 @@ module.exports={
                     "type": "structure",
                     "members": {
                       "BootstrapActionConfig": {
-                        "shape": "S30"
+                        "shape": "S31"
                       }
                     }
                   }
                 },
                 "SupportedProducts": {
-                  "shape": "S32"
+                  "shape": "S33"
                 },
                 "VisibleToAllUsers": {
                   "type": "boolean"
@@ -44910,11 +46983,11 @@ module.exports={
               "Id": {},
               "Name": {},
               "Config": {
-                "shape": "S38"
+                "shape": "S39"
               },
               "ActionOnFailure": {},
               "Status": {
-                "shape": "S39"
+                "shape": "S3a"
               }
             }
           }
@@ -45070,7 +47143,7 @@ module.exports={
                         "shape": "Sh"
                       },
                       "EbsBlockDevices": {
-                        "shape": "S40"
+                        "shape": "S41"
                       },
                       "EbsOptimized": {
                         "type": "boolean"
@@ -45150,16 +47223,16 @@ module.exports={
                   "shape": "Sh"
                 },
                 "EbsBlockDevices": {
-                  "shape": "S40"
+                  "shape": "S41"
                 },
                 "EbsOptimized": {
                   "type": "boolean"
                 },
                 "ShrinkPolicy": {
-                  "shape": "S4c"
+                  "shape": "S4d"
                 },
                 "AutoScalingPolicy": {
-                  "shape": "S4g"
+                  "shape": "S4h"
                 }
               }
             }
@@ -45307,11 +47380,11 @@ module.exports={
                 "Id": {},
                 "Name": {},
                 "Config": {
-                  "shape": "S38"
+                  "shape": "S39"
                 },
                 "ActionOnFailure": {},
                 "Status": {
-                  "shape": "S39"
+                  "shape": "S3a"
                 }
               }
             }
@@ -45369,7 +47442,7 @@ module.exports={
                   "member": {}
                 },
                 "ShrinkPolicy": {
-                  "shape": "S4c"
+                  "shape": "S4d"
                 }
               }
             }
@@ -45399,7 +47472,7 @@ module.exports={
           "ClusterId": {},
           "InstanceGroupId": {},
           "AutoScalingPolicy": {
-            "shape": "S4g"
+            "shape": "S4h"
           }
         }
       }
@@ -45472,7 +47545,7 @@ module.exports={
               },
               "Ec2KeyName": {},
               "Placement": {
-                "shape": "S2t"
+                "shape": "S2u"
               },
               "KeepJobFlowAliveWhenNoSteps": {
                 "type": "boolean"
@@ -45489,10 +47562,10 @@ module.exports={
               "EmrManagedSlaveSecurityGroup": {},
               "ServiceAccessSecurityGroup": {},
               "AdditionalMasterSecurityGroups": {
-                "shape": "S5m"
+                "shape": "S5n"
               },
               "AdditionalSlaveSecurityGroups": {
-                "shape": "S5m"
+                "shape": "S5n"
               }
             }
           },
@@ -45502,11 +47575,11 @@ module.exports={
           "BootstrapActions": {
             "type": "list",
             "member": {
-              "shape": "S30"
+              "shape": "S31"
             }
           },
           "SupportedProducts": {
-            "shape": "S32"
+            "shape": "S33"
           },
           "NewSupportedProducts": {
             "type": "list",
@@ -45536,7 +47609,12 @@ module.exports={
           },
           "SecurityConfiguration": {},
           "AutoScalingRole": {},
-          "ScaleDownBehavior": {}
+          "ScaleDownBehavior": {},
+          "CustomAmiId": {},
+          "EbsRootVolumeSize": {
+            "type": "integer"
+          },
+          "RepoUpgradeOnBoot": {}
         }
       },
       "output": {
@@ -45975,7 +48053,7 @@ module.exports={
         }
       }
     },
-    "S2t": {
+    "S2u": {
       "type": "structure",
       "members": {
         "AvailabilityZone": {},
@@ -45984,7 +48062,7 @@ module.exports={
         }
       }
     },
-    "S30": {
+    "S31": {
       "type": "structure",
       "required": [
         "Name",
@@ -46006,11 +48084,11 @@ module.exports={
         }
       }
     },
-    "S32": {
+    "S33": {
       "type": "list",
       "member": {}
     },
-    "S38": {
+    "S39": {
       "type": "structure",
       "members": {
         "Jar": {},
@@ -46023,7 +48101,7 @@ module.exports={
         }
       }
     },
-    "S39": {
+    "S3a": {
       "type": "structure",
       "members": {
         "State": {},
@@ -46058,7 +48136,7 @@ module.exports={
         }
       }
     },
-    "S40": {
+    "S41": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -46070,7 +48148,7 @@ module.exports={
         }
       }
     },
-    "S4c": {
+    "S4d": {
       "type": "structure",
       "members": {
         "DecommissionTimeout": {
@@ -46080,10 +48158,10 @@ module.exports={
           "type": "structure",
           "members": {
             "InstancesToTerminate": {
-              "shape": "S4e"
+              "shape": "S4f"
             },
             "InstancesToProtect": {
-              "shape": "S4e"
+              "shape": "S4f"
             },
             "InstanceTerminationTimeout": {
               "type": "integer"
@@ -46092,11 +48170,11 @@ module.exports={
         }
       }
     },
-    "S4e": {
+    "S4f": {
       "type": "list",
       "member": {}
     },
-    "S4g": {
+    "S4h": {
       "type": "structure",
       "members": {
         "Status": {
@@ -46120,13 +48198,13 @@ module.exports={
         }
       }
     },
-    "S5m": {
+    "S5n": {
       "type": "list",
       "member": {}
     }
   }
 }
-},{}],65:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 module.exports={
   "pagination": {
     "DescribeJobFlows": {
@@ -46164,7 +48242,7 @@ module.exports={
     }
   }
 }
-},{}],66:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 module.exports={
   "version": 2,
   "waiters": {
@@ -46252,7 +48330,7 @@ module.exports={
   }
 }
 
-},{}],67:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -47312,7 +49390,7 @@ module.exports={
     }
   }
 }
-},{}],68:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 module.exports={
   "pagination": {
     "ListJobsByPipeline": {
@@ -47338,7 +49416,7 @@ module.exports={
   }
 }
 
-},{}],69:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 module.exports={
   "version": 2,
   "waiters": {
@@ -47370,7 +49448,7 @@ module.exports={
   }
 }
 
-},{}],70:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -48815,7 +50893,7 @@ module.exports={
     }
   }
 }
-},{}],71:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 module.exports={
   "pagination": {
     "ListIdentities": {
@@ -48830,7 +50908,7 @@ module.exports={
   }
 }
 
-},{}],72:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 module.exports={
   "version": 2,
   "waiters": {
@@ -48850,7 +50928,7 @@ module.exports={
   }
 }
 
-},{}],73:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -48872,6 +50950,20 @@ module.exports={
         ],
         "members": {
           "Name": {}
+        }
+      }
+    },
+    "DescribeEventBus": {
+      "input": {
+        "type": "structure",
+        "members": {}
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "Name": {},
+          "Arn": {},
+          "Policy": {}
         }
       }
     },
@@ -48996,7 +51088,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Targets": {
-            "shape": "Sp"
+            "shape": "Ss"
           },
           "NextToken": {}
         }
@@ -49049,6 +51141,21 @@ module.exports={
         }
       }
     },
+    "PutPermission": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "Action",
+          "Principal",
+          "StatementId"
+        ],
+        "members": {
+          "Action": {},
+          "Principal": {},
+          "StatementId": {}
+        }
+      }
+    },
     "PutRule": {
       "input": {
         "type": "structure",
@@ -49081,7 +51188,7 @@ module.exports={
         "members": {
           "Rule": {},
           "Targets": {
-            "shape": "Sp"
+            "shape": "Ss"
           }
         }
       },
@@ -49102,6 +51209,17 @@ module.exports={
               }
             }
           }
+        }
+      }
+    },
+    "RemovePermission": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "StatementId"
+        ],
+        "members": {
+          "StatementId": {}
         }
       }
     },
@@ -49163,7 +51281,7 @@ module.exports={
     }
   },
   "shapes": {
-    "Sp": {
+    "Ss": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -49242,9 +51360,9 @@ module.exports={
     }
   }
 }
-},{}],74:[function(require,module,exports){
-arguments[4][28][0].apply(exports,arguments)
-},{"dup":28}],75:[function(require,module,exports){
+},{}],77:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],78:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -49948,7 +52066,7 @@ module.exports={
     }
   }
 }
-},{}],76:[function(require,module,exports){
+},{}],79:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -50039,7 +52157,10 @@ module.exports={
             "shape": "Sw"
           },
           "ResourceCreationLimitPolicy": {
-            "shape": "S10"
+            "shape": "S12"
+          },
+          "MetricGroups": {
+            "shape": "S14"
           }
         }
       },
@@ -50047,7 +52168,7 @@ module.exports={
         "type": "structure",
         "members": {
           "FleetAttributes": {
-            "shape": "S13"
+            "shape": "S17"
           }
         }
       }
@@ -50066,7 +52187,7 @@ module.exports={
           },
           "Name": {},
           "GameProperties": {
-            "shape": "S16"
+            "shape": "S1a"
           },
           "CreatorId": {},
           "GameSessionId": {},
@@ -50077,7 +52198,7 @@ module.exports={
         "type": "structure",
         "members": {
           "GameSession": {
-            "shape": "S1c"
+            "shape": "S1g"
           }
         }
       }
@@ -50094,10 +52215,10 @@ module.exports={
             "type": "integer"
           },
           "PlayerLatencyPolicies": {
-            "shape": "S1i"
+            "shape": "S1m"
           },
           "Destinations": {
-            "shape": "S1k"
+            "shape": "S1o"
           }
         }
       },
@@ -50105,7 +52226,7 @@ module.exports={
         "type": "structure",
         "members": {
           "GameSessionQueue": {
-            "shape": "S1n"
+            "shape": "S1r"
           }
         }
       }
@@ -50127,7 +52248,7 @@ module.exports={
         "type": "structure",
         "members": {
           "PlayerSession": {
-            "shape": "S1r"
+            "shape": "S1v"
           }
         }
       }
@@ -50156,7 +52277,7 @@ module.exports={
         "type": "structure",
         "members": {
           "PlayerSessions": {
-            "shape": "S1y"
+            "shape": "S22"
           }
         }
       }
@@ -50293,7 +52414,7 @@ module.exports={
         "type": "structure",
         "members": {
           "FleetIds": {
-            "shape": "S2e"
+            "shape": "S2i"
           },
           "Limit": {
             "type": "integer"
@@ -50307,7 +52428,7 @@ module.exports={
           "FleetAttributes": {
             "type": "list",
             "member": {
-              "shape": "S13"
+              "shape": "S17"
             }
           },
           "NextToken": {}
@@ -50319,7 +52440,7 @@ module.exports={
         "type": "structure",
         "members": {
           "FleetIds": {
-            "shape": "S2e"
+            "shape": "S2i"
           },
           "Limit": {
             "type": "integer"
@@ -50404,7 +52525,8 @@ module.exports={
                 "Message": {},
                 "EventTime": {
                   "type": "timestamp"
-                }
+                },
+                "PreSignedLogUrl": {}
               }
             }
           },
@@ -50436,7 +52558,7 @@ module.exports={
         "type": "structure",
         "members": {
           "FleetIds": {
-            "shape": "S2e"
+            "shape": "S2i"
           },
           "Limit": {
             "type": "integer"
@@ -50495,7 +52617,7 @@ module.exports={
               "type": "structure",
               "members": {
                 "GameSession": {
-                  "shape": "S1c"
+                  "shape": "S1g"
                 },
                 "ProtectionPolicy": {}
               }
@@ -50519,7 +52641,7 @@ module.exports={
         "type": "structure",
         "members": {
           "GameSessionPlacement": {
-            "shape": "S33"
+            "shape": "S37"
           }
         }
       }
@@ -50544,7 +52666,7 @@ module.exports={
           "GameSessionQueues": {
             "type": "list",
             "member": {
-              "shape": "S1n"
+              "shape": "S1r"
             }
           },
           "NextToken": {}
@@ -50569,7 +52691,7 @@ module.exports={
         "type": "structure",
         "members": {
           "GameSessions": {
-            "shape": "S3g"
+            "shape": "S3k"
           },
           "NextToken": {}
         }
@@ -50632,7 +52754,7 @@ module.exports={
         "type": "structure",
         "members": {
           "PlayerSessions": {
-            "shape": "S1y"
+            "shape": "S22"
           },
           "NextToken": {}
         }
@@ -50818,7 +52940,7 @@ module.exports={
         "type": "structure",
         "members": {
           "FleetIds": {
-            "shape": "S2e"
+            "shape": "S2i"
           },
           "NextToken": {}
         }
@@ -50918,7 +53040,7 @@ module.exports={
         "type": "structure",
         "members": {
           "GameSessions": {
-            "shape": "S3g"
+            "shape": "S3k"
           },
           "NextToken": {}
         }
@@ -50936,14 +53058,14 @@ module.exports={
           "PlacementId": {},
           "GameSessionQueueName": {},
           "GameProperties": {
-            "shape": "S16"
+            "shape": "S1a"
           },
           "MaximumPlayerSessionCount": {
             "type": "integer"
           },
           "GameSessionName": {},
           "PlayerLatencies": {
-            "shape": "S35"
+            "shape": "S39"
           },
           "DesiredPlayerSessions": {
             "type": "list",
@@ -50961,7 +53083,7 @@ module.exports={
         "type": "structure",
         "members": {
           "GameSessionPlacement": {
-            "shape": "S33"
+            "shape": "S37"
           }
         }
       }
@@ -50980,7 +53102,7 @@ module.exports={
         "type": "structure",
         "members": {
           "GameSessionPlacement": {
-            "shape": "S33"
+            "shape": "S37"
           }
         }
       }
@@ -51042,7 +53164,10 @@ module.exports={
           "Description": {},
           "NewGameSessionProtectionPolicy": {},
           "ResourceCreationLimitPolicy": {
-            "shape": "S10"
+            "shape": "S12"
+          },
+          "MetricGroups": {
+            "shape": "S14"
           }
         }
       },
@@ -51122,7 +53247,7 @@ module.exports={
         "type": "structure",
         "members": {
           "GameSession": {
-            "shape": "S1c"
+            "shape": "S1g"
           }
         }
       }
@@ -51139,10 +53264,10 @@ module.exports={
             "type": "integer"
           },
           "PlayerLatencyPolicies": {
-            "shape": "S1i"
+            "shape": "S1m"
           },
           "Destinations": {
-            "shape": "S1k"
+            "shape": "S1o"
           }
         }
       },
@@ -51150,7 +53275,7 @@ module.exports={
         "type": "structure",
         "members": {
           "GameSessionQueue": {
-            "shape": "S1n"
+            "shape": "S1r"
           }
         }
       }
@@ -51284,10 +53409,16 @@ module.exports={
               }
             }
           }
+        },
+        "MaxConcurrentGameSessionActivations": {
+          "type": "integer"
+        },
+        "GameSessionActivationTimeoutSeconds": {
+          "type": "integer"
         }
       }
     },
-    "S10": {
+    "S12": {
       "type": "structure",
       "members": {
         "NewGameSessionsPerCreator": {
@@ -51298,7 +53429,11 @@ module.exports={
         }
       }
     },
-    "S13": {
+    "S14": {
+      "type": "list",
+      "member": {}
+    },
+    "S17": {
       "type": "structure",
       "members": {
         "FleetId": {},
@@ -51321,11 +53456,14 @@ module.exports={
         "NewGameSessionProtectionPolicy": {},
         "OperatingSystem": {},
         "ResourceCreationLimitPolicy": {
-          "shape": "S10"
+          "shape": "S12"
+        },
+        "MetricGroups": {
+          "shape": "S14"
         }
       }
     },
-    "S16": {
+    "S1a": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -51339,7 +53477,7 @@ module.exports={
         }
       }
     },
-    "S1c": {
+    "S1g": {
       "type": "structure",
       "members": {
         "GameSessionId": {},
@@ -51359,7 +53497,7 @@ module.exports={
         },
         "Status": {},
         "GameProperties": {
-          "shape": "S16"
+          "shape": "S1a"
         },
         "IpAddress": {},
         "Port": {
@@ -51369,7 +53507,7 @@ module.exports={
         "CreatorId": {}
       }
     },
-    "S1i": {
+    "S1m": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -51383,7 +53521,7 @@ module.exports={
         }
       }
     },
-    "S1k": {
+    "S1o": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -51392,7 +53530,7 @@ module.exports={
         }
       }
     },
-    "S1n": {
+    "S1r": {
       "type": "structure",
       "members": {
         "Name": {},
@@ -51401,14 +53539,14 @@ module.exports={
           "type": "integer"
         },
         "PlayerLatencyPolicies": {
-          "shape": "S1i"
+          "shape": "S1m"
         },
         "Destinations": {
-          "shape": "S1k"
+          "shape": "S1o"
         }
       }
     },
-    "S1r": {
+    "S1v": {
       "type": "structure",
       "members": {
         "PlayerSessionId": {},
@@ -51429,24 +53567,24 @@ module.exports={
         "PlayerData": {}
       }
     },
-    "S1y": {
+    "S22": {
       "type": "list",
       "member": {
-        "shape": "S1r"
+        "shape": "S1v"
       }
     },
-    "S2e": {
+    "S2i": {
       "type": "list",
       "member": {}
     },
-    "S33": {
+    "S37": {
       "type": "structure",
       "members": {
         "PlacementId": {},
         "GameSessionQueueName": {},
         "Status": {},
         "GameProperties": {
-          "shape": "S16"
+          "shape": "S1a"
         },
         "MaximumPlayerSessionCount": {
           "type": "integer"
@@ -51456,7 +53594,7 @@ module.exports={
         "GameSessionArn": {},
         "GameSessionRegion": {},
         "PlayerLatencies": {
-          "shape": "S35"
+          "shape": "S39"
         },
         "StartTime": {
           "type": "timestamp"
@@ -51480,7 +53618,7 @@ module.exports={
         }
       }
     },
-    "S35": {
+    "S39": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -51493,17 +53631,17 @@ module.exports={
         }
       }
     },
-    "S3g": {
+    "S3k": {
       "type": "list",
       "member": {
-        "shape": "S1c"
+        "shape": "S1g"
       }
     }
   }
 }
-},{}],77:[function(require,module,exports){
-arguments[4][28][0].apply(exports,arguments)
-},{"dup":28}],78:[function(require,module,exports){
+},{}],80:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],81:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -51690,7 +53828,8 @@ module.exports={
                 "stateChangedAt",
                 "dataCollected",
                 "stateChanges",
-                "notifications"
+                "notifications",
+                "findingCounts"
               ],
               "members": {
                 "arn": {},
@@ -51759,6 +53898,13 @@ module.exports={
                       "snsTopicArn": {},
                       "snsPublishStatusCode": {}
                     }
+                  }
+                },
+                "findingCounts": {
+                  "type": "map",
+                  "key": {},
+                  "value": {
+                    "type": "integer"
                   }
                 }
               }
@@ -51980,7 +54126,7 @@ module.exports={
                   "type": "boolean"
                 },
                 "attributes": {
-                  "shape": "S24"
+                  "shape": "S26"
                 },
                 "userAttributes": {
                   "shape": "S4"
@@ -52090,6 +54236,31 @@ module.exports={
         }
       }
     },
+    "GetAssessmentReport": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "assessmentRunArn",
+          "reportFileFormat",
+          "reportType"
+        ],
+        "members": {
+          "assessmentRunArn": {},
+          "reportFileFormat": {},
+          "reportType": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "required": [
+          "status"
+        ],
+        "members": {
+          "status": {},
+          "url": {}
+        }
+      }
+    },
     "GetTelemetryMetadata": {
       "input": {
         "type": "structure",
@@ -52107,7 +54278,7 @@ module.exports={
         ],
         "members": {
           "telemetryMetadata": {
-            "shape": "S2i"
+            "shape": "S2q"
           }
         }
       }
@@ -52168,7 +54339,7 @@ module.exports={
                 "agentHealthDetails": {},
                 "autoScalingGroup": {},
                 "telemetryMetadata": {
-                  "shape": "S2i"
+                  "shape": "S2q"
                 }
               }
             }
@@ -52182,7 +54353,7 @@ module.exports={
         "type": "structure",
         "members": {
           "assessmentTemplateArns": {
-            "shape": "S2y"
+            "shape": "S36"
           },
           "filter": {
             "type": "structure",
@@ -52193,19 +54364,19 @@ module.exports={
                 "member": {}
               },
               "durationRange": {
-                "shape": "S32"
+                "shape": "S3a"
               },
               "rulesPackageArns": {
-                "shape": "S33"
+                "shape": "S3b"
               },
               "startTimeRange": {
-                "shape": "S34"
+                "shape": "S3c"
               },
               "completionTimeRange": {
-                "shape": "S34"
+                "shape": "S3c"
               },
               "stateChangeTimeRange": {
-                "shape": "S34"
+                "shape": "S3c"
               }
             }
           },
@@ -52222,7 +54393,7 @@ module.exports={
         ],
         "members": {
           "assessmentRunArns": {
-            "shape": "S36"
+            "shape": "S3e"
           },
           "nextToken": {}
         }
@@ -52251,7 +54422,7 @@ module.exports={
         ],
         "members": {
           "assessmentTargetArns": {
-            "shape": "S36"
+            "shape": "S3e"
           },
           "nextToken": {}
         }
@@ -52262,17 +54433,17 @@ module.exports={
         "type": "structure",
         "members": {
           "assessmentTargetArns": {
-            "shape": "S2y"
+            "shape": "S36"
           },
           "filter": {
             "type": "structure",
             "members": {
               "namePattern": {},
               "durationRange": {
-                "shape": "S32"
+                "shape": "S3a"
               },
               "rulesPackageArns": {
-                "shape": "S33"
+                "shape": "S3b"
               }
             }
           },
@@ -52289,7 +54460,7 @@ module.exports={
         ],
         "members": {
           "assessmentTemplateArns": {
-            "shape": "S36"
+            "shape": "S3e"
           },
           "nextToken": {}
         }
@@ -52352,7 +54523,7 @@ module.exports={
         "type": "structure",
         "members": {
           "assessmentRunArns": {
-            "shape": "S2y"
+            "shape": "S36"
           },
           "filter": {
             "type": "structure",
@@ -52374,16 +54545,16 @@ module.exports={
                 "member": {}
               },
               "rulesPackageArns": {
-                "shape": "S33"
+                "shape": "S3b"
               },
               "attributes": {
-                "shape": "S24"
+                "shape": "S26"
               },
               "userAttributes": {
-                "shape": "S24"
+                "shape": "S26"
               },
               "creationTimeRange": {
-                "shape": "S34"
+                "shape": "S3c"
               }
             }
           },
@@ -52400,7 +54571,7 @@ module.exports={
         ],
         "members": {
           "findingArns": {
-            "shape": "S36"
+            "shape": "S3e"
           },
           "nextToken": {}
         }
@@ -52423,7 +54594,7 @@ module.exports={
         ],
         "members": {
           "rulesPackageArns": {
-            "shape": "S36"
+            "shape": "S3e"
           },
           "nextToken": {}
         }
@@ -52446,7 +54617,7 @@ module.exports={
         ],
         "members": {
           "tags": {
-            "shape": "S3w"
+            "shape": "S44"
           }
         }
       }
@@ -52537,7 +54708,7 @@ module.exports={
         "members": {
           "resourceArn": {},
           "tags": {
-            "shape": "S3w"
+            "shape": "S44"
           }
         }
       }
@@ -52679,13 +54850,13 @@ module.exports={
       "type": "list",
       "member": {}
     },
-    "S24": {
+    "S26": {
       "type": "list",
       "member": {
         "shape": "S5"
       }
     },
-    "S2i": {
+    "S2q": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -52704,11 +54875,11 @@ module.exports={
         }
       }
     },
-    "S2y": {
+    "S36": {
       "type": "list",
       "member": {}
     },
-    "S32": {
+    "S3a": {
       "type": "structure",
       "members": {
         "minSeconds": {
@@ -52719,11 +54890,11 @@ module.exports={
         }
       }
     },
-    "S33": {
+    "S3b": {
       "type": "list",
       "member": {}
     },
-    "S34": {
+    "S3c": {
       "type": "structure",
       "members": {
         "beginDate": {
@@ -52734,11 +54905,11 @@ module.exports={
         }
       }
     },
-    "S36": {
+    "S3e": {
       "type": "list",
       "member": {}
     },
-    "S3w": {
+    "S44": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -52753,17 +54924,19 @@ module.exports={
     }
   }
 }
-},{}],79:[function(require,module,exports){
+},{}],82:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],83:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
-    "uid": "iot-2015-05-28",
     "apiVersion": "2015-05-28",
     "endpointPrefix": "iot",
+    "protocol": "rest-json",
     "serviceFullName": "AWS IoT",
     "signatureVersion": "v4",
     "signingName": "execute-api",
-    "protocol": "rest-json"
+    "uid": "iot-2015-05-28"
   },
   "operations": {
     "AcceptCertificateTransfer": {
@@ -53208,15 +55381,15 @@ module.exports={
       },
       "input": {
         "type": "structure",
+        "required": [
+          "ruleName"
+        ],
         "members": {
           "ruleName": {
             "location": "uri",
             "locationName": "ruleName"
           }
-        },
-        "required": [
-          "ruleName"
-        ]
+        }
       }
     },
     "DeprecateThingType": {
@@ -53410,7 +55583,7 @@ module.exports={
             "shape": "S14"
           },
           "thingTypeMetadata": {
-            "shape": "S3u"
+            "shape": "S3x"
           }
         }
       }
@@ -53709,7 +55882,7 @@ module.exports={
         "type": "structure",
         "members": {
           "certificates": {
-            "shape": "S4r"
+            "shape": "S4u"
           },
           "nextMarker": {}
         }
@@ -53750,7 +55923,7 @@ module.exports={
         "type": "structure",
         "members": {
           "certificates": {
-            "shape": "S4r"
+            "shape": "S4u"
           },
           "nextMarker": {}
         }
@@ -53833,7 +56006,7 @@ module.exports={
         "type": "structure",
         "members": {
           "policies": {
-            "shape": "S51"
+            "shape": "S54"
           },
           "nextMarker": {}
         }
@@ -53874,7 +56047,7 @@ module.exports={
         "type": "structure",
         "members": {
           "principals": {
-            "shape": "S55"
+            "shape": "S58"
           },
           "nextMarker": {}
         }
@@ -53953,7 +56126,7 @@ module.exports={
         "type": "structure",
         "members": {
           "policies": {
-            "shape": "S51"
+            "shape": "S54"
           },
           "nextMarker": {}
         }
@@ -54017,7 +56190,7 @@ module.exports={
         "type": "structure",
         "members": {
           "principals": {
-            "shape": "S55"
+            "shape": "S58"
           }
         }
       }
@@ -54058,7 +56231,7 @@ module.exports={
                   "shape": "S14"
                 },
                 "thingTypeMetadata": {
-                  "shape": "S3u"
+                  "shape": "S3x"
                 }
               }
             }
@@ -54655,11 +56828,22 @@ module.exports={
               "type": {},
               "id": {}
             }
+          },
+          "salesforce": {
+            "type": "structure",
+            "required": [
+              "token",
+              "url"
+            ],
+            "members": {
+              "token": {},
+              "url": {}
+            }
           }
         }
       }
     },
-    "S3u": {
+    "S3x": {
       "type": "structure",
       "members": {
         "deprecated": {
@@ -54673,7 +56857,7 @@ module.exports={
         }
       }
     },
-    "S4r": {
+    "S4u": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -54687,7 +56871,7 @@ module.exports={
         }
       }
     },
-    "S51": {
+    "S54": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -54697,14 +56881,15 @@ module.exports={
         }
       }
     },
-    "S55": {
+    "S58": {
       "type": "list",
       "member": {}
     }
-  },
-  "examples": {}
+  }
 }
-},{}],80:[function(require,module,exports){
+},{}],84:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],85:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -54834,7 +57019,7 @@ module.exports={
   },
   "shapes": {}
 }
-},{}],81:[function(require,module,exports){
+},{}],86:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -55020,7 +57205,9 @@ module.exports={
                     }
                   }
                 }
-              }
+              },
+              "EncryptionType": {},
+              "KeyId": {}
             }
           }
         }
@@ -55041,7 +57228,7 @@ module.exports={
         }
       },
       "output": {
-        "shape": "Sx"
+        "shape": "Sz"
       }
     },
     "EnableEnhancedMonitoring": {
@@ -55059,7 +57246,7 @@ module.exports={
         }
       },
       "output": {
-        "shape": "Sx"
+        "shape": "Sz"
       }
     },
     "GetRecords": {
@@ -55098,7 +57285,8 @@ module.exports={
                 "Data": {
                   "type": "blob"
                 },
-                "PartitionKey": {}
+                "PartitionKey": {},
+                "EncryptionType": {}
               }
             }
           },
@@ -55257,7 +57445,8 @@ module.exports={
         ],
         "members": {
           "ShardId": {},
-          "SequenceNumber": {}
+          "SequenceNumber": {},
+          "EncryptionType": {}
         }
       }
     },
@@ -55309,7 +57498,8 @@ module.exports={
                 "ErrorMessage": {}
               }
             }
-          }
+          },
+          "EncryptionType": {}
         }
       }
     },
@@ -55341,6 +57531,36 @@ module.exports={
           "StreamName": {},
           "ShardToSplit": {},
           "NewStartingHashKey": {}
+        }
+      }
+    },
+    "StartStreamEncryption": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "StreamName",
+          "EncryptionType",
+          "KeyId"
+        ],
+        "members": {
+          "StreamName": {},
+          "EncryptionType": {},
+          "KeyId": {}
+        }
+      }
+    },
+    "StopStreamEncryption": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "StreamName",
+          "EncryptionType",
+          "KeyId"
+        ],
+        "members": {
+          "StreamName": {},
+          "EncryptionType": {},
+          "KeyId": {}
         }
       }
     },
@@ -55379,7 +57599,7 @@ module.exports={
       "type": "list",
       "member": {}
     },
-    "Sx": {
+    "Sz": {
       "type": "structure",
       "members": {
         "StreamName": {},
@@ -55393,7 +57613,7 @@ module.exports={
     }
   }
 }
-},{}],82:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 module.exports={
   "pagination": {
     "DescribeStream": {
@@ -55412,7 +57632,7 @@ module.exports={
     }
   }
 }
-},{}],83:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 module.exports={
   "version": 2,
   "waiters": {
@@ -55444,7 +57664,7 @@ module.exports={
   }
 }
 
-},{}],84:[function(require,module,exports){
+},{}],89:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -55568,7 +57788,7 @@ module.exports={
         "members": {
           "KeyId": {},
           "Plaintext": {
-            "shape": "S13"
+            "shape": "S14"
           }
         }
       }
@@ -55671,7 +57891,7 @@ module.exports={
         "members": {
           "KeyId": {},
           "Plaintext": {
-            "shape": "S13"
+            "shape": "S14"
           },
           "EncryptionContext": {
             "shape": "Sb"
@@ -55718,7 +57938,7 @@ module.exports={
             "type": "blob"
           },
           "Plaintext": {
-            "shape": "S13"
+            "shape": "S14"
           },
           "KeyId": {}
         }
@@ -55767,7 +57987,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Plaintext": {
-            "shape": "S13"
+            "shape": "S14"
           }
         }
       }
@@ -55832,7 +58052,7 @@ module.exports={
             "type": "blob"
           },
           "PublicKey": {
-            "shape": "S13"
+            "shape": "S14"
           },
           "ParametersValidTo": {
             "type": "timestamp"
@@ -55913,7 +58133,7 @@ module.exports={
         }
       },
       "output": {
-        "shape": "S24"
+        "shape": "S25"
       }
     },
     "ListKeyPolicies": {
@@ -56016,7 +58236,7 @@ module.exports={
         }
       },
       "output": {
-        "shape": "S24"
+        "shape": "S25"
       }
     },
     "PutKeyPolicy": {
@@ -56239,14 +58459,15 @@ module.exports={
           "type": "timestamp"
         },
         "Origin": {},
-        "ExpirationModel": {}
+        "ExpirationModel": {},
+        "KeyManager": {}
       }
     },
-    "S13": {
+    "S14": {
       "type": "blob",
       "sensitive": true
     },
-    "S24": {
+    "S25": {
       "type": "structure",
       "members": {
         "Grants": {
@@ -56280,7 +58501,7 @@ module.exports={
     }
   }
 }
-},{}],85:[function(require,module,exports){
+},{}],90:[function(require,module,exports){
 module.exports={
   "pagination": {
     "ListAliases": {
@@ -56313,7 +58534,7 @@ module.exports={
     }
   }
 }
-},{}],86:[function(require,module,exports){
+},{}],91:[function(require,module,exports){
 module.exports={
   "metadata": {
     "apiVersion": "2014-11-11",
@@ -56737,7 +58958,7 @@ module.exports={
     }
   }
 }
-},{}],87:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 module.exports={
   "pagination": {
     "ListEventSources": {
@@ -56755,7 +58976,7 @@ module.exports={
   }
 }
 
-},{}],88:[function(require,module,exports){
+},{}],93:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -57369,6 +59590,14 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "MasterRegion": {
+            "location": "querystring",
+            "locationName": "MasterRegion"
+          },
+          "FunctionVersion": {
+            "location": "querystring",
+            "locationName": "FunctionVersion"
+          },
           "Marker": {
             "location": "querystring",
             "locationName": "Marker"
@@ -57385,7 +59614,7 @@ module.exports={
         "members": {
           "NextMarker": {},
           "Functions": {
-            "shape": "S2n"
+            "shape": "S2r"
           }
         }
       }
@@ -57448,7 +59677,7 @@ module.exports={
         "members": {
           "NextMarker": {},
           "Versions": {
-            "shape": "S2n"
+            "shape": "S2r"
           }
         }
       }
@@ -57633,6 +59862,9 @@ module.exports={
           "S3Key": {},
           "S3ObjectVersion": {},
           "Publish": {
+            "type": "boolean"
+          },
+          "DryRun": {
             "type": "boolean"
           }
         }
@@ -57834,10 +60066,11 @@ module.exports={
           "members": {
             "Mode": {}
           }
-        }
+        },
+        "MasterArn": {}
       }
     },
-    "S2n": {
+    "S2r": {
       "type": "list",
       "member": {
         "shape": "S1h"
@@ -57845,7 +60078,7 @@ module.exports={
     }
   }
 }
-},{}],89:[function(require,module,exports){
+},{}],94:[function(require,module,exports){
 module.exports={
   "pagination": {
     "ListEventSourceMappings": {
@@ -57862,7 +60095,7 @@ module.exports={
     }
   }
 }
-},{}],90:[function(require,module,exports){
+},{}],95:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -58646,43 +60879,43 @@ module.exports={
     }
   }
 }
-},{}],91:[function(require,module,exports){
+},{}],96:[function(require,module,exports){
 module.exports={
   "pagination": {
     "DescribeDestinations": {
       "input_token": "nextToken",
-      "output_token": "nextToken",
       "limit_key": "limit",
+      "output_token": "nextToken",
       "result_key": "destinations"
     },
     "DescribeLogGroups": {
       "input_token": "nextToken",
-      "output_token": "nextToken",
       "limit_key": "limit",
+      "output_token": "nextToken",
       "result_key": "logGroups"
     },
     "DescribeLogStreams": {
       "input_token": "nextToken",
-      "output_token": "nextToken",
       "limit_key": "limit",
+      "output_token": "nextToken",
       "result_key": "logStreams"
     },
     "DescribeMetricFilters": {
       "input_token": "nextToken",
-      "output_token": "nextToken",
       "limit_key": "limit",
+      "output_token": "nextToken",
       "result_key": "metricFilters"
     },
     "DescribeSubscriptionFilters": {
       "input_token": "nextToken",
-      "output_token": "nextToken",
       "limit_key": "limit",
+      "output_token": "nextToken",
       "result_key": "subscriptionFilters"
     },
     "FilterLogEvents": {
       "input_token": "nextToken",
-      "output_token": "nextToken",
       "limit_key": "limit",
+      "output_token": "nextToken",
       "result_key": [
         "events",
         "searchedLogStreams"
@@ -58690,14 +60923,13 @@ module.exports={
     },
     "GetLogEvents": {
       "input_token": "nextToken",
-      "output_token": "nextForwardToken",
       "limit_key": "limit",
+      "output_token": "nextForwardToken",
       "result_key": "events"
     }
   }
 }
-
-},{}],92:[function(require,module,exports){
+},{}],97:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -59806,7 +62038,7 @@ module.exports={
   },
   "examples": {}
 }
-},{}],93:[function(require,module,exports){
+},{}],98:[function(require,module,exports){
 module.exports={
   "pagination": {
     "DescribeBatchPredictions": {
@@ -59836,7 +62068,7 @@ module.exports={
   }
 }
 
-},{}],94:[function(require,module,exports){
+},{}],99:[function(require,module,exports){
 module.exports={
   "version": 2,
   "waiters": {
@@ -59919,7 +62151,7 @@ module.exports={
   }
 }
 
-},{}],95:[function(require,module,exports){
+},{}],100:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -60005,9 +62237,9 @@ module.exports={
     }
   }
 }
-},{}],96:[function(require,module,exports){
-arguments[4][28][0].apply(exports,arguments)
-},{"dup":28}],97:[function(require,module,exports){
+},{}],101:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],102:[function(require,module,exports){
 module.exports={
   "acm": {
     "name": "ACM",
@@ -60192,7 +62424,8 @@ module.exports={
   },
   "efs": {
     "prefix": "elasticfilesystem",
-    "name": "EFS"
+    "name": "EFS",
+    "cors": true
   },
   "elasticache": {
     "name": "ElastiCache",
@@ -60434,9 +62667,22 @@ module.exports={
   "lexmodelbuildingservice": {
     "prefix": "lex-models",
     "name": "LexModelBuildingService"
+  },
+  "marketplaceentitlementservice": {
+    "prefix": "entitlement.marketplace",
+    "name": "MarketplaceEntitlementService"
+  },
+  "athena": {
+    "name": "Athena"
+  },
+  "greengrass": {
+    "name": "Greengrass"
+  },
+  "dax": {
+    "name": "DAX"
   }
 }
-},{}],98:[function(require,module,exports){
+},{}],103:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -60511,7 +62757,7 @@ module.exports={
   },
   "shapes": {}
 }
-},{}],99:[function(require,module,exports){
+},{}],104:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -60536,6 +62782,22 @@ module.exports={
             "shape": "S2"
           }
         }
+      }
+    },
+    "DeleteDashboards": {
+      "input": {
+        "type": "structure",
+        "members": {
+          "DashboardNames": {
+            "type": "list",
+            "member": {}
+          }
+        }
+      },
+      "output": {
+        "resultWrapper": "DeleteDashboardsResult",
+        "type": "structure",
+        "members": {}
       }
     },
     "DescribeAlarmHistory": {
@@ -60600,7 +62862,7 @@ module.exports={
         "type": "structure",
         "members": {
           "MetricAlarms": {
-            "shape": "Sj"
+            "shape": "Sn"
           },
           "NextToken": {}
         }
@@ -60619,7 +62881,7 @@ module.exports={
           "Statistic": {},
           "ExtendedStatistic": {},
           "Dimensions": {
-            "shape": "Sw"
+            "shape": "S10"
           },
           "Period": {
             "type": "integer"
@@ -60632,7 +62894,7 @@ module.exports={
         "type": "structure",
         "members": {
           "MetricAlarms": {
-            "shape": "Sj"
+            "shape": "Sn"
           }
         }
       }
@@ -60663,6 +62925,23 @@ module.exports={
         }
       }
     },
+    "GetDashboard": {
+      "input": {
+        "type": "structure",
+        "members": {
+          "DashboardName": {}
+        }
+      },
+      "output": {
+        "resultWrapper": "GetDashboardResult",
+        "type": "structure",
+        "members": {
+          "DashboardArn": {},
+          "DashboardBody": {},
+          "DashboardName": {}
+        }
+      }
+    },
     "GetMetricStatistics": {
       "input": {
         "type": "structure",
@@ -60677,7 +62956,7 @@ module.exports={
           "Namespace": {},
           "MetricName": {},
           "Dimensions": {
-            "shape": "Sw"
+            "shape": "S10"
           },
           "StartTime": {
             "type": "timestamp"
@@ -60751,6 +63030,38 @@ module.exports={
         }
       }
     },
+    "ListDashboards": {
+      "input": {
+        "type": "structure",
+        "members": {
+          "DashboardNamePrefix": {},
+          "NextToken": {}
+        }
+      },
+      "output": {
+        "resultWrapper": "ListDashboardsResult",
+        "type": "structure",
+        "members": {
+          "DashboardEntries": {
+            "type": "list",
+            "member": {
+              "type": "structure",
+              "members": {
+                "DashboardName": {},
+                "DashboardArn": {},
+                "LastModified": {
+                  "type": "timestamp"
+                },
+                "Size": {
+                  "type": "long"
+                }
+              }
+            }
+          },
+          "NextToken": {}
+        }
+      }
+    },
     "ListMetrics": {
       "input": {
         "type": "structure",
@@ -60785,7 +63096,7 @@ module.exports={
                 "Namespace": {},
                 "MetricName": {},
                 "Dimensions": {
-                  "shape": "Sw"
+                  "shape": "S10"
                 }
               },
               "xmlOrder": [
@@ -60801,6 +63112,31 @@ module.exports={
           "Metrics",
           "NextToken"
         ]
+      }
+    },
+    "PutDashboard": {
+      "input": {
+        "type": "structure",
+        "members": {
+          "DashboardName": {},
+          "DashboardBody": {}
+        }
+      },
+      "output": {
+        "resultWrapper": "PutDashboardResult",
+        "type": "structure",
+        "members": {
+          "DashboardValidationMessages": {
+            "type": "list",
+            "member": {
+              "type": "structure",
+              "members": {
+                "DataPath": {},
+                "Message": {}
+              }
+            }
+          }
+        }
       }
     },
     "PutMetricAlarm": {
@@ -60822,20 +63158,20 @@ module.exports={
             "type": "boolean"
           },
           "OKActions": {
-            "shape": "So"
+            "shape": "Ss"
           },
           "AlarmActions": {
-            "shape": "So"
+            "shape": "Ss"
           },
           "InsufficientDataActions": {
-            "shape": "So"
+            "shape": "Ss"
           },
           "MetricName": {},
           "Namespace": {},
           "Statistic": {},
           "ExtendedStatistic": {},
           "Dimensions": {
-            "shape": "Sw"
+            "shape": "S10"
           },
           "Period": {
             "type": "integer"
@@ -60872,7 +63208,7 @@ module.exports={
               "members": {
                 "MetricName": {},
                 "Dimensions": {
-                  "shape": "Sw"
+                  "shape": "S10"
                 },
                 "Timestamp": {
                   "type": "timestamp"
@@ -60903,7 +63239,10 @@ module.exports={
                     }
                   }
                 },
-                "Unit": {}
+                "Unit": {},
+                "StorageResolution": {
+                  "type": "integer"
+                }
               }
             }
           }
@@ -60932,7 +63271,7 @@ module.exports={
       "type": "list",
       "member": {}
     },
-    "Sj": {
+    "Sn": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -60947,13 +63286,13 @@ module.exports={
             "type": "boolean"
           },
           "OKActions": {
-            "shape": "So"
+            "shape": "Ss"
           },
           "AlarmActions": {
-            "shape": "So"
+            "shape": "Ss"
           },
           "InsufficientDataActions": {
-            "shape": "So"
+            "shape": "Ss"
           },
           "StateValue": {},
           "StateReason": {},
@@ -60966,7 +63305,7 @@ module.exports={
           "Statistic": {},
           "ExtendedStatistic": {},
           "Dimensions": {
-            "shape": "Sw"
+            "shape": "S10"
           },
           "Period": {
             "type": "integer"
@@ -61010,11 +63349,11 @@ module.exports={
         ]
       }
     },
-    "So": {
+    "Ss": {
       "type": "list",
       "member": {}
     },
-    "Sw": {
+    "S10": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -61034,7 +63373,7 @@ module.exports={
     }
   }
 }
-},{}],100:[function(require,module,exports){
+},{}],105:[function(require,module,exports){
 module.exports={
   "pagination": {
     "DescribeAlarmHistory": {
@@ -61059,7 +63398,7 @@ module.exports={
     }
   }
 }
-},{}],101:[function(require,module,exports){
+},{}],106:[function(require,module,exports){
 module.exports={
   "version": 2,
   "waiters": {
@@ -61079,7 +63418,7 @@ module.exports={
   }
 }
 
-},{}],102:[function(require,module,exports){
+},{}],107:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -62361,7 +64700,7 @@ module.exports={
     }
   }
 }
-},{}],103:[function(require,module,exports){
+},{}],108:[function(require,module,exports){
 module.exports={
   "pagination": {
     "ListAssignmentsForHIT": {
@@ -62417,7 +64756,7 @@ module.exports={
   }
 }
 
-},{}],104:[function(require,module,exports){
+},{}],109:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -63189,6 +65528,7 @@ module.exports={
                 "AgentVersion": {},
                 "AmiId": {},
                 "Architecture": {},
+                "Arn": {},
                 "AutoScalingType": {},
                 "AvailabilityZone": {},
                 "BlockDeviceMappings": {
@@ -63267,6 +65607,7 @@ module.exports={
             "member": {
               "type": "structure",
               "members": {
+                "Arn": {},
                 "StackId": {},
                 "LayerId": {},
                 "Type": {},
@@ -63867,6 +66208,30 @@ module.exports={
         }
       }
     },
+    "ListTags": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "ResourceArn"
+        ],
+        "members": {
+          "ResourceArn": {},
+          "MaxResults": {
+            "type": "integer"
+          },
+          "NextToken": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "Tags": {
+            "shape": "S4v"
+          },
+          "NextToken": {}
+        }
+      }
+    },
     "RebootInstance": {
       "input": {
         "type": "structure",
@@ -64078,6 +66443,21 @@ module.exports={
         }
       }
     },
+    "TagResource": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "ResourceArn",
+          "Tags"
+        ],
+        "members": {
+          "ResourceArn": {},
+          "Tags": {
+            "shape": "S4v"
+          }
+        }
+      }
+    },
     "UnassignInstance": {
       "input": {
         "type": "structure",
@@ -64097,6 +66477,22 @@ module.exports={
         ],
         "members": {
           "VolumeId": {}
+        }
+      }
+    },
+    "UntagResource": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "ResourceArn",
+          "TagKeys"
+        ],
+        "members": {
+          "ResourceArn": {},
+          "TagKeys": {
+            "type": "list",
+            "member": {}
+          }
         }
       }
     },
@@ -64599,10 +66995,15 @@ module.exports={
       "type": "map",
       "key": {},
       "value": {}
+    },
+    "S4v": {
+      "type": "map",
+      "key": {},
+      "value": {}
     }
   }
 }
-},{}],105:[function(require,module,exports){
+},{}],110:[function(require,module,exports){
 module.exports={
   "pagination": {
     "DescribeApps": {
@@ -64658,7 +67059,7 @@ module.exports={
     }
   }
 }
-},{}],106:[function(require,module,exports){
+},{}],111:[function(require,module,exports){
 module.exports={
   "version": 2,
   "waiters": {
@@ -64955,7 +67356,7 @@ module.exports={
   }
 }
 
-},{}],107:[function(require,module,exports){
+},{}],112:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -65204,9 +67605,9 @@ module.exports={
     }
   }
 }
-},{}],108:[function(require,module,exports){
-arguments[4][28][0].apply(exports,arguments)
-},{"dup":28}],109:[function(require,module,exports){
+},{}],113:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],114:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -67103,7 +69504,7 @@ module.exports={
     }
   }
 }
-},{}],110:[function(require,module,exports){
+},{}],115:[function(require,module,exports){
 module.exports={
   "pagination": {
     "DescribeDBEngineVersions": {
@@ -67201,7 +69602,7 @@ module.exports={
     }
   }
 }
-},{}],111:[function(require,module,exports){
+},{}],116:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -69230,7 +71631,7 @@ module.exports={
     }
   }
 }
-},{}],112:[function(require,module,exports){
+},{}],117:[function(require,module,exports){
 module.exports={
   "pagination": {
     "DescribeDBEngineVersions": {
@@ -69341,7 +71742,7 @@ module.exports={
     }
   }
 }
-},{}],113:[function(require,module,exports){
+},{}],118:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -71506,9 +73907,9 @@ module.exports={
     }
   }
 }
-},{}],114:[function(require,module,exports){
-arguments[4][112][0].apply(exports,arguments)
-},{"dup":112}],115:[function(require,module,exports){
+},{}],119:[function(require,module,exports){
+arguments[4][117][0].apply(exports,arguments)
+},{"dup":117}],120:[function(require,module,exports){
 module.exports={
   "version": 2,
   "waiters": {
@@ -71607,7 +74008,7 @@ module.exports={
   }
 }
 
-},{}],116:[function(require,module,exports){
+},{}],121:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -73845,9 +76246,9 @@ module.exports={
     }
   }
 }
-},{}],117:[function(require,module,exports){
-arguments[4][28][0].apply(exports,arguments)
-},{"dup":28}],118:[function(require,module,exports){
+},{}],122:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],123:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -74062,6 +76463,7 @@ module.exports={
             "type": "boolean"
           },
           "PreSignedUrl": {},
+          "OptionGroupName": {},
           "SourceRegion": {}
         }
       },
@@ -76487,6 +78889,7 @@ module.exports={
         ],
         "members": {
           "DBClusterIdentifier": {},
+          "RestoreType": {},
           "SourceDBClusterIdentifier": {},
           "RestoreToTime": {
             "type": "timestamp"
@@ -76663,6 +79066,47 @@ module.exports={
         "members": {
           "DBSecurityGroup": {
             "shape": "Sk"
+          }
+        }
+      }
+    },
+    "StartDBInstance": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "DBInstanceIdentifier"
+        ],
+        "members": {
+          "DBInstanceIdentifier": {}
+        }
+      },
+      "output": {
+        "resultWrapper": "StartDBInstanceResult",
+        "type": "structure",
+        "members": {
+          "DBInstance": {
+            "shape": "S1y"
+          }
+        }
+      }
+    },
+    "StopDBInstance": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "DBInstanceIdentifier"
+        ],
+        "members": {
+          "DBInstanceIdentifier": {},
+          "DBSnapshotIdentifier": {}
+        }
+      },
+      "output": {
+        "resultWrapper": "StopDBInstanceResult",
+        "type": "structure",
+        "members": {
+          "DBInstance": {
+            "shape": "S1y"
           }
         }
       }
@@ -77086,6 +79530,7 @@ module.exports={
         "IAMDatabaseAuthenticationEnabled": {
           "type": "boolean"
         },
+        "CloneGroupId": {},
         "ClusterCreateTime": {
           "type": "timestamp"
         }
@@ -77486,9 +79931,9 @@ module.exports={
     }
   }
 }
-},{}],119:[function(require,module,exports){
-arguments[4][112][0].apply(exports,arguments)
-},{"dup":112}],120:[function(require,module,exports){
+},{}],124:[function(require,module,exports){
+arguments[4][117][0].apply(exports,arguments)
+},{"dup":117}],125:[function(require,module,exports){
 module.exports={
   "version": 2,
   "waiters": {
@@ -77580,7 +80025,7 @@ module.exports={
   }
 }
 
-},{}],121:[function(require,module,exports){
+},{}],126:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -79929,7 +82374,7 @@ module.exports={
     }
   }
 }
-},{}],122:[function(require,module,exports){
+},{}],127:[function(require,module,exports){
 module.exports={
   "pagination": {
     "DescribeClusterParameterGroups": {
@@ -80024,7 +82469,7 @@ module.exports={
     }
   }
 }
-},{}],123:[function(require,module,exports){
+},{}],128:[function(require,module,exports){
 module.exports={
   "version": 2,
   "waiters": {
@@ -80123,7 +82568,7 @@ module.exports={
   }
 }
 
-},{}],124:[function(require,module,exports){
+},{}],129:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -80179,19 +82624,19 @@ module.exports={
                   "type": "float"
                 },
                 "Face": {
-                  "type": "structure",
-                  "members": {
-                    "BoundingBox": {
-                      "shape": "Sb"
-                    },
-                    "Confidence": {
-                      "type": "float"
-                    }
-                  }
+                  "shape": "Sf"
                 }
               }
             }
-          }
+          },
+          "UnmatchedFaces": {
+            "type": "list",
+            "member": {
+              "shape": "Sf"
+            }
+          },
+          "SourceImageOrientationCorrection": {},
+          "TargetImageOrientationCorrection": {}
         }
       }
     },
@@ -80244,7 +82689,7 @@ module.exports={
         "members": {
           "CollectionId": {},
           "FaceIds": {
-            "shape": "So"
+            "shape": "Sw"
           }
         }
       },
@@ -80252,7 +82697,7 @@ module.exports={
         "type": "structure",
         "members": {
           "DeletedFaces": {
-            "shape": "So"
+            "shape": "Sw"
           }
         }
       }
@@ -80268,7 +82713,7 @@ module.exports={
             "shape": "S2"
           },
           "Attributes": {
-            "shape": "Ss"
+            "shape": "S10"
           }
         }
       },
@@ -80278,7 +82723,7 @@ module.exports={
           "FaceDetails": {
             "type": "list",
             "member": {
-              "shape": "Sw"
+              "shape": "S14"
             }
           },
           "OrientationCorrection": {}
@@ -80356,6 +82801,26 @@ module.exports={
         }
       }
     },
+    "GetCelebrityInfo": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "Id"
+        ],
+        "members": {
+          "Id": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "Urls": {
+            "shape": "S1u"
+          },
+          "Name": {}
+        }
+      }
+    },
     "IndexFaces": {
       "input": {
         "type": "structure",
@@ -80370,7 +82835,7 @@ module.exports={
           },
           "ExternalImageId": {},
           "DetectionAttributes": {
-            "shape": "Ss"
+            "shape": "S10"
           }
         }
       },
@@ -80383,10 +82848,10 @@ module.exports={
               "type": "structure",
               "members": {
                 "Face": {
-                  "shape": "S1v"
+                  "shape": "S21"
                 },
                 "FaceDetail": {
-                  "shape": "Sw"
+                  "shape": "S14"
                 }
               }
             }
@@ -80436,10 +82901,54 @@ module.exports={
           "Faces": {
             "type": "list",
             "member": {
-              "shape": "S1v"
+              "shape": "S21"
             }
           },
           "NextToken": {}
+        }
+      }
+    },
+    "RecognizeCelebrities": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "Image"
+        ],
+        "members": {
+          "Image": {
+            "shape": "S2"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "CelebrityFaces": {
+            "type": "list",
+            "member": {
+              "type": "structure",
+              "members": {
+                "Urls": {
+                  "shape": "S1u"
+                },
+                "Name": {},
+                "Id": {},
+                "Face": {
+                  "shape": "Sf"
+                },
+                "MatchConfidence": {
+                  "type": "float"
+                }
+              }
+            }
+          },
+          "UnrecognizedFaces": {
+            "type": "list",
+            "member": {
+              "shape": "Sf"
+            }
+          },
+          "OrientationCorrection": {}
         }
       }
     },
@@ -80466,7 +82975,7 @@ module.exports={
         "members": {
           "SearchedFaceId": {},
           "FaceMatches": {
-            "shape": "S28"
+            "shape": "S2j"
           }
         }
       }
@@ -80501,7 +83010,7 @@ module.exports={
             "type": "float"
           },
           "FaceMatches": {
-            "shape": "S28"
+            "shape": "S2j"
           }
         }
       }
@@ -80541,15 +83050,75 @@ module.exports={
         }
       }
     },
-    "So": {
-      "type": "list",
-      "member": {}
+    "Sf": {
+      "type": "structure",
+      "members": {
+        "BoundingBox": {
+          "shape": "Sb"
+        },
+        "Confidence": {
+          "type": "float"
+        },
+        "Landmarks": {
+          "shape": "Sg"
+        },
+        "Pose": {
+          "shape": "Sj"
+        },
+        "Quality": {
+          "shape": "Sl"
+        }
+      }
     },
-    "Ss": {
+    "Sg": {
       "type": "list",
-      "member": {}
+      "member": {
+        "type": "structure",
+        "members": {
+          "Type": {},
+          "X": {
+            "type": "float"
+          },
+          "Y": {
+            "type": "float"
+          }
+        }
+      }
+    },
+    "Sj": {
+      "type": "structure",
+      "members": {
+        "Roll": {
+          "type": "float"
+        },
+        "Yaw": {
+          "type": "float"
+        },
+        "Pitch": {
+          "type": "float"
+        }
+      }
+    },
+    "Sl": {
+      "type": "structure",
+      "members": {
+        "Brightness": {
+          "type": "float"
+        },
+        "Sharpness": {
+          "type": "float"
+        }
+      }
     },
     "Sw": {
+      "type": "list",
+      "member": {}
+    },
+    "S10": {
+      "type": "list",
+      "member": {}
+    },
+    "S14": {
       "type": "structure",
       "members": {
         "BoundingBox": {
@@ -80665,51 +83234,24 @@ module.exports={
           }
         },
         "Landmarks": {
-          "type": "list",
-          "member": {
-            "type": "structure",
-            "members": {
-              "Type": {},
-              "X": {
-                "type": "float"
-              },
-              "Y": {
-                "type": "float"
-              }
-            }
-          }
+          "shape": "Sg"
         },
         "Pose": {
-          "type": "structure",
-          "members": {
-            "Roll": {
-              "type": "float"
-            },
-            "Yaw": {
-              "type": "float"
-            },
-            "Pitch": {
-              "type": "float"
-            }
-          }
+          "shape": "Sj"
         },
         "Quality": {
-          "type": "structure",
-          "members": {
-            "Brightness": {
-              "type": "float"
-            },
-            "Sharpness": {
-              "type": "float"
-            }
-          }
+          "shape": "Sl"
         },
         "Confidence": {
           "type": "float"
         }
       }
     },
-    "S1v": {
+    "S1u": {
+      "type": "list",
+      "member": {}
+    },
+    "S21": {
       "type": "structure",
       "members": {
         "FaceId": {},
@@ -80723,7 +83265,7 @@ module.exports={
         }
       }
     },
-    "S28": {
+    "S2j": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -80732,14 +83274,14 @@ module.exports={
             "type": "float"
           },
           "Face": {
-            "shape": "S1v"
+            "shape": "S21"
           }
         }
       }
     }
   }
 }
-},{}],125:[function(require,module,exports){
+},{}],130:[function(require,module,exports){
 module.exports={
   "pagination": {
     "ListCollections": {
@@ -80756,7 +83298,7 @@ module.exports={
     }
   }
 }
-},{}],126:[function(require,module,exports){
+},{}],131:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -80890,7 +83432,7 @@ module.exports={
             "locationName": "ResourceId"
           },
           "AddTags": {
-            "shape": "S14"
+            "shape": "S15"
           },
           "RemoveTagKeys": {
             "type": "list",
@@ -80923,7 +83465,7 @@ module.exports={
         "members": {
           "CallerReference": {},
           "HealthCheckConfig": {
-            "shape": "S1c"
+            "shape": "S1d"
           }
         }
       },
@@ -80935,7 +83477,7 @@ module.exports={
         ],
         "members": {
           "HealthCheck": {
-            "shape": "S1x"
+            "shape": "S1y"
           },
           "Location": {
             "location": "header",
@@ -80966,7 +83508,7 @@ module.exports={
           },
           "CallerReference": {},
           "HostedZoneConfig": {
-            "shape": "S2d"
+            "shape": "S2e"
           },
           "DelegationSetId": {}
         }
@@ -80981,13 +83523,13 @@ module.exports={
         ],
         "members": {
           "HostedZone": {
-            "shape": "S2g"
+            "shape": "S2h"
           },
           "ChangeInfo": {
             "shape": "S8"
           },
           "DelegationSet": {
-            "shape": "S2i"
+            "shape": "S2j"
           },
           "VPC": {
             "shape": "S3"
@@ -81026,7 +83568,7 @@ module.exports={
         ],
         "members": {
           "DelegationSet": {
-            "shape": "S2i"
+            "shape": "S2j"
           },
           "Location": {
             "location": "header",
@@ -81064,7 +83606,7 @@ module.exports={
         ],
         "members": {
           "TrafficPolicy": {
-            "shape": "S2r"
+            "shape": "S2s"
           },
           "Location": {
             "location": "header",
@@ -81111,7 +83653,7 @@ module.exports={
         ],
         "members": {
           "TrafficPolicyInstance": {
-            "shape": "S2w"
+            "shape": "S2x"
           },
           "Location": {
             "location": "header",
@@ -81152,7 +83694,7 @@ module.exports={
         ],
         "members": {
           "TrafficPolicy": {
-            "shape": "S2r"
+            "shape": "S2s"
           },
           "Location": {
             "location": "header",
@@ -81468,7 +84010,7 @@ module.exports={
         ],
         "members": {
           "GeoLocationDetails": {
-            "shape": "S3q"
+            "shape": "S3r"
           }
         }
       }
@@ -81497,7 +84039,7 @@ module.exports={
         ],
         "members": {
           "HealthCheck": {
-            "shape": "S1x"
+            "shape": "S1y"
           }
         }
       }
@@ -81547,7 +84089,7 @@ module.exports={
         ],
         "members": {
           "HealthCheckObservations": {
-            "shape": "S41"
+            "shape": "S42"
           }
         }
       }
@@ -81576,7 +84118,7 @@ module.exports={
         ],
         "members": {
           "HealthCheckObservations": {
-            "shape": "S41"
+            "shape": "S42"
           }
         }
       }
@@ -81605,13 +84147,13 @@ module.exports={
         ],
         "members": {
           "HostedZone": {
-            "shape": "S2g"
+            "shape": "S2h"
           },
           "DelegationSet": {
-            "shape": "S2i"
+            "shape": "S2j"
           },
           "VPCs": {
-            "shape": "S49"
+            "shape": "S4a"
           }
         }
       }
@@ -81661,7 +84203,7 @@ module.exports={
         ],
         "members": {
           "DelegationSet": {
-            "shape": "S2i"
+            "shape": "S2j"
           }
         }
       }
@@ -81696,7 +84238,7 @@ module.exports={
         ],
         "members": {
           "TrafficPolicy": {
-            "shape": "S2r"
+            "shape": "S2s"
           }
         }
       }
@@ -81725,7 +84267,7 @@ module.exports={
         ],
         "members": {
           "TrafficPolicyInstance": {
-            "shape": "S2w"
+            "shape": "S2x"
           }
         }
       }
@@ -81788,7 +84330,7 @@ module.exports={
           "GeoLocationDetailsList": {
             "type": "list",
             "member": {
-              "shape": "S3q",
+              "shape": "S3r",
               "locationName": "GeoLocationDetails"
             }
           },
@@ -81832,7 +84374,7 @@ module.exports={
           "HealthChecks": {
             "type": "list",
             "member": {
-              "shape": "S1x",
+              "shape": "S1y",
               "locationName": "HealthCheck"
             }
           },
@@ -81877,7 +84419,7 @@ module.exports={
         ],
         "members": {
           "HostedZones": {
-            "shape": "S4x"
+            "shape": "S4y"
           },
           "Marker": {},
           "IsTruncated": {
@@ -81919,7 +84461,7 @@ module.exports={
         ],
         "members": {
           "HostedZones": {
-            "shape": "S4x"
+            "shape": "S4y"
           },
           "DNSName": {},
           "HostedZoneId": {},
@@ -82020,7 +84562,7 @@ module.exports={
           "DelegationSets": {
             "type": "list",
             "member": {
-              "shape": "S2i",
+              "shape": "S2j",
               "locationName": "DelegationSet"
             }
           },
@@ -82062,7 +84604,7 @@ module.exports={
         ],
         "members": {
           "ResourceTagSet": {
-            "shape": "S58"
+            "shape": "S59"
           }
         }
       }
@@ -82103,7 +84645,7 @@ module.exports={
           "ResourceTagSets": {
             "type": "list",
             "member": {
-              "shape": "S58",
+              "shape": "S59",
               "locationName": "ResourceTagSet"
             }
           }
@@ -82205,7 +84747,7 @@ module.exports={
         ],
         "members": {
           "TrafficPolicyInstances": {
-            "shape": "S5j"
+            "shape": "S5k"
           },
           "HostedZoneIdMarker": {},
           "TrafficPolicyInstanceNameMarker": {},
@@ -82255,7 +84797,7 @@ module.exports={
         ],
         "members": {
           "TrafficPolicyInstances": {
-            "shape": "S5j"
+            "shape": "S5k"
           },
           "TrafficPolicyInstanceNameMarker": {},
           "TrafficPolicyInstanceTypeMarker": {},
@@ -82314,7 +84856,7 @@ module.exports={
         ],
         "members": {
           "TrafficPolicyInstances": {
-            "shape": "S5j"
+            "shape": "S5k"
           },
           "HostedZoneIdMarker": {},
           "TrafficPolicyInstanceNameMarker": {},
@@ -82363,7 +84905,7 @@ module.exports={
           "TrafficPolicies": {
             "type": "list",
             "member": {
-              "shape": "S2r",
+              "shape": "S2s",
               "locationName": "TrafficPolicy"
             }
           },
@@ -82410,7 +84952,7 @@ module.exports={
           "HostedZoneId": {},
           "NextToken": {},
           "VPCs": {
-            "shape": "S49"
+            "shape": "S4a"
           }
         }
       }
@@ -82517,16 +85059,16 @@ module.exports={
             "type": "integer"
           },
           "ChildHealthChecks": {
-            "shape": "S1o"
+            "shape": "S1p"
           },
           "EnableSNI": {
             "type": "boolean"
           },
           "Regions": {
-            "shape": "S1q"
+            "shape": "S1r"
           },
           "AlarmIdentifier": {
-            "shape": "S1s"
+            "shape": "S1t"
           },
           "InsufficientDataHealthStatus": {}
         }
@@ -82538,7 +85080,7 @@ module.exports={
         ],
         "members": {
           "HealthCheck": {
-            "shape": "S1x"
+            "shape": "S1y"
           }
         }
       }
@@ -82571,7 +85113,7 @@ module.exports={
         ],
         "members": {
           "HostedZone": {
-            "shape": "S2g"
+            "shape": "S2h"
           }
         }
       }
@@ -82611,7 +85153,7 @@ module.exports={
         ],
         "members": {
           "TrafficPolicy": {
-            "shape": "S2r"
+            "shape": "S2s"
           }
         }
       }
@@ -82653,7 +85195,7 @@ module.exports={
         ],
         "members": {
           "TrafficPolicyInstance": {
-            "shape": "S2w"
+            "shape": "S2x"
           }
         }
       }
@@ -82706,6 +85248,9 @@ module.exports={
           }
         },
         "Failover": {},
+        "MultiValueAnswer": {
+          "type": "boolean"
+        },
         "TTL": {
           "type": "long"
         },
@@ -82741,7 +85286,7 @@ module.exports={
         "TrafficPolicyInstanceId": {}
       }
     },
-    "S14": {
+    "S15": {
       "type": "list",
       "member": {
         "locationName": "Tag",
@@ -82752,7 +85297,7 @@ module.exports={
         }
       }
     },
-    "S1c": {
+    "S1d": {
       "type": "structure",
       "required": [
         "Type"
@@ -82782,33 +85327,33 @@ module.exports={
           "type": "integer"
         },
         "ChildHealthChecks": {
-          "shape": "S1o"
+          "shape": "S1p"
         },
         "EnableSNI": {
           "type": "boolean"
         },
         "Regions": {
-          "shape": "S1q"
+          "shape": "S1r"
         },
         "AlarmIdentifier": {
-          "shape": "S1s"
+          "shape": "S1t"
         },
         "InsufficientDataHealthStatus": {}
       }
     },
-    "S1o": {
+    "S1p": {
       "type": "list",
       "member": {
         "locationName": "ChildHealthCheck"
       }
     },
-    "S1q": {
+    "S1r": {
       "type": "list",
       "member": {
         "locationName": "Region"
       }
     },
-    "S1s": {
+    "S1t": {
       "type": "structure",
       "required": [
         "Region",
@@ -82819,7 +85364,7 @@ module.exports={
         "Name": {}
       }
     },
-    "S1x": {
+    "S1y": {
       "type": "structure",
       "required": [
         "Id",
@@ -82831,7 +85376,7 @@ module.exports={
         "Id": {},
         "CallerReference": {},
         "HealthCheckConfig": {
-          "shape": "S1c"
+          "shape": "S1d"
         },
         "HealthCheckVersion": {
           "type": "long"
@@ -82880,7 +85425,7 @@ module.exports={
         }
       }
     },
-    "S2d": {
+    "S2e": {
       "type": "structure",
       "members": {
         "Comment": {},
@@ -82889,7 +85434,7 @@ module.exports={
         }
       }
     },
-    "S2g": {
+    "S2h": {
       "type": "structure",
       "required": [
         "Id",
@@ -82901,14 +85446,14 @@ module.exports={
         "Name": {},
         "CallerReference": {},
         "Config": {
-          "shape": "S2d"
+          "shape": "S2e"
         },
         "ResourceRecordSetCount": {
           "type": "long"
         }
       }
     },
-    "S2i": {
+    "S2j": {
       "type": "structure",
       "required": [
         "NameServers"
@@ -82924,7 +85469,7 @@ module.exports={
         }
       }
     },
-    "S2r": {
+    "S2s": {
       "type": "structure",
       "required": [
         "Id",
@@ -82944,7 +85489,7 @@ module.exports={
         "Comment": {}
       }
     },
-    "S2w": {
+    "S2x": {
       "type": "structure",
       "required": [
         "Id",
@@ -82973,7 +85518,7 @@ module.exports={
         "TrafficPolicyType": {}
       }
     },
-    "S3q": {
+    "S3r": {
       "type": "structure",
       "members": {
         "ContinentCode": {},
@@ -82984,7 +85529,7 @@ module.exports={
         "SubdivisionName": {}
       }
     },
-    "S41": {
+    "S42": {
       "type": "list",
       "member": {
         "locationName": "HealthCheckObservation",
@@ -83004,40 +85549,40 @@ module.exports={
         }
       }
     },
-    "S49": {
+    "S4a": {
       "type": "list",
       "member": {
         "shape": "S3",
         "locationName": "VPC"
       }
     },
-    "S4x": {
+    "S4y": {
       "type": "list",
       "member": {
-        "shape": "S2g",
+        "shape": "S2h",
         "locationName": "HostedZone"
       }
     },
-    "S58": {
+    "S59": {
       "type": "structure",
       "members": {
         "ResourceType": {},
         "ResourceId": {},
         "Tags": {
-          "shape": "S14"
+          "shape": "S15"
         }
       }
     },
-    "S5j": {
+    "S5k": {
       "type": "list",
       "member": {
-        "shape": "S2w",
+        "shape": "S2x",
         "locationName": "TrafficPolicyInstance"
       }
     }
   }
 }
-},{}],127:[function(require,module,exports){
+},{}],132:[function(require,module,exports){
 module.exports={
   "pagination": {
     "ListHealthChecks": {
@@ -83071,7 +85616,7 @@ module.exports={
     }
   }
 }
-},{}],128:[function(require,module,exports){
+},{}],133:[function(require,module,exports){
 module.exports={
   "version": 2,
   "waiters": {
@@ -83091,7 +85636,7 @@ module.exports={
   }
 }
 
-},{}],129:[function(require,module,exports){
+},{}],134:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -83840,7 +86385,7 @@ module.exports={
     }
   }
 }
-},{}],130:[function(require,module,exports){
+},{}],135:[function(require,module,exports){
 module.exports={
   "pagination": {
     "ListDomains": {
@@ -83857,7 +86402,7 @@ module.exports={
     }
   }
 }
-},{}],131:[function(require,module,exports){
+},{}],136:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -84054,9 +86599,9 @@ module.exports={
     }
   }
 }
-},{}],132:[function(require,module,exports){
-arguments[4][28][0].apply(exports,arguments)
-},{"dup":28}],133:[function(require,module,exports){
+},{}],137:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],138:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -84567,6 +87112,10 @@ module.exports={
           "RequestPayer": {
             "location": "header",
             "locationName": "x-amz-request-payer"
+          },
+          "Tagging": {
+            "location": "header",
+            "locationName": "x-amz-tagging"
           }
         }
       },
@@ -88563,22 +91112,22 @@ module.exports={
     }
   }
 }
-},{}],134:[function(require,module,exports){
+},{}],139:[function(require,module,exports){
 module.exports={
   "pagination": {
     "ListBuckets": {
       "result_key": "Buckets"
     },
     "ListMultipartUploads": {
+      "input_token": [
+        "KeyMarker",
+        "UploadIdMarker"
+      ],
       "limit_key": "MaxUploads",
       "more_results": "IsTruncated",
       "output_token": [
         "NextKeyMarker",
         "NextUploadIdMarker"
-      ],
-      "input_token": [
-        "KeyMarker",
-        "UploadIdMarker"
       ],
       "result_key": [
         "Uploads",
@@ -88586,15 +91135,15 @@ module.exports={
       ]
     },
     "ListObjectVersions": {
-      "more_results": "IsTruncated",
-      "limit_key": "MaxKeys",
-      "output_token": [
-        "NextKeyMarker",
-        "NextVersionIdMarker"
-      ],
       "input_token": [
         "KeyMarker",
         "VersionIdMarker"
+      ],
+      "limit_key": "MaxKeys",
+      "more_results": "IsTruncated",
+      "output_token": [
+        "NextKeyMarker",
+        "NextVersionIdMarker"
       ],
       "result_key": [
         "Versions",
@@ -88603,35 +91152,34 @@ module.exports={
       ]
     },
     "ListObjects": {
-      "more_results": "IsTruncated",
-      "limit_key": "MaxKeys",
-      "output_token": "NextMarker || Contents[-1].Key",
       "input_token": "Marker",
+      "limit_key": "MaxKeys",
+      "more_results": "IsTruncated",
+      "output_token": "NextMarker || Contents[-1].Key",
       "result_key": [
         "Contents",
         "CommonPrefixes"
       ]
     },
     "ListObjectsV2": {
+      "input_token": "ContinuationToken",
       "limit_key": "MaxKeys",
       "output_token": "NextContinuationToken",
-      "input_token": "ContinuationToken",
       "result_key": [
         "Contents",
         "CommonPrefixes"
       ]
     },
     "ListParts": {
-      "more_results": "IsTruncated",
-      "limit_key": "MaxParts",
-      "output_token": "NextPartNumberMarker",
       "input_token": "PartNumberMarker",
+      "limit_key": "MaxParts",
+      "more_results": "IsTruncated",
+      "output_token": "NextPartNumberMarker",
       "result_key": "Parts"
     }
   }
 }
-
-},{}],135:[function(require,module,exports){
+},{}],140:[function(require,module,exports){
 module.exports={
   "version": 2,
   "waiters": {
@@ -88706,18 +91254,18 @@ module.exports={
   }
 }
 
-},{}],136:[function(require,module,exports){
+},{}],141:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
-    "uid": "servicecatalog-2015-12-10",
     "apiVersion": "2015-12-10",
     "endpointPrefix": "servicecatalog",
     "jsonVersion": "1.1",
     "protocol": "json",
     "serviceFullName": "AWS Service Catalog",
     "signatureVersion": "v4",
-    "targetPrefix": "AWS242ServiceCatalogService"
+    "targetPrefix": "AWS242ServiceCatalogService",
+    "uid": "servicecatalog-2015-12-10"
   },
   "operations": {
     "AcceptPortfolioShare": {
@@ -88775,6 +91323,23 @@ module.exports={
         "members": {}
       }
     },
+    "AssociateTagOptionWithResource": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "ResourceId",
+          "TagOptionId"
+        ],
+        "members": {
+          "ResourceId": {},
+          "TagOptionId": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {}
+      }
+    },
     "CreateConstraint": {
       "input": {
         "type": "structure",
@@ -88801,7 +91366,7 @@ module.exports={
         "type": "structure",
         "members": {
           "ConstraintDetail": {
-            "shape": "Sh"
+            "shape": "Sl"
           },
           "ConstraintParameters": {},
           "Status": {}
@@ -88822,7 +91387,7 @@ module.exports={
           "Description": {},
           "ProviderName": {},
           "Tags": {
-            "shape": "So"
+            "shape": "Ss"
           },
           "IdempotencyToken": {
             "idempotencyToken": true
@@ -88833,10 +91398,10 @@ module.exports={
         "type": "structure",
         "members": {
           "PortfolioDetail": {
-            "shape": "St"
+            "shape": "Sx"
           },
           "Tags": {
-            "shape": "Sw"
+            "shape": "S10"
           }
         }
       }
@@ -88880,10 +91445,10 @@ module.exports={
           "SupportUrl": {},
           "ProductType": {},
           "Tags": {
-            "shape": "So"
+            "shape": "Ss"
           },
           "ProvisioningArtifactParameters": {
-            "shape": "S17"
+            "shape": "S1b"
           },
           "IdempotencyToken": {
             "idempotencyToken": true
@@ -88894,13 +91459,13 @@ module.exports={
         "type": "structure",
         "members": {
           "ProductViewDetail": {
-            "shape": "S1f"
+            "shape": "S1j"
           },
           "ProvisioningArtifactDetail": {
-            "shape": "S1k"
+            "shape": "S1o"
           },
           "Tags": {
-            "shape": "Sw"
+            "shape": "S10"
           }
         }
       }
@@ -88917,7 +91482,7 @@ module.exports={
           "AcceptLanguage": {},
           "ProductId": {},
           "Parameters": {
-            "shape": "S17"
+            "shape": "S1b"
           },
           "IdempotencyToken": {
             "idempotencyToken": true
@@ -88928,12 +91493,33 @@ module.exports={
         "type": "structure",
         "members": {
           "ProvisioningArtifactDetail": {
-            "shape": "S1k"
+            "shape": "S1o"
           },
           "Info": {
-            "shape": "S1a"
+            "shape": "S1e"
           },
           "Status": {}
+        }
+      }
+    },
+    "CreateTagOption": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "Key",
+          "Value"
+        ],
+        "members": {
+          "Key": {},
+          "Value": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "TagOptionDetail": {
+            "shape": "S1v"
+          }
         }
       }
     },
@@ -89036,7 +91622,7 @@ module.exports={
         "type": "structure",
         "members": {
           "ConstraintDetail": {
-            "shape": "Sh"
+            "shape": "Sl"
           },
           "ConstraintParameters": {},
           "Status": {}
@@ -89058,10 +91644,13 @@ module.exports={
         "type": "structure",
         "members": {
           "PortfolioDetail": {
-            "shape": "St"
+            "shape": "Sx"
           },
           "Tags": {
-            "shape": "Sw"
+            "shape": "S10"
+          },
+          "TagOptions": {
+            "shape": "S2b"
           }
         }
       }
@@ -89081,10 +91670,10 @@ module.exports={
         "type": "structure",
         "members": {
           "ProductViewSummary": {
-            "shape": "S1g"
+            "shape": "S1k"
           },
           "ProvisioningArtifacts": {
-            "shape": "S23"
+            "shape": "S2e"
           }
         }
       }
@@ -89104,10 +91693,30 @@ module.exports={
         "type": "structure",
         "members": {
           "ProductViewDetail": {
-            "shape": "S1f"
+            "shape": "S1j"
+          },
+          "ProvisioningArtifactSummaries": {
+            "type": "list",
+            "member": {
+              "type": "structure",
+              "members": {
+                "Id": {},
+                "Name": {},
+                "Description": {},
+                "CreatedTime": {
+                  "type": "timestamp"
+                },
+                "ProvisioningArtifactMetadata": {
+                  "shape": "S1e"
+                }
+              }
+            }
           },
           "Tags": {
-            "shape": "Sw"
+            "shape": "S10"
+          },
+          "TagOptions": {
+            "shape": "S2b"
           }
         }
       }
@@ -89127,10 +91736,30 @@ module.exports={
         "type": "structure",
         "members": {
           "ProductViewSummary": {
-            "shape": "S1g"
+            "shape": "S1k"
           },
           "ProvisioningArtifacts": {
-            "shape": "S23"
+            "shape": "S2e"
+          }
+        }
+      }
+    },
+    "DescribeProvisionedProduct": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "Id"
+        ],
+        "members": {
+          "AcceptLanguage": {},
+          "Id": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "ProvisionedProductDetail": {
+            "shape": "S2p"
           }
         }
       }
@@ -89145,17 +91774,20 @@ module.exports={
         "members": {
           "AcceptLanguage": {},
           "ProvisioningArtifactId": {},
-          "ProductId": {}
+          "ProductId": {},
+          "Verbose": {
+            "type": "boolean"
+          }
         }
       },
       "output": {
         "type": "structure",
         "members": {
           "ProvisioningArtifactDetail": {
-            "shape": "S1k"
+            "shape": "S1o"
           },
           "Info": {
-            "shape": "S1a"
+            "shape": "S1e"
           },
           "Status": {}
         }
@@ -89203,7 +91835,7 @@ module.exports={
             }
           },
           "ConstraintSummaries": {
-            "shape": "S2o"
+            "shape": "S3b"
           },
           "UsageInstructions": {
             "type": "list",
@@ -89212,6 +91844,19 @@ module.exports={
               "members": {
                 "Type": {},
                 "Value": {}
+              }
+            }
+          },
+          "TagOptions": {
+            "type": "list",
+            "member": {
+              "type": "structure",
+              "members": {
+                "Key": {},
+                "Values": {
+                  "type": "list",
+                  "member": {}
+                }
               }
             }
           }
@@ -89237,7 +91882,7 @@ module.exports={
         "type": "structure",
         "members": {
           "RecordDetail": {
-            "shape": "S2y"
+            "shape": "S3o"
           },
           "RecordOutputs": {
             "type": "list",
@@ -89251,6 +91896,25 @@ module.exports={
             }
           },
           "NextPageToken": {}
+        }
+      }
+    },
+    "DescribeTagOption": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "Id"
+        ],
+        "members": {
+          "Id": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "TagOptionDetail": {
+            "shape": "S1v"
+          }
         }
       }
     },
@@ -89290,6 +91954,23 @@ module.exports={
         "members": {}
       }
     },
+    "DisassociateTagOptionFromResource": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "ResourceId",
+          "TagOptionId"
+        ],
+        "members": {
+          "ResourceId": {},
+          "TagOptionId": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {}
+      }
+    },
     "ListAcceptedPortfolioShares": {
       "input": {
         "type": "structure",
@@ -89305,7 +91986,7 @@ module.exports={
         "type": "structure",
         "members": {
           "PortfolioDetails": {
-            "shape": "S3m"
+            "shape": "S4f"
           },
           "NextPageToken": {}
         }
@@ -89333,7 +92014,7 @@ module.exports={
           "ConstraintDetails": {
             "type": "list",
             "member": {
-              "shape": "Sh"
+              "shape": "Sl"
             }
           },
           "NextPageToken": {}
@@ -89365,10 +92046,10 @@ module.exports={
               "members": {
                 "Id": {},
                 "ConstraintSummaries": {
-                  "shape": "S2o"
+                  "shape": "S3b"
                 },
                 "Tags": {
-                  "shape": "Sw"
+                  "shape": "S10"
                 },
                 "Name": {}
               }
@@ -89415,7 +92096,7 @@ module.exports={
         "type": "structure",
         "members": {
           "PortfolioDetails": {
-            "shape": "S3m"
+            "shape": "S4f"
           },
           "NextPageToken": {}
         }
@@ -89440,7 +92121,7 @@ module.exports={
         "type": "structure",
         "members": {
           "PortfolioDetails": {
-            "shape": "S3m"
+            "shape": "S4f"
           },
           "NextPageToken": {}
         }
@@ -89495,7 +92176,7 @@ module.exports={
           "ProvisioningArtifactDetails": {
             "type": "list",
             "member": {
-              "shape": "S1k"
+              "shape": "S1o"
             }
           },
           "NextPageToken": {}
@@ -89508,7 +92189,7 @@ module.exports={
         "members": {
           "AcceptLanguage": {},
           "AccessLevelFilter": {
-            "shape": "S4a"
+            "shape": "S53"
           },
           "SearchFilter": {
             "type": "structure",
@@ -89529,10 +92210,77 @@ module.exports={
           "RecordDetails": {
             "type": "list",
             "member": {
-              "shape": "S2y"
+              "shape": "S3o"
             }
           },
           "NextPageToken": {}
+        }
+      }
+    },
+    "ListResourcesForTagOption": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "TagOptionId"
+        ],
+        "members": {
+          "TagOptionId": {},
+          "ResourceType": {},
+          "PageSize": {
+            "type": "integer"
+          },
+          "PageToken": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "ResourceDetails": {
+            "type": "list",
+            "member": {
+              "type": "structure",
+              "members": {
+                "Id": {},
+                "ARN": {},
+                "Name": {},
+                "Description": {},
+                "CreatedTime": {
+                  "type": "timestamp"
+                }
+              }
+            }
+          },
+          "PageToken": {}
+        }
+      }
+    },
+    "ListTagOptions": {
+      "input": {
+        "type": "structure",
+        "members": {
+          "Filters": {
+            "type": "structure",
+            "members": {
+              "Key": {},
+              "Value": {},
+              "Active": {
+                "type": "boolean"
+              }
+            }
+          },
+          "PageSize": {
+            "type": "integer"
+          },
+          "PageToken": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "TagOptionDetails": {
+            "shape": "S2b"
+          },
+          "PageToken": {}
         }
       }
     },
@@ -89562,7 +92310,7 @@ module.exports={
             }
           },
           "Tags": {
-            "shape": "Sw"
+            "shape": "S10"
           },
           "NotificationArns": {
             "type": "list",
@@ -89577,7 +92325,7 @@ module.exports={
         "type": "structure",
         "members": {
           "RecordDetail": {
-            "shape": "S2y"
+            "shape": "S3o"
           }
         }
       }
@@ -89604,7 +92352,7 @@ module.exports={
         "members": {
           "AcceptLanguage": {},
           "AccessLevelFilter": {
-            "shape": "S4a"
+            "shape": "S53"
           },
           "PageSize": {
             "type": "integer"
@@ -89618,20 +92366,7 @@ module.exports={
           "ProvisionedProducts": {
             "type": "list",
             "member": {
-              "type": "structure",
-              "members": {
-                "Name": {},
-                "Arn": {},
-                "Type": {},
-                "Id": {},
-                "Status": {},
-                "StatusMessage": {},
-                "CreatedTime": {
-                  "type": "timestamp"
-                },
-                "IdempotencyToken": {},
-                "LastRecordId": {}
-              }
+              "shape": "S2p"
             }
           },
           "NextPageToken": {}
@@ -89644,7 +92379,7 @@ module.exports={
         "members": {
           "AcceptLanguage": {},
           "Filters": {
-            "shape": "S50"
+            "shape": "S61"
           },
           "PageSize": {
             "type": "integer"
@@ -89660,7 +92395,7 @@ module.exports={
           "ProductViewSummaries": {
             "type": "list",
             "member": {
-              "shape": "S1g"
+              "shape": "S1k"
             }
           },
           "ProductViewAggregations": {
@@ -89690,7 +92425,7 @@ module.exports={
           "AcceptLanguage": {},
           "PortfolioId": {},
           "Filters": {
-            "shape": "S50"
+            "shape": "S61"
           },
           "SortBy": {},
           "SortOrder": {},
@@ -89707,7 +92442,7 @@ module.exports={
           "ProductViewDetails": {
             "type": "list",
             "member": {
-              "shape": "S1f"
+              "shape": "S1j"
             }
           },
           "NextPageToken": {}
@@ -89736,7 +92471,7 @@ module.exports={
         "type": "structure",
         "members": {
           "RecordDetail": {
-            "shape": "S2y"
+            "shape": "S3o"
           }
         }
       }
@@ -89757,7 +92492,7 @@ module.exports={
         "type": "structure",
         "members": {
           "ConstraintDetail": {
-            "shape": "Sh"
+            "shape": "Sl"
           },
           "ConstraintParameters": {},
           "Status": {}
@@ -89777,10 +92512,10 @@ module.exports={
           "Description": {},
           "ProviderName": {},
           "AddTags": {
-            "shape": "So"
+            "shape": "Ss"
           },
           "RemoveTags": {
-            "shape": "S5o"
+            "shape": "S6p"
           }
         }
       },
@@ -89788,10 +92523,10 @@ module.exports={
         "type": "structure",
         "members": {
           "PortfolioDetail": {
-            "shape": "St"
+            "shape": "Sx"
           },
           "Tags": {
-            "shape": "Sw"
+            "shape": "S10"
           }
         }
       }
@@ -89813,10 +92548,10 @@ module.exports={
           "SupportEmail": {},
           "SupportUrl": {},
           "AddTags": {
-            "shape": "So"
+            "shape": "Ss"
           },
           "RemoveTags": {
-            "shape": "S5o"
+            "shape": "S6p"
           }
         }
       },
@@ -89824,10 +92559,10 @@ module.exports={
         "type": "structure",
         "members": {
           "ProductViewDetail": {
-            "shape": "S1f"
+            "shape": "S1j"
           },
           "Tags": {
-            "shape": "Sw"
+            "shape": "S10"
           }
         }
       }
@@ -89867,7 +92602,7 @@ module.exports={
         "type": "structure",
         "members": {
           "RecordDetail": {
-            "shape": "S2y"
+            "shape": "S3o"
           }
         }
       }
@@ -89891,18 +92626,41 @@ module.exports={
         "type": "structure",
         "members": {
           "ProvisioningArtifactDetail": {
-            "shape": "S1k"
+            "shape": "S1o"
           },
           "Info": {
-            "shape": "S1a"
+            "shape": "S1e"
           },
           "Status": {}
+        }
+      }
+    },
+    "UpdateTagOption": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "Id"
+        ],
+        "members": {
+          "Id": {},
+          "Value": {},
+          "Active": {
+            "type": "boolean"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "TagOptionDetail": {
+            "shape": "S1v"
+          }
         }
       }
     }
   },
   "shapes": {
-    "Sh": {
+    "Sl": {
       "type": "structure",
       "members": {
         "ConstraintId": {},
@@ -89911,13 +92669,13 @@ module.exports={
         "Owner": {}
       }
     },
-    "So": {
+    "Ss": {
       "type": "list",
       "member": {
-        "shape": "Sp"
+        "shape": "St"
       }
     },
-    "Sp": {
+    "St": {
       "type": "structure",
       "required": [
         "Key",
@@ -89928,7 +92686,7 @@ module.exports={
         "Value": {}
       }
     },
-    "St": {
+    "Sx": {
       "type": "structure",
       "members": {
         "Id": {},
@@ -89941,13 +92699,13 @@ module.exports={
         "ProviderName": {}
       }
     },
-    "Sw": {
+    "S10": {
       "type": "list",
       "member": {
-        "shape": "Sp"
+        "shape": "St"
       }
     },
-    "S17": {
+    "S1b": {
       "type": "structure",
       "required": [
         "Info"
@@ -89956,21 +92714,21 @@ module.exports={
         "Name": {},
         "Description": {},
         "Info": {
-          "shape": "S1a"
+          "shape": "S1e"
         },
         "Type": {}
       }
     },
-    "S1a": {
+    "S1e": {
       "type": "map",
       "key": {},
       "value": {}
     },
-    "S1f": {
+    "S1j": {
       "type": "structure",
       "members": {
         "ProductViewSummary": {
-          "shape": "S1g"
+          "shape": "S1k"
         },
         "Status": {},
         "ProductARN": {},
@@ -89979,7 +92737,7 @@ module.exports={
         }
       }
     },
-    "S1g": {
+    "S1k": {
       "type": "structure",
       "members": {
         "Id": {},
@@ -89997,7 +92755,7 @@ module.exports={
         "SupportUrl": {}
       }
     },
-    "S1k": {
+    "S1o": {
       "type": "structure",
       "members": {
         "Id": {},
@@ -90009,7 +92767,24 @@ module.exports={
         }
       }
     },
-    "S23": {
+    "S1v": {
+      "type": "structure",
+      "members": {
+        "Key": {},
+        "Value": {},
+        "Active": {
+          "type": "boolean"
+        },
+        "Id": {}
+      }
+    },
+    "S2b": {
+      "type": "list",
+      "member": {
+        "shape": "S1v"
+      }
+    },
+    "S2e": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -90023,7 +92798,23 @@ module.exports={
         }
       }
     },
-    "S2o": {
+    "S2p": {
+      "type": "structure",
+      "members": {
+        "Name": {},
+        "Arn": {},
+        "Type": {},
+        "Id": {},
+        "Status": {},
+        "StatusMessage": {},
+        "CreatedTime": {
+          "type": "timestamp"
+        },
+        "IdempotencyToken": {},
+        "LastRecordId": {}
+      }
+    },
+    "S3b": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -90033,7 +92824,7 @@ module.exports={
         }
       }
     },
-    "S2y": {
+    "S3o": {
       "type": "structure",
       "members": {
         "RecordId": {},
@@ -90073,20 +92864,20 @@ module.exports={
         }
       }
     },
-    "S3m": {
+    "S4f": {
       "type": "list",
       "member": {
-        "shape": "St"
+        "shape": "Sx"
       }
     },
-    "S4a": {
+    "S53": {
       "type": "structure",
       "members": {
         "Key": {},
         "Value": {}
       }
     },
-    "S50": {
+    "S61": {
       "type": "map",
       "key": {},
       "value": {
@@ -90094,13 +92885,29 @@ module.exports={
         "member": {}
       }
     },
-    "S5o": {
+    "S6p": {
       "type": "list",
       "member": {}
     }
   }
 }
-},{}],137:[function(require,module,exports){
+},{}],142:[function(require,module,exports){
+module.exports={
+  "pagination": {
+    "ListResourcesForTagOption": {
+      "input_token": "PageToken",
+      "output_token": "PageToken",
+      "limit_key": "PageSize"
+    },
+    "ListTagOptions": {
+      "input_token": "PageToken",
+      "output_token": "PageToken",
+      "limit_key": "PageSize"
+    }
+  }
+}
+
+},{}],143:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -90724,7 +93531,7 @@ module.exports={
     }
   }
 }
-},{}],138:[function(require,module,exports){
+},{}],144:[function(require,module,exports){
 module.exports={
   "pagination": {
     "ListEndpointsByPlatformApplication": {
@@ -90755,7 +93562,7 @@ module.exports={
   }
 }
 
-},{}],139:[function(require,module,exports){
+},{}],145:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -91354,7 +94161,7 @@ module.exports={
     }
   }
 }
-},{}],140:[function(require,module,exports){
+},{}],146:[function(require,module,exports){
 module.exports={
   "pagination": {
     "ListQueues": {
@@ -91362,7 +94169,7 @@ module.exports={
     }
   }
 }
-},{}],141:[function(require,module,exports){
+},{}],147:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -91579,18 +94386,20 @@ module.exports={
           "Name"
         ],
         "members": {
+          "OperatingSystem": {},
           "Name": {},
           "GlobalFilters": {
-            "shape": "S2m"
+            "shape": "S2n"
           },
           "ApprovalRules": {
-            "shape": "S2s"
+            "shape": "S2t"
           },
           "ApprovedPatches": {
-            "shape": "S2w"
+            "shape": "S2y"
           },
+          "ApprovedPatchesComplianceLevel": {},
           "RejectedPatches": {
-            "shape": "S2w"
+            "shape": "S2y"
           },
           "Description": {},
           "ClientToken": {
@@ -91603,6 +94412,25 @@ module.exports={
         "members": {
           "BaselineId": {}
         }
+      }
+    },
+    "CreateResourceDataSync": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "SyncName",
+          "S3Destination"
+        ],
+        "members": {
+          "SyncName": {},
+          "S3Destination": {
+            "shape": "S35"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {}
       }
     },
     "DeleteActivation": {
@@ -91681,6 +94509,30 @@ module.exports={
         "members": {}
       }
     },
+    "DeleteParameters": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "Names"
+        ],
+        "members": {
+          "Names": {
+            "shape": "S3n"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "DeletedParameters": {
+            "shape": "S3n"
+          },
+          "InvalidParameters": {
+            "shape": "S3n"
+          }
+        }
+      }
+    },
     "DeletePatchBaseline": {
       "input": {
         "type": "structure",
@@ -91696,6 +94548,21 @@ module.exports={
         "members": {
           "BaselineId": {}
         }
+      }
+    },
+    "DeleteResourceDataSync": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "SyncName"
+        ],
+        "members": {
+          "SyncName": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {}
       }
     },
     "DeregisterManagedInstance": {
@@ -91896,7 +94763,7 @@ module.exports={
                 "ExecutedBy": {},
                 "LogFile": {},
                 "Outputs": {
-                  "shape": "S4h"
+                  "shape": "S4w"
                 }
               }
             }
@@ -91910,7 +94777,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Filters": {
-            "shape": "S4m"
+            "shape": "S51"
           },
           "MaxResults": {
             "type": "integer"
@@ -91924,7 +94791,7 @@ module.exports={
           "Patches": {
             "type": "list",
             "member": {
-              "shape": "S4u"
+              "shape": "S59"
             }
           },
           "NextToken": {}
@@ -91967,7 +94834,7 @@ module.exports={
         "type": "structure",
         "members": {
           "AccountIds": {
-            "shape": "S5b"
+            "shape": "S5q"
           }
         }
       }
@@ -92027,12 +94894,13 @@ module.exports={
               "type": "structure",
               "members": {
                 "Patch": {
-                  "shape": "S4u"
+                  "shape": "S59"
                 },
                 "PatchStatus": {
                   "type": "structure",
                   "members": {
                     "DeploymentStatus": {},
+                    "ComplianceLevel": {},
                     "ApprovalDate": {
                       "type": "timestamp"
                     }
@@ -92112,7 +94980,7 @@ module.exports={
               "members": {
                 "key": {},
                 "valueSet": {
-                  "shape": "S61"
+                  "shape": "S6g"
                 }
               }
             }
@@ -92129,7 +94997,7 @@ module.exports={
               "members": {
                 "Key": {},
                 "Values": {
-                  "shape": "S61"
+                  "shape": "S6g"
                 }
               }
             }
@@ -92219,7 +95087,7 @@ module.exports={
           "InstancePatchStates": {
             "type": "list",
             "member": {
-              "shape": "S6l"
+              "shape": "S70"
             }
           },
           "NextToken": {}
@@ -92265,7 +95133,7 @@ module.exports={
           "InstancePatchStates": {
             "type": "list",
             "member": {
-              "shape": "S6l"
+              "shape": "S70"
             }
           },
           "NextToken": {}
@@ -92281,7 +95149,7 @@ module.exports={
         "members": {
           "InstanceId": {},
           "Filters": {
-            "shape": "S4m"
+            "shape": "S51"
           },
           "NextToken": {},
           "MaxResults": {
@@ -92331,7 +95199,7 @@ module.exports={
           "WindowExecutionId": {},
           "TaskId": {},
           "Filters": {
-            "shape": "S7f"
+            "shape": "S7r"
           },
           "MaxResults": {
             "type": "integer"
@@ -92364,7 +95232,7 @@ module.exports={
                   "type": "timestamp"
                 },
                 "OwnerInformation": {
-                  "shape": "S6n"
+                  "shape": "S72"
                 },
                 "WindowTargetId": {}
               }
@@ -92383,7 +95251,7 @@ module.exports={
         "members": {
           "WindowExecutionId": {},
           "Filters": {
-            "shape": "S7f"
+            "shape": "S7r"
           },
           "MaxResults": {
             "type": "integer"
@@ -92427,7 +95295,7 @@ module.exports={
         "members": {
           "WindowId": {},
           "Filters": {
-            "shape": "S7f"
+            "shape": "S7r"
           },
           "MaxResults": {
             "type": "integer"
@@ -92469,7 +95337,7 @@ module.exports={
         "members": {
           "WindowId": {},
           "Filters": {
-            "shape": "S7f"
+            "shape": "S7r"
           },
           "MaxResults": {
             "type": "integer"
@@ -92492,7 +95360,7 @@ module.exports={
                   "shape": "Su"
                 },
                 "OwnerInformation": {
-                  "shape": "S6n"
+                  "shape": "S72"
                 }
               }
             }
@@ -92510,7 +95378,7 @@ module.exports={
         "members": {
           "WindowId": {},
           "Filters": {
-            "shape": "S7f"
+            "shape": "S7r"
           },
           "MaxResults": {
             "type": "integer"
@@ -92534,13 +95402,13 @@ module.exports={
                   "shape": "Su"
                 },
                 "TaskParameters": {
-                  "shape": "S8d"
+                  "shape": "S8p"
                 },
                 "Priority": {
                   "type": "integer"
                 },
                 "LoggingInfo": {
-                  "shape": "S8j"
+                  "shape": "S8v"
                 },
                 "ServiceRoleArn": {},
                 "MaxConcurrency": {},
@@ -92557,7 +95425,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Filters": {
-            "shape": "S7f"
+            "shape": "S7r"
           },
           "MaxResults": {
             "type": "integer"
@@ -92600,6 +95468,7 @@ module.exports={
             "member": {
               "type": "structure",
               "required": [
+                "Key",
                 "Values"
               ],
               "members": {
@@ -92610,6 +95479,9 @@ module.exports={
                 }
               }
             }
+          },
+          "ParameterFilters": {
+            "shape": "S9a"
           },
           "MaxResults": {
             "type": "integer"
@@ -92632,7 +95504,8 @@ module.exports={
                   "type": "timestamp"
                 },
                 "LastModifiedUser": {},
-                "Description": {}
+                "Description": {},
+                "AllowedPattern": {}
               }
             }
           },
@@ -92645,7 +95518,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Filters": {
-            "shape": "S4m"
+            "shape": "S51"
           },
           "MaxResults": {
             "type": "integer"
@@ -92659,7 +95532,7 @@ module.exports={
           "BaselineIdentities": {
             "type": "list",
             "member": {
-              "shape": "S97"
+              "shape": "S9q"
             }
           },
           "NextToken": {}
@@ -92707,6 +95580,9 @@ module.exports={
           "MaxResults": {
             "type": "integer"
           },
+          "Filters": {
+            "shape": "S51"
+          },
           "NextToken": {}
         }
       },
@@ -92720,7 +95596,7 @@ module.exports={
               "members": {
                 "PatchGroup": {},
                 "BaselineIdentity": {
-                  "shape": "S97"
+                  "shape": "S9q"
                 }
               }
             }
@@ -92776,18 +95652,28 @@ module.exports={
                       "value": {}
                     },
                     "Outputs": {
-                      "shape": "S4h"
+                      "shape": "S4w"
                     },
                     "Response": {},
-                    "FailureMessage": {}
+                    "FailureMessage": {},
+                    "FailureDetails": {
+                      "type": "structure",
+                      "members": {
+                        "FailureStage": {},
+                        "FailureType": {},
+                        "Details": {
+                          "shape": "S4w"
+                        }
+                      }
+                    }
                   }
                 }
               },
               "Parameters": {
-                "shape": "S4h"
+                "shape": "S4w"
               },
               "Outputs": {
-                "shape": "S4h"
+                "shape": "S4w"
               },
               "FailureMessage": {}
             }
@@ -92834,12 +95720,15 @@ module.exports={
     "GetDefaultPatchBaseline": {
       "input": {
         "type": "structure",
-        "members": {}
+        "members": {
+          "OperatingSystem": {}
+        }
       },
       "output": {
         "type": "structure",
         "members": {
-          "BaselineId": {}
+          "BaselineId": {},
+          "OperatingSystem": {}
         }
       }
     },
@@ -92860,7 +95749,8 @@ module.exports={
         "members": {
           "InstanceId": {},
           "SnapshotId": {},
-          "SnapshotDownloadUrl": {}
+          "SnapshotDownloadUrl": {},
+          "Product": {}
         }
       }
     },
@@ -92890,7 +95780,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Filters": {
-            "shape": "Sa5"
+            "shape": "Saq"
           },
           "ResultAttributes": {
             "type": "list",
@@ -92937,7 +95827,7 @@ module.exports={
                       "CaptureTime": {},
                       "ContentHash": {},
                       "Content": {
-                        "shape": "Sao"
+                        "shape": "Sb9"
                       }
                     }
                   }
@@ -93085,7 +95975,7 @@ module.exports={
           "TaskParameters": {
             "type": "list",
             "member": {
-              "shape": "S8d"
+              "shape": "S8p"
             },
             "sensitive": true
           },
@@ -93101,6 +95991,28 @@ module.exports={
           },
           "EndTime": {
             "type": "timestamp"
+          }
+        }
+      }
+    },
+    "GetParameter": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "Name"
+        ],
+        "members": {
+          "Name": {},
+          "WithDecryption": {
+            "type": "boolean"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "Parameter": {
+            "shape": "Sbx"
           }
         }
       }
@@ -93138,7 +96050,8 @@ module.exports={
                 },
                 "LastModifiedUser": {},
                 "Description": {},
-                "Value": {}
+                "Value": {},
+                "AllowedPattern": {}
               }
             }
           },
@@ -93154,7 +96067,7 @@ module.exports={
         ],
         "members": {
           "Names": {
-            "shape": "Sbg"
+            "shape": "S3n"
           },
           "WithDecryption": {
             "type": "boolean"
@@ -93165,19 +96078,44 @@ module.exports={
         "type": "structure",
         "members": {
           "Parameters": {
-            "type": "list",
-            "member": {
-              "type": "structure",
-              "members": {
-                "Name": {},
-                "Type": {},
-                "Value": {}
-              }
-            }
+            "shape": "Sc5"
           },
           "InvalidParameters": {
-            "shape": "Sbg"
+            "shape": "S3n"
           }
+        }
+      }
+    },
+    "GetParametersByPath": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "Path"
+        ],
+        "members": {
+          "Path": {},
+          "Recursive": {
+            "type": "boolean"
+          },
+          "ParameterFilters": {
+            "shape": "S9a"
+          },
+          "WithDecryption": {
+            "type": "boolean"
+          },
+          "MaxResults": {
+            "type": "integer"
+          },
+          "NextToken": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "Parameters": {
+            "shape": "Sc5"
+          },
+          "NextToken": {}
         }
       }
     },
@@ -93196,17 +96134,19 @@ module.exports={
         "members": {
           "BaselineId": {},
           "Name": {},
+          "OperatingSystem": {},
           "GlobalFilters": {
-            "shape": "S2m"
+            "shape": "S2n"
           },
           "ApprovalRules": {
-            "shape": "S2s"
+            "shape": "S2t"
           },
           "ApprovedPatches": {
-            "shape": "S2w"
+            "shape": "S2y"
           },
+          "ApprovedPatchesComplianceLevel": {},
           "RejectedPatches": {
-            "shape": "S2w"
+            "shape": "S2y"
           },
           "PatchGroups": {
             "type": "list",
@@ -93229,14 +96169,16 @@ module.exports={
           "PatchGroup"
         ],
         "members": {
-          "PatchGroup": {}
+          "PatchGroup": {},
+          "OperatingSystem": {}
         }
       },
       "output": {
         "type": "structure",
         "members": {
           "BaselineId": {},
-          "PatchGroup": {}
+          "PatchGroup": {},
+          "OperatingSystem": {}
         }
       }
     },
@@ -93306,7 +96248,7 @@ module.exports={
           },
           "NextToken": {},
           "Filters": {
-            "shape": "Sbz"
+            "shape": "Sco"
           },
           "Details": {
             "type": "boolean"
@@ -93362,7 +96304,7 @@ module.exports={
                 },
                 "ServiceRole": {},
                 "NotificationConfig": {
-                  "shape": "Scc"
+                  "shape": "Sd1"
                 }
               }
             }
@@ -93382,7 +96324,7 @@ module.exports={
           },
           "NextToken": {},
           "Filters": {
-            "shape": "Sbz"
+            "shape": "Sco"
           }
         }
       },
@@ -93392,7 +96334,7 @@ module.exports={
           "Commands": {
             "type": "list",
             "member": {
-              "shape": "Sck"
+              "shape": "Sd9"
             }
           },
           "NextToken": {}
@@ -93496,7 +96438,7 @@ module.exports={
           "InstanceId": {},
           "TypeName": {},
           "Filters": {
-            "shape": "Sa5"
+            "shape": "Saq"
           },
           "NextToken": {},
           "MaxResults": {
@@ -93512,7 +96454,46 @@ module.exports={
           "SchemaVersion": {},
           "CaptureTime": {},
           "Entries": {
-            "shape": "Sao"
+            "shape": "Sb9"
+          },
+          "NextToken": {}
+        }
+      }
+    },
+    "ListResourceDataSync": {
+      "input": {
+        "type": "structure",
+        "members": {
+          "NextToken": {},
+          "MaxResults": {
+            "type": "integer"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "ResourceDataSyncItems": {
+            "type": "list",
+            "member": {
+              "type": "structure",
+              "members": {
+                "SyncName": {},
+                "S3Destination": {
+                  "shape": "S35"
+                },
+                "LastSyncTime": {
+                  "type": "timestamp"
+                },
+                "LastSuccessfulSyncTime": {
+                  "type": "timestamp"
+                },
+                "LastStatus": {},
+                "SyncCreatedTime": {
+                  "type": "timestamp"
+                }
+              }
+            }
           },
           "NextToken": {}
         }
@@ -93550,10 +96531,10 @@ module.exports={
           "Name": {},
           "PermissionType": {},
           "AccountIdsToAdd": {
-            "shape": "S5b"
+            "shape": "S5q"
           },
           "AccountIdsToRemove": {
-            "shape": "S5b"
+            "shape": "S5q"
           }
         }
       },
@@ -93587,7 +96568,7 @@ module.exports={
                 "CaptureTime": {},
                 "ContentHash": {},
                 "Content": {
-                  "shape": "Sao"
+                  "shape": "Sb9"
                 }
               }
             }
@@ -93615,7 +96596,8 @@ module.exports={
           "KeyId": {},
           "Overwrite": {
             "type": "boolean"
-          }
+          },
+          "AllowedPattern": {}
         }
       },
       "output": {
@@ -93675,7 +96657,7 @@ module.exports={
             "shape": "Su"
           },
           "OwnerInformation": {
-            "shape": "S6n"
+            "shape": "S72"
           },
           "ClientToken": {
             "idempotencyToken": true
@@ -93710,7 +96692,7 @@ module.exports={
           "ServiceRoleArn": {},
           "TaskType": {},
           "TaskParameters": {
-            "shape": "S8d"
+            "shape": "S8p"
           },
           "Priority": {
             "type": "integer"
@@ -93718,7 +96700,7 @@ module.exports={
           "MaxConcurrency": {},
           "MaxErrors": {},
           "LoggingInfo": {
-            "shape": "S8j"
+            "shape": "S8v"
           },
           "ClientToken": {
             "idempotencyToken": true
@@ -93784,7 +96766,7 @@ module.exports={
           "MaxErrors": {},
           "ServiceRoleArn": {},
           "NotificationConfig": {
-            "shape": "Scc"
+            "shape": "Sd1"
           }
         }
       },
@@ -93792,7 +96774,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Command": {
-            "shape": "Sck"
+            "shape": "Sd9"
           }
         }
       }
@@ -93807,7 +96789,7 @@ module.exports={
           "DocumentName": {},
           "DocumentVersion": {},
           "Parameters": {
-            "shape": "S4h"
+            "shape": "S4w"
           }
         }
       },
@@ -93848,6 +96830,10 @@ module.exports={
           "ScheduleExpression": {},
           "OutputLocation": {
             "shape": "S10"
+          },
+          "Name": {},
+          "Targets": {
+            "shape": "Su"
           }
         }
       },
@@ -94004,16 +96990,17 @@ module.exports={
           "BaselineId": {},
           "Name": {},
           "GlobalFilters": {
-            "shape": "S2m"
+            "shape": "S2n"
           },
           "ApprovalRules": {
-            "shape": "S2s"
+            "shape": "S2t"
           },
           "ApprovedPatches": {
-            "shape": "S2w"
+            "shape": "S2y"
           },
+          "ApprovedPatchesComplianceLevel": {},
           "RejectedPatches": {
-            "shape": "S2w"
+            "shape": "S2y"
           },
           "Description": {}
         }
@@ -94023,17 +97010,19 @@ module.exports={
         "members": {
           "BaselineId": {},
           "Name": {},
+          "OperatingSystem": {},
           "GlobalFilters": {
-            "shape": "S2m"
+            "shape": "S2n"
           },
           "ApprovalRules": {
-            "shape": "S2s"
+            "shape": "S2t"
           },
           "ApprovedPatches": {
-            "shape": "S2w"
+            "shape": "S2y"
           },
+          "ApprovedPatchesComplianceLevel": {},
           "RejectedPatches": {
-            "shape": "S2w"
+            "shape": "S2y"
           },
           "CreatedDate": {
             "type": "timestamp"
@@ -94229,7 +97218,7 @@ module.exports={
         "locationName": "PlatformType"
       }
     },
-    "S2m": {
+    "S2n": {
       "type": "structure",
       "required": [
         "PatchFilters"
@@ -94254,7 +97243,7 @@ module.exports={
         }
       }
     },
-    "S2s": {
+    "S2t": {
       "type": "structure",
       "required": [
         "PatchRules"
@@ -94270,8 +97259,9 @@ module.exports={
             ],
             "members": {
               "PatchFilterGroup": {
-                "shape": "S2m"
+                "shape": "S2n"
               },
+              "ComplianceLevel": {},
               "ApproveAfterDays": {
                 "type": "integer"
               }
@@ -94280,11 +97270,29 @@ module.exports={
         }
       }
     },
-    "S2w": {
+    "S2y": {
       "type": "list",
       "member": {}
     },
-    "S4h": {
+    "S35": {
+      "type": "structure",
+      "required": [
+        "BucketName",
+        "SyncFormat",
+        "Region"
+      ],
+      "members": {
+        "BucketName": {},
+        "Prefix": {},
+        "SyncFormat": {},
+        "Region": {}
+      }
+    },
+    "S3n": {
+      "type": "list",
+      "member": {}
+    },
+    "S4w": {
       "type": "map",
       "key": {},
       "value": {
@@ -94292,7 +97300,7 @@ module.exports={
         "member": {}
       }
     },
-    "S4m": {
+    "S51": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -94305,7 +97313,7 @@ module.exports={
         }
       }
     },
-    "S4u": {
+    "S59": {
       "type": "structure",
       "members": {
         "Id": {},
@@ -94325,19 +97333,19 @@ module.exports={
         "Language": {}
       }
     },
-    "S5b": {
+    "S5q": {
       "type": "list",
       "member": {
         "locationName": "AccountId"
       }
     },
-    "S61": {
+    "S6g": {
       "type": "list",
       "member": {
         "locationName": "InstanceInformationFilterValue"
       }
     },
-    "S6l": {
+    "S70": {
       "type": "structure",
       "required": [
         "InstanceId",
@@ -94353,7 +97361,7 @@ module.exports={
         "BaselineId": {},
         "SnapshotId": {},
         "OwnerInformation": {
-          "shape": "S6n"
+          "shape": "S72"
         },
         "InstalledCount": {
           "type": "integer"
@@ -94379,11 +97387,11 @@ module.exports={
         "Operation": {}
       }
     },
-    "S6n": {
+    "S72": {
       "type": "string",
       "sensitive": true
     },
-    "S7f": {
+    "S7r": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -94396,7 +97404,7 @@ module.exports={
         }
       }
     },
-    "S8d": {
+    "S8p": {
       "type": "map",
       "key": {},
       "value": {
@@ -94415,7 +97423,7 @@ module.exports={
       },
       "sensitive": true
     },
-    "S8j": {
+    "S8v": {
       "type": "structure",
       "required": [
         "S3BucketName",
@@ -94427,18 +97435,36 @@ module.exports={
         "S3Region": {}
       }
     },
-    "S97": {
+    "S9a": {
+      "type": "list",
+      "member": {
+        "type": "structure",
+        "required": [
+          "Key"
+        ],
+        "members": {
+          "Key": {},
+          "Option": {},
+          "Values": {
+            "type": "list",
+            "member": {}
+          }
+        }
+      }
+    },
+    "S9q": {
       "type": "structure",
       "members": {
         "BaselineId": {},
         "BaselineName": {},
+        "OperatingSystem": {},
         "BaselineDescription": {},
         "DefaultBaseline": {
           "type": "boolean"
         }
       }
     },
-    "Sa5": {
+    "Saq": {
       "type": "list",
       "member": {
         "locationName": "InventoryFilter",
@@ -94459,7 +97485,7 @@ module.exports={
         }
       }
     },
-    "Sao": {
+    "Sb9": {
       "type": "list",
       "member": {
         "type": "map",
@@ -94467,11 +97493,21 @@ module.exports={
         "value": {}
       }
     },
-    "Sbg": {
-      "type": "list",
-      "member": {}
+    "Sbx": {
+      "type": "structure",
+      "members": {
+        "Name": {},
+        "Type": {},
+        "Value": {}
+      }
     },
-    "Sbz": {
+    "Sc5": {
+      "type": "list",
+      "member": {
+        "shape": "Sbx"
+      }
+    },
+    "Sco": {
       "type": "list",
       "member": {
         "type": "structure",
@@ -94485,7 +97521,7 @@ module.exports={
         }
       }
     },
-    "Scc": {
+    "Sd1": {
       "type": "structure",
       "members": {
         "NotificationArn": {},
@@ -94496,7 +97532,7 @@ module.exports={
         "NotificationType": {}
       }
     },
-    "Sck": {
+    "Sd9": {
       "type": "structure",
       "members": {
         "CommandId": {},
@@ -94535,13 +97571,13 @@ module.exports={
         },
         "ServiceRole": {},
         "NotificationConfig": {
-          "shape": "Scc"
+          "shape": "Sd1"
         }
       }
     }
   }
 }
-},{}],142:[function(require,module,exports){
+},{}],148:[function(require,module,exports){
 module.exports={
   "pagination": {
     "DescribeActivations": {
@@ -94555,6 +97591,21 @@ module.exports={
       "limit_key": "MaxResults",
       "output_token": "NextToken",
       "result_key": "InstanceInformationList"
+    },
+    "DescribeParameters": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken"
+    },
+    "GetParameterHistory": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken"
+    },
+    "GetParametersByPath": {
+      "input_token": "NextToken",
+      "limit_key": "MaxResults",
+      "output_token": "NextToken"
     },
     "ListAssociations": {
       "input_token": "NextToken",
@@ -94582,7 +97633,7 @@ module.exports={
     }
   }
 }
-},{}],143:[function(require,module,exports){
+},{}],149:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -95427,7 +98478,10 @@ module.exports={
                   "type": "timestamp"
                 },
                 "RetrievedTo": {},
-                "TapeStatus": {}
+                "TapeStatus": {},
+                "TapeUsedInBytes": {
+                  "type": "long"
+                }
               }
             }
           },
@@ -95510,6 +98564,9 @@ module.exports={
                 "VTLDevice": {},
                 "Progress": {
                   "type": "double"
+                },
+                "TapeUsedInBytes": {
+                  "type": "long"
                 }
               }
             }
@@ -96283,7 +99340,7 @@ module.exports={
     }
   }
 }
-},{}],144:[function(require,module,exports){
+},{}],150:[function(require,module,exports){
 module.exports={
   "pagination": {
     "DescribeCachediSCSIVolumes": {
@@ -96336,7 +99393,7 @@ module.exports={
     }
   }
 }
-},{}],145:[function(require,module,exports){
+},{}],151:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -96583,9 +99640,9 @@ module.exports={
     }
   }
 }
-},{}],146:[function(require,module,exports){
-arguments[4][28][0].apply(exports,arguments)
-},{"dup":28}],147:[function(require,module,exports){
+},{}],152:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],153:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -96836,7 +99893,9 @@ module.exports={
     }
   }
 }
-},{}],148:[function(require,module,exports){
+},{}],154:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],155:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -96895,6 +99954,36 @@ module.exports={
         }
       }
     },
+    "CreateRateBasedRule": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "Name",
+          "MetricName",
+          "RateKey",
+          "RateLimit",
+          "ChangeToken"
+        ],
+        "members": {
+          "Name": {},
+          "MetricName": {},
+          "RateKey": {},
+          "RateLimit": {
+            "type": "long"
+          },
+          "ChangeToken": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "Rule": {
+            "shape": "Sr"
+          },
+          "ChangeToken": {}
+        }
+      }
+    },
     "CreateRule": {
       "input": {
         "type": "structure",
@@ -96913,7 +100002,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Rule": {
-            "shape": "Sp"
+            "shape": "Sy"
           },
           "ChangeToken": {}
         }
@@ -96935,7 +100024,7 @@ module.exports={
         "type": "structure",
         "members": {
           "SizeConstraintSet": {
-            "shape": "Sw"
+            "shape": "S11"
           },
           "ChangeToken": {}
         }
@@ -96957,7 +100046,7 @@ module.exports={
         "type": "structure",
         "members": {
           "SqlInjectionMatchSet": {
-            "shape": "S13"
+            "shape": "S18"
           },
           "ChangeToken": {}
         }
@@ -96976,7 +100065,7 @@ module.exports={
           "Name": {},
           "MetricName": {},
           "DefaultAction": {
-            "shape": "S17"
+            "shape": "S1c"
           },
           "ChangeToken": {}
         }
@@ -96985,7 +100074,7 @@ module.exports={
         "type": "structure",
         "members": {
           "WebACL": {
-            "shape": "S1a"
+            "shape": "S1f"
           },
           "ChangeToken": {}
         }
@@ -97007,7 +100096,7 @@ module.exports={
         "type": "structure",
         "members": {
           "XssMatchSet": {
-            "shape": "S1g"
+            "shape": "S1m"
           },
           "ChangeToken": {}
         }
@@ -97041,6 +100130,25 @@ module.exports={
         ],
         "members": {
           "IPSetId": {},
+          "ChangeToken": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "ChangeToken": {}
+        }
+      }
+    },
+    "DeleteRateBasedRule": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "RuleId",
+          "ChangeToken"
+        ],
+        "members": {
+          "RuleId": {},
           "ChangeToken": {}
         }
       },
@@ -97213,6 +100321,47 @@ module.exports={
         }
       }
     },
+    "GetRateBasedRule": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "RuleId"
+        ],
+        "members": {
+          "RuleId": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "Rule": {
+            "shape": "Sr"
+          }
+        }
+      }
+    },
+    "GetRateBasedRuleManagedKeys": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "RuleId"
+        ],
+        "members": {
+          "RuleId": {},
+          "NextMarker": {}
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "ManagedKeys": {
+            "type": "list",
+            "member": {}
+          },
+          "NextMarker": {}
+        }
+      }
+    },
     "GetRule": {
       "input": {
         "type": "structure",
@@ -97227,7 +100376,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Rule": {
-            "shape": "Sp"
+            "shape": "Sy"
           }
         }
       }
@@ -97245,7 +100394,7 @@ module.exports={
           "WebAclId": {},
           "RuleId": {},
           "TimeWindow": {
-            "shape": "S29"
+            "shape": "S2o"
           },
           "MaxItems": {
             "type": "long"
@@ -97298,7 +100447,7 @@ module.exports={
             "type": "long"
           },
           "TimeWindow": {
-            "shape": "S29"
+            "shape": "S2o"
           }
         }
       }
@@ -97317,7 +100466,7 @@ module.exports={
         "type": "structure",
         "members": {
           "SizeConstraintSet": {
-            "shape": "Sw"
+            "shape": "S11"
           }
         }
       }
@@ -97336,7 +100485,7 @@ module.exports={
         "type": "structure",
         "members": {
           "SqlInjectionMatchSet": {
-            "shape": "S13"
+            "shape": "S18"
           }
         }
       }
@@ -97355,7 +100504,7 @@ module.exports={
         "type": "structure",
         "members": {
           "WebACL": {
-            "shape": "S1a"
+            "shape": "S1f"
           }
         }
       }
@@ -97374,7 +100523,7 @@ module.exports={
         "type": "structure",
         "members": {
           "XssMatchSet": {
-            "shape": "S1g"
+            "shape": "S1m"
           }
         }
       }
@@ -97441,6 +100590,26 @@ module.exports={
         }
       }
     },
+    "ListRateBasedRules": {
+      "input": {
+        "type": "structure",
+        "members": {
+          "NextMarker": {},
+          "Limit": {
+            "type": "integer"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "NextMarker": {},
+          "Rules": {
+            "shape": "S3q"
+          }
+        }
+      }
+    },
     "ListRules": {
       "input": {
         "type": "structure",
@@ -97456,18 +100625,7 @@ module.exports={
         "members": {
           "NextMarker": {},
           "Rules": {
-            "type": "list",
-            "member": {
-              "type": "structure",
-              "required": [
-                "RuleId",
-                "Name"
-              ],
-              "members": {
-                "RuleId": {},
-                "Name": {}
-              }
-            }
+            "shape": "S3q"
           }
         }
       }
@@ -97668,6 +100826,33 @@ module.exports={
         }
       }
     },
+    "UpdateRateBasedRule": {
+      "input": {
+        "type": "structure",
+        "required": [
+          "RuleId",
+          "ChangeToken",
+          "Updates",
+          "RateLimit"
+        ],
+        "members": {
+          "RuleId": {},
+          "ChangeToken": {},
+          "Updates": {
+            "shape": "S4k"
+          },
+          "RateLimit": {
+            "type": "long"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "ChangeToken": {}
+        }
+      }
+    },
     "UpdateRule": {
       "input": {
         "type": "structure",
@@ -97680,20 +100865,7 @@ module.exports={
           "RuleId": {},
           "ChangeToken": {},
           "Updates": {
-            "type": "list",
-            "member": {
-              "type": "structure",
-              "required": [
-                "Action",
-                "Predicate"
-              ],
-              "members": {
-                "Action": {},
-                "Predicate": {
-                  "shape": "Sr"
-                }
-              }
-            }
+            "shape": "S4k"
           }
         }
       },
@@ -97726,7 +100898,7 @@ module.exports={
               "members": {
                 "Action": {},
                 "SizeConstraint": {
-                  "shape": "Sy"
+                  "shape": "S13"
                 }
               }
             }
@@ -97762,7 +100934,7 @@ module.exports={
               "members": {
                 "Action": {},
                 "SqlInjectionMatchTuple": {
-                  "shape": "S15"
+                  "shape": "S1a"
                 }
               }
             }
@@ -97797,13 +100969,13 @@ module.exports={
               "members": {
                 "Action": {},
                 "ActivatedRule": {
-                  "shape": "S1c"
+                  "shape": "S1h"
                 }
               }
             }
           },
           "DefaultAction": {
-            "shape": "S17"
+            "shape": "S1c"
           }
         }
       },
@@ -97836,7 +101008,7 @@ module.exports={
               "members": {
                 "Action": {},
                 "XssMatchTuple": {
-                  "shape": "S1i"
+                  "shape": "S1o"
                 }
               }
             }
@@ -97926,25 +101098,34 @@ module.exports={
         "Value": {}
       }
     },
-    "Sp": {
+    "Sr": {
       "type": "structure",
       "required": [
         "RuleId",
-        "Predicates"
+        "MatchPredicates",
+        "RateKey",
+        "RateLimit"
       ],
       "members": {
         "RuleId": {},
         "Name": {},
         "MetricName": {},
-        "Predicates": {
-          "type": "list",
-          "member": {
-            "shape": "Sr"
-          }
+        "MatchPredicates": {
+          "shape": "Ss"
+        },
+        "RateKey": {},
+        "RateLimit": {
+          "type": "long"
         }
       }
     },
-    "Sr": {
+    "Ss": {
+      "type": "list",
+      "member": {
+        "shape": "St"
+      }
+    },
+    "St": {
       "type": "structure",
       "required": [
         "Negated",
@@ -97959,7 +101140,22 @@ module.exports={
         "DataId": {}
       }
     },
-    "Sw": {
+    "Sy": {
+      "type": "structure",
+      "required": [
+        "RuleId",
+        "Predicates"
+      ],
+      "members": {
+        "RuleId": {},
+        "Name": {},
+        "MetricName": {},
+        "Predicates": {
+          "shape": "Ss"
+        }
+      }
+    },
+    "S11": {
       "type": "structure",
       "required": [
         "SizeConstraintSetId",
@@ -97971,12 +101167,12 @@ module.exports={
         "SizeConstraints": {
           "type": "list",
           "member": {
-            "shape": "Sy"
+            "shape": "S13"
           }
         }
       }
     },
-    "Sy": {
+    "S13": {
       "type": "structure",
       "required": [
         "FieldToMatch",
@@ -97995,7 +101191,7 @@ module.exports={
         }
       }
     },
-    "S13": {
+    "S18": {
       "type": "structure",
       "required": [
         "SqlInjectionMatchSetId",
@@ -98007,12 +101203,12 @@ module.exports={
         "SqlInjectionMatchTuples": {
           "type": "list",
           "member": {
-            "shape": "S15"
+            "shape": "S1a"
           }
         }
       }
     },
-    "S15": {
+    "S1a": {
       "type": "structure",
       "required": [
         "FieldToMatch",
@@ -98025,7 +101221,7 @@ module.exports={
         "TextTransformation": {}
       }
     },
-    "S17": {
+    "S1c": {
       "type": "structure",
       "required": [
         "Type"
@@ -98034,7 +101230,7 @@ module.exports={
         "Type": {}
       }
     },
-    "S1a": {
+    "S1f": {
       "type": "structure",
       "required": [
         "WebACLId",
@@ -98046,17 +101242,17 @@ module.exports={
         "Name": {},
         "MetricName": {},
         "DefaultAction": {
-          "shape": "S17"
+          "shape": "S1c"
         },
         "Rules": {
           "type": "list",
           "member": {
-            "shape": "S1c"
+            "shape": "S1h"
           }
         }
       }
     },
-    "S1c": {
+    "S1h": {
       "type": "structure",
       "required": [
         "Priority",
@@ -98069,11 +101265,12 @@ module.exports={
         },
         "RuleId": {},
         "Action": {
-          "shape": "S17"
-        }
+          "shape": "S1c"
+        },
+        "Type": {}
       }
     },
-    "S1g": {
+    "S1m": {
       "type": "structure",
       "required": [
         "XssMatchSetId",
@@ -98085,12 +101282,12 @@ module.exports={
         "XssMatchTuples": {
           "type": "list",
           "member": {
-            "shape": "S1i"
+            "shape": "S1o"
           }
         }
       }
     },
-    "S1i": {
+    "S1o": {
       "type": "structure",
       "required": [
         "FieldToMatch",
@@ -98103,7 +101300,7 @@ module.exports={
         "TextTransformation": {}
       }
     },
-    "S29": {
+    "S2o": {
       "type": "structure",
       "required": [
         "StartTime",
@@ -98117,12 +101314,42 @@ module.exports={
           "type": "timestamp"
         }
       }
+    },
+    "S3q": {
+      "type": "list",
+      "member": {
+        "type": "structure",
+        "required": [
+          "RuleId",
+          "Name"
+        ],
+        "members": {
+          "RuleId": {},
+          "Name": {}
+        }
+      }
+    },
+    "S4k": {
+      "type": "list",
+      "member": {
+        "type": "structure",
+        "required": [
+          "Action",
+          "Predicate"
+        ],
+        "members": {
+          "Action": {},
+          "Predicate": {
+            "shape": "St"
+          }
+        }
+      }
     }
   }
 }
-},{}],149:[function(require,module,exports){
-arguments[4][28][0].apply(exports,arguments)
-},{"dup":28}],150:[function(require,module,exports){
+},{}],156:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],157:[function(require,module,exports){
 module.exports={
   "version": "2.0",
   "metadata": {
@@ -98148,6 +101375,11 @@ module.exports={
           "VersionId"
         ],
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "DocumentId": {
             "location": "uri",
             "locationName": "DocumentId"
@@ -98173,6 +101405,11 @@ module.exports={
           "UserId": {
             "location": "uri",
             "locationName": "UserId"
+          },
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
           }
         }
       },
@@ -98180,7 +101417,7 @@ module.exports={
         "type": "structure",
         "members": {
           "User": {
-            "shape": "S7"
+            "shape": "S8"
           }
         }
       }
@@ -98197,6 +101434,11 @@ module.exports={
           "Principals"
         ],
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "ResourceId": {
             "location": "uri",
             "locationName": "ResourceId"
@@ -98241,6 +101483,88 @@ module.exports={
         }
       }
     },
+    "CreateComment": {
+      "http": {
+        "requestUri": "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment",
+        "responseCode": 201
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "DocumentId",
+          "VersionId",
+          "Text"
+        ],
+        "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
+          "DocumentId": {
+            "location": "uri",
+            "locationName": "DocumentId"
+          },
+          "VersionId": {
+            "location": "uri",
+            "locationName": "VersionId"
+          },
+          "ParentId": {},
+          "ThreadId": {},
+          "Text": {
+            "shape": "Sy"
+          },
+          "Visibility": {},
+          "NotifyCollaborators": {
+            "type": "boolean"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "Comment": {
+            "shape": "S12"
+          }
+        }
+      }
+    },
+    "CreateCustomMetadata": {
+      "http": {
+        "method": "PUT",
+        "requestUri": "/api/v1/resources/{ResourceId}/customMetadata",
+        "responseCode": 200
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "ResourceId",
+          "CustomMetadata"
+        ],
+        "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
+          "ResourceId": {
+            "location": "uri",
+            "locationName": "ResourceId"
+          },
+          "VersionId": {
+            "location": "querystring",
+            "locationName": "versionid"
+          },
+          "CustomMetadata": {
+            "shape": "S15"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {}
+      }
+    },
     "CreateFolder": {
       "http": {
         "requestUri": "/api/v1/folders",
@@ -98252,6 +101576,11 @@ module.exports={
           "ParentFolderId"
         ],
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "Name": {},
           "ParentFolderId": {}
         }
@@ -98260,9 +101589,41 @@ module.exports={
         "type": "structure",
         "members": {
           "Metadata": {
-            "shape": "Sy"
+            "shape": "S1c"
           }
         }
+      }
+    },
+    "CreateLabels": {
+      "http": {
+        "method": "PUT",
+        "requestUri": "/api/v1/resources/{ResourceId}/labels",
+        "responseCode": 200
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "ResourceId",
+          "Labels"
+        ],
+        "members": {
+          "ResourceId": {
+            "location": "uri",
+            "locationName": "ResourceId"
+          },
+          "Labels": {
+            "shape": "S1f"
+          },
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {}
       }
     },
     "CreateNotificationSubscription": {
@@ -98292,7 +101653,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Subscription": {
-            "shape": "S16"
+            "shape": "S1o"
           }
         }
       }
@@ -98313,6 +101674,7 @@ module.exports={
         "members": {
           "OrganizationId": {},
           "Username": {},
+          "EmailAddress": {},
           "GivenName": {},
           "Surname": {},
           "Password": {
@@ -98321,7 +101683,12 @@ module.exports={
           },
           "TimeZoneId": {},
           "StorageRule": {
-            "shape": "Si"
+            "shape": "Sj"
+          },
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
           }
         }
       },
@@ -98329,7 +101696,7 @@ module.exports={
         "type": "structure",
         "members": {
           "User": {
-            "shape": "S7"
+            "shape": "S8"
           }
         }
       }
@@ -98349,8 +101716,90 @@ module.exports={
           "UserId": {
             "location": "uri",
             "locationName": "UserId"
+          },
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
           }
         }
+      }
+    },
+    "DeleteComment": {
+      "http": {
+        "method": "DELETE",
+        "requestUri": "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment/{CommentId}",
+        "responseCode": 204
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "DocumentId",
+          "VersionId",
+          "CommentId"
+        ],
+        "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
+          "DocumentId": {
+            "location": "uri",
+            "locationName": "DocumentId"
+          },
+          "VersionId": {
+            "location": "uri",
+            "locationName": "VersionId"
+          },
+          "CommentId": {
+            "location": "uri",
+            "locationName": "CommentId"
+          }
+        }
+      }
+    },
+    "DeleteCustomMetadata": {
+      "http": {
+        "method": "DELETE",
+        "requestUri": "/api/v1/resources/{ResourceId}/customMetadata",
+        "responseCode": 200
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "ResourceId"
+        ],
+        "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
+          "ResourceId": {
+            "location": "uri",
+            "locationName": "ResourceId"
+          },
+          "VersionId": {
+            "location": "querystring",
+            "locationName": "versionId"
+          },
+          "Keys": {
+            "location": "querystring",
+            "locationName": "keys",
+            "type": "list",
+            "member": {}
+          },
+          "DeleteAll": {
+            "location": "querystring",
+            "locationName": "deleteAll",
+            "type": "boolean"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {}
       }
     },
     "DeleteDocument": {
@@ -98365,6 +101814,11 @@ module.exports={
           "DocumentId"
         ],
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "DocumentId": {
             "location": "uri",
             "locationName": "DocumentId"
@@ -98384,6 +101838,11 @@ module.exports={
           "FolderId"
         ],
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "FolderId": {
             "location": "uri",
             "locationName": "FolderId"
@@ -98403,11 +101862,54 @@ module.exports={
           "FolderId"
         ],
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "FolderId": {
             "location": "uri",
             "locationName": "FolderId"
           }
         }
+      }
+    },
+    "DeleteLabels": {
+      "http": {
+        "method": "DELETE",
+        "requestUri": "/api/v1/resources/{ResourceId}/labels",
+        "responseCode": 200
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "ResourceId"
+        ],
+        "members": {
+          "ResourceId": {
+            "location": "uri",
+            "locationName": "ResourceId"
+          },
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
+          "Labels": {
+            "shape": "S1f",
+            "location": "querystring",
+            "locationName": "labels"
+          },
+          "DeleteAll": {
+            "location": "querystring",
+            "locationName": "deleteAll",
+            "type": "boolean"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {}
       }
     },
     "DeleteNotificationSubscription": {
@@ -98446,10 +101948,172 @@ module.exports={
           "UserId"
         ],
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "UserId": {
             "location": "uri",
             "locationName": "UserId"
           }
+        }
+      }
+    },
+    "DescribeActivities": {
+      "http": {
+        "method": "GET",
+        "requestUri": "/api/v1/activities",
+        "responseCode": 200
+      },
+      "input": {
+        "type": "structure",
+        "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
+          "StartTime": {
+            "location": "querystring",
+            "locationName": "startTime",
+            "type": "timestamp"
+          },
+          "EndTime": {
+            "location": "querystring",
+            "locationName": "endTime",
+            "type": "timestamp"
+          },
+          "OrganizationId": {
+            "location": "querystring",
+            "locationName": "organizationId"
+          },
+          "UserId": {
+            "location": "querystring",
+            "locationName": "userId"
+          },
+          "Limit": {
+            "location": "querystring",
+            "locationName": "limit",
+            "type": "integer"
+          },
+          "Marker": {
+            "location": "querystring",
+            "locationName": "marker"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "UserActivities": {
+            "type": "list",
+            "member": {
+              "type": "structure",
+              "members": {
+                "Type": {},
+                "TimeStamp": {
+                  "type": "timestamp"
+                },
+                "OrganizationId": {},
+                "Initiator": {
+                  "shape": "S2b"
+                },
+                "Participants": {
+                  "type": "structure",
+                  "members": {
+                    "Users": {
+                      "type": "list",
+                      "member": {
+                        "shape": "S2b"
+                      }
+                    },
+                    "Groups": {
+                      "type": "list",
+                      "member": {
+                        "type": "structure",
+                        "members": {
+                          "Id": {},
+                          "Name": {}
+                        }
+                      }
+                    }
+                  }
+                },
+                "ResourceMetadata": {
+                  "shape": "S2h"
+                },
+                "OriginalParent": {
+                  "shape": "S2h"
+                },
+                "CommentMetadata": {
+                  "type": "structure",
+                  "members": {
+                    "CommentId": {},
+                    "Contributor": {
+                      "shape": "S8"
+                    },
+                    "CreatedTimestamp": {
+                      "type": "timestamp"
+                    },
+                    "CommentStatus": {},
+                    "RecipientId": {}
+                  }
+                }
+              }
+            }
+          },
+          "Marker": {}
+        }
+      }
+    },
+    "DescribeComments": {
+      "http": {
+        "method": "GET",
+        "requestUri": "/api/v1/documents/{DocumentId}/versions/{VersionId}/comments",
+        "responseCode": 200
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "DocumentId",
+          "VersionId"
+        ],
+        "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
+          "DocumentId": {
+            "location": "uri",
+            "locationName": "DocumentId"
+          },
+          "VersionId": {
+            "location": "uri",
+            "locationName": "VersionId"
+          },
+          "Limit": {
+            "location": "querystring",
+            "locationName": "limit",
+            "type": "integer"
+          },
+          "Marker": {
+            "location": "querystring",
+            "locationName": "marker"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "Comments": {
+            "type": "list",
+            "member": {
+              "shape": "S12"
+            }
+          },
+          "Marker": {}
         }
       }
     },
@@ -98465,6 +102129,11 @@ module.exports={
           "DocumentId"
         ],
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "DocumentId": {
             "location": "uri",
             "locationName": "DocumentId"
@@ -98494,7 +102163,7 @@ module.exports={
           "DocumentVersions": {
             "type": "list",
             "member": {
-              "shape": "S1m"
+              "shape": "S2s"
             }
           },
           "Marker": {}
@@ -98513,6 +102182,11 @@ module.exports={
           "FolderId"
         ],
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "FolderId": {
             "location": "uri",
             "locationName": "FolderId"
@@ -98548,15 +102222,12 @@ module.exports={
         "type": "structure",
         "members": {
           "Folders": {
-            "type": "list",
-            "member": {
-              "shape": "Sy"
-            }
+            "shape": "S35"
           },
           "Documents": {
             "type": "list",
             "member": {
-              "shape": "S21"
+              "shape": "S37"
             }
           },
           "Marker": {}
@@ -98596,7 +102267,7 @@ module.exports={
           "Subscriptions": {
             "type": "list",
             "member": {
-              "shape": "S16"
+              "shape": "S1o"
             }
           },
           "Marker": {}
@@ -98615,6 +102286,11 @@ module.exports={
           "ResourceId"
         ],
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "ResourceId": {
             "location": "uri",
             "locationName": "ResourceId"
@@ -98657,6 +102333,44 @@ module.exports={
         }
       }
     },
+    "DescribeRootFolders": {
+      "http": {
+        "method": "GET",
+        "requestUri": "/api/v1/me/root",
+        "responseCode": 200
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "AuthenticationToken"
+        ],
+        "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
+          "Limit": {
+            "location": "querystring",
+            "locationName": "limit",
+            "type": "integer"
+          },
+          "Marker": {
+            "location": "querystring",
+            "locationName": "marker"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "Folders": {
+            "shape": "S35"
+          },
+          "Marker": {}
+        }
+      }
+    },
     "DescribeUsers": {
       "http": {
         "method": "GET",
@@ -98666,6 +102380,11 @@ module.exports={
       "input": {
         "type": "structure",
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "OrganizationId": {
             "location": "querystring",
             "locationName": "organizationId"
@@ -98713,13 +102432,41 @@ module.exports={
           "Users": {
             "type": "list",
             "member": {
-              "shape": "S7"
+              "shape": "S8"
             }
           },
           "TotalNumberOfUsers": {
             "type": "long"
           },
           "Marker": {}
+        }
+      }
+    },
+    "GetCurrentUser": {
+      "http": {
+        "method": "GET",
+        "requestUri": "/api/v1/me",
+        "responseCode": 200
+      },
+      "input": {
+        "type": "structure",
+        "required": [
+          "AuthenticationToken"
+        ],
+        "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          }
+        }
+      },
+      "output": {
+        "type": "structure",
+        "members": {
+          "User": {
+            "shape": "S8"
+          }
         }
       }
     },
@@ -98735,9 +102482,19 @@ module.exports={
           "DocumentId"
         ],
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "DocumentId": {
             "location": "uri",
             "locationName": "DocumentId"
+          },
+          "IncludeCustomMetadata": {
+            "location": "querystring",
+            "locationName": "includeCustomMetadata",
+            "type": "boolean"
           }
         }
       },
@@ -98745,7 +102502,10 @@ module.exports={
         "type": "structure",
         "members": {
           "Metadata": {
-            "shape": "S21"
+            "shape": "S37"
+          },
+          "CustomMetadata": {
+            "shape": "S15"
           }
         }
       }
@@ -98762,6 +102522,11 @@ module.exports={
           "DocumentId"
         ],
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "DocumentId": {
             "location": "uri",
             "locationName": "DocumentId"
@@ -98785,7 +102550,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Path": {
-            "shape": "S2n"
+            "shape": "S3x"
           }
         }
       }
@@ -98803,6 +102568,11 @@ module.exports={
           "VersionId"
         ],
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "DocumentId": {
             "location": "uri",
             "locationName": "DocumentId"
@@ -98814,6 +102584,11 @@ module.exports={
           "Fields": {
             "location": "querystring",
             "locationName": "fields"
+          },
+          "IncludeCustomMetadata": {
+            "location": "querystring",
+            "locationName": "includeCustomMetadata",
+            "type": "boolean"
           }
         }
       },
@@ -98821,7 +102596,10 @@ module.exports={
         "type": "structure",
         "members": {
           "Metadata": {
-            "shape": "S1m"
+            "shape": "S2s"
+          },
+          "CustomMetadata": {
+            "shape": "S15"
           }
         }
       }
@@ -98838,9 +102616,19 @@ module.exports={
           "FolderId"
         ],
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "FolderId": {
             "location": "uri",
             "locationName": "FolderId"
+          },
+          "IncludeCustomMetadata": {
+            "location": "querystring",
+            "locationName": "includeCustomMetadata",
+            "type": "boolean"
           }
         }
       },
@@ -98848,7 +102636,10 @@ module.exports={
         "type": "structure",
         "members": {
           "Metadata": {
-            "shape": "Sy"
+            "shape": "S1c"
+          },
+          "CustomMetadata": {
+            "shape": "S15"
           }
         }
       }
@@ -98865,6 +102656,11 @@ module.exports={
           "FolderId"
         ],
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "FolderId": {
             "location": "uri",
             "locationName": "FolderId"
@@ -98888,7 +102684,7 @@ module.exports={
         "type": "structure",
         "members": {
           "Path": {
-            "shape": "S2n"
+            "shape": "S3x"
           }
         }
       }
@@ -98904,6 +102700,11 @@ module.exports={
           "ParentFolderId"
         ],
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "Id": {},
           "Name": {},
           "ContentCreatedTimestamp": {
@@ -98923,13 +102724,13 @@ module.exports={
         "type": "structure",
         "members": {
           "Metadata": {
-            "shape": "S21"
+            "shape": "S37"
           },
           "UploadMetadata": {
             "type": "structure",
             "members": {
               "UploadUrl": {
-                "shape": "S1r"
+                "shape": "S2x"
               },
               "SignedHeaders": {
                 "type": "map",
@@ -98953,6 +102754,11 @@ module.exports={
           "ResourceId"
         ],
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "ResourceId": {
             "location": "uri",
             "locationName": "ResourceId"
@@ -98973,6 +102779,11 @@ module.exports={
           "PrincipalId"
         ],
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "ResourceId": {
             "location": "uri",
             "locationName": "ResourceId"
@@ -99000,6 +102811,11 @@ module.exports={
           "DocumentId"
         ],
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "DocumentId": {
             "location": "uri",
             "locationName": "DocumentId"
@@ -99023,6 +102839,11 @@ module.exports={
           "VersionId"
         ],
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "DocumentId": {
             "location": "uri",
             "locationName": "DocumentId"
@@ -99047,6 +102868,11 @@ module.exports={
           "FolderId"
         ],
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "FolderId": {
             "location": "uri",
             "locationName": "FolderId"
@@ -99069,6 +102895,11 @@ module.exports={
           "UserId"
         ],
         "members": {
+          "AuthenticationToken": {
+            "shape": "S2",
+            "location": "header",
+            "locationName": "Authentication"
+          },
           "UserId": {
             "location": "uri",
             "locationName": "UserId"
@@ -99077,7 +102908,7 @@ module.exports={
           "Surname": {},
           "Type": {},
           "StorageRule": {
-            "shape": "Si"
+            "shape": "Sj"
           },
           "TimeZoneId": {},
           "Locale": {}
@@ -99087,14 +102918,18 @@ module.exports={
         "type": "structure",
         "members": {
           "User": {
-            "shape": "S7"
+            "shape": "S8"
           }
         }
       }
     }
   },
   "shapes": {
-    "S7": {
+    "S2": {
+      "type": "string",
+      "sensitive": true
+    },
+    "S8": {
       "type": "structure",
       "members": {
         "Id": {},
@@ -99122,13 +102957,13 @@ module.exports={
               "type": "long"
             },
             "StorageRule": {
-              "shape": "Si"
+              "shape": "Sj"
             }
           }
         }
       }
     },
-    "Si": {
+    "Sj": {
       "type": "structure",
       "members": {
         "StorageAllocatedInBytes": {
@@ -99138,6 +102973,38 @@ module.exports={
       }
     },
     "Sy": {
+      "type": "string",
+      "sensitive": true
+    },
+    "S12": {
+      "type": "structure",
+      "required": [
+        "CommentId"
+      ],
+      "members": {
+        "CommentId": {},
+        "ParentId": {},
+        "ThreadId": {},
+        "Text": {
+          "shape": "Sy"
+        },
+        "Contributor": {
+          "shape": "S8"
+        },
+        "CreatedTimestamp": {
+          "type": "timestamp"
+        },
+        "Status": {},
+        "Visibility": {},
+        "RecipientId": {}
+      }
+    },
+    "S15": {
+      "type": "map",
+      "key": {},
+      "value": {}
+    },
+    "S1c": {
       "type": "structure",
       "members": {
         "Id": {},
@@ -99151,10 +103018,23 @@ module.exports={
           "type": "timestamp"
         },
         "ResourceState": {},
-        "Signature": {}
+        "Signature": {},
+        "Labels": {
+          "shape": "S1f"
+        },
+        "Size": {
+          "type": "long"
+        },
+        "LatestVersionSize": {
+          "type": "long"
+        }
       }
     },
-    "S16": {
+    "S1f": {
+      "type": "list",
+      "member": {}
+    },
+    "S1o": {
       "type": "structure",
       "members": {
         "SubscriptionId": {},
@@ -99162,7 +103042,31 @@ module.exports={
         "Protocol": {}
       }
     },
-    "S1m": {
+    "S2b": {
+      "type": "structure",
+      "members": {
+        "Id": {},
+        "Username": {},
+        "GivenName": {},
+        "Surname": {},
+        "EmailAddress": {}
+      }
+    },
+    "S2h": {
+      "type": "structure",
+      "members": {
+        "Type": {},
+        "Name": {},
+        "OriginalName": {},
+        "Id": {},
+        "VersionId": {},
+        "Owner": {
+          "shape": "S2b"
+        },
+        "ParentId": {}
+      }
+    },
+    "S2s": {
       "type": "structure",
       "members": {
         "Id": {},
@@ -99190,23 +103094,29 @@ module.exports={
           "type": "map",
           "key": {},
           "value": {
-            "shape": "S1r"
+            "shape": "S2x"
           }
         },
         "Source": {
           "type": "map",
           "key": {},
           "value": {
-            "shape": "S1r"
+            "shape": "S2x"
           }
         }
       }
     },
-    "S1r": {
+    "S2x": {
       "type": "string",
       "sensitive": true
     },
-    "S21": {
+    "S35": {
+      "type": "list",
+      "member": {
+        "shape": "S1c"
+      }
+    },
+    "S37": {
       "type": "structure",
       "members": {
         "Id": {},
@@ -99219,12 +103129,15 @@ module.exports={
           "type": "timestamp"
         },
         "LatestVersionMetadata": {
-          "shape": "S1m"
+          "shape": "S2s"
         },
-        "ResourceState": {}
+        "ResourceState": {},
+        "Labels": {
+          "shape": "S1f"
+        }
       }
     },
-    "S2n": {
+    "S3x": {
       "type": "structure",
       "members": {
         "Components": {
@@ -99241,7 +103154,7 @@ module.exports={
     }
   }
 }
-},{}],151:[function(require,module,exports){
+},{}],158:[function(require,module,exports){
 module.exports={
   "pagination": {
     "DescribeDocumentVersions": {
@@ -99267,11 +103180,11 @@ module.exports={
     }
   }
 }
-},{}],152:[function(require,module,exports){
+},{}],159:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['acm'] = {};
 AWS.ACM = Service.defineService('acm', ['2015-12-08']);
@@ -99287,11 +103200,11 @@ Object.defineProperty(apiLoader.services['acm'], '2015-12-08', {
 
 module.exports = AWS.ACM;
 
-},{"../apis/acm-2015-12-08.min.json":1,"../apis/acm-2015-12-08.paginators.json":2,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],153:[function(require,module,exports){
+},{"../apis/acm-2015-12-08.min.json":1,"../apis/acm-2015-12-08.paginators.json":2,"../lib/core":227,"../lib/node_loader":224}],160:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['apigateway'] = {};
 AWS.APIGateway = Service.defineService('apigateway', ['2015-07-09']);
@@ -99308,11 +103221,11 @@ Object.defineProperty(apiLoader.services['apigateway'], '2015-07-09', {
 
 module.exports = AWS.APIGateway;
 
-},{"../apis/apigateway-2015-07-09.min.json":3,"../apis/apigateway-2015-07-09.paginators.json":4,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258,"../lib/services/apigateway":259}],154:[function(require,module,exports){
+},{"../apis/apigateway-2015-07-09.min.json":3,"../apis/apigateway-2015-07-09.paginators.json":4,"../lib/core":227,"../lib/node_loader":224,"../lib/services/apigateway":267}],161:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['applicationautoscaling'] = {};
 AWS.ApplicationAutoScaling = Service.defineService('applicationautoscaling', ['2016-02-06']);
@@ -99328,11 +103241,11 @@ Object.defineProperty(apiLoader.services['applicationautoscaling'], '2016-02-06'
 
 module.exports = AWS.ApplicationAutoScaling;
 
-},{"../apis/application-autoscaling-2016-02-06.min.json":5,"../apis/application-autoscaling-2016-02-06.paginators.json":6,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],155:[function(require,module,exports){
+},{"../apis/application-autoscaling-2016-02-06.min.json":5,"../apis/application-autoscaling-2016-02-06.paginators.json":6,"../lib/core":227,"../lib/node_loader":224}],162:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['autoscaling'] = {};
 AWS.AutoScaling = Service.defineService('autoscaling', ['2011-01-01']);
@@ -99348,10 +103261,8 @@ Object.defineProperty(apiLoader.services['autoscaling'], '2011-01-01', {
 
 module.exports = AWS.AutoScaling;
 
-},{"../apis/autoscaling-2011-01-01.min.json":7,"../apis/autoscaling-2011-01-01.paginators.json":8,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],156:[function(require,module,exports){
+},{"../apis/autoscaling-2011-01-01.min.json":7,"../apis/autoscaling-2011-01-01.paginators.json":8,"../lib/core":227,"../lib/node_loader":224}],163:[function(require,module,exports){
 require('../lib/node_loader');
-var AWS = require('../lib/core');
-
 module.exports = {
   ACM: require('./acm'),
   APIGateway: require('./apigateway'),
@@ -99379,6 +103290,7 @@ module.exports = {
   EC2: require('./ec2'),
   ECR: require('./ecr'),
   ECS: require('./ecs'),
+  EFS: require('./efs'),
   ElastiCache: require('./elasticache'),
   ElasticBeanstalk: require('./elasticbeanstalk'),
   ELB: require('./elb'),
@@ -99416,11 +103328,11 @@ module.exports = {
   WAF: require('./waf'),
   WorkDocs: require('./workdocs')
 };
-},{"../lib/core":219,"../lib/node_loader":216,"./acm":152,"./apigateway":153,"./applicationautoscaling":154,"./autoscaling":155,"./cloudformation":157,"./cloudfront":158,"./cloudhsm":159,"./cloudtrail":160,"./cloudwatch":161,"./cloudwatchevents":162,"./cloudwatchlogs":163,"./codecommit":164,"./codedeploy":165,"./codepipeline":166,"./cognitoidentity":167,"./cognitoidentityserviceprovider":168,"./cognitosync":169,"./configservice":170,"./cur":171,"./devicefarm":172,"./directconnect":173,"./dynamodb":174,"./dynamodbstreams":175,"./ec2":176,"./ecr":177,"./ecs":178,"./elasticache":179,"./elasticbeanstalk":180,"./elastictranscoder":181,"./elb":182,"./elbv2":183,"./emr":184,"./firehose":185,"./gamelift":186,"./inspector":187,"./iot":188,"./iotdata":189,"./kinesis":190,"./kms":191,"./lambda":192,"./lexruntime":193,"./machinelearning":194,"./marketplacecommerceanalytics":195,"./mobileanalytics":196,"./mturk":197,"./opsworks":198,"./polly":199,"./rds":200,"./redshift":201,"./rekognition":202,"./route53":203,"./route53domains":204,"./s3":205,"./servicecatalog":206,"./ses":207,"./sns":208,"./sqs":209,"./ssm":210,"./storagegateway":211,"./sts":212,"./waf":213,"./workdocs":214}],157:[function(require,module,exports){
+},{"../lib/node_loader":224,"./acm":159,"./apigateway":160,"./applicationautoscaling":161,"./autoscaling":162,"./cloudformation":164,"./cloudfront":165,"./cloudhsm":166,"./cloudtrail":167,"./cloudwatch":168,"./cloudwatchevents":169,"./cloudwatchlogs":170,"./codecommit":171,"./codedeploy":172,"./codepipeline":173,"./cognitoidentity":174,"./cognitoidentityserviceprovider":175,"./cognitosync":176,"./configservice":177,"./cur":178,"./devicefarm":179,"./directconnect":180,"./dynamodb":181,"./dynamodbstreams":182,"./ec2":183,"./ecr":184,"./ecs":185,"./efs":186,"./elasticache":187,"./elasticbeanstalk":188,"./elastictranscoder":189,"./elb":190,"./elbv2":191,"./emr":192,"./firehose":193,"./gamelift":194,"./inspector":195,"./iot":196,"./iotdata":197,"./kinesis":198,"./kms":199,"./lambda":200,"./lexruntime":201,"./machinelearning":202,"./marketplacecommerceanalytics":203,"./mobileanalytics":204,"./mturk":205,"./opsworks":206,"./polly":207,"./rds":208,"./redshift":209,"./rekognition":210,"./route53":211,"./route53domains":212,"./s3":213,"./servicecatalog":214,"./ses":215,"./sns":216,"./sqs":217,"./ssm":218,"./storagegateway":219,"./sts":220,"./waf":221,"./workdocs":222}],164:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['cloudformation'] = {};
 AWS.CloudFormation = Service.defineService('cloudformation', ['2010-05-15']);
@@ -99437,11 +103349,11 @@ Object.defineProperty(apiLoader.services['cloudformation'], '2010-05-15', {
 
 module.exports = AWS.CloudFormation;
 
-},{"../apis/cloudformation-2010-05-15.min.json":9,"../apis/cloudformation-2010-05-15.paginators.json":10,"../apis/cloudformation-2010-05-15.waiters2.json":11,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],158:[function(require,module,exports){
+},{"../apis/cloudformation-2010-05-15.min.json":9,"../apis/cloudformation-2010-05-15.paginators.json":10,"../apis/cloudformation-2010-05-15.waiters2.json":11,"../lib/core":227,"../lib/node_loader":224}],165:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['cloudfront'] = {};
 AWS.CloudFront = Service.defineService('cloudfront', ['2013-05-12*', '2013-11-11*', '2014-05-31*', '2014-10-21*', '2014-11-06*', '2015-04-17*', '2015-07-27*', '2015-09-17*', '2016-01-13*', '2016-01-28*', '2016-08-01*', '2016-08-20*', '2016-09-07*', '2016-09-29*', '2016-11-25', '2016-11-25*', '2017-03-25']);
@@ -99469,11 +103381,11 @@ Object.defineProperty(apiLoader.services['cloudfront'], '2017-03-25', {
 
 module.exports = AWS.CloudFront;
 
-},{"../apis/cloudfront-2016-11-25.min.json":12,"../apis/cloudfront-2016-11-25.paginators.json":13,"../apis/cloudfront-2016-11-25.waiters2.json":14,"../apis/cloudfront-2017-03-25.min.json":15,"../apis/cloudfront-2017-03-25.paginators.json":16,"../apis/cloudfront-2017-03-25.waiters2.json":17,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258,"../lib/services/cloudfront":260}],159:[function(require,module,exports){
+},{"../apis/cloudfront-2016-11-25.min.json":12,"../apis/cloudfront-2016-11-25.paginators.json":13,"../apis/cloudfront-2016-11-25.waiters2.json":14,"../apis/cloudfront-2017-03-25.min.json":15,"../apis/cloudfront-2017-03-25.paginators.json":16,"../apis/cloudfront-2017-03-25.waiters2.json":17,"../lib/core":227,"../lib/node_loader":224,"../lib/services/cloudfront":268}],166:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['cloudhsm'] = {};
 AWS.CloudHSM = Service.defineService('cloudhsm', ['2014-05-30']);
@@ -99488,11 +103400,11 @@ Object.defineProperty(apiLoader.services['cloudhsm'], '2014-05-30', {
 
 module.exports = AWS.CloudHSM;
 
-},{"../apis/cloudhsm-2014-05-30.min.json":18,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],160:[function(require,module,exports){
+},{"../apis/cloudhsm-2014-05-30.min.json":18,"../lib/core":227,"../lib/node_loader":224}],167:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['cloudtrail'] = {};
 AWS.CloudTrail = Service.defineService('cloudtrail', ['2013-11-01']);
@@ -99508,11 +103420,11 @@ Object.defineProperty(apiLoader.services['cloudtrail'], '2013-11-01', {
 
 module.exports = AWS.CloudTrail;
 
-},{"../apis/cloudtrail-2013-11-01.min.json":19,"../apis/cloudtrail-2013-11-01.paginators.json":20,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],161:[function(require,module,exports){
+},{"../apis/cloudtrail-2013-11-01.min.json":19,"../apis/cloudtrail-2013-11-01.paginators.json":20,"../lib/core":227,"../lib/node_loader":224}],168:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['cloudwatch'] = {};
 AWS.CloudWatch = Service.defineService('cloudwatch', ['2010-08-01']);
@@ -99529,11 +103441,11 @@ Object.defineProperty(apiLoader.services['cloudwatch'], '2010-08-01', {
 
 module.exports = AWS.CloudWatch;
 
-},{"../apis/monitoring-2010-08-01.min.json":99,"../apis/monitoring-2010-08-01.paginators.json":100,"../apis/monitoring-2010-08-01.waiters2.json":101,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],162:[function(require,module,exports){
+},{"../apis/monitoring-2010-08-01.min.json":104,"../apis/monitoring-2010-08-01.paginators.json":105,"../apis/monitoring-2010-08-01.waiters2.json":106,"../lib/core":227,"../lib/node_loader":224}],169:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['cloudwatchevents'] = {};
 AWS.CloudWatchEvents = Service.defineService('cloudwatchevents', ['2014-02-03*', '2015-10-07']);
@@ -99549,11 +103461,11 @@ Object.defineProperty(apiLoader.services['cloudwatchevents'], '2015-10-07', {
 
 module.exports = AWS.CloudWatchEvents;
 
-},{"../apis/events-2015-10-07.min.json":73,"../apis/events-2015-10-07.paginators.json":74,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],163:[function(require,module,exports){
+},{"../apis/events-2015-10-07.min.json":76,"../apis/events-2015-10-07.paginators.json":77,"../lib/core":227,"../lib/node_loader":224}],170:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['cloudwatchlogs'] = {};
 AWS.CloudWatchLogs = Service.defineService('cloudwatchlogs', ['2014-03-28']);
@@ -99569,11 +103481,11 @@ Object.defineProperty(apiLoader.services['cloudwatchlogs'], '2014-03-28', {
 
 module.exports = AWS.CloudWatchLogs;
 
-},{"../apis/logs-2014-03-28.min.json":90,"../apis/logs-2014-03-28.paginators.json":91,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],164:[function(require,module,exports){
+},{"../apis/logs-2014-03-28.min.json":95,"../apis/logs-2014-03-28.paginators.json":96,"../lib/core":227,"../lib/node_loader":224}],171:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['codecommit'] = {};
 AWS.CodeCommit = Service.defineService('codecommit', ['2015-04-13']);
@@ -99589,11 +103501,11 @@ Object.defineProperty(apiLoader.services['codecommit'], '2015-04-13', {
 
 module.exports = AWS.CodeCommit;
 
-},{"../apis/codecommit-2015-04-13.min.json":21,"../apis/codecommit-2015-04-13.paginators.json":22,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],165:[function(require,module,exports){
+},{"../apis/codecommit-2015-04-13.min.json":21,"../apis/codecommit-2015-04-13.paginators.json":22,"../lib/core":227,"../lib/node_loader":224}],172:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['codedeploy'] = {};
 AWS.CodeDeploy = Service.defineService('codedeploy', ['2014-10-06']);
@@ -99610,17 +103522,18 @@ Object.defineProperty(apiLoader.services['codedeploy'], '2014-10-06', {
 
 module.exports = AWS.CodeDeploy;
 
-},{"../apis/codedeploy-2014-10-06.min.json":23,"../apis/codedeploy-2014-10-06.paginators.json":24,"../apis/codedeploy-2014-10-06.waiters2.json":25,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],166:[function(require,module,exports){
+},{"../apis/codedeploy-2014-10-06.min.json":23,"../apis/codedeploy-2014-10-06.paginators.json":24,"../apis/codedeploy-2014-10-06.waiters2.json":25,"../lib/core":227,"../lib/node_loader":224}],173:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['codepipeline'] = {};
 AWS.CodePipeline = Service.defineService('codepipeline', ['2015-07-09']);
 Object.defineProperty(apiLoader.services['codepipeline'], '2015-07-09', {
   get: function get() {
     var model = require('../apis/codepipeline-2015-07-09.min.json');
+    model.paginators = require('../apis/codepipeline-2015-07-09.paginators.json').pagination;
     return model;
   },
   enumerable: true,
@@ -99629,11 +103542,11 @@ Object.defineProperty(apiLoader.services['codepipeline'], '2015-07-09', {
 
 module.exports = AWS.CodePipeline;
 
-},{"../apis/codepipeline-2015-07-09.min.json":26,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],167:[function(require,module,exports){
+},{"../apis/codepipeline-2015-07-09.min.json":26,"../apis/codepipeline-2015-07-09.paginators.json":27,"../lib/core":227,"../lib/node_loader":224}],174:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['cognitoidentity'] = {};
 AWS.CognitoIdentity = Service.defineService('cognitoidentity', ['2014-06-30']);
@@ -99650,17 +103563,18 @@ Object.defineProperty(apiLoader.services['cognitoidentity'], '2014-06-30', {
 
 module.exports = AWS.CognitoIdentity;
 
-},{"../apis/cognito-identity-2014-06-30.min.json":27,"../apis/cognito-identity-2014-06-30.paginators.json":28,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258,"../lib/services/cognitoidentity":261}],168:[function(require,module,exports){
+},{"../apis/cognito-identity-2014-06-30.min.json":28,"../apis/cognito-identity-2014-06-30.paginators.json":29,"../lib/core":227,"../lib/node_loader":224,"../lib/services/cognitoidentity":269}],175:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['cognitoidentityserviceprovider'] = {};
 AWS.CognitoIdentityServiceProvider = Service.defineService('cognitoidentityserviceprovider', ['2016-04-18']);
 Object.defineProperty(apiLoader.services['cognitoidentityserviceprovider'], '2016-04-18', {
   get: function get() {
     var model = require('../apis/cognito-idp-2016-04-18.min.json');
+    model.paginators = require('../apis/cognito-idp-2016-04-18.paginators.json').pagination;
     return model;
   },
   enumerable: true,
@@ -99669,11 +103583,11 @@ Object.defineProperty(apiLoader.services['cognitoidentityserviceprovider'], '201
 
 module.exports = AWS.CognitoIdentityServiceProvider;
 
-},{"../apis/cognito-idp-2016-04-18.min.json":29,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],169:[function(require,module,exports){
+},{"../apis/cognito-idp-2016-04-18.min.json":30,"../apis/cognito-idp-2016-04-18.paginators.json":31,"../lib/core":227,"../lib/node_loader":224}],176:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['cognitosync'] = {};
 AWS.CognitoSync = Service.defineService('cognitosync', ['2014-06-30']);
@@ -99688,11 +103602,11 @@ Object.defineProperty(apiLoader.services['cognitosync'], '2014-06-30', {
 
 module.exports = AWS.CognitoSync;
 
-},{"../apis/cognito-sync-2014-06-30.min.json":30,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],170:[function(require,module,exports){
+},{"../apis/cognito-sync-2014-06-30.min.json":32,"../lib/core":227,"../lib/node_loader":224}],177:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['configservice'] = {};
 AWS.ConfigService = Service.defineService('configservice', ['2014-11-12']);
@@ -99708,11 +103622,11 @@ Object.defineProperty(apiLoader.services['configservice'], '2014-11-12', {
 
 module.exports = AWS.ConfigService;
 
-},{"../apis/config-2014-11-12.min.json":31,"../apis/config-2014-11-12.paginators.json":32,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],171:[function(require,module,exports){
+},{"../apis/config-2014-11-12.min.json":33,"../apis/config-2014-11-12.paginators.json":34,"../lib/core":227,"../lib/node_loader":224}],178:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['cur'] = {};
 AWS.CUR = Service.defineService('cur', ['2017-01-06']);
@@ -99728,11 +103642,11 @@ Object.defineProperty(apiLoader.services['cur'], '2017-01-06', {
 
 module.exports = AWS.CUR;
 
-},{"../apis/cur-2017-01-06.min.json":33,"../apis/cur-2017-01-06.paginators.json":34,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],172:[function(require,module,exports){
+},{"../apis/cur-2017-01-06.min.json":35,"../apis/cur-2017-01-06.paginators.json":36,"../lib/core":227,"../lib/node_loader":224}],179:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['devicefarm'] = {};
 AWS.DeviceFarm = Service.defineService('devicefarm', ['2015-06-23']);
@@ -99748,11 +103662,11 @@ Object.defineProperty(apiLoader.services['devicefarm'], '2015-06-23', {
 
 module.exports = AWS.DeviceFarm;
 
-},{"../apis/devicefarm-2015-06-23.min.json":35,"../apis/devicefarm-2015-06-23.paginators.json":36,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],173:[function(require,module,exports){
+},{"../apis/devicefarm-2015-06-23.min.json":37,"../apis/devicefarm-2015-06-23.paginators.json":38,"../lib/core":227,"../lib/node_loader":224}],180:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['directconnect'] = {};
 AWS.DirectConnect = Service.defineService('directconnect', ['2012-10-25']);
@@ -99768,11 +103682,11 @@ Object.defineProperty(apiLoader.services['directconnect'], '2012-10-25', {
 
 module.exports = AWS.DirectConnect;
 
-},{"../apis/directconnect-2012-10-25.min.json":37,"../apis/directconnect-2012-10-25.paginators.json":38,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],174:[function(require,module,exports){
+},{"../apis/directconnect-2012-10-25.min.json":39,"../apis/directconnect-2012-10-25.paginators.json":40,"../lib/core":227,"../lib/node_loader":224}],181:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['dynamodb'] = {};
 AWS.DynamoDB = Service.defineService('dynamodb', ['2011-12-05', '2012-08-10']);
@@ -99800,11 +103714,11 @@ Object.defineProperty(apiLoader.services['dynamodb'], '2012-08-10', {
 
 module.exports = AWS.DynamoDB;
 
-},{"../apis/dynamodb-2011-12-05.min.json":39,"../apis/dynamodb-2011-12-05.paginators.json":40,"../apis/dynamodb-2011-12-05.waiters2.json":41,"../apis/dynamodb-2012-08-10.min.json":42,"../apis/dynamodb-2012-08-10.paginators.json":43,"../apis/dynamodb-2012-08-10.waiters2.json":44,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258,"../lib/services/dynamodb":262}],175:[function(require,module,exports){
+},{"../apis/dynamodb-2011-12-05.min.json":41,"../apis/dynamodb-2011-12-05.paginators.json":42,"../apis/dynamodb-2011-12-05.waiters2.json":43,"../apis/dynamodb-2012-08-10.min.json":44,"../apis/dynamodb-2012-08-10.paginators.json":45,"../apis/dynamodb-2012-08-10.waiters2.json":46,"../lib/core":227,"../lib/node_loader":224,"../lib/services/dynamodb":270}],182:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['dynamodbstreams'] = {};
 AWS.DynamoDBStreams = Service.defineService('dynamodbstreams', ['2012-08-10']);
@@ -99820,11 +103734,11 @@ Object.defineProperty(apiLoader.services['dynamodbstreams'], '2012-08-10', {
 
 module.exports = AWS.DynamoDBStreams;
 
-},{"../apis/streams.dynamodb-2012-08-10.min.json":145,"../apis/streams.dynamodb-2012-08-10.paginators.json":146,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],176:[function(require,module,exports){
+},{"../apis/streams.dynamodb-2012-08-10.min.json":151,"../apis/streams.dynamodb-2012-08-10.paginators.json":152,"../lib/core":227,"../lib/node_loader":224}],183:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['ec2'] = {};
 AWS.EC2 = Service.defineService('ec2', ['2013-06-15*', '2013-10-15*', '2014-02-01*', '2014-05-01*', '2014-06-15*', '2014-09-01*', '2014-10-01*', '2015-03-01*', '2015-04-15*', '2015-10-01*', '2016-04-01*', '2016-09-15*', '2016-11-15']);
@@ -99842,11 +103756,11 @@ Object.defineProperty(apiLoader.services['ec2'], '2016-11-15', {
 
 module.exports = AWS.EC2;
 
-},{"../apis/ec2-2016-11-15.min.json":45,"../apis/ec2-2016-11-15.paginators.json":46,"../apis/ec2-2016-11-15.waiters2.json":47,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258,"../lib/services/ec2":263}],177:[function(require,module,exports){
+},{"../apis/ec2-2016-11-15.min.json":47,"../apis/ec2-2016-11-15.paginators.json":48,"../apis/ec2-2016-11-15.waiters2.json":49,"../lib/core":227,"../lib/node_loader":224,"../lib/services/ec2":271}],184:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['ecr'] = {};
 AWS.ECR = Service.defineService('ecr', ['2015-09-21']);
@@ -99862,11 +103776,11 @@ Object.defineProperty(apiLoader.services['ecr'], '2015-09-21', {
 
 module.exports = AWS.ECR;
 
-},{"../apis/ecr-2015-09-21.min.json":48,"../apis/ecr-2015-09-21.paginators.json":49,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],178:[function(require,module,exports){
+},{"../apis/ecr-2015-09-21.min.json":50,"../apis/ecr-2015-09-21.paginators.json":51,"../lib/core":227,"../lib/node_loader":224}],185:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['ecs'] = {};
 AWS.ECS = Service.defineService('ecs', ['2014-11-13']);
@@ -99883,11 +103797,30 @@ Object.defineProperty(apiLoader.services['ecs'], '2014-11-13', {
 
 module.exports = AWS.ECS;
 
-},{"../apis/ecs-2014-11-13.min.json":50,"../apis/ecs-2014-11-13.paginators.json":51,"../apis/ecs-2014-11-13.waiters2.json":52,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],179:[function(require,module,exports){
+},{"../apis/ecs-2014-11-13.min.json":52,"../apis/ecs-2014-11-13.paginators.json":53,"../apis/ecs-2014-11-13.waiters2.json":54,"../lib/core":227,"../lib/node_loader":224}],186:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
+
+apiLoader.services['efs'] = {};
+AWS.EFS = Service.defineService('efs', ['2015-02-01']);
+Object.defineProperty(apiLoader.services['efs'], '2015-02-01', {
+  get: function get() {
+    var model = require('../apis/elasticfilesystem-2015-02-01.min.json');
+    return model;
+  },
+  enumerable: true,
+  configurable: true
+});
+
+module.exports = AWS.EFS;
+
+},{"../apis/elasticfilesystem-2015-02-01.min.json":60,"../lib/core":227,"../lib/node_loader":224}],187:[function(require,module,exports){
+require('../lib/node_loader');
+var AWS = require('../lib/core');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['elasticache'] = {};
 AWS.ElastiCache = Service.defineService('elasticache', ['2012-11-15*', '2014-03-24*', '2014-07-15*', '2014-09-30*', '2015-02-02']);
@@ -99904,11 +103837,11 @@ Object.defineProperty(apiLoader.services['elasticache'], '2015-02-02', {
 
 module.exports = AWS.ElastiCache;
 
-},{"../apis/elasticache-2015-02-02.min.json":53,"../apis/elasticache-2015-02-02.paginators.json":54,"../apis/elasticache-2015-02-02.waiters2.json":55,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],180:[function(require,module,exports){
+},{"../apis/elasticache-2015-02-02.min.json":55,"../apis/elasticache-2015-02-02.paginators.json":56,"../apis/elasticache-2015-02-02.waiters2.json":57,"../lib/core":227,"../lib/node_loader":224}],188:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['elasticbeanstalk'] = {};
 AWS.ElasticBeanstalk = Service.defineService('elasticbeanstalk', ['2010-12-01']);
@@ -99924,11 +103857,11 @@ Object.defineProperty(apiLoader.services['elasticbeanstalk'], '2010-12-01', {
 
 module.exports = AWS.ElasticBeanstalk;
 
-},{"../apis/elasticbeanstalk-2010-12-01.min.json":56,"../apis/elasticbeanstalk-2010-12-01.paginators.json":57,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],181:[function(require,module,exports){
+},{"../apis/elasticbeanstalk-2010-12-01.min.json":58,"../apis/elasticbeanstalk-2010-12-01.paginators.json":59,"../lib/core":227,"../lib/node_loader":224}],189:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['elastictranscoder'] = {};
 AWS.ElasticTranscoder = Service.defineService('elastictranscoder', ['2012-09-25']);
@@ -99945,11 +103878,11 @@ Object.defineProperty(apiLoader.services['elastictranscoder'], '2012-09-25', {
 
 module.exports = AWS.ElasticTranscoder;
 
-},{"../apis/elastictranscoder-2012-09-25.min.json":67,"../apis/elastictranscoder-2012-09-25.paginators.json":68,"../apis/elastictranscoder-2012-09-25.waiters2.json":69,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],182:[function(require,module,exports){
+},{"../apis/elastictranscoder-2012-09-25.min.json":70,"../apis/elastictranscoder-2012-09-25.paginators.json":71,"../apis/elastictranscoder-2012-09-25.waiters2.json":72,"../lib/core":227,"../lib/node_loader":224}],190:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['elb'] = {};
 AWS.ELB = Service.defineService('elb', ['2012-06-01']);
@@ -99966,11 +103899,11 @@ Object.defineProperty(apiLoader.services['elb'], '2012-06-01', {
 
 module.exports = AWS.ELB;
 
-},{"../apis/elasticloadbalancing-2012-06-01.min.json":58,"../apis/elasticloadbalancing-2012-06-01.paginators.json":59,"../apis/elasticloadbalancing-2012-06-01.waiters2.json":60,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],183:[function(require,module,exports){
+},{"../apis/elasticloadbalancing-2012-06-01.min.json":61,"../apis/elasticloadbalancing-2012-06-01.paginators.json":62,"../apis/elasticloadbalancing-2012-06-01.waiters2.json":63,"../lib/core":227,"../lib/node_loader":224}],191:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['elbv2'] = {};
 AWS.ELBv2 = Service.defineService('elbv2', ['2015-12-01']);
@@ -99987,11 +103920,11 @@ Object.defineProperty(apiLoader.services['elbv2'], '2015-12-01', {
 
 module.exports = AWS.ELBv2;
 
-},{"../apis/elasticloadbalancingv2-2015-12-01.min.json":61,"../apis/elasticloadbalancingv2-2015-12-01.paginators.json":62,"../apis/elasticloadbalancingv2-2015-12-01.waiters2.json":63,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],184:[function(require,module,exports){
+},{"../apis/elasticloadbalancingv2-2015-12-01.min.json":64,"../apis/elasticloadbalancingv2-2015-12-01.paginators.json":65,"../apis/elasticloadbalancingv2-2015-12-01.waiters2.json":66,"../lib/core":227,"../lib/node_loader":224}],192:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['emr'] = {};
 AWS.EMR = Service.defineService('emr', ['2009-03-31']);
@@ -100008,11 +103941,11 @@ Object.defineProperty(apiLoader.services['emr'], '2009-03-31', {
 
 module.exports = AWS.EMR;
 
-},{"../apis/elasticmapreduce-2009-03-31.min.json":64,"../apis/elasticmapreduce-2009-03-31.paginators.json":65,"../apis/elasticmapreduce-2009-03-31.waiters2.json":66,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],185:[function(require,module,exports){
+},{"../apis/elasticmapreduce-2009-03-31.min.json":67,"../apis/elasticmapreduce-2009-03-31.paginators.json":68,"../apis/elasticmapreduce-2009-03-31.waiters2.json":69,"../lib/core":227,"../lib/node_loader":224}],193:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['firehose'] = {};
 AWS.Firehose = Service.defineService('firehose', ['2015-08-04']);
@@ -100027,11 +103960,11 @@ Object.defineProperty(apiLoader.services['firehose'], '2015-08-04', {
 
 module.exports = AWS.Firehose;
 
-},{"../apis/firehose-2015-08-04.min.json":75,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],186:[function(require,module,exports){
+},{"../apis/firehose-2015-08-04.min.json":78,"../lib/core":227,"../lib/node_loader":224}],194:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['gamelift'] = {};
 AWS.GameLift = Service.defineService('gamelift', ['2015-10-01']);
@@ -100047,17 +103980,18 @@ Object.defineProperty(apiLoader.services['gamelift'], '2015-10-01', {
 
 module.exports = AWS.GameLift;
 
-},{"../apis/gamelift-2015-10-01.min.json":76,"../apis/gamelift-2015-10-01.paginators.json":77,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],187:[function(require,module,exports){
+},{"../apis/gamelift-2015-10-01.min.json":79,"../apis/gamelift-2015-10-01.paginators.json":80,"../lib/core":227,"../lib/node_loader":224}],195:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['inspector'] = {};
 AWS.Inspector = Service.defineService('inspector', ['2015-08-18*', '2016-02-16']);
 Object.defineProperty(apiLoader.services['inspector'], '2016-02-16', {
   get: function get() {
     var model = require('../apis/inspector-2016-02-16.min.json');
+    model.paginators = require('../apis/inspector-2016-02-16.paginators.json').pagination;
     return model;
   },
   enumerable: true,
@@ -100066,17 +104000,18 @@ Object.defineProperty(apiLoader.services['inspector'], '2016-02-16', {
 
 module.exports = AWS.Inspector;
 
-},{"../apis/inspector-2016-02-16.min.json":78,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],188:[function(require,module,exports){
+},{"../apis/inspector-2016-02-16.min.json":81,"../apis/inspector-2016-02-16.paginators.json":82,"../lib/core":227,"../lib/node_loader":224}],196:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['iot'] = {};
 AWS.Iot = Service.defineService('iot', ['2015-05-28']);
 Object.defineProperty(apiLoader.services['iot'], '2015-05-28', {
   get: function get() {
     var model = require('../apis/iot-2015-05-28.min.json');
+    model.paginators = require('../apis/iot-2015-05-28.paginators.json').pagination;
     return model;
   },
   enumerable: true,
@@ -100085,11 +104020,11 @@ Object.defineProperty(apiLoader.services['iot'], '2015-05-28', {
 
 module.exports = AWS.Iot;
 
-},{"../apis/iot-2015-05-28.min.json":79,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],189:[function(require,module,exports){
+},{"../apis/iot-2015-05-28.min.json":83,"../apis/iot-2015-05-28.paginators.json":84,"../lib/core":227,"../lib/node_loader":224}],197:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['iotdata'] = {};
 AWS.IotData = Service.defineService('iotdata', ['2015-05-28']);
@@ -100105,11 +104040,11 @@ Object.defineProperty(apiLoader.services['iotdata'], '2015-05-28', {
 
 module.exports = AWS.IotData;
 
-},{"../apis/iot-data-2015-05-28.min.json":80,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258,"../lib/services/iotdata":264}],190:[function(require,module,exports){
+},{"../apis/iot-data-2015-05-28.min.json":85,"../lib/core":227,"../lib/node_loader":224,"../lib/services/iotdata":272}],198:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['kinesis'] = {};
 AWS.Kinesis = Service.defineService('kinesis', ['2013-12-02']);
@@ -100126,11 +104061,11 @@ Object.defineProperty(apiLoader.services['kinesis'], '2013-12-02', {
 
 module.exports = AWS.Kinesis;
 
-},{"../apis/kinesis-2013-12-02.min.json":81,"../apis/kinesis-2013-12-02.paginators.json":82,"../apis/kinesis-2013-12-02.waiters2.json":83,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],191:[function(require,module,exports){
+},{"../apis/kinesis-2013-12-02.min.json":86,"../apis/kinesis-2013-12-02.paginators.json":87,"../apis/kinesis-2013-12-02.waiters2.json":88,"../lib/core":227,"../lib/node_loader":224}],199:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['kms'] = {};
 AWS.KMS = Service.defineService('kms', ['2014-11-01']);
@@ -100146,11 +104081,11 @@ Object.defineProperty(apiLoader.services['kms'], '2014-11-01', {
 
 module.exports = AWS.KMS;
 
-},{"../apis/kms-2014-11-01.min.json":84,"../apis/kms-2014-11-01.paginators.json":85,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],192:[function(require,module,exports){
+},{"../apis/kms-2014-11-01.min.json":89,"../apis/kms-2014-11-01.paginators.json":90,"../lib/core":227,"../lib/node_loader":224}],200:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['lambda'] = {};
 AWS.Lambda = Service.defineService('lambda', ['2014-11-11', '2015-03-31']);
@@ -100176,11 +104111,11 @@ Object.defineProperty(apiLoader.services['lambda'], '2015-03-31', {
 
 module.exports = AWS.Lambda;
 
-},{"../apis/lambda-2014-11-11.min.json":86,"../apis/lambda-2014-11-11.paginators.json":87,"../apis/lambda-2015-03-31.min.json":88,"../apis/lambda-2015-03-31.paginators.json":89,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258,"../lib/services/lambda":265}],193:[function(require,module,exports){
+},{"../apis/lambda-2014-11-11.min.json":91,"../apis/lambda-2014-11-11.paginators.json":92,"../apis/lambda-2015-03-31.min.json":93,"../apis/lambda-2015-03-31.paginators.json":94,"../lib/core":227,"../lib/node_loader":224,"../lib/services/lambda":273}],201:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['lexruntime'] = {};
 AWS.LexRuntime = Service.defineService('lexruntime', ['2016-11-28']);
@@ -100196,11 +104131,11 @@ Object.defineProperty(apiLoader.services['lexruntime'], '2016-11-28', {
 
 module.exports = AWS.LexRuntime;
 
-},{"../apis/runtime.lex-2016-11-28.min.json":131,"../apis/runtime.lex-2016-11-28.paginators.json":132,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],194:[function(require,module,exports){
+},{"../apis/runtime.lex-2016-11-28.min.json":136,"../apis/runtime.lex-2016-11-28.paginators.json":137,"../lib/core":227,"../lib/node_loader":224}],202:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['machinelearning'] = {};
 AWS.MachineLearning = Service.defineService('machinelearning', ['2014-12-12']);
@@ -100218,11 +104153,11 @@ Object.defineProperty(apiLoader.services['machinelearning'], '2014-12-12', {
 
 module.exports = AWS.MachineLearning;
 
-},{"../apis/machinelearning-2014-12-12.min.json":92,"../apis/machinelearning-2014-12-12.paginators.json":93,"../apis/machinelearning-2014-12-12.waiters2.json":94,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258,"../lib/services/machinelearning":266}],195:[function(require,module,exports){
+},{"../apis/machinelearning-2014-12-12.min.json":97,"../apis/machinelearning-2014-12-12.paginators.json":98,"../apis/machinelearning-2014-12-12.waiters2.json":99,"../lib/core":227,"../lib/node_loader":224,"../lib/services/machinelearning":274}],203:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['marketplacecommerceanalytics'] = {};
 AWS.MarketplaceCommerceAnalytics = Service.defineService('marketplacecommerceanalytics', ['2015-07-01']);
@@ -100238,11 +104173,11 @@ Object.defineProperty(apiLoader.services['marketplacecommerceanalytics'], '2015-
 
 module.exports = AWS.MarketplaceCommerceAnalytics;
 
-},{"../apis/marketplacecommerceanalytics-2015-07-01.min.json":95,"../apis/marketplacecommerceanalytics-2015-07-01.paginators.json":96,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],196:[function(require,module,exports){
+},{"../apis/marketplacecommerceanalytics-2015-07-01.min.json":100,"../apis/marketplacecommerceanalytics-2015-07-01.paginators.json":101,"../lib/core":227,"../lib/node_loader":224}],204:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['mobileanalytics'] = {};
 AWS.MobileAnalytics = Service.defineService('mobileanalytics', ['2014-06-05']);
@@ -100257,11 +104192,11 @@ Object.defineProperty(apiLoader.services['mobileanalytics'], '2014-06-05', {
 
 module.exports = AWS.MobileAnalytics;
 
-},{"../apis/mobileanalytics-2014-06-05.min.json":98,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],197:[function(require,module,exports){
+},{"../apis/mobileanalytics-2014-06-05.min.json":103,"../lib/core":227,"../lib/node_loader":224}],205:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['mturk'] = {};
 AWS.MTurk = Service.defineService('mturk', ['2017-01-17']);
@@ -100277,11 +104212,11 @@ Object.defineProperty(apiLoader.services['mturk'], '2017-01-17', {
 
 module.exports = AWS.MTurk;
 
-},{"../apis/mturk-requester-2017-01-17.min.json":102,"../apis/mturk-requester-2017-01-17.paginators.json":103,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],198:[function(require,module,exports){
+},{"../apis/mturk-requester-2017-01-17.min.json":107,"../apis/mturk-requester-2017-01-17.paginators.json":108,"../lib/core":227,"../lib/node_loader":224}],206:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['opsworks'] = {};
 AWS.OpsWorks = Service.defineService('opsworks', ['2013-02-18']);
@@ -100298,11 +104233,11 @@ Object.defineProperty(apiLoader.services['opsworks'], '2013-02-18', {
 
 module.exports = AWS.OpsWorks;
 
-},{"../apis/opsworks-2013-02-18.min.json":104,"../apis/opsworks-2013-02-18.paginators.json":105,"../apis/opsworks-2013-02-18.waiters2.json":106,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],199:[function(require,module,exports){
+},{"../apis/opsworks-2013-02-18.min.json":109,"../apis/opsworks-2013-02-18.paginators.json":110,"../apis/opsworks-2013-02-18.waiters2.json":111,"../lib/core":227,"../lib/node_loader":224}],207:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['polly'] = {};
 AWS.Polly = Service.defineService('polly', ['2016-06-10']);
@@ -100319,11 +104254,11 @@ Object.defineProperty(apiLoader.services['polly'], '2016-06-10', {
 
 module.exports = AWS.Polly;
 
-},{"../apis/polly-2016-06-10.min.json":107,"../apis/polly-2016-06-10.paginators.json":108,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258,"../lib/services/polly":267}],200:[function(require,module,exports){
+},{"../apis/polly-2016-06-10.min.json":112,"../apis/polly-2016-06-10.paginators.json":113,"../lib/core":227,"../lib/node_loader":224,"../lib/services/polly":275}],208:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['rds'] = {};
 AWS.RDS = Service.defineService('rds', ['2013-01-10', '2013-02-12', '2013-09-09', '2014-09-01', '2014-09-01*', '2014-10-31']);
@@ -100378,11 +104313,11 @@ Object.defineProperty(apiLoader.services['rds'], '2014-10-31', {
 
 module.exports = AWS.RDS;
 
-},{"../apis/rds-2013-01-10.min.json":109,"../apis/rds-2013-01-10.paginators.json":110,"../apis/rds-2013-02-12.min.json":111,"../apis/rds-2013-02-12.paginators.json":112,"../apis/rds-2013-09-09.min.json":113,"../apis/rds-2013-09-09.paginators.json":114,"../apis/rds-2013-09-09.waiters2.json":115,"../apis/rds-2014-09-01.min.json":116,"../apis/rds-2014-09-01.paginators.json":117,"../apis/rds-2014-10-31.min.json":118,"../apis/rds-2014-10-31.paginators.json":119,"../apis/rds-2014-10-31.waiters2.json":120,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258,"../lib/services/rds":268}],201:[function(require,module,exports){
+},{"../apis/rds-2013-01-10.min.json":114,"../apis/rds-2013-01-10.paginators.json":115,"../apis/rds-2013-02-12.min.json":116,"../apis/rds-2013-02-12.paginators.json":117,"../apis/rds-2013-09-09.min.json":118,"../apis/rds-2013-09-09.paginators.json":119,"../apis/rds-2013-09-09.waiters2.json":120,"../apis/rds-2014-09-01.min.json":121,"../apis/rds-2014-09-01.paginators.json":122,"../apis/rds-2014-10-31.min.json":123,"../apis/rds-2014-10-31.paginators.json":124,"../apis/rds-2014-10-31.waiters2.json":125,"../lib/core":227,"../lib/node_loader":224,"../lib/services/rds":276}],209:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['redshift'] = {};
 AWS.Redshift = Service.defineService('redshift', ['2012-12-01']);
@@ -100399,11 +104334,11 @@ Object.defineProperty(apiLoader.services['redshift'], '2012-12-01', {
 
 module.exports = AWS.Redshift;
 
-},{"../apis/redshift-2012-12-01.min.json":121,"../apis/redshift-2012-12-01.paginators.json":122,"../apis/redshift-2012-12-01.waiters2.json":123,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],202:[function(require,module,exports){
+},{"../apis/redshift-2012-12-01.min.json":126,"../apis/redshift-2012-12-01.paginators.json":127,"../apis/redshift-2012-12-01.waiters2.json":128,"../lib/core":227,"../lib/node_loader":224}],210:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['rekognition'] = {};
 AWS.Rekognition = Service.defineService('rekognition', ['2016-06-27']);
@@ -100419,11 +104354,11 @@ Object.defineProperty(apiLoader.services['rekognition'], '2016-06-27', {
 
 module.exports = AWS.Rekognition;
 
-},{"../apis/rekognition-2016-06-27.min.json":124,"../apis/rekognition-2016-06-27.paginators.json":125,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],203:[function(require,module,exports){
+},{"../apis/rekognition-2016-06-27.min.json":129,"../apis/rekognition-2016-06-27.paginators.json":130,"../lib/core":227,"../lib/node_loader":224}],211:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['route53'] = {};
 AWS.Route53 = Service.defineService('route53', ['2013-04-01']);
@@ -100441,11 +104376,11 @@ Object.defineProperty(apiLoader.services['route53'], '2013-04-01', {
 
 module.exports = AWS.Route53;
 
-},{"../apis/route53-2013-04-01.min.json":126,"../apis/route53-2013-04-01.paginators.json":127,"../apis/route53-2013-04-01.waiters2.json":128,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258,"../lib/services/route53":269}],204:[function(require,module,exports){
+},{"../apis/route53-2013-04-01.min.json":131,"../apis/route53-2013-04-01.paginators.json":132,"../apis/route53-2013-04-01.waiters2.json":133,"../lib/core":227,"../lib/node_loader":224,"../lib/services/route53":277}],212:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['route53domains'] = {};
 AWS.Route53Domains = Service.defineService('route53domains', ['2014-05-15']);
@@ -100461,11 +104396,11 @@ Object.defineProperty(apiLoader.services['route53domains'], '2014-05-15', {
 
 module.exports = AWS.Route53Domains;
 
-},{"../apis/route53domains-2014-05-15.min.json":129,"../apis/route53domains-2014-05-15.paginators.json":130,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],205:[function(require,module,exports){
+},{"../apis/route53domains-2014-05-15.min.json":134,"../apis/route53domains-2014-05-15.paginators.json":135,"../lib/core":227,"../lib/node_loader":224}],213:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['s3'] = {};
 AWS.S3 = Service.defineService('s3', ['2006-03-01']);
@@ -100483,17 +104418,18 @@ Object.defineProperty(apiLoader.services['s3'], '2006-03-01', {
 
 module.exports = AWS.S3;
 
-},{"../apis/s3-2006-03-01.min.json":133,"../apis/s3-2006-03-01.paginators.json":134,"../apis/s3-2006-03-01.waiters2.json":135,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258,"../lib/services/s3":270}],206:[function(require,module,exports){
+},{"../apis/s3-2006-03-01.min.json":138,"../apis/s3-2006-03-01.paginators.json":139,"../apis/s3-2006-03-01.waiters2.json":140,"../lib/core":227,"../lib/node_loader":224,"../lib/services/s3":278}],214:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['servicecatalog'] = {};
 AWS.ServiceCatalog = Service.defineService('servicecatalog', ['2015-12-10']);
 Object.defineProperty(apiLoader.services['servicecatalog'], '2015-12-10', {
   get: function get() {
     var model = require('../apis/servicecatalog-2015-12-10.min.json');
+    model.paginators = require('../apis/servicecatalog-2015-12-10.paginators.json').pagination;
     return model;
   },
   enumerable: true,
@@ -100502,11 +104438,11 @@ Object.defineProperty(apiLoader.services['servicecatalog'], '2015-12-10', {
 
 module.exports = AWS.ServiceCatalog;
 
-},{"../apis/servicecatalog-2015-12-10.min.json":136,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],207:[function(require,module,exports){
+},{"../apis/servicecatalog-2015-12-10.min.json":141,"../apis/servicecatalog-2015-12-10.paginators.json":142,"../lib/core":227,"../lib/node_loader":224}],215:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['ses'] = {};
 AWS.SES = Service.defineService('ses', ['2010-12-01']);
@@ -100523,11 +104459,11 @@ Object.defineProperty(apiLoader.services['ses'], '2010-12-01', {
 
 module.exports = AWS.SES;
 
-},{"../apis/email-2010-12-01.min.json":70,"../apis/email-2010-12-01.paginators.json":71,"../apis/email-2010-12-01.waiters2.json":72,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],208:[function(require,module,exports){
+},{"../apis/email-2010-12-01.min.json":73,"../apis/email-2010-12-01.paginators.json":74,"../apis/email-2010-12-01.waiters2.json":75,"../lib/core":227,"../lib/node_loader":224}],216:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['sns'] = {};
 AWS.SNS = Service.defineService('sns', ['2010-03-31']);
@@ -100543,11 +104479,11 @@ Object.defineProperty(apiLoader.services['sns'], '2010-03-31', {
 
 module.exports = AWS.SNS;
 
-},{"../apis/sns-2010-03-31.min.json":137,"../apis/sns-2010-03-31.paginators.json":138,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],209:[function(require,module,exports){
+},{"../apis/sns-2010-03-31.min.json":143,"../apis/sns-2010-03-31.paginators.json":144,"../lib/core":227,"../lib/node_loader":224}],217:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['sqs'] = {};
 AWS.SQS = Service.defineService('sqs', ['2012-11-05']);
@@ -100564,11 +104500,11 @@ Object.defineProperty(apiLoader.services['sqs'], '2012-11-05', {
 
 module.exports = AWS.SQS;
 
-},{"../apis/sqs-2012-11-05.min.json":139,"../apis/sqs-2012-11-05.paginators.json":140,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258,"../lib/services/sqs":271}],210:[function(require,module,exports){
+},{"../apis/sqs-2012-11-05.min.json":145,"../apis/sqs-2012-11-05.paginators.json":146,"../lib/core":227,"../lib/node_loader":224,"../lib/services/sqs":279}],218:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['ssm'] = {};
 AWS.SSM = Service.defineService('ssm', ['2014-11-06']);
@@ -100584,11 +104520,11 @@ Object.defineProperty(apiLoader.services['ssm'], '2014-11-06', {
 
 module.exports = AWS.SSM;
 
-},{"../apis/ssm-2014-11-06.min.json":141,"../apis/ssm-2014-11-06.paginators.json":142,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],211:[function(require,module,exports){
+},{"../apis/ssm-2014-11-06.min.json":147,"../apis/ssm-2014-11-06.paginators.json":148,"../lib/core":227,"../lib/node_loader":224}],219:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['storagegateway'] = {};
 AWS.StorageGateway = Service.defineService('storagegateway', ['2013-06-30']);
@@ -100604,11 +104540,11 @@ Object.defineProperty(apiLoader.services['storagegateway'], '2013-06-30', {
 
 module.exports = AWS.StorageGateway;
 
-},{"../apis/storagegateway-2013-06-30.min.json":143,"../apis/storagegateway-2013-06-30.paginators.json":144,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],212:[function(require,module,exports){
+},{"../apis/storagegateway-2013-06-30.min.json":149,"../apis/storagegateway-2013-06-30.paginators.json":150,"../lib/core":227,"../lib/node_loader":224}],220:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['sts'] = {};
 AWS.STS = Service.defineService('sts', ['2011-06-15']);
@@ -100616,6 +104552,7 @@ require('../lib/services/sts');
 Object.defineProperty(apiLoader.services['sts'], '2011-06-15', {
   get: function get() {
     var model = require('../apis/sts-2011-06-15.min.json');
+    model.paginators = require('../apis/sts-2011-06-15.paginators.json').pagination;
     return model;
   },
   enumerable: true,
@@ -100624,11 +104561,11 @@ Object.defineProperty(apiLoader.services['sts'], '2011-06-15', {
 
 module.exports = AWS.STS;
 
-},{"../apis/sts-2011-06-15.min.json":147,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258,"../lib/services/sts":272}],213:[function(require,module,exports){
+},{"../apis/sts-2011-06-15.min.json":153,"../apis/sts-2011-06-15.paginators.json":154,"../lib/core":227,"../lib/node_loader":224,"../lib/services/sts":280}],221:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['waf'] = {};
 AWS.WAF = Service.defineService('waf', ['2015-08-24']);
@@ -100644,11 +104581,11 @@ Object.defineProperty(apiLoader.services['waf'], '2015-08-24', {
 
 module.exports = AWS.WAF;
 
-},{"../apis/waf-2015-08-24.min.json":148,"../apis/waf-2015-08-24.paginators.json":149,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],214:[function(require,module,exports){
+},{"../apis/waf-2015-08-24.min.json":155,"../apis/waf-2015-08-24.paginators.json":156,"../lib/core":227,"../lib/node_loader":224}],222:[function(require,module,exports){
 require('../lib/node_loader');
 var AWS = require('../lib/core');
-var Service = require('../lib/service');
-var apiLoader = require('../lib/api_loader');
+var Service = AWS.Service;
+var apiLoader = AWS.apiLoader;
 
 apiLoader.services['workdocs'] = {};
 AWS.WorkDocs = Service.defineService('workdocs', ['2016-05-01']);
@@ -100664,22 +104601,19 @@ Object.defineProperty(apiLoader.services['workdocs'], '2016-05-01', {
 
 module.exports = AWS.WorkDocs;
 
-},{"../apis/workdocs-2016-05-01.min.json":150,"../apis/workdocs-2016-05-01.paginators.json":151,"../lib/api_loader":215,"../lib/core":219,"../lib/node_loader":216,"../lib/service":258}],215:[function(require,module,exports){
-var AWS = require('./core');
-
-AWS.apiLoader = function(svc, version) {
-  if (!AWS.apiLoader.services.hasOwnProperty(svc)) {
+},{"../apis/workdocs-2016-05-01.min.json":157,"../apis/workdocs-2016-05-01.paginators.json":158,"../lib/core":227,"../lib/node_loader":224}],223:[function(require,module,exports){
+function apiLoader(svc, version) {
+  if (!apiLoader.services.hasOwnProperty(svc)) {
     throw new Error('InvalidService: Failed to load api for ' + svc);
   }
-  return AWS.apiLoader.services[svc][version];
-};
+  return apiLoader.services[svc][version];
+}
 
 
-AWS.apiLoader.services = {};
+apiLoader.services = {};
+module.exports = apiLoader;
 
-module.exports = AWS.apiLoader;
-
-},{"./core":219}],216:[function(require,module,exports){
+},{}],224:[function(require,module,exports){
 (function (process){
 var util = require('./util');
 
@@ -100690,8 +104624,14 @@ util.querystring = require('querystring/');
 util.environment = 'js';
 
 var AWS = require('./core');
+module.exports = AWS;
 
-require('./api_loader');
+require('./credentials');
+require('./credentials/credential_provider_chain');
+require('./credentials/temporary_credentials');
+require('./credentials/web_identity_credentials');
+require('./credentials/cognito_identity_credentials');
+require('./credentials/saml_credentials');
 
 AWS.XML.Parser = require('./xml/browser_parser');
 
@@ -100703,7 +104643,7 @@ if (typeof process === 'undefined') {
   };
 }
 }).call(this,require('_process'))
-},{"./api_loader":215,"./core":219,"./http/xhr":233,"./util":282,"./xml/browser_parser":283,"_process":438,"buffer/":287,"crypto-browserify":289,"querystring/":445,"url/":446}],217:[function(require,module,exports){
+},{"./core":227,"./credentials":228,"./credentials/cognito_identity_credentials":229,"./credentials/credential_provider_chain":230,"./credentials/saml_credentials":231,"./credentials/temporary_credentials":232,"./credentials/web_identity_credentials":233,"./http/xhr":241,"./util":290,"./xml/browser_parser":291,"_process":446,"buffer/":295,"crypto-browserify":297,"querystring/":453,"url/":454}],225:[function(require,module,exports){
 var AWS = require('../core'),
     url = AWS.util.url,
     crypto = AWS.util.crypto.lib,
@@ -100858,7 +104798,7 @@ AWS.CloudFront.Signer = inherit({
 
 module.exports = AWS.CloudFront.Signer;
 
-},{"../core":219}],218:[function(require,module,exports){
+},{"../core":227}],226:[function(require,module,exports){
 var AWS = require('./core');
 require('./credentials');
 require('./credentials/credential_provider_chain');
@@ -101055,7 +104995,7 @@ AWS.Config = AWS.util.inherit({
 
 AWS.config = new AWS.Config();
 
-},{"./core":219,"./credentials":220,"./credentials/credential_provider_chain":222}],219:[function(require,module,exports){
+},{"./core":227,"./credentials":228,"./credentials/credential_provider_chain":230}],227:[function(require,module,exports){
 
 var AWS = { util: require('./util') };
 
@@ -101067,7 +105007,7 @@ module.exports = AWS;
 AWS.util.update(AWS, {
 
 
-  VERSION: '2.48.0',
+  VERSION: '2.92.0',
 
 
   Signers: {},
@@ -101102,21 +105042,12 @@ AWS.util.update(AWS, {
     ResourceWaiter: require('./model/resource_waiter')
   },
 
-  util: require('./util'),
 
-
-  apiLoader: function() { throw new Error('No API loader set'); }
+  apiLoader: require('./api_loader')
 });
 
 require('./service');
 require('./config');
-
-require('./credentials');
-require('./credentials/credential_provider_chain');
-require('./credentials/temporary_credentials');
-require('./credentials/web_identity_credentials');
-require('./credentials/cognito_identity_credentials');
-require('./credentials/saml_credentials');
 
 require('./http');
 require('./sequential_executor');
@@ -101130,7 +105061,7 @@ require('./param_validator');
 
 AWS.events = new AWS.SequentialExecutor();
 
-},{"./config":218,"./credentials":220,"./credentials/cognito_identity_credentials":221,"./credentials/credential_provider_chain":222,"./credentials/saml_credentials":223,"./credentials/temporary_credentials":224,"./credentials/web_identity_credentials":225,"./event_listeners":231,"./http":232,"./json/builder":234,"./json/parser":235,"./model/api":236,"./model/operation":238,"./model/paginator":239,"./model/resource_waiter":240,"./model/shape":241,"./param_validator":242,"./protocol/json":244,"./protocol/query":245,"./protocol/rest":246,"./protocol/rest_json":247,"./protocol/rest_xml":248,"./request":253,"./resource_waiter":254,"./response":255,"./sequential_executor":257,"./service":258,"./signers/request_signer":274,"./util":282,"./xml/builder":284}],220:[function(require,module,exports){
+},{"./api_loader":223,"./config":226,"./event_listeners":239,"./http":240,"./json/builder":242,"./json/parser":243,"./model/api":244,"./model/operation":246,"./model/paginator":247,"./model/resource_waiter":248,"./model/shape":249,"./param_validator":250,"./protocol/json":252,"./protocol/query":253,"./protocol/rest":254,"./protocol/rest_json":255,"./protocol/rest_xml":256,"./request":261,"./resource_waiter":262,"./response":263,"./sequential_executor":265,"./service":266,"./signers/request_signer":282,"./util":290,"./xml/builder":292}],228:[function(require,module,exports){
 var AWS = require('./core');
 
 
@@ -101206,7 +105137,7 @@ AWS.Credentials.deletePromisesFromClass = function deletePromisesFromClass() {
 
 AWS.util.addPromises(AWS.Credentials);
 
-},{"./core":219}],221:[function(require,module,exports){
+},{"./core":227}],229:[function(require,module,exports){
 var AWS = require('../core');
 var CognitoIdentity = require('../../clients/cognitoidentity');
 var STS = require('../../clients/sts');
@@ -101421,7 +105352,7 @@ AWS.CognitoIdentityCredentials = AWS.util.inherit(AWS.Credentials, {
   })()
 });
 
-},{"../../clients/cognitoidentity":167,"../../clients/sts":212,"../core":219}],222:[function(require,module,exports){
+},{"../../clients/cognitoidentity":174,"../../clients/sts":220,"../core":227}],230:[function(require,module,exports){
 var AWS = require('../core');
 
 
@@ -101490,7 +105421,7 @@ AWS.CredentialProviderChain.deletePromisesFromClass = function deletePromisesFro
 
 AWS.util.addPromises(AWS.CredentialProviderChain);
 
-},{"../core":219}],223:[function(require,module,exports){
+},{"../core":227}],231:[function(require,module,exports){
 var AWS = require('../core');
 var STS = require('../../clients/sts');
 
@@ -101524,7 +105455,7 @@ AWS.SAMLCredentials = AWS.util.inherit(AWS.Credentials, {
 
 });
 
-},{"../../clients/sts":212,"../core":219}],224:[function(require,module,exports){
+},{"../../clients/sts":220,"../core":227}],232:[function(require,module,exports){
 var AWS = require('../core');
 var STS = require('../../clients/sts');
 
@@ -101581,7 +105512,7 @@ AWS.TemporaryCredentials = AWS.util.inherit(AWS.Credentials, {
 
 });
 
-},{"../../clients/sts":212,"../core":219}],225:[function(require,module,exports){
+},{"../../clients/sts":220,"../core":227}],233:[function(require,module,exports){
 var AWS = require('../core');
 var STS = require('../../clients/sts');
 
@@ -101624,48 +105555,109 @@ AWS.WebIdentityCredentials = AWS.util.inherit(AWS.Credentials, {
 
 });
 
-},{"../../clients/sts":212,"../core":219}],226:[function(require,module,exports){
+},{"../../clients/sts":220,"../core":227}],234:[function(require,module,exports){
 var AWS = require('../core');
 var util = AWS.util;
 var typeOf = require('./types').typeOf;
 var DynamoDBSet = require('./set');
 
+AWS.DynamoDB.Converter = {
 
-function convertInput(data, options) {
-  options = options || {};
-  var type = typeOf(data);
-  if (type === 'Object') {
-    return formatMap(data, options);
-  } else if (type === 'Array') {
-    return formatList(data, options);
-  } else if (type === 'Set') {
-    return formatSet(data, options);
-  } else if (type === 'String') {
-    if (data.length === 0 && options.convertEmptyValues) {
-      return convertInput(null);
+  input: function convertInput(data, options) {
+    options = options || {};
+    var type = typeOf(data);
+    if (type === 'Object') {
+      return formatMap(data, options);
+    } else if (type === 'Array') {
+      return formatList(data, options);
+    } else if (type === 'Set') {
+      return formatSet(data, options);
+    } else if (type === 'String') {
+      if (data.length === 0 && options.convertEmptyValues) {
+        return convertInput(null);
+      }
+      return { S: data };
+    } else if (type === 'Number') {
+      return { N: data.toString() };
+    } else if (type === 'Binary') {
+      if (data.length === 0 && options.convertEmptyValues) {
+        return convertInput(null);
+      }
+      return { B: data };
+    } else if (type === 'Boolean') {
+      return { BOOL: data };
+    } else if (type === 'null') {
+      return { NULL: true };
+    } else if (type !== 'undefined' && type !== 'Function') {
+      return formatMap(data, options);
     }
-    return { S: data };
-  } else if (type === 'Number') {
-    return { N: data.toString() };
-  } else if (type === 'Binary') {
-    if (data.length === 0 && options.convertEmptyValues) {
-      return convertInput(null);
+  },
+
+
+  marshall: function marshallItem(data, options) {
+    return AWS.DynamoDB.Converter.input(data, options).M;
+  },
+
+
+  output: function convertOutput(data) {
+    var list, map, i;
+    for (var type in data) {
+      var values = data[type];
+      if (type === 'M') {
+        map = {};
+        for (var key in values) {
+          map[key] = convertOutput(values[key]);
+        }
+        return map;
+      } else if (type === 'L') {
+        list = [];
+        for (i = 0; i < values.length; i++) {
+          list.push(convertOutput(values[i]));
+        }
+        return list;
+      } else if (type === 'SS') {
+        list = [];
+        for (i = 0; i < values.length; i++) {
+          list.push(values[i] + '');
+        }
+        return new DynamoDBSet(list);
+      } else if (type === 'NS') {
+        list = [];
+        for (i = 0; i < values.length; i++) {
+          list.push(Number(values[i]));
+        }
+        return new DynamoDBSet(list);
+      } else if (type === 'BS') {
+        list = [];
+        for (i = 0; i < values.length; i++) {
+          list.push(new util.Buffer(values[i]));
+        }
+        return new DynamoDBSet(list);
+      } else if (type === 'S') {
+        return values + '';
+      } else if (type === 'N') {
+        return Number(values);
+      } else if (type === 'B') {
+        return new util.Buffer(values);
+      } else if (type === 'BOOL') {
+        return (values === 'true' || values === 'TRUE' || values === true);
+      } else if (type === 'NULL') {
+        return null;
+      }
     }
-    return { B: data };
-  } else if (type === 'Boolean') {
-    return { BOOL: data };
-  } else if (type === 'null') {
-    return { NULL: true };
-  } else if (type !== 'undefined' && type !== 'Function') {
-    return formatMap(data, options);
+  },
+
+
+  unmarshall: function unmarshall(data) {
+    return AWS.DynamoDB.Converter.output({M: data});
   }
-}
+};
 
 
 function formatList(data, options) {
   var list = {L: []};
   for (var i = 0; i < data.length; i++) {
-    list['L'].push(convertInput(data[i], options));
+    list['L'].push(AWS.DynamoDB.Converter.input(data[i], options));
   }
   return list;
 }
@@ -101674,7 +105666,7 @@ function formatList(data, options) {
 function formatMap(data, options) {
   var map = {M: {}};
   for (var key in data) {
-    var formatted = convertInput(data[key], options);
+    var formatted = AWS.DynamoDB.Converter.input(data[key], options);
     if (formatted !== void 0) {
       map['M'][key] = formatted;
     }
@@ -101689,7 +105681,7 @@ function formatSet(data, options) {
   if (options.convertEmptyValues) {
     values = filterEmptySetValues(data);
     if (values.length === 0) {
-      return convertInput(null);
+      return AWS.DynamoDB.Converter.input(null);
     }
   }
 
@@ -101726,63 +105718,9 @@ function filterEmptySetValues(set) {
     return set.values;
 }
 
-
-function convertOutput(data) {
-  var list, map, i;
-  for (var type in data) {
-    var values = data[type];
-    if (type === 'M') {
-      map = {};
-      for (var key in values) {
-        map[key] = convertOutput(values[key]);
-      }
-      return map;
-    } else if (type === 'L') {
-      list = [];
-      for (i = 0; i < values.length; i++) {
-        list.push(convertOutput(values[i]));
-      }
-      return list;
-    } else if (type === 'SS') {
-      list = [];
-      for (i = 0; i < values.length; i++) {
-        list.push(values[i] + '');
-      }
-      return new DynamoDBSet(list);
-    } else if (type === 'NS') {
-      list = [];
-      for (i = 0; i < values.length; i++) {
-        list.push(Number(values[i]));
-      }
-      return new DynamoDBSet(list);
-    } else if (type === 'BS') {
-      list = [];
-      for (i = 0; i < values.length; i++) {
-        list.push(new util.Buffer(values[i]));
-      }
-      return new DynamoDBSet(list);
-    } else if (type === 'S') {
-      return values + '';
-    } else if (type === 'N') {
-      return Number(values);
-    } else if (type === 'B') {
-      return new util.Buffer(values);
-    } else if (type === 'BOOL') {
-      return (values === 'true' || values === 'TRUE' || values === true);
-    } else if (type === 'NULL') {
-      return null;
-    }
-  }
-}
-
-AWS.DynamoDB.Converter = {
-  input: convertInput,
-  output: convertOutput
-};
-
 module.exports = AWS.DynamoDB.Converter;
 
-},{"../core":219,"./set":228,"./types":230}],227:[function(require,module,exports){
+},{"../core":227,"./set":236,"./types":238}],235:[function(require,module,exports){
 var AWS = require('../core');
 var Translator = require('./translator');
 var DynamoDBSet = require('./set');
@@ -101996,7 +105934,7 @@ AWS.DynamoDB.DocumentClient = AWS.util.inherit({
 
 module.exports = AWS.DynamoDB.DocumentClient;
 
-},{"../core":219,"./set":228,"./translator":229}],228:[function(require,module,exports){
+},{"../core":227,"./set":236,"./translator":237}],236:[function(require,module,exports){
 var util = require('../core').util;
 var typeOf = require('./types').typeOf;
 
@@ -102052,7 +105990,7 @@ var DynamoDBSet = util.inherit({
 
 module.exports = DynamoDBSet;
 
-},{"../core":219,"./types":230}],229:[function(require,module,exports){
+},{"../core":227,"./types":238}],237:[function(require,module,exports){
 var util = require('../core').util;
 var convert = require('./converter');
 
@@ -102134,7 +106072,7 @@ Translator.prototype.translateScalar = function(value, shape) {
 
 module.exports = Translator;
 
-},{"../core":219,"./converter":226}],230:[function(require,module,exports){
+},{"../core":227,"./converter":234}],238:[function(require,module,exports){
 var util = require('../core').util;
 
 function typeOf(data) {
@@ -102160,16 +106098,18 @@ function isBinary(data) {
   ];
   if (util.isNode()) {
     var Stream = util.stream.Stream;
-    if (util.Buffer.isBuffer(data) || data instanceof Stream)
+    if (util.Buffer.isBuffer(data) || data instanceof Stream) {
       return true;
-  } else {
-    for (var i = 0; i < types.length; i++) {
-      if (data !== undefined && data.constructor) {
-        if (util.isType(data, types[i])) return true;
-        if (util.typeName(data.constructor) === types[i]) return true;
-      }
     }
   }
+
+  for (var i = 0; i < types.length; i++) {
+    if (data !== undefined && data.constructor) {
+      if (util.isType(data, types[i])) return true;
+      if (util.typeName(data.constructor) === types[i]) return true;
+    }
+  }
+
   return false;
 }
 
@@ -102178,7 +106118,7 @@ module.exports = {
   isBinary: isBinary
 };
 
-},{"../core":219}],231:[function(require,module,exports){
+},{"../core":227}],239:[function(require,module,exports){
 var AWS = require('./core');
 var SequentialExecutor = require('./sequential_executor');
 
@@ -102186,6 +106126,15 @@ AWS.EventListeners = {
 
   Core: {} /* doc hack */
 };
+
+
+function getOperationAuthtype(req) {
+  if (!req.service.api.operations) {
+    return '';
+  }
+  var operation = req.service.api.operations[req.operation];
+  return operation ? operation.authtype : '';
+}
 
 AWS.EventListeners = {
   Core: new SequentialExecutor().addNamedListeners(function(add, addAsync) {
@@ -102267,7 +106216,9 @@ AWS.EventListeners = {
     });
 
     add('SET_CONTENT_LENGTH', 'afterBuild', function SET_CONTENT_LENGTH(req) {
-      if (req.httpRequest.headers['Content-Length'] === undefined) {
+      var authtype = getOperationAuthtype(req);
+      if (req.httpRequest.headers['Content-Length'] === undefined
+          && authtype.indexOf('unsigned-body') === -1) {
         var length = AWS.util.string.byteLength(req.httpRequest.body);
         req.httpRequest.headers['Content-Length'] = length;
       }
@@ -102348,6 +106299,7 @@ AWS.EventListeners = {
 
       function callback(httpResp) {
         resp.httpResponse.stream = httpResp;
+        var stream = resp.request.httpRequest.stream;
 
         httpResp.on('headers', function onHeaders(statusCode, headers, statusMessage) {
           resp.request.emit(
@@ -102372,8 +106324,10 @@ AWS.EventListeners = {
         });
 
         httpResp.on('end', function onEnd() {
-          resp.request.emit('httpDone');
-          done();
+          if (!stream || !stream.didCallback) {
+            resp.request.emit('httpDone');
+            done();
+          }
         });
       }
 
@@ -102388,12 +106342,16 @@ AWS.EventListeners = {
       }
 
       function error(err) {
-        resp.error = AWS.util.error(err, {
-          code: 'NetworkingError',
-          region: resp.request.httpRequest.region,
-          hostname: resp.request.httpRequest.endpoint.hostname,
-          retryable: true
-        });
+        if (err.code !== 'RequestAbortedError') {
+          var errCode = err.code === 'TimeoutError' ? err.code : 'NetworkingError';
+          err = AWS.util.error(err, {
+            code: errCode,
+            region: resp.request.httpRequest.region,
+            hostname: resp.request.httpRequest.endpoint.hostname,
+            retryable: true
+          });
+        }
+        resp.error = err;
         resp.request.emit('httpError', [resp.error, resp], function() {
           done();
         });
@@ -102635,7 +106593,7 @@ AWS.EventListeners = {
   })
 };
 
-},{"./core":219,"./protocol/json":244,"./protocol/query":245,"./protocol/rest":246,"./protocol/rest_json":247,"./protocol/rest_xml":248,"./sequential_executor":257,"util":449}],232:[function(require,module,exports){
+},{"./core":227,"./protocol/json":252,"./protocol/query":253,"./protocol/rest":254,"./protocol/rest_json":255,"./protocol/rest_xml":256,"./sequential_executor":265,"util":457}],240:[function(require,module,exports){
 var AWS = require('./core');
 var inherit = AWS.util.inherit;
 
@@ -102755,7 +106713,7 @@ AWS.HttpClient.getInstance = function getInstance() {
   return this.singleton;
 };
 
-},{"./core":219}],233:[function(require,module,exports){
+},{"./core":227}],241:[function(require,module,exports){
 var AWS = require('../core');
 var EventEmitter = require('events').EventEmitter;
 require('../http');
@@ -102781,7 +106739,6 @@ AWS.XHRClient = AWS.util.inherit({
       } catch (e) { return; }
 
       if (this.readyState >= this.HEADERS_RECEIVED && !headersEmitted) {
-        try { xhr.responseType = 'arraybuffer'; } catch (e) {}
         emitter.statusCode = xhr.status;
         emitter.headers = self.parseHeaders(xhr.getAllResponseHeaders());
         emitter.emit(
@@ -102831,6 +106788,7 @@ AWS.XHRClient = AWS.util.inherit({
     if (httpOptions.xhrWithCredentials) {
       xhr.withCredentials = true;
     }
+    try { xhr.responseType = 'arraybuffer'; } catch (e) {}
 
     try {
       if (httpRequest.body) {
@@ -102887,7 +106845,7 @@ AWS.HttpClient.prototype = AWS.XHRClient.prototype;
 
 AWS.HttpClient.streamsApiVersion = 1;
 
-},{"../core":219,"../http":232,"events":294}],234:[function(require,module,exports){
+},{"../core":227,"../http":240,"events":302}],242:[function(require,module,exports){
 var util = require('../util');
 
 function JsonBuilder() { }
@@ -102945,7 +106903,7 @@ function translateScalar(value, shape) {
 
 module.exports = JsonBuilder;
 
-},{"../util":282}],235:[function(require,module,exports){
+},{"../util":290}],243:[function(require,module,exports){
 var util = require('../util');
 
 function JsonParser() { }
@@ -103011,7 +106969,7 @@ function translateScalar(value, shape) {
 
 module.exports = JsonParser;
 
-},{"../util":282}],236:[function(require,module,exports){
+},{"../util":290}],244:[function(require,module,exports){
 var Collection = require('./collection');
 var Operation = require('./operation');
 var Shape = require('./shape');
@@ -103076,7 +107034,7 @@ function Api(api, options) {
 
 module.exports = Api;
 
-},{"../util":282,"./collection":237,"./operation":238,"./paginator":239,"./resource_waiter":240,"./shape":241}],237:[function(require,module,exports){
+},{"../util":290,"./collection":245,"./operation":246,"./paginator":247,"./resource_waiter":248,"./shape":249}],245:[function(require,module,exports){
 var memoizedProperty = require('../util').memoizedProperty;
 
 function memoize(name, value, fn, nameTr) {
@@ -103098,7 +107056,7 @@ function Collection(iterable, options, fn, nameTr) {
 
 module.exports = Collection;
 
-},{"../util":282}],238:[function(require,module,exports){
+},{"../util":290}],246:[function(require,module,exports){
 var Shape = require('./shape');
 
 var util = require('../util');
@@ -103173,7 +107131,7 @@ function Operation(name, operation, options) {
 
 module.exports = Operation;
 
-},{"../util":282,"./shape":241}],239:[function(require,module,exports){
+},{"../util":290,"./shape":249}],247:[function(require,module,exports){
 var property = require('../util').property;
 
 function Paginator(name, paginator) {
@@ -103186,7 +107144,7 @@ function Paginator(name, paginator) {
 
 module.exports = Paginator;
 
-},{"../util":282}],240:[function(require,module,exports){
+},{"../util":290}],248:[function(require,module,exports){
 var util = require('../util');
 var property = util.property;
 
@@ -103218,7 +107176,7 @@ function ResourceWaiter(name, waiter, options) {
 
 module.exports = ResourceWaiter;
 
-},{"../util":282}],241:[function(require,module,exports){
+},{"../util":290}],249:[function(require,module,exports){
 var Collection = require('./collection');
 
 var util = require('../util');
@@ -103321,9 +107279,6 @@ Shape.create = function create(shape, options, memberName) {
       filteredKeys = filteredKeys.filter(function(name) {
         return !name.match(/documentation/);
       });
-    }
-    if (filteredKeys === ['shape']) { // no inline customizations
-      return refShape;
     }
 
     var InlineShape = function() {
@@ -103463,7 +107418,7 @@ function TimestampShape(shape) {
     property(this, 'timestampFormat', 'rfc822');
   } else if (shape.timestampFormat) {
     property(this, 'timestampFormat', shape.timestampFormat);
-  } else if (this.api) {
+  } else if (!this.timestampFormat && this.api) {
     if (this.api.timestampFormat) {
       property(this, 'timestampFormat', this.api.timestampFormat);
     } else {
@@ -103565,7 +107520,7 @@ Shape.shapes = {
 
 module.exports = Shape;
 
-},{"../util":282,"./collection":237}],242:[function(require,module,exports){
+},{"../util":290,"./collection":245}],250:[function(require,module,exports){
 var AWS = require('./core');
 
 
@@ -103799,9 +107754,9 @@ AWS.ParamValidator = AWS.util.inherit({
   }
 });
 
-},{"./core":219}],243:[function(require,module,exports){
+},{"./core":227}],251:[function(require,module,exports){
 var AWS = require('../core');
-var rest = require('../protocol/rest');
+var rest = AWS.Protocol.Rest;
 
 
 AWS.Polly.Presigner = AWS.util.inherit({
@@ -103871,7 +107826,7 @@ AWS.Polly.Presigner = AWS.util.inherit({
     }
 });
 
-},{"../core":219,"../protocol/rest":246}],244:[function(require,module,exports){
+},{"../core":227}],252:[function(require,module,exports){
 var util = require('../util');
 var JsonBuilder = require('../json/builder');
 var JsonParser = require('../json/parser');
@@ -103940,7 +107895,7 @@ module.exports = {
   extractData: extractData
 };
 
-},{"../json/builder":234,"../json/parser":235,"../util":282}],245:[function(require,module,exports){
+},{"../json/builder":242,"../json/parser":243,"../util":290}],253:[function(require,module,exports){
 var AWS = require('../core');
 var util = require('../util');
 var QueryParamSerializer = require('../query/query_param_serializer');
@@ -104043,7 +107998,7 @@ module.exports = {
   extractData: extractData
 };
 
-},{"../core":219,"../model/shape":241,"../query/query_param_serializer":249,"../util":282}],246:[function(require,module,exports){
+},{"../core":227,"../model/shape":249,"../query/query_param_serializer":257,"../util":290}],254:[function(require,module,exports){
 var util = require('../util');
 
 function populateMethod(req) {
@@ -104187,7 +108142,7 @@ module.exports = {
   generateURI: generateURI
 };
 
-},{"../util":282}],247:[function(require,module,exports){
+},{"../util":290}],255:[function(require,module,exports){
 var util = require('../util');
 var Rest = require('./rest');
 var Json = require('./json');
@@ -104255,7 +108210,7 @@ module.exports = {
   extractData: extractData
 };
 
-},{"../json/builder":234,"../json/parser":235,"../util":282,"./json":244,"./rest":246}],248:[function(require,module,exports){
+},{"../json/builder":242,"../json/parser":243,"../util":290,"./json":252,"./rest":254}],256:[function(require,module,exports){
 var AWS = require('../core');
 var util = require('../util');
 var Rest = require('./rest');
@@ -104352,7 +108307,7 @@ module.exports = {
   extractData: extractData
 };
 
-},{"../core":219,"../util":282,"./rest":246}],249:[function(require,module,exports){
+},{"../core":227,"../util":290,"./rest":254}],257:[function(require,module,exports){
 var util = require('../util');
 
 function QueryParamSerializer() {
@@ -104434,7 +108389,7 @@ function serializeMember(name, value, rules, fn) {
 
 module.exports = QueryParamSerializer;
 
-},{"../util":282}],250:[function(require,module,exports){
+},{"../util":290}],258:[function(require,module,exports){
 var AWS = require('../core');
 
 
@@ -104546,7 +108501,7 @@ AWS.RDS.Signer = AWS.util.inherit({
         return true;
     }
 });
-},{"../core":219}],251:[function(require,module,exports){
+},{"../core":227}],259:[function(require,module,exports){
 var util = require('./util');
 var regionConfig = require('./region_config_data.json');
 
@@ -104613,7 +108568,7 @@ function configureEndpoint(service) {
 
 module.exports = configureEndpoint;
 
-},{"./region_config_data.json":252,"./util":282}],252:[function(require,module,exports){
+},{"./region_config_data.json":260,"./util":290}],260:[function(require,module,exports){
 module.exports={
   "rules": {
     "*/*": {
@@ -104678,7 +108633,7 @@ module.exports={
   }
 }
 
-},{}],253:[function(require,module,exports){
+},{}],261:[function(require,module,exports){
 (function (process){
 var AWS = require('./core');
 var AcceptorStateMachine = require('./state_machine');
@@ -104803,7 +108758,7 @@ AWS.Request = inherit({
       });
     });
 
-    if (this.httpRequest.stream) { // abort HTTP stream
+    if (this.httpRequest.stream && !this.httpRequest.stream.didCallback) { // abort HTTP stream
       this.httpRequest.stream.abort();
       if (this.httpRequest._abortCallback) {
          this.httpRequest._abortCallback();
@@ -104871,7 +108826,7 @@ AWS.Request = inherit({
 
     if (AWS.HttpClient.streamsApiVersion === 2) {
       stream = new streams.PassThrough();
-      req.send();
+      process.nextTick(function() { req.send(); });
     } else {
       stream = new streams.Stream();
       stream.readable = true;
@@ -104884,6 +108839,10 @@ AWS.Request = inherit({
         }
       });
     }
+
+    this.on('error', function(err) {
+      stream.emit('error', err);
+    });
 
     this.on('httpHeaders', function streamHeaders(statusCode, headers, resp) {
       if (statusCode < 300) {
@@ -104914,9 +108873,9 @@ AWS.Request = inherit({
           } else if (AWS.HttpClient.streamsApiVersion === 2) {
             stream.end();
           } else {
-            stream.emit('end')
+            stream.emit('end');
           }
-        }
+        };
 
         var httpStream = resp.httpResponse.createUnbufferedStream();
 
@@ -104931,6 +108890,12 @@ AWS.Request = inherit({
             };
 
             lengthAccumulator.on('end', checkContentLengthAndEmit);
+            stream.on('error', function(err) {
+              shouldCheckContentLength = false;
+              httpStream.unpipe(lengthAccumulator);
+              lengthAccumulator.emit('end');
+              lengthAccumulator.end();
+            });
             httpStream.pipe(lengthAccumulator).pipe(stream, { end: false });
           } else {
             httpStream.pipe(stream);
@@ -104956,10 +108921,6 @@ AWS.Request = inherit({
           stream.emit('error', err);
         });
       }
-    });
-
-    this.on('error', function(err) {
-      stream.emit('error', err);
     });
 
     return stream;
@@ -105075,7 +109036,7 @@ AWS.util.addPromises(AWS.Request);
 AWS.util.mixin(AWS.Request, AWS.SequentialExecutor);
 
 }).call(this,require('_process'))
-},{"./core":219,"./state_machine":281,"_process":438,"jmespath":297}],254:[function(require,module,exports){
+},{"./core":227,"./state_machine":289,"_process":446,"jmespath":305}],262:[function(require,module,exports){
 
 
 var AWS = require('./core');
@@ -105125,12 +109086,22 @@ AWS.ResourceWaiter = inherit({
 
   matchers: {
     path: function(resp, expected, argument) {
-      var result = jmespath.search(resp.data, argument);
+      try {
+        var result = jmespath.search(resp.data, argument);
+      } catch (err) {
+        return false;
+      }
+
       return jmespath.strictDeepEqual(result,expected);
     },
 
     pathAll: function(resp, expected, argument) {
-      var results = jmespath.search(resp.data, argument);
+      try {
+        var results = jmespath.search(resp.data, argument);
+      } catch (err) {
+        return false;
+      }
+
       if (!Array.isArray(results)) results = [results];
       var numResults = results.length;
       if (!numResults) return false;
@@ -105143,7 +109114,12 @@ AWS.ResourceWaiter = inherit({
     },
 
     pathAny: function(resp, expected, argument) {
-      var results = jmespath.search(resp.data, argument);
+      try {
+        var results = jmespath.search(resp.data, argument);
+      } catch (err) {
+        return false;
+      }
+
       if (!Array.isArray(results)) results = [results];
       var numResults = results.length;
       for (var ind = 0 ; ind < numResults; ind++) {
@@ -105234,7 +109210,7 @@ AWS.ResourceWaiter = inherit({
   }
 });
 
-},{"./core":219,"jmespath":297}],255:[function(require,module,exports){
+},{"./core":227,"jmespath":305}],263:[function(require,module,exports){
 var AWS = require('./core');
 var inherit = AWS.util.inherit;
 var jmespath = require('jmespath');
@@ -105322,7 +109298,7 @@ AWS.Response = inherit({
 
 });
 
-},{"./core":219,"jmespath":297}],256:[function(require,module,exports){
+},{"./core":227,"jmespath":305}],264:[function(require,module,exports){
 var AWS = require('../core');
 var byteLength = AWS.util.string.byteLength;
 var Buffer = AWS.util.Buffer;
@@ -105433,9 +109409,10 @@ AWS.S3.ManagedUpload = AWS.util.inherit({
   validateBody: function validateBody() {
     var self = this;
     self.body = self.service.config.params.Body;
-    if (!self.body) throw new Error('params.Body is required');
     if (typeof self.body === 'string') {
       self.body = new AWS.util.Buffer(self.body);
+    } else if (!self.body) {
+      throw new Error('params.Body is required');
     }
     self.sliceFn = AWS.util.arraySliceFn(self.body);
   },
@@ -105444,12 +109421,13 @@ AWS.S3.ManagedUpload = AWS.util.inherit({
   bindServiceObject: function bindServiceObject(params) {
     params = params || {};
     var self = this;
-
     if (!self.service) {
       self.service = new AWS.S3({params: params});
     } else {
-      var config = AWS.util.copy(self.service.config);
-      self.service = new self.service.constructor.__super__(config);
+      var service = self.service;
+      var config = AWS.util.copy(service.config);
+      config.signatureVersion = service.getSignatureVersion();
+      self.service = new service.constructor.__super__(config);
       self.service.config.params =
         AWS.util.merge(self.service.config.params || {}, params);
     }
@@ -105711,8 +109689,17 @@ AWS.S3.ManagedUpload = AWS.util.inherit({
       self.body.resume();
     }
 
+    if (self.multipartReq) {
+      self.multipartReq.removeAllListeners('success');
+      self.multipartReq.removeAllListeners('error');
+      self.multipartReq.removeAllListeners('complete');
+      delete self.multipartReq;
+    }
+
     if (self.service.config.params.UploadId && !self.leavePartsOnError) {
       self.service.abortMultipartUpload().send();
+    } else if (self.leavePartsOnError) {
+      self.isDoneChunking = false;
     }
 
     AWS.util.each(self.parts, function(partNumber, part) {
@@ -105809,7 +109796,7 @@ AWS.util.addPromises(AWS.S3.ManagedUpload);
 
 module.exports = AWS.S3.ManagedUpload;
 
-},{"../core":219}],257:[function(require,module,exports){
+},{"../core":227}],265:[function(require,module,exports){
 var AWS = require('./core');
 
 
@@ -105958,7 +109945,7 @@ AWS.SequentialExecutor.prototype.addListener = AWS.SequentialExecutor.prototype.
 
 module.exports = AWS.SequentialExecutor;
 
-},{"./core":219}],258:[function(require,module,exports){
+},{"./core":227}],266:[function(require,module,exports){
 var AWS = require('./core');
 var Api = require('./model/api');
 var regionConfig = require('./region_config');
@@ -106216,6 +110203,7 @@ AWS.Service = inherit({
 
 
   retryableError: function retryableError(error) {
+    if (this.timeoutError(error)) return true;
     if (this.networkingError(error)) return true;
     if (this.expiredCredentialsError(error)) return true;
     if (this.throttledError(error)) return true;
@@ -106226,6 +110214,11 @@ AWS.Service = inherit({
 
   networkingError: function networkingError(error) {
     return error.code === 'NetworkingError';
+  },
+
+
+  timeoutError: function timeoutError(error) {
+    return error.code === 'TimeoutError';
   },
 
 
@@ -106398,14 +110391,16 @@ AWS.util.update(AWS.Service, {
 
 module.exports = AWS.Service;
 
-},{"./core":219,"./model/api":236,"./region_config":251}],259:[function(require,module,exports){
+},{"./core":227,"./model/api":244,"./region_config":259}],267:[function(require,module,exports){
 var AWS = require('../core');
 
 AWS.util.update(AWS.APIGateway.prototype, {
 
   setAcceptHeader: function setAcceptHeader(req) {
     var httpRequest = req.httpRequest;
-    httpRequest.headers['Accept'] = 'application/json';
+    if (!httpRequest.headers.Accept) {
+      httpRequest.headers['Accept'] = 'application/json';
+    }
   },
 
 
@@ -106421,7 +110416,7 @@ AWS.util.update(AWS.APIGateway.prototype, {
 });
 
 
-},{"../core":219}],260:[function(require,module,exports){
+},{"../core":227}],268:[function(require,module,exports){
 var AWS = require('../core');
 
 require('../cloudfront/signer');
@@ -106434,7 +110429,7 @@ AWS.util.update(AWS.CloudFront.prototype, {
 
 });
 
-},{"../cloudfront/signer":217,"../core":219}],261:[function(require,module,exports){
+},{"../cloudfront/signer":225,"../core":227}],269:[function(require,module,exports){
 var AWS = require('../core');
 
 AWS.util.update(AWS.CognitoIdentity.prototype, {
@@ -106451,7 +110446,7 @@ AWS.util.update(AWS.CognitoIdentity.prototype, {
   }
 });
 
-},{"../core":219}],262:[function(require,module,exports){
+},{"../core":227}],270:[function(require,module,exports){
 var AWS = require('../core');
 require('../dynamodb/document_client');
 
@@ -106501,7 +110496,7 @@ AWS.util.update(AWS.DynamoDB.prototype, {
   }
 });
 
-},{"../core":219,"../dynamodb/document_client":227}],263:[function(require,module,exports){
+},{"../core":227,"../dynamodb/document_client":235}],271:[function(require,module,exports){
 var AWS = require('../core');
 
 AWS.util.update(AWS.EC2.prototype, {
@@ -106558,7 +110553,7 @@ AWS.util.update(AWS.EC2.prototype, {
   }
 });
 
-},{"../core":219}],264:[function(require,module,exports){
+},{"../core":227}],272:[function(require,module,exports){
 var AWS = require('../core');
 
 
@@ -106599,7 +110594,7 @@ AWS.util.update(AWS.IotData.prototype, {
 
 });
 
-},{"../core":219}],265:[function(require,module,exports){
+},{"../core":227}],273:[function(require,module,exports){
 var AWS = require('../core');
 
 AWS.util.update(AWS.Lambda.prototype, {
@@ -106612,7 +110607,7 @@ AWS.util.update(AWS.Lambda.prototype, {
 });
 
 
-},{"../core":219}],266:[function(require,module,exports){
+},{"../core":227}],274:[function(require,module,exports){
 var AWS = require('../core');
 
 AWS.util.update(AWS.MachineLearning.prototype, {
@@ -106633,9 +110628,9 @@ AWS.util.update(AWS.MachineLearning.prototype, {
 
 });
 
-},{"../core":219}],267:[function(require,module,exports){
+},{"../core":227}],275:[function(require,module,exports){
 require('../polly/presigner');
-},{"../polly/presigner":243}],268:[function(require,module,exports){
+},{"../polly/presigner":251}],276:[function(require,module,exports){
 var AWS = require('../core');
 require('../rds/signer');
 
@@ -106689,7 +110684,7 @@ require('../rds/signer');
      });
    }
  });
-},{"../core":219,"../rds/signer":250}],269:[function(require,module,exports){
+},{"../core":227,"../rds/signer":258}],277:[function(require,module,exports){
 var AWS = require('../core');
 
 AWS.util.update(AWS.Route53.prototype, {
@@ -106716,7 +110711,7 @@ AWS.util.update(AWS.Route53.prototype, {
   }
 });
 
-},{"../core":219}],270:[function(require,module,exports){
+},{"../core":227}],278:[function(require,module,exports){
 var AWS = require('../core');
 var v4Credentials = require('../signers/v4_credentials');
 
@@ -106739,7 +110734,7 @@ var operationsWith200StatusCodeError = {
 
 AWS.util.update(AWS.S3.prototype, {
 
-  getSignerClass: function getSignerClass(request) {
+  getSignatureVersion: function getSignatureVersion(request) {
     var defaultApiVersion = this.api.signatureVersion;
     var userDefinedVersion = this._originalConfig ? this._originalConfig.signatureVersion : null;
     var regionDefinedVersion = this.config.signatureVersion;
@@ -106747,13 +110742,20 @@ AWS.util.update(AWS.S3.prototype, {
 
     if (userDefinedVersion) {
       userDefinedVersion = userDefinedVersion === 'v2' ? 's3' : userDefinedVersion;
-      return AWS.Signers.RequestSigner.getVersion(userDefinedVersion);
+      return userDefinedVersion;
     }
-    if (regionDefinedVersion) {
+    if (isPresigned !== true) {
+      defaultApiVersion = 'v4';
+    } else if (regionDefinedVersion) {
       defaultApiVersion = regionDefinedVersion;
     }
+    return defaultApiVersion;
+  },
 
-    return AWS.Signers.RequestSigner.getVersion(defaultApiVersion);
+
+  getSignerClass: function getSignerClass(request) {
+    var signatureVersion = this.getSignatureVersion(request);
+    return AWS.Signers.RequestSigner.getVersion(signatureVersion);
   },
 
 
@@ -106793,6 +110795,7 @@ AWS.util.update(AWS.S3.prototype, {
     request.addListener('validate', this.validateScheme);
     request.addListener('validate', this.validateBucketEndpoint);
     request.addListener('validate', this.correctBucketRegionFromCache);
+    request.addListener('validate', this.validateBucketName);
     request.addListener('build', this.addContentType);
     request.addListener('build', this.populateURI);
     request.addListener('build', this.computeContentMd5);
@@ -106837,6 +110840,30 @@ AWS.util.update(AWS.S3.prototype, {
   },
 
 
+  validateBucketName: function validateBucketName(req) {
+    var service = req.service;
+    var signatureVersion = service.getSignatureVersion(req);
+    if (signatureVersion !== 'v4') {
+      return;
+    }
+    var bucket = req.params && req.params.Bucket;
+    var key = req.params && req.params.Key;
+    var slashIndex = bucket && bucket.indexOf('/');
+    if (bucket && slashIndex >= 0) {
+      if (typeof key === 'string') {
+        req.params = AWS.util.copy(req.params);
+        var prefix = bucket.substr(slashIndex + 1) || '';
+        req.params.Key = prefix + '/' + key;
+        req.params.Bucket = bucket.substr(0, slashIndex);
+      } else {
+        var msg = 'Bucket names cannot contain forward slashes. Bucket: ' + bucket;
+        throw AWS.util.error(new Error(),
+          { code: 'InvalidBucket', message: msg });
+      }
+    }
+  },
+
+
   isValidAccelerateOperation: function isValidAccelerateOperation(operation) {
     var invalidOperations = [
       'createBucket',
@@ -106853,7 +110880,6 @@ AWS.util.update(AWS.S3.prototype, {
     var b = req.params.Bucket;
     var service = req.service;
     var endpoint = httpRequest.endpoint;
-
     if (b) {
       if (!service.pathStyleBucketName(b)) {
         if (service.config.useAccelerateEndpoint && service.isValidAccelerateOperation(req.operation)) {
@@ -107446,7 +111472,7 @@ AWS.util.update(AWS.S3.prototype, {
   }
 });
 
-},{"../core":219,"../s3/managed_upload":256,"../signers/v4_credentials":280}],271:[function(require,module,exports){
+},{"../core":227,"../s3/managed_upload":264,"../signers/v4_credentials":288}],279:[function(require,module,exports){
 var AWS = require('../core');
 
 AWS.util.update(AWS.SQS.prototype, {
@@ -107561,7 +111587,7 @@ AWS.util.update(AWS.SQS.prototype, {
   }
 });
 
-},{"../core":219}],272:[function(require,module,exports){
+},{"../core":227}],280:[function(require,module,exports){
 var AWS = require('../core');
 
 AWS.util.update(AWS.STS.prototype, {
@@ -107586,7 +111612,7 @@ AWS.util.update(AWS.STS.prototype, {
   }
 });
 
-},{"../core":219}],273:[function(require,module,exports){
+},{"../core":227}],281:[function(require,module,exports){
 var AWS = require('../core');
 var inherit = AWS.util.inherit;
 
@@ -107691,7 +111717,7 @@ AWS.Signers.Presign = inherit({
 
 module.exports = AWS.Signers.Presign;
 
-},{"../core":219}],274:[function(require,module,exports){
+},{"../core":227}],282:[function(require,module,exports){
 var AWS = require('../core');
 
 var inherit = AWS.util.inherit;
@@ -107729,7 +111755,7 @@ require('./v4');
 require('./s3');
 require('./presign');
 
-},{"../core":219,"./presign":273,"./s3":275,"./v2":276,"./v3":277,"./v3https":278,"./v4":279}],275:[function(require,module,exports){
+},{"../core":227,"./presign":281,"./s3":283,"./v2":284,"./v3":285,"./v3https":286,"./v4":287}],283:[function(require,module,exports){
 var AWS = require('../core');
 var inherit = AWS.util.inherit;
 
@@ -107891,7 +111917,7 @@ AWS.Signers.S3 = inherit(AWS.Signers.RequestSigner, {
 
 module.exports = AWS.Signers.S3;
 
-},{"../core":219}],276:[function(require,module,exports){
+},{"../core":227}],284:[function(require,module,exports){
 var AWS = require('../core');
 var inherit = AWS.util.inherit;
 
@@ -107936,7 +111962,7 @@ AWS.Signers.V2 = inherit(AWS.Signers.RequestSigner, {
 
 module.exports = AWS.Signers.V2;
 
-},{"../core":219}],277:[function(require,module,exports){
+},{"../core":227}],285:[function(require,module,exports){
 var AWS = require('../core');
 var inherit = AWS.util.inherit;
 
@@ -108010,7 +112036,7 @@ AWS.Signers.V3 = inherit(AWS.Signers.RequestSigner, {
 
 module.exports = AWS.Signers.V3;
 
-},{"../core":219}],278:[function(require,module,exports){
+},{"../core":227}],286:[function(require,module,exports){
 var AWS = require('../core');
 var inherit = AWS.util.inherit;
 
@@ -108032,7 +112058,7 @@ AWS.Signers.V3Https = inherit(AWS.Signers.V3, {
 
 module.exports = AWS.Signers.V3Https;
 
-},{"../core":219,"./v3":277}],279:[function(require,module,exports){
+},{"../core":227,"./v3":285}],287:[function(require,module,exports){
 var AWS = require('../core');
 var v4Credentials = require('./v4_credentials');
 var inherit = AWS.util.inherit;
@@ -108167,8 +112193,14 @@ AWS.Signers.V4 = inherit(AWS.Signers.RequestSigner, {
     AWS.util.arrayEach.call(this, headers, function (item) {
       var key = item[0].toLowerCase();
       if (this.isSignableHeader(key)) {
+        var value = item[1];
+        if (typeof value === 'undefined' || value === null || typeof value.toString !== 'function') {
+          throw AWS.util.error(new Error('Header ' + key + ' contains invalid value'), {
+            code: 'InvalidHeader'
+          });
+        }
         parts.push(key + ':' +
-          this.canonicalHeaderValues(item[1].toString()));
+          this.canonicalHeaderValues(value.toString()));
       }
     });
     return parts.join('\n');
@@ -108233,7 +112265,7 @@ AWS.Signers.V4 = inherit(AWS.Signers.RequestSigner, {
 
 module.exports = AWS.Signers.V4;
 
-},{"../core":219,"./v4_credentials":280}],280:[function(require,module,exports){
+},{"../core":227,"./v4_credentials":288}],288:[function(require,module,exports){
 var AWS = require('../core');
 
 
@@ -108302,7 +112334,7 @@ module.exports = {
   }
 };
 
-},{"../core":219}],281:[function(require,module,exports){
+},{"../core":227}],289:[function(require,module,exports){
 function AcceptorStateMachine(states, state) {
   this.currentState = state || null;
   this.states = states || {};
@@ -108346,7 +112378,7 @@ AcceptorStateMachine.prototype.addState = function addState(name, acceptState, f
 
 module.exports = AcceptorStateMachine;
 
-},{}],282:[function(require,module,exports){
+},{}],290:[function(require,module,exports){
 (function (process){
 
 var AWS;
@@ -109170,7 +113202,7 @@ var util = {
 module.exports = util;
 
 }).call(this,require('_process'))
-},{"../apis/metadata.json":97,"./core":219,"_process":438,"fs":286,"uuid":450}],283:[function(require,module,exports){
+},{"../apis/metadata.json":102,"./core":227,"_process":446,"fs":294,"uuid":458}],291:[function(require,module,exports){
 var util = require('../util');
 var Shape = require('../model/shape');
 
@@ -109355,7 +113387,7 @@ function parseUnknown(xml) {
 
 module.exports = DomXmlParser;
 
-},{"../model/shape":241,"../util":282}],284:[function(require,module,exports){
+},{"../model/shape":249,"../util":290}],292:[function(require,module,exports){
 var util = require('../util');
 var builder = require('xmlbuilder');
 
@@ -109443,7 +113475,7 @@ function applyNamespaces(xml, shape) {
 
 module.exports = XmlBuilder;
 
-},{"../util":282,"xmlbuilder":471}],285:[function(require,module,exports){
+},{"../util":290,"xmlbuilder":479}],293:[function(require,module,exports){
 'use strict'
 
 exports.byteLength = byteLength
@@ -109473,21 +113505,21 @@ function placeHoldersCount (b64) {
 }
 
 function byteLength (b64) {
-  return b64.length * 3 / 4 - placeHoldersCount(b64)
+  return (b64.length * 3 / 4) - placeHoldersCount(b64)
 }
 
 function toByteArray (b64) {
-  var i, j, l, tmp, placeHolders, arr
+  var i, l, tmp, placeHolders, arr
   var len = b64.length
   placeHolders = placeHoldersCount(b64)
 
-  arr = new Arr(len * 3 / 4 - placeHolders)
+  arr = new Arr((len * 3 / 4) - placeHolders)
 
   l = placeHolders > 0 ? len - 4 : len
 
   var L = 0
 
-  for (i = 0, j = 0; i < l; i += 4, j += 3) {
+  for (i = 0; i < l; i += 4) {
     tmp = (revLookup[b64.charCodeAt(i)] << 18) | (revLookup[b64.charCodeAt(i + 1)] << 12) | (revLookup[b64.charCodeAt(i + 2)] << 6) | revLookup[b64.charCodeAt(i + 3)]
     arr[L++] = (tmp >> 16) & 0xFF
     arr[L++] = (tmp >> 8) & 0xFF
@@ -109550,9 +113582,9 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
-},{}],286:[function(require,module,exports){
+},{}],294:[function(require,module,exports){
 
-},{}],287:[function(require,module,exports){
+},{}],295:[function(require,module,exports){
 (function (global){
 
 
@@ -111207,7 +115239,7 @@ function isnan (val) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"base64-js":285,"ieee754":295,"isarray":296}],288:[function(require,module,exports){
+},{"base64-js":293,"ieee754":303,"isarray":304}],296:[function(require,module,exports){
 var Buffer = require('buffer').Buffer;
 var intSize = 4;
 var zeroBuffer = new Buffer(intSize); zeroBuffer.fill(0);
@@ -111244,7 +115276,7 @@ function hash(buf, fn, hashSize, bigEndian) {
 
 module.exports = { hash: hash };
 
-},{"buffer":287}],289:[function(require,module,exports){
+},{"buffer":295}],297:[function(require,module,exports){
 var Buffer = require('buffer').Buffer
 var sha = require('./sha')
 var sha256 = require('./sha256')
@@ -111342,7 +115374,7 @@ each(['createCredentials'
   }
 })
 
-},{"./md5":290,"./rng":291,"./sha":292,"./sha256":293,"buffer":287}],290:[function(require,module,exports){
+},{"./md5":298,"./rng":299,"./sha":300,"./sha256":301,"buffer":295}],298:[function(require,module,exports){
 
 
 var helpers = require('./helpers');
@@ -111489,7 +115521,7 @@ module.exports = function md5(buf) {
   return helpers.hash(buf, core_md5, 16);
 };
 
-},{"./helpers":288}],291:[function(require,module,exports){
+},{"./helpers":296}],299:[function(require,module,exports){
 (function() {
   var _global = this;
 
@@ -111519,7 +115551,7 @@ module.exports = function md5(buf) {
 
 }())
 
-},{}],292:[function(require,module,exports){
+},{}],300:[function(require,module,exports){
 
 
 var helpers = require('./helpers');
@@ -111603,7 +115635,7 @@ module.exports = function sha1(buf) {
   return helpers.hash(buf, core_sha1, 20, true);
 };
 
-},{"./helpers":288}],293:[function(require,module,exports){
+},{"./helpers":296}],301:[function(require,module,exports){
 
 
 
@@ -111678,7 +115710,7 @@ module.exports = function sha256(buf) {
   return helpers.hash(buf, core_sha256, 32, true);
 };
 
-},{"./helpers":288}],294:[function(require,module,exports){
+},{"./helpers":296}],302:[function(require,module,exports){
 
 function EventEmitter() {
   this._events = this._events || {};
@@ -111942,7 +115974,7 @@ function isUndefined(arg) {
   return arg === void 0;
 }
 
-},{}],295:[function(require,module,exports){
+},{}],303:[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -112028,14 +116060,14 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],296:[function(require,module,exports){
+},{}],304:[function(require,module,exports){
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
-},{}],297:[function(require,module,exports){
+},{}],305:[function(require,module,exports){
 (function(exports) {
   "use strict";
 
@@ -113618,7 +117650,7 @@ module.exports = Array.isArray || function (arr) {
   exports.strictDeepEqual = strictDeepEqual;
 })(typeof exports === "undefined" ? this.jmespath = {} : exports);
 
-},{}],298:[function(require,module,exports){
+},{}],306:[function(require,module,exports){
 var getNative = require('./_getNative'),
     root = require('./_root');
 
@@ -113627,7 +117659,7 @@ var DataView = getNative(root, 'DataView');
 
 module.exports = DataView;
 
-},{"./_getNative":362,"./_root":399}],299:[function(require,module,exports){
+},{"./_getNative":370,"./_root":407}],307:[function(require,module,exports){
 var hashClear = require('./_hashClear'),
     hashDelete = require('./_hashDelete'),
     hashGet = require('./_hashGet'),
@@ -113654,7 +117686,7 @@ Hash.prototype.set = hashSet;
 
 module.exports = Hash;
 
-},{"./_hashClear":368,"./_hashDelete":369,"./_hashGet":370,"./_hashHas":371,"./_hashSet":372}],300:[function(require,module,exports){
+},{"./_hashClear":376,"./_hashDelete":377,"./_hashGet":378,"./_hashHas":379,"./_hashSet":380}],308:[function(require,module,exports){
 var listCacheClear = require('./_listCacheClear'),
     listCacheDelete = require('./_listCacheDelete'),
     listCacheGet = require('./_listCacheGet'),
@@ -113681,7 +117713,7 @@ ListCache.prototype.set = listCacheSet;
 
 module.exports = ListCache;
 
-},{"./_listCacheClear":380,"./_listCacheDelete":381,"./_listCacheGet":382,"./_listCacheHas":383,"./_listCacheSet":384}],301:[function(require,module,exports){
+},{"./_listCacheClear":388,"./_listCacheDelete":389,"./_listCacheGet":390,"./_listCacheHas":391,"./_listCacheSet":392}],309:[function(require,module,exports){
 var getNative = require('./_getNative'),
     root = require('./_root');
 
@@ -113690,7 +117722,7 @@ var Map = getNative(root, 'Map');
 
 module.exports = Map;
 
-},{"./_getNative":362,"./_root":399}],302:[function(require,module,exports){
+},{"./_getNative":370,"./_root":407}],310:[function(require,module,exports){
 var mapCacheClear = require('./_mapCacheClear'),
     mapCacheDelete = require('./_mapCacheDelete'),
     mapCacheGet = require('./_mapCacheGet'),
@@ -113717,7 +117749,7 @@ MapCache.prototype.set = mapCacheSet;
 
 module.exports = MapCache;
 
-},{"./_mapCacheClear":385,"./_mapCacheDelete":386,"./_mapCacheGet":387,"./_mapCacheHas":388,"./_mapCacheSet":389}],303:[function(require,module,exports){
+},{"./_mapCacheClear":393,"./_mapCacheDelete":394,"./_mapCacheGet":395,"./_mapCacheHas":396,"./_mapCacheSet":397}],311:[function(require,module,exports){
 var getNative = require('./_getNative'),
     root = require('./_root');
 
@@ -113726,7 +117758,7 @@ var Promise = getNative(root, 'Promise');
 
 module.exports = Promise;
 
-},{"./_getNative":362,"./_root":399}],304:[function(require,module,exports){
+},{"./_getNative":370,"./_root":407}],312:[function(require,module,exports){
 var getNative = require('./_getNative'),
     root = require('./_root');
 
@@ -113735,7 +117767,7 @@ var Set = getNative(root, 'Set');
 
 module.exports = Set;
 
-},{"./_getNative":362,"./_root":399}],305:[function(require,module,exports){
+},{"./_getNative":370,"./_root":407}],313:[function(require,module,exports){
 var MapCache = require('./_MapCache'),
     setCacheAdd = require('./_setCacheAdd'),
     setCacheHas = require('./_setCacheHas');
@@ -113756,7 +117788,7 @@ SetCache.prototype.has = setCacheHas;
 
 module.exports = SetCache;
 
-},{"./_MapCache":302,"./_setCacheAdd":400,"./_setCacheHas":401}],306:[function(require,module,exports){
+},{"./_MapCache":310,"./_setCacheAdd":408,"./_setCacheHas":409}],314:[function(require,module,exports){
 var ListCache = require('./_ListCache'),
     stackClear = require('./_stackClear'),
     stackDelete = require('./_stackDelete'),
@@ -113778,7 +117810,7 @@ Stack.prototype.set = stackSet;
 
 module.exports = Stack;
 
-},{"./_ListCache":300,"./_stackClear":405,"./_stackDelete":406,"./_stackGet":407,"./_stackHas":408,"./_stackSet":409}],307:[function(require,module,exports){
+},{"./_ListCache":308,"./_stackClear":413,"./_stackDelete":414,"./_stackGet":415,"./_stackHas":416,"./_stackSet":417}],315:[function(require,module,exports){
 var root = require('./_root');
 
 
@@ -113786,7 +117818,7 @@ var Symbol = root.Symbol;
 
 module.exports = Symbol;
 
-},{"./_root":399}],308:[function(require,module,exports){
+},{"./_root":407}],316:[function(require,module,exports){
 var root = require('./_root');
 
 
@@ -113794,7 +117826,7 @@ var Uint8Array = root.Uint8Array;
 
 module.exports = Uint8Array;
 
-},{"./_root":399}],309:[function(require,module,exports){
+},{"./_root":407}],317:[function(require,module,exports){
 var getNative = require('./_getNative'),
     root = require('./_root');
 
@@ -113803,7 +117835,7 @@ var WeakMap = getNative(root, 'WeakMap');
 
 module.exports = WeakMap;
 
-},{"./_getNative":362,"./_root":399}],310:[function(require,module,exports){
+},{"./_getNative":370,"./_root":407}],318:[function(require,module,exports){
 
 function apply(func, thisArg, args) {
   switch (args.length) {
@@ -113817,7 +117849,7 @@ function apply(func, thisArg, args) {
 
 module.exports = apply;
 
-},{}],311:[function(require,module,exports){
+},{}],319:[function(require,module,exports){
 
 function arrayEvery(array, predicate) {
   var index = -1,
@@ -113833,7 +117865,7 @@ function arrayEvery(array, predicate) {
 
 module.exports = arrayEvery;
 
-},{}],312:[function(require,module,exports){
+},{}],320:[function(require,module,exports){
 
 function arrayFilter(array, predicate) {
   var index = -1,
@@ -113852,7 +117884,7 @@ function arrayFilter(array, predicate) {
 
 module.exports = arrayFilter;
 
-},{}],313:[function(require,module,exports){
+},{}],321:[function(require,module,exports){
 var baseTimes = require('./_baseTimes'),
     isArguments = require('./isArguments'),
     isArray = require('./isArray'),
@@ -113892,7 +117924,7 @@ function arrayLikeKeys(value, inherited) {
 
 module.exports = arrayLikeKeys;
 
-},{"./_baseTimes":344,"./_isIndex":373,"./isArguments":421,"./isArray":422,"./isBuffer":424,"./isTypedArray":431}],314:[function(require,module,exports){
+},{"./_baseTimes":352,"./_isIndex":381,"./isArguments":429,"./isArray":430,"./isBuffer":432,"./isTypedArray":439}],322:[function(require,module,exports){
 
 function arrayMap(array, iteratee) {
   var index = -1,
@@ -113907,7 +117939,7 @@ function arrayMap(array, iteratee) {
 
 module.exports = arrayMap;
 
-},{}],315:[function(require,module,exports){
+},{}],323:[function(require,module,exports){
 
 function arrayPush(array, values) {
   var index = -1,
@@ -113922,7 +117954,7 @@ function arrayPush(array, values) {
 
 module.exports = arrayPush;
 
-},{}],316:[function(require,module,exports){
+},{}],324:[function(require,module,exports){
 
 function arraySome(array, predicate) {
   var index = -1,
@@ -113938,7 +117970,7 @@ function arraySome(array, predicate) {
 
 module.exports = arraySome;
 
-},{}],317:[function(require,module,exports){
+},{}],325:[function(require,module,exports){
 var baseAssignValue = require('./_baseAssignValue'),
     eq = require('./eq');
 
@@ -113959,7 +117991,7 @@ function assignValue(object, key, value) {
 
 module.exports = assignValue;
 
-},{"./_baseAssignValue":320,"./eq":416}],318:[function(require,module,exports){
+},{"./_baseAssignValue":328,"./eq":424}],326:[function(require,module,exports){
 var eq = require('./eq');
 
 
@@ -113975,7 +118007,7 @@ function assocIndexOf(array, key) {
 
 module.exports = assocIndexOf;
 
-},{"./eq":416}],319:[function(require,module,exports){
+},{"./eq":424}],327:[function(require,module,exports){
 var copyObject = require('./_copyObject'),
     keys = require('./keys');
 
@@ -113986,7 +118018,7 @@ function baseAssign(object, source) {
 
 module.exports = baseAssign;
 
-},{"./_copyObject":349,"./keys":432}],320:[function(require,module,exports){
+},{"./_copyObject":357,"./keys":440}],328:[function(require,module,exports){
 var defineProperty = require('./_defineProperty');
 
 
@@ -114005,7 +118037,7 @@ function baseAssignValue(object, key, value) {
 
 module.exports = baseAssignValue;
 
-},{"./_defineProperty":354}],321:[function(require,module,exports){
+},{"./_defineProperty":362}],329:[function(require,module,exports){
 var isObject = require('./isObject');
 
 
@@ -114030,7 +118062,7 @@ var baseCreate = (function() {
 
 module.exports = baseCreate;
 
-},{"./isObject":428}],322:[function(require,module,exports){
+},{"./isObject":436}],330:[function(require,module,exports){
 var baseForOwn = require('./_baseForOwn'),
     createBaseEach = require('./_createBaseEach');
 
@@ -114039,7 +118071,7 @@ var baseEach = createBaseEach(baseForOwn);
 
 module.exports = baseEach;
 
-},{"./_baseForOwn":325,"./_createBaseEach":352}],323:[function(require,module,exports){
+},{"./_baseForOwn":333,"./_createBaseEach":360}],331:[function(require,module,exports){
 var baseEach = require('./_baseEach');
 
 
@@ -114054,7 +118086,7 @@ function baseEvery(collection, predicate) {
 
 module.exports = baseEvery;
 
-},{"./_baseEach":322}],324:[function(require,module,exports){
+},{"./_baseEach":330}],332:[function(require,module,exports){
 var createBaseFor = require('./_createBaseFor');
 
 
@@ -114062,7 +118094,7 @@ var baseFor = createBaseFor();
 
 module.exports = baseFor;
 
-},{"./_createBaseFor":353}],325:[function(require,module,exports){
+},{"./_createBaseFor":361}],333:[function(require,module,exports){
 var baseFor = require('./_baseFor'),
     keys = require('./keys');
 
@@ -114073,7 +118105,7 @@ function baseForOwn(object, iteratee) {
 
 module.exports = baseForOwn;
 
-},{"./_baseFor":324,"./keys":432}],326:[function(require,module,exports){
+},{"./_baseFor":332,"./keys":440}],334:[function(require,module,exports){
 var castPath = require('./_castPath'),
     toKey = require('./_toKey');
 
@@ -114092,7 +118124,7 @@ function baseGet(object, path) {
 
 module.exports = baseGet;
 
-},{"./_castPath":348,"./_toKey":411}],327:[function(require,module,exports){
+},{"./_castPath":356,"./_toKey":419}],335:[function(require,module,exports){
 var arrayPush = require('./_arrayPush'),
     isArray = require('./isArray');
 
@@ -114104,7 +118136,7 @@ function baseGetAllKeys(object, keysFunc, symbolsFunc) {
 
 module.exports = baseGetAllKeys;
 
-},{"./_arrayPush":315,"./isArray":422}],328:[function(require,module,exports){
+},{"./_arrayPush":323,"./isArray":430}],336:[function(require,module,exports){
 var Symbol = require('./_Symbol'),
     getRawTag = require('./_getRawTag'),
     objectToString = require('./_objectToString');
@@ -114128,7 +118160,7 @@ function baseGetTag(value) {
 
 module.exports = baseGetTag;
 
-},{"./_Symbol":307,"./_getRawTag":363,"./_objectToString":396}],329:[function(require,module,exports){
+},{"./_Symbol":315,"./_getRawTag":371,"./_objectToString":404}],337:[function(require,module,exports){
 
 function baseHasIn(object, key) {
   return object != null && key in Object(object);
@@ -114136,7 +118168,7 @@ function baseHasIn(object, key) {
 
 module.exports = baseHasIn;
 
-},{}],330:[function(require,module,exports){
+},{}],338:[function(require,module,exports){
 var baseGetTag = require('./_baseGetTag'),
     isObjectLike = require('./isObjectLike');
 
@@ -114150,7 +118182,7 @@ function baseIsArguments(value) {
 
 module.exports = baseIsArguments;
 
-},{"./_baseGetTag":328,"./isObjectLike":429}],331:[function(require,module,exports){
+},{"./_baseGetTag":336,"./isObjectLike":437}],339:[function(require,module,exports){
 var baseIsEqualDeep = require('./_baseIsEqualDeep'),
     isObjectLike = require('./isObjectLike');
 
@@ -114167,7 +118199,7 @@ function baseIsEqual(value, other, bitmask, customizer, stack) {
 
 module.exports = baseIsEqual;
 
-},{"./_baseIsEqualDeep":332,"./isObjectLike":429}],332:[function(require,module,exports){
+},{"./_baseIsEqualDeep":340,"./isObjectLike":437}],340:[function(require,module,exports){
 var Stack = require('./_Stack'),
     equalArrays = require('./_equalArrays'),
     equalByTag = require('./_equalByTag'),
@@ -114239,7 +118271,7 @@ function baseIsEqualDeep(object, other, bitmask, customizer, equalFunc, stack) {
 
 module.exports = baseIsEqualDeep;
 
-},{"./_Stack":306,"./_equalArrays":355,"./_equalByTag":356,"./_equalObjects":357,"./_getTag":365,"./isArray":422,"./isBuffer":424,"./isTypedArray":431}],333:[function(require,module,exports){
+},{"./_Stack":314,"./_equalArrays":363,"./_equalByTag":364,"./_equalObjects":365,"./_getTag":373,"./isArray":430,"./isBuffer":432,"./isTypedArray":439}],341:[function(require,module,exports){
 var Stack = require('./_Stack'),
     baseIsEqual = require('./_baseIsEqual');
 
@@ -114294,7 +118326,7 @@ function baseIsMatch(object, source, matchData, customizer) {
 
 module.exports = baseIsMatch;
 
-},{"./_Stack":306,"./_baseIsEqual":331}],334:[function(require,module,exports){
+},{"./_Stack":314,"./_baseIsEqual":339}],342:[function(require,module,exports){
 var isFunction = require('./isFunction'),
     isMasked = require('./_isMasked'),
     isObject = require('./isObject'),
@@ -114333,7 +118365,7 @@ function baseIsNative(value) {
 
 module.exports = baseIsNative;
 
-},{"./_isMasked":377,"./_toSource":412,"./isFunction":426,"./isObject":428}],335:[function(require,module,exports){
+},{"./_isMasked":385,"./_toSource":420,"./isFunction":434,"./isObject":436}],343:[function(require,module,exports){
 var baseGetTag = require('./_baseGetTag'),
     isLength = require('./isLength'),
     isObjectLike = require('./isObjectLike');
@@ -114389,7 +118421,7 @@ function baseIsTypedArray(value) {
 
 module.exports = baseIsTypedArray;
 
-},{"./_baseGetTag":328,"./isLength":427,"./isObjectLike":429}],336:[function(require,module,exports){
+},{"./_baseGetTag":336,"./isLength":435,"./isObjectLike":437}],344:[function(require,module,exports){
 var baseMatches = require('./_baseMatches'),
     baseMatchesProperty = require('./_baseMatchesProperty'),
     identity = require('./identity'),
@@ -114414,7 +118446,7 @@ function baseIteratee(value) {
 
 module.exports = baseIteratee;
 
-},{"./_baseMatches":338,"./_baseMatchesProperty":339,"./identity":420,"./isArray":422,"./property":434}],337:[function(require,module,exports){
+},{"./_baseMatches":346,"./_baseMatchesProperty":347,"./identity":428,"./isArray":430,"./property":442}],345:[function(require,module,exports){
 var isPrototype = require('./_isPrototype'),
     nativeKeys = require('./_nativeKeys');
 
@@ -114440,7 +118472,7 @@ function baseKeys(object) {
 
 module.exports = baseKeys;
 
-},{"./_isPrototype":378,"./_nativeKeys":394}],338:[function(require,module,exports){
+},{"./_isPrototype":386,"./_nativeKeys":402}],346:[function(require,module,exports){
 var baseIsMatch = require('./_baseIsMatch'),
     getMatchData = require('./_getMatchData'),
     matchesStrictComparable = require('./_matchesStrictComparable');
@@ -114458,7 +118490,7 @@ function baseMatches(source) {
 
 module.exports = baseMatches;
 
-},{"./_baseIsMatch":333,"./_getMatchData":361,"./_matchesStrictComparable":391}],339:[function(require,module,exports){
+},{"./_baseIsMatch":341,"./_getMatchData":369,"./_matchesStrictComparable":399}],347:[function(require,module,exports){
 var baseIsEqual = require('./_baseIsEqual'),
     get = require('./get'),
     hasIn = require('./hasIn'),
@@ -114486,7 +118518,7 @@ function baseMatchesProperty(path, srcValue) {
 
 module.exports = baseMatchesProperty;
 
-},{"./_baseIsEqual":331,"./_isKey":375,"./_isStrictComparable":379,"./_matchesStrictComparable":391,"./_toKey":411,"./get":418,"./hasIn":419}],340:[function(require,module,exports){
+},{"./_baseIsEqual":339,"./_isKey":383,"./_isStrictComparable":387,"./_matchesStrictComparable":399,"./_toKey":419,"./get":426,"./hasIn":427}],348:[function(require,module,exports){
 
 function baseProperty(key) {
   return function(object) {
@@ -114496,7 +118528,7 @@ function baseProperty(key) {
 
 module.exports = baseProperty;
 
-},{}],341:[function(require,module,exports){
+},{}],349:[function(require,module,exports){
 var baseGet = require('./_baseGet');
 
 
@@ -114508,7 +118540,7 @@ function basePropertyDeep(path) {
 
 module.exports = basePropertyDeep;
 
-},{"./_baseGet":326}],342:[function(require,module,exports){
+},{"./_baseGet":334}],350:[function(require,module,exports){
 var identity = require('./identity'),
     overRest = require('./_overRest'),
     setToString = require('./_setToString');
@@ -114520,7 +118552,7 @@ function baseRest(func, start) {
 
 module.exports = baseRest;
 
-},{"./_overRest":398,"./_setToString":403,"./identity":420}],343:[function(require,module,exports){
+},{"./_overRest":406,"./_setToString":411,"./identity":428}],351:[function(require,module,exports){
 var constant = require('./constant'),
     defineProperty = require('./_defineProperty'),
     identity = require('./identity');
@@ -114537,7 +118569,7 @@ var baseSetToString = !defineProperty ? identity : function(func, string) {
 
 module.exports = baseSetToString;
 
-},{"./_defineProperty":354,"./constant":414,"./identity":420}],344:[function(require,module,exports){
+},{"./_defineProperty":362,"./constant":422,"./identity":428}],352:[function(require,module,exports){
 
 function baseTimes(n, iteratee) {
   var index = -1,
@@ -114551,7 +118583,7 @@ function baseTimes(n, iteratee) {
 
 module.exports = baseTimes;
 
-},{}],345:[function(require,module,exports){
+},{}],353:[function(require,module,exports){
 var Symbol = require('./_Symbol'),
     arrayMap = require('./_arrayMap'),
     isArray = require('./isArray'),
@@ -114581,7 +118613,7 @@ function baseToString(value) {
 
 module.exports = baseToString;
 
-},{"./_Symbol":307,"./_arrayMap":314,"./isArray":422,"./isSymbol":430}],346:[function(require,module,exports){
+},{"./_Symbol":315,"./_arrayMap":322,"./isArray":430,"./isSymbol":438}],354:[function(require,module,exports){
 
 function baseUnary(func) {
   return function(value) {
@@ -114591,7 +118623,7 @@ function baseUnary(func) {
 
 module.exports = baseUnary;
 
-},{}],347:[function(require,module,exports){
+},{}],355:[function(require,module,exports){
 
 function cacheHas(cache, key) {
   return cache.has(key);
@@ -114599,7 +118631,7 @@ function cacheHas(cache, key) {
 
 module.exports = cacheHas;
 
-},{}],348:[function(require,module,exports){
+},{}],356:[function(require,module,exports){
 var isArray = require('./isArray'),
     isKey = require('./_isKey'),
     stringToPath = require('./_stringToPath'),
@@ -114615,7 +118647,7 @@ function castPath(value, object) {
 
 module.exports = castPath;
 
-},{"./_isKey":375,"./_stringToPath":410,"./isArray":422,"./toString":437}],349:[function(require,module,exports){
+},{"./_isKey":383,"./_stringToPath":418,"./isArray":430,"./toString":445}],357:[function(require,module,exports){
 var assignValue = require('./_assignValue'),
     baseAssignValue = require('./_baseAssignValue');
 
@@ -114648,7 +118680,7 @@ function copyObject(source, props, object, customizer) {
 
 module.exports = copyObject;
 
-},{"./_assignValue":317,"./_baseAssignValue":320}],350:[function(require,module,exports){
+},{"./_assignValue":325,"./_baseAssignValue":328}],358:[function(require,module,exports){
 var root = require('./_root');
 
 
@@ -114656,7 +118688,7 @@ var coreJsData = root['__core-js_shared__'];
 
 module.exports = coreJsData;
 
-},{"./_root":399}],351:[function(require,module,exports){
+},{"./_root":407}],359:[function(require,module,exports){
 var baseRest = require('./_baseRest'),
     isIterateeCall = require('./_isIterateeCall');
 
@@ -114689,7 +118721,7 @@ function createAssigner(assigner) {
 
 module.exports = createAssigner;
 
-},{"./_baseRest":342,"./_isIterateeCall":374}],352:[function(require,module,exports){
+},{"./_baseRest":350,"./_isIterateeCall":382}],360:[function(require,module,exports){
 var isArrayLike = require('./isArrayLike');
 
 
@@ -114716,7 +118748,7 @@ function createBaseEach(eachFunc, fromRight) {
 
 module.exports = createBaseEach;
 
-},{"./isArrayLike":423}],353:[function(require,module,exports){
+},{"./isArrayLike":431}],361:[function(require,module,exports){
 
 function createBaseFor(fromRight) {
   return function(object, iteratee, keysFunc) {
@@ -114737,7 +118769,7 @@ function createBaseFor(fromRight) {
 
 module.exports = createBaseFor;
 
-},{}],354:[function(require,module,exports){
+},{}],362:[function(require,module,exports){
 var getNative = require('./_getNative');
 
 var defineProperty = (function() {
@@ -114750,7 +118782,7 @@ var defineProperty = (function() {
 
 module.exports = defineProperty;
 
-},{"./_getNative":362}],355:[function(require,module,exports){
+},{"./_getNative":370}],363:[function(require,module,exports){
 var SetCache = require('./_SetCache'),
     arraySome = require('./_arraySome'),
     cacheHas = require('./_cacheHas');
@@ -114820,7 +118852,7 @@ function equalArrays(array, other, bitmask, customizer, equalFunc, stack) {
 
 module.exports = equalArrays;
 
-},{"./_SetCache":305,"./_arraySome":316,"./_cacheHas":347}],356:[function(require,module,exports){
+},{"./_SetCache":313,"./_arraySome":324,"./_cacheHas":355}],364:[function(require,module,exports){
 var Symbol = require('./_Symbol'),
     Uint8Array = require('./_Uint8Array'),
     eq = require('./eq'),
@@ -114911,7 +118943,7 @@ function equalByTag(object, other, tag, bitmask, customizer, equalFunc, stack) {
 
 module.exports = equalByTag;
 
-},{"./_Symbol":307,"./_Uint8Array":308,"./_equalArrays":355,"./_mapToArray":390,"./_setToArray":402,"./eq":416}],357:[function(require,module,exports){
+},{"./_Symbol":315,"./_Uint8Array":316,"./_equalArrays":363,"./_mapToArray":398,"./_setToArray":410,"./eq":424}],365:[function(require,module,exports){
 var getAllKeys = require('./_getAllKeys');
 
 
@@ -114987,7 +119019,7 @@ function equalObjects(object, other, bitmask, customizer, equalFunc, stack) {
 
 module.exports = equalObjects;
 
-},{"./_getAllKeys":359}],358:[function(require,module,exports){
+},{"./_getAllKeys":367}],366:[function(require,module,exports){
 (function (global){
 
 var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
@@ -114995,7 +119027,7 @@ var freeGlobal = typeof global == 'object' && global && global.Object === Object
 module.exports = freeGlobal;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],359:[function(require,module,exports){
+},{}],367:[function(require,module,exports){
 var baseGetAllKeys = require('./_baseGetAllKeys'),
     getSymbols = require('./_getSymbols'),
     keys = require('./keys');
@@ -115007,7 +119039,7 @@ function getAllKeys(object) {
 
 module.exports = getAllKeys;
 
-},{"./_baseGetAllKeys":327,"./_getSymbols":364,"./keys":432}],360:[function(require,module,exports){
+},{"./_baseGetAllKeys":335,"./_getSymbols":372,"./keys":440}],368:[function(require,module,exports){
 var isKeyable = require('./_isKeyable');
 
 
@@ -115020,7 +119052,7 @@ function getMapData(map, key) {
 
 module.exports = getMapData;
 
-},{"./_isKeyable":376}],361:[function(require,module,exports){
+},{"./_isKeyable":384}],369:[function(require,module,exports){
 var isStrictComparable = require('./_isStrictComparable'),
     keys = require('./keys');
 
@@ -115040,7 +119072,7 @@ function getMatchData(object) {
 
 module.exports = getMatchData;
 
-},{"./_isStrictComparable":379,"./keys":432}],362:[function(require,module,exports){
+},{"./_isStrictComparable":387,"./keys":440}],370:[function(require,module,exports){
 var baseIsNative = require('./_baseIsNative'),
     getValue = require('./_getValue');
 
@@ -115052,7 +119084,7 @@ function getNative(object, key) {
 
 module.exports = getNative;
 
-},{"./_baseIsNative":334,"./_getValue":366}],363:[function(require,module,exports){
+},{"./_baseIsNative":342,"./_getValue":374}],371:[function(require,module,exports){
 var Symbol = require('./_Symbol');
 
 
@@ -115090,7 +119122,7 @@ function getRawTag(value) {
 
 module.exports = getRawTag;
 
-},{"./_Symbol":307}],364:[function(require,module,exports){
+},{"./_Symbol":315}],372:[function(require,module,exports){
 var arrayFilter = require('./_arrayFilter'),
     stubArray = require('./stubArray');
 
@@ -115116,7 +119148,7 @@ var getSymbols = !nativeGetSymbols ? stubArray : function(object) {
 
 module.exports = getSymbols;
 
-},{"./_arrayFilter":312,"./stubArray":435}],365:[function(require,module,exports){
+},{"./_arrayFilter":320,"./stubArray":443}],373:[function(require,module,exports){
 var DataView = require('./_DataView'),
     Map = require('./_Map'),
     Promise = require('./_Promise'),
@@ -115169,7 +119201,7 @@ if ((DataView && getTag(new DataView(new ArrayBuffer(1))) != dataViewTag) ||
 
 module.exports = getTag;
 
-},{"./_DataView":298,"./_Map":301,"./_Promise":303,"./_Set":304,"./_WeakMap":309,"./_baseGetTag":328,"./_toSource":412}],366:[function(require,module,exports){
+},{"./_DataView":306,"./_Map":309,"./_Promise":311,"./_Set":312,"./_WeakMap":317,"./_baseGetTag":336,"./_toSource":420}],374:[function(require,module,exports){
 
 function getValue(object, key) {
   return object == null ? undefined : object[key];
@@ -115177,7 +119209,7 @@ function getValue(object, key) {
 
 module.exports = getValue;
 
-},{}],367:[function(require,module,exports){
+},{}],375:[function(require,module,exports){
 var castPath = require('./_castPath'),
     isArguments = require('./isArguments'),
     isArray = require('./isArray'),
@@ -115210,7 +119242,7 @@ function hasPath(object, path, hasFunc) {
 
 module.exports = hasPath;
 
-},{"./_castPath":348,"./_isIndex":373,"./_toKey":411,"./isArguments":421,"./isArray":422,"./isLength":427}],368:[function(require,module,exports){
+},{"./_castPath":356,"./_isIndex":381,"./_toKey":419,"./isArguments":429,"./isArray":430,"./isLength":435}],376:[function(require,module,exports){
 var nativeCreate = require('./_nativeCreate');
 
 
@@ -115221,7 +119253,7 @@ function hashClear() {
 
 module.exports = hashClear;
 
-},{"./_nativeCreate":393}],369:[function(require,module,exports){
+},{"./_nativeCreate":401}],377:[function(require,module,exports){
 
 function hashDelete(key) {
   var result = this.has(key) && delete this.__data__[key];
@@ -115231,7 +119263,7 @@ function hashDelete(key) {
 
 module.exports = hashDelete;
 
-},{}],370:[function(require,module,exports){
+},{}],378:[function(require,module,exports){
 var nativeCreate = require('./_nativeCreate');
 
 
@@ -115255,7 +119287,7 @@ function hashGet(key) {
 
 module.exports = hashGet;
 
-},{"./_nativeCreate":393}],371:[function(require,module,exports){
+},{"./_nativeCreate":401}],379:[function(require,module,exports){
 var nativeCreate = require('./_nativeCreate');
 
 
@@ -115272,7 +119304,7 @@ function hashHas(key) {
 
 module.exports = hashHas;
 
-},{"./_nativeCreate":393}],372:[function(require,module,exports){
+},{"./_nativeCreate":401}],380:[function(require,module,exports){
 var nativeCreate = require('./_nativeCreate');
 
 
@@ -115288,7 +119320,7 @@ function hashSet(key, value) {
 
 module.exports = hashSet;
 
-},{"./_nativeCreate":393}],373:[function(require,module,exports){
+},{"./_nativeCreate":401}],381:[function(require,module,exports){
 
 var MAX_SAFE_INTEGER = 9007199254740991;
 
@@ -115305,7 +119337,7 @@ function isIndex(value, length) {
 
 module.exports = isIndex;
 
-},{}],374:[function(require,module,exports){
+},{}],382:[function(require,module,exports){
 var eq = require('./eq'),
     isArrayLike = require('./isArrayLike'),
     isIndex = require('./_isIndex'),
@@ -115328,7 +119360,7 @@ function isIterateeCall(value, index, object) {
 
 module.exports = isIterateeCall;
 
-},{"./_isIndex":373,"./eq":416,"./isArrayLike":423,"./isObject":428}],375:[function(require,module,exports){
+},{"./_isIndex":381,"./eq":424,"./isArrayLike":431,"./isObject":436}],383:[function(require,module,exports){
 var isArray = require('./isArray'),
     isSymbol = require('./isSymbol');
 
@@ -115352,7 +119384,7 @@ function isKey(value, object) {
 
 module.exports = isKey;
 
-},{"./isArray":422,"./isSymbol":430}],376:[function(require,module,exports){
+},{"./isArray":430,"./isSymbol":438}],384:[function(require,module,exports){
 
 function isKeyable(value) {
   var type = typeof value;
@@ -115363,7 +119395,7 @@ function isKeyable(value) {
 
 module.exports = isKeyable;
 
-},{}],377:[function(require,module,exports){
+},{}],385:[function(require,module,exports){
 var coreJsData = require('./_coreJsData');
 
 
@@ -115379,7 +119411,7 @@ function isMasked(func) {
 
 module.exports = isMasked;
 
-},{"./_coreJsData":350}],378:[function(require,module,exports){
+},{"./_coreJsData":358}],386:[function(require,module,exports){
 
 var objectProto = Object.prototype;
 
@@ -115393,7 +119425,7 @@ function isPrototype(value) {
 
 module.exports = isPrototype;
 
-},{}],379:[function(require,module,exports){
+},{}],387:[function(require,module,exports){
 var isObject = require('./isObject');
 
 
@@ -115403,7 +119435,7 @@ function isStrictComparable(value) {
 
 module.exports = isStrictComparable;
 
-},{"./isObject":428}],380:[function(require,module,exports){
+},{"./isObject":436}],388:[function(require,module,exports){
 
 function listCacheClear() {
   this.__data__ = [];
@@ -115412,7 +119444,7 @@ function listCacheClear() {
 
 module.exports = listCacheClear;
 
-},{}],381:[function(require,module,exports){
+},{}],389:[function(require,module,exports){
 var assocIndexOf = require('./_assocIndexOf');
 
 
@@ -115441,7 +119473,7 @@ function listCacheDelete(key) {
 
 module.exports = listCacheDelete;
 
-},{"./_assocIndexOf":318}],382:[function(require,module,exports){
+},{"./_assocIndexOf":326}],390:[function(require,module,exports){
 var assocIndexOf = require('./_assocIndexOf');
 
 
@@ -115454,7 +119486,7 @@ function listCacheGet(key) {
 
 module.exports = listCacheGet;
 
-},{"./_assocIndexOf":318}],383:[function(require,module,exports){
+},{"./_assocIndexOf":326}],391:[function(require,module,exports){
 var assocIndexOf = require('./_assocIndexOf');
 
 
@@ -115464,7 +119496,7 @@ function listCacheHas(key) {
 
 module.exports = listCacheHas;
 
-},{"./_assocIndexOf":318}],384:[function(require,module,exports){
+},{"./_assocIndexOf":326}],392:[function(require,module,exports){
 var assocIndexOf = require('./_assocIndexOf');
 
 
@@ -115483,7 +119515,7 @@ function listCacheSet(key, value) {
 
 module.exports = listCacheSet;
 
-},{"./_assocIndexOf":318}],385:[function(require,module,exports){
+},{"./_assocIndexOf":326}],393:[function(require,module,exports){
 var Hash = require('./_Hash'),
     ListCache = require('./_ListCache'),
     Map = require('./_Map');
@@ -115500,7 +119532,7 @@ function mapCacheClear() {
 
 module.exports = mapCacheClear;
 
-},{"./_Hash":299,"./_ListCache":300,"./_Map":301}],386:[function(require,module,exports){
+},{"./_Hash":307,"./_ListCache":308,"./_Map":309}],394:[function(require,module,exports){
 var getMapData = require('./_getMapData');
 
 
@@ -115512,7 +119544,7 @@ function mapCacheDelete(key) {
 
 module.exports = mapCacheDelete;
 
-},{"./_getMapData":360}],387:[function(require,module,exports){
+},{"./_getMapData":368}],395:[function(require,module,exports){
 var getMapData = require('./_getMapData');
 
 
@@ -115522,7 +119554,7 @@ function mapCacheGet(key) {
 
 module.exports = mapCacheGet;
 
-},{"./_getMapData":360}],388:[function(require,module,exports){
+},{"./_getMapData":368}],396:[function(require,module,exports){
 var getMapData = require('./_getMapData');
 
 
@@ -115532,7 +119564,7 @@ function mapCacheHas(key) {
 
 module.exports = mapCacheHas;
 
-},{"./_getMapData":360}],389:[function(require,module,exports){
+},{"./_getMapData":368}],397:[function(require,module,exports){
 var getMapData = require('./_getMapData');
 
 
@@ -115547,7 +119579,7 @@ function mapCacheSet(key, value) {
 
 module.exports = mapCacheSet;
 
-},{"./_getMapData":360}],390:[function(require,module,exports){
+},{"./_getMapData":368}],398:[function(require,module,exports){
 
 function mapToArray(map) {
   var index = -1,
@@ -115561,7 +119593,7 @@ function mapToArray(map) {
 
 module.exports = mapToArray;
 
-},{}],391:[function(require,module,exports){
+},{}],399:[function(require,module,exports){
 
 function matchesStrictComparable(key, srcValue) {
   return function(object) {
@@ -115575,7 +119607,7 @@ function matchesStrictComparable(key, srcValue) {
 
 module.exports = matchesStrictComparable;
 
-},{}],392:[function(require,module,exports){
+},{}],400:[function(require,module,exports){
 var memoize = require('./memoize');
 
 
@@ -115596,7 +119628,7 @@ function memoizeCapped(func) {
 
 module.exports = memoizeCapped;
 
-},{"./memoize":433}],393:[function(require,module,exports){
+},{"./memoize":441}],401:[function(require,module,exports){
 var getNative = require('./_getNative');
 
 
@@ -115604,7 +119636,7 @@ var nativeCreate = getNative(Object, 'create');
 
 module.exports = nativeCreate;
 
-},{"./_getNative":362}],394:[function(require,module,exports){
+},{"./_getNative":370}],402:[function(require,module,exports){
 var overArg = require('./_overArg');
 
 
@@ -115612,7 +119644,7 @@ var nativeKeys = overArg(Object.keys, Object);
 
 module.exports = nativeKeys;
 
-},{"./_overArg":397}],395:[function(require,module,exports){
+},{"./_overArg":405}],403:[function(require,module,exports){
 var freeGlobal = require('./_freeGlobal');
 
 
@@ -115636,7 +119668,7 @@ var nodeUtil = (function() {
 
 module.exports = nodeUtil;
 
-},{"./_freeGlobal":358}],396:[function(require,module,exports){
+},{"./_freeGlobal":366}],404:[function(require,module,exports){
 
 var objectProto = Object.prototype;
 
@@ -115650,7 +119682,7 @@ function objectToString(value) {
 
 module.exports = objectToString;
 
-},{}],397:[function(require,module,exports){
+},{}],405:[function(require,module,exports){
 
 function overArg(func, transform) {
   return function(arg) {
@@ -115660,7 +119692,7 @@ function overArg(func, transform) {
 
 module.exports = overArg;
 
-},{}],398:[function(require,module,exports){
+},{}],406:[function(require,module,exports){
 var apply = require('./_apply');
 
 
@@ -115690,7 +119722,7 @@ function overRest(func, start, transform) {
 
 module.exports = overRest;
 
-},{"./_apply":310}],399:[function(require,module,exports){
+},{"./_apply":318}],407:[function(require,module,exports){
 var freeGlobal = require('./_freeGlobal');
 
 
@@ -115701,7 +119733,7 @@ var root = freeGlobal || freeSelf || Function('return this')();
 
 module.exports = root;
 
-},{"./_freeGlobal":358}],400:[function(require,module,exports){
+},{"./_freeGlobal":366}],408:[function(require,module,exports){
 
 var HASH_UNDEFINED = '__lodash_hash_undefined__';
 
@@ -115713,7 +119745,7 @@ function setCacheAdd(value) {
 
 module.exports = setCacheAdd;
 
-},{}],401:[function(require,module,exports){
+},{}],409:[function(require,module,exports){
 
 function setCacheHas(value) {
   return this.__data__.has(value);
@@ -115721,7 +119753,7 @@ function setCacheHas(value) {
 
 module.exports = setCacheHas;
 
-},{}],402:[function(require,module,exports){
+},{}],410:[function(require,module,exports){
 
 function setToArray(set) {
   var index = -1,
@@ -115735,7 +119767,7 @@ function setToArray(set) {
 
 module.exports = setToArray;
 
-},{}],403:[function(require,module,exports){
+},{}],411:[function(require,module,exports){
 var baseSetToString = require('./_baseSetToString'),
     shortOut = require('./_shortOut');
 
@@ -115744,7 +119776,7 @@ var setToString = shortOut(baseSetToString);
 
 module.exports = setToString;
 
-},{"./_baseSetToString":343,"./_shortOut":404}],404:[function(require,module,exports){
+},{"./_baseSetToString":351,"./_shortOut":412}],412:[function(require,module,exports){
 
 var HOT_COUNT = 800,
     HOT_SPAN = 16;
@@ -115775,7 +119807,7 @@ function shortOut(func) {
 
 module.exports = shortOut;
 
-},{}],405:[function(require,module,exports){
+},{}],413:[function(require,module,exports){
 var ListCache = require('./_ListCache');
 
 
@@ -115786,7 +119818,7 @@ function stackClear() {
 
 module.exports = stackClear;
 
-},{"./_ListCache":300}],406:[function(require,module,exports){
+},{"./_ListCache":308}],414:[function(require,module,exports){
 
 function stackDelete(key) {
   var data = this.__data__,
@@ -115798,7 +119830,7 @@ function stackDelete(key) {
 
 module.exports = stackDelete;
 
-},{}],407:[function(require,module,exports){
+},{}],415:[function(require,module,exports){
 
 function stackGet(key) {
   return this.__data__.get(key);
@@ -115806,7 +119838,7 @@ function stackGet(key) {
 
 module.exports = stackGet;
 
-},{}],408:[function(require,module,exports){
+},{}],416:[function(require,module,exports){
 
 function stackHas(key) {
   return this.__data__.has(key);
@@ -115814,7 +119846,7 @@ function stackHas(key) {
 
 module.exports = stackHas;
 
-},{}],409:[function(require,module,exports){
+},{}],417:[function(require,module,exports){
 var ListCache = require('./_ListCache'),
     Map = require('./_Map'),
     MapCache = require('./_MapCache');
@@ -115841,7 +119873,7 @@ function stackSet(key, value) {
 
 module.exports = stackSet;
 
-},{"./_ListCache":300,"./_Map":301,"./_MapCache":302}],410:[function(require,module,exports){
+},{"./_ListCache":308,"./_Map":309,"./_MapCache":310}],418:[function(require,module,exports){
 var memoizeCapped = require('./_memoizeCapped');
 
 
@@ -115865,7 +119897,7 @@ var stringToPath = memoizeCapped(function(string) {
 
 module.exports = stringToPath;
 
-},{"./_memoizeCapped":392}],411:[function(require,module,exports){
+},{"./_memoizeCapped":400}],419:[function(require,module,exports){
 var isSymbol = require('./isSymbol');
 
 
@@ -115882,7 +119914,7 @@ function toKey(value) {
 
 module.exports = toKey;
 
-},{"./isSymbol":430}],412:[function(require,module,exports){
+},{"./isSymbol":438}],420:[function(require,module,exports){
 
 var funcProto = Function.prototype;
 
@@ -115904,7 +119936,7 @@ function toSource(func) {
 
 module.exports = toSource;
 
-},{}],413:[function(require,module,exports){
+},{}],421:[function(require,module,exports){
 var assignValue = require('./_assignValue'),
     copyObject = require('./_copyObject'),
     createAssigner = require('./_createAssigner'),
@@ -115933,7 +119965,7 @@ var assign = createAssigner(function(object, source) {
 
 module.exports = assign;
 
-},{"./_assignValue":317,"./_copyObject":349,"./_createAssigner":351,"./_isPrototype":378,"./isArrayLike":423,"./keys":432}],414:[function(require,module,exports){
+},{"./_assignValue":325,"./_copyObject":357,"./_createAssigner":359,"./_isPrototype":386,"./isArrayLike":431,"./keys":440}],422:[function(require,module,exports){
 
 function constant(value) {
   return function() {
@@ -115943,7 +119975,7 @@ function constant(value) {
 
 module.exports = constant;
 
-},{}],415:[function(require,module,exports){
+},{}],423:[function(require,module,exports){
 var baseAssign = require('./_baseAssign'),
     baseCreate = require('./_baseCreate');
 
@@ -115955,7 +119987,7 @@ function create(prototype, properties) {
 
 module.exports = create;
 
-},{"./_baseAssign":319,"./_baseCreate":321}],416:[function(require,module,exports){
+},{"./_baseAssign":327,"./_baseCreate":329}],424:[function(require,module,exports){
 
 function eq(value, other) {
   return value === other || (value !== value && other !== other);
@@ -115963,7 +119995,7 @@ function eq(value, other) {
 
 module.exports = eq;
 
-},{}],417:[function(require,module,exports){
+},{}],425:[function(require,module,exports){
 var arrayEvery = require('./_arrayEvery'),
     baseEvery = require('./_baseEvery'),
     baseIteratee = require('./_baseIteratee'),
@@ -115981,7 +120013,7 @@ function every(collection, predicate, guard) {
 
 module.exports = every;
 
-},{"./_arrayEvery":311,"./_baseEvery":323,"./_baseIteratee":336,"./_isIterateeCall":374,"./isArray":422}],418:[function(require,module,exports){
+},{"./_arrayEvery":319,"./_baseEvery":331,"./_baseIteratee":344,"./_isIterateeCall":382,"./isArray":430}],426:[function(require,module,exports){
 var baseGet = require('./_baseGet');
 
 
@@ -115992,7 +120024,7 @@ function get(object, path, defaultValue) {
 
 module.exports = get;
 
-},{"./_baseGet":326}],419:[function(require,module,exports){
+},{"./_baseGet":334}],427:[function(require,module,exports){
 var baseHasIn = require('./_baseHasIn'),
     hasPath = require('./_hasPath');
 
@@ -116003,7 +120035,7 @@ function hasIn(object, path) {
 
 module.exports = hasIn;
 
-},{"./_baseHasIn":329,"./_hasPath":367}],420:[function(require,module,exports){
+},{"./_baseHasIn":337,"./_hasPath":375}],428:[function(require,module,exports){
 
 function identity(value) {
   return value;
@@ -116011,7 +120043,7 @@ function identity(value) {
 
 module.exports = identity;
 
-},{}],421:[function(require,module,exports){
+},{}],429:[function(require,module,exports){
 var baseIsArguments = require('./_baseIsArguments'),
     isObjectLike = require('./isObjectLike');
 
@@ -116032,13 +120064,13 @@ var isArguments = baseIsArguments(function() { return arguments; }()) ? baseIsAr
 
 module.exports = isArguments;
 
-},{"./_baseIsArguments":330,"./isObjectLike":429}],422:[function(require,module,exports){
+},{"./_baseIsArguments":338,"./isObjectLike":437}],430:[function(require,module,exports){
 
 var isArray = Array.isArray;
 
 module.exports = isArray;
 
-},{}],423:[function(require,module,exports){
+},{}],431:[function(require,module,exports){
 var isFunction = require('./isFunction'),
     isLength = require('./isLength');
 
@@ -116049,7 +120081,7 @@ function isArrayLike(value) {
 
 module.exports = isArrayLike;
 
-},{"./isFunction":426,"./isLength":427}],424:[function(require,module,exports){
+},{"./isFunction":434,"./isLength":435}],432:[function(require,module,exports){
 var root = require('./_root'),
     stubFalse = require('./stubFalse');
 
@@ -116073,7 +120105,7 @@ var isBuffer = nativeIsBuffer || stubFalse;
 
 module.exports = isBuffer;
 
-},{"./_root":399,"./stubFalse":436}],425:[function(require,module,exports){
+},{"./_root":407,"./stubFalse":444}],433:[function(require,module,exports){
 var baseKeys = require('./_baseKeys'),
     getTag = require('./_getTag'),
     isArguments = require('./isArguments'),
@@ -116120,7 +120152,7 @@ function isEmpty(value) {
 
 module.exports = isEmpty;
 
-},{"./_baseKeys":337,"./_getTag":365,"./_isPrototype":378,"./isArguments":421,"./isArray":422,"./isArrayLike":423,"./isBuffer":424,"./isTypedArray":431}],426:[function(require,module,exports){
+},{"./_baseKeys":345,"./_getTag":373,"./_isPrototype":386,"./isArguments":429,"./isArray":430,"./isArrayLike":431,"./isBuffer":432,"./isTypedArray":439}],434:[function(require,module,exports){
 var baseGetTag = require('./_baseGetTag'),
     isObject = require('./isObject');
 
@@ -116141,7 +120173,7 @@ function isFunction(value) {
 
 module.exports = isFunction;
 
-},{"./_baseGetTag":328,"./isObject":428}],427:[function(require,module,exports){
+},{"./_baseGetTag":336,"./isObject":436}],435:[function(require,module,exports){
 
 var MAX_SAFE_INTEGER = 9007199254740991;
 
@@ -116153,7 +120185,7 @@ function isLength(value) {
 
 module.exports = isLength;
 
-},{}],428:[function(require,module,exports){
+},{}],436:[function(require,module,exports){
 
 function isObject(value) {
   var type = typeof value;
@@ -116162,7 +120194,7 @@ function isObject(value) {
 
 module.exports = isObject;
 
-},{}],429:[function(require,module,exports){
+},{}],437:[function(require,module,exports){
 
 function isObjectLike(value) {
   return value != null && typeof value == 'object';
@@ -116170,7 +120202,7 @@ function isObjectLike(value) {
 
 module.exports = isObjectLike;
 
-},{}],430:[function(require,module,exports){
+},{}],438:[function(require,module,exports){
 var baseGetTag = require('./_baseGetTag'),
     isObjectLike = require('./isObjectLike');
 
@@ -116185,7 +120217,7 @@ function isSymbol(value) {
 
 module.exports = isSymbol;
 
-},{"./_baseGetTag":328,"./isObjectLike":429}],431:[function(require,module,exports){
+},{"./_baseGetTag":336,"./isObjectLike":437}],439:[function(require,module,exports){
 var baseIsTypedArray = require('./_baseIsTypedArray'),
     baseUnary = require('./_baseUnary'),
     nodeUtil = require('./_nodeUtil');
@@ -116198,7 +120230,7 @@ var isTypedArray = nodeIsTypedArray ? baseUnary(nodeIsTypedArray) : baseIsTypedA
 
 module.exports = isTypedArray;
 
-},{"./_baseIsTypedArray":335,"./_baseUnary":346,"./_nodeUtil":395}],432:[function(require,module,exports){
+},{"./_baseIsTypedArray":343,"./_baseUnary":354,"./_nodeUtil":403}],440:[function(require,module,exports){
 var arrayLikeKeys = require('./_arrayLikeKeys'),
     baseKeys = require('./_baseKeys'),
     isArrayLike = require('./isArrayLike');
@@ -116210,7 +120242,7 @@ function keys(object) {
 
 module.exports = keys;
 
-},{"./_arrayLikeKeys":313,"./_baseKeys":337,"./isArrayLike":423}],433:[function(require,module,exports){
+},{"./_arrayLikeKeys":321,"./_baseKeys":345,"./isArrayLike":431}],441:[function(require,module,exports){
 var MapCache = require('./_MapCache');
 
 
@@ -116241,7 +120273,7 @@ memoize.Cache = MapCache;
 
 module.exports = memoize;
 
-},{"./_MapCache":302}],434:[function(require,module,exports){
+},{"./_MapCache":310}],442:[function(require,module,exports){
 var baseProperty = require('./_baseProperty'),
     basePropertyDeep = require('./_basePropertyDeep'),
     isKey = require('./_isKey'),
@@ -116254,7 +120286,7 @@ function property(path) {
 
 module.exports = property;
 
-},{"./_baseProperty":340,"./_basePropertyDeep":341,"./_isKey":375,"./_toKey":411}],435:[function(require,module,exports){
+},{"./_baseProperty":348,"./_basePropertyDeep":349,"./_isKey":383,"./_toKey":419}],443:[function(require,module,exports){
 
 function stubArray() {
   return [];
@@ -116262,7 +120294,7 @@ function stubArray() {
 
 module.exports = stubArray;
 
-},{}],436:[function(require,module,exports){
+},{}],444:[function(require,module,exports){
 
 function stubFalse() {
   return false;
@@ -116270,7 +120302,7 @@ function stubFalse() {
 
 module.exports = stubFalse;
 
-},{}],437:[function(require,module,exports){
+},{}],445:[function(require,module,exports){
 var baseToString = require('./_baseToString');
 
 
@@ -116280,7 +120312,7 @@ function toString(value) {
 
 module.exports = toString;
 
-},{"./_baseToString":345}],438:[function(require,module,exports){
+},{"./_baseToString":353}],446:[function(require,module,exports){
 var process = module.exports = {};
 
 
@@ -116449,7 +120481,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],439:[function(require,module,exports){
+},{}],447:[function(require,module,exports){
 (function (global){
 
 ;(function(root) {
@@ -116837,7 +120869,7 @@ process.umask = function() { return 0; };
 }(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],440:[function(require,module,exports){
+},{}],448:[function(require,module,exports){
 
 'use strict';
 
@@ -116899,7 +120931,7 @@ var isArray = Array.isArray || function (xs) {
   return Object.prototype.toString.call(xs) === '[object Array]';
 };
 
-},{}],441:[function(require,module,exports){
+},{}],449:[function(require,module,exports){
 
 'use strict';
 
@@ -116966,13 +120998,13 @@ var objectKeys = Object.keys || function (obj) {
   return res;
 };
 
-},{}],442:[function(require,module,exports){
+},{}],450:[function(require,module,exports){
 'use strict';
 
 exports.decode = exports.parse = require('./decode');
 exports.encode = exports.stringify = require('./encode');
 
-},{"./decode":440,"./encode":441}],443:[function(require,module,exports){
+},{"./decode":448,"./encode":449}],451:[function(require,module,exports){
 
 'use strict';
 
@@ -117030,7 +121062,7 @@ module.exports = function(qs, sep, eq, options) {
   return obj;
 };
 
-},{}],444:[function(require,module,exports){
+},{}],452:[function(require,module,exports){
 
 'use strict';
 
@@ -117076,9 +121108,9 @@ module.exports = function(obj, sep, eq, name) {
          encodeURIComponent(stringifyPrimitive(obj));
 };
 
-},{}],445:[function(require,module,exports){
-arguments[4][442][0].apply(exports,arguments)
-},{"./decode":443,"./encode":444,"dup":442}],446:[function(require,module,exports){
+},{}],453:[function(require,module,exports){
+arguments[4][450][0].apply(exports,arguments)
+},{"./decode":451,"./encode":452,"dup":450}],454:[function(require,module,exports){
 
 var punycode = require('punycode');
 
@@ -117645,7 +121677,7 @@ function isNullOrUndefined(arg) {
   return  arg == null;
 }
 
-},{"punycode":439,"querystring":442}],447:[function(require,module,exports){
+},{"punycode":447,"querystring":450}],455:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   module.exports = function inherits(ctor, superCtor) {
     ctor.super_ = superCtor
@@ -117668,14 +121700,14 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],448:[function(require,module,exports){
+},{}],456:[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],449:[function(require,module,exports){
+},{}],457:[function(require,module,exports){
 (function (process,global){
 
 var formatRegExp = /%[sdj%]/g;
@@ -118195,7 +122227,7 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":448,"_process":438,"inherits":447}],450:[function(require,module,exports){
+},{"./support/isBuffer":456,"_process":446,"inherits":455}],458:[function(require,module,exports){
 var v1 = require('./v1');
 var v4 = require('./v4');
 
@@ -118205,7 +122237,7 @@ uuid.v4 = v4;
 
 module.exports = uuid;
 
-},{"./v1":453,"./v4":454}],451:[function(require,module,exports){
+},{"./v1":461,"./v4":462}],459:[function(require,module,exports){
 
 var byteToHex = [];
 for (var i = 0; i < 256; ++i) {
@@ -118227,7 +122259,7 @@ function bytesToUuid(buf, offset) {
 
 module.exports = bytesToUuid;
 
-},{}],452:[function(require,module,exports){
+},{}],460:[function(require,module,exports){
 (function (global){
 var rng;
 
@@ -118255,7 +122287,7 @@ if (!rng) {
 module.exports = rng;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],453:[function(require,module,exports){
+},{}],461:[function(require,module,exports){
 var rng = require('./lib/rng');
 var bytesToUuid = require('./lib/bytesToUuid');
 
@@ -118330,7 +122362,7 @@ function v1(options, buf, offset) {
 
 module.exports = v1;
 
-},{"./lib/bytesToUuid":451,"./lib/rng":452}],454:[function(require,module,exports){
+},{"./lib/bytesToUuid":459,"./lib/rng":460}],462:[function(require,module,exports){
 var rng = require('./lib/rng');
 var bytesToUuid = require('./lib/bytesToUuid');
 
@@ -118359,7 +122391,7 @@ function v4(options, buf, offset) {
 
 module.exports = v4;
 
-},{"./lib/bytesToUuid":451,"./lib/rng":452}],455:[function(require,module,exports){
+},{"./lib/bytesToUuid":459,"./lib/rng":460}],463:[function(require,module,exports){
 (function() {
   var XMLAttribute, create;
 
@@ -118392,7 +122424,7 @@ module.exports = v4;
 
 }).call(this);
 
-},{"lodash/create":415}],456:[function(require,module,exports){
+},{"lodash/create":423}],464:[function(require,module,exports){
 (function() {
   var XMLBuilder, XMLDeclaration, XMLDocType, XMLElement, XMLStringifier;
 
@@ -118462,7 +122494,7 @@ module.exports = v4;
 
 }).call(this);
 
-},{"./XMLDeclaration":463,"./XMLDocType":464,"./XMLElement":465,"./XMLStringifier":469}],457:[function(require,module,exports){
+},{"./XMLDeclaration":471,"./XMLDocType":472,"./XMLElement":473,"./XMLStringifier":477}],465:[function(require,module,exports){
 (function() {
   var XMLCData, XMLNode, create,
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -118512,7 +122544,7 @@ module.exports = v4;
 
 }).call(this);
 
-},{"./XMLNode":466,"lodash/create":415}],458:[function(require,module,exports){
+},{"./XMLNode":474,"lodash/create":423}],466:[function(require,module,exports){
 (function() {
   var XMLComment, XMLNode, create,
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -118562,7 +122594,7 @@ module.exports = v4;
 
 }).call(this);
 
-},{"./XMLNode":466,"lodash/create":415}],459:[function(require,module,exports){
+},{"./XMLNode":474,"lodash/create":423}],467:[function(require,module,exports){
 (function() {
   var XMLDTDAttList, create;
 
@@ -118631,7 +122663,7 @@ module.exports = v4;
 
 }).call(this);
 
-},{"lodash/create":415}],460:[function(require,module,exports){
+},{"lodash/create":423}],468:[function(require,module,exports){
 (function() {
   var XMLDTDElement, create;
 
@@ -118678,7 +122710,7 @@ module.exports = v4;
 
 }).call(this);
 
-},{"lodash/create":415}],461:[function(require,module,exports){
+},{"lodash/create":423}],469:[function(require,module,exports){
 (function() {
   var XMLDTDEntity, create, isObject;
 
@@ -118763,7 +122795,7 @@ module.exports = v4;
 
 }).call(this);
 
-},{"lodash/create":415,"lodash/isObject":428}],462:[function(require,module,exports){
+},{"lodash/create":423,"lodash/isObject":436}],470:[function(require,module,exports){
 (function() {
   var XMLDTDNotation, create;
 
@@ -118820,7 +122852,7 @@ module.exports = v4;
 
 }).call(this);
 
-},{"lodash/create":415}],463:[function(require,module,exports){
+},{"lodash/create":423}],471:[function(require,module,exports){
 (function() {
   var XMLDeclaration, XMLNode, create, isObject,
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -118886,7 +122918,7 @@ module.exports = v4;
 
 }).call(this);
 
-},{"./XMLNode":466,"lodash/create":415,"lodash/isObject":428}],464:[function(require,module,exports){
+},{"./XMLNode":474,"lodash/create":423,"lodash/isObject":436}],472:[function(require,module,exports){
 (function() {
   var XMLCData, XMLComment, XMLDTDAttList, XMLDTDElement, XMLDTDEntity, XMLDTDNotation, XMLDocType, XMLProcessingInstruction, create, isObject;
 
@@ -119075,7 +123107,7 @@ module.exports = v4;
 
 }).call(this);
 
-},{"./XMLCData":457,"./XMLComment":458,"./XMLDTDAttList":459,"./XMLDTDElement":460,"./XMLDTDEntity":461,"./XMLDTDNotation":462,"./XMLProcessingInstruction":467,"lodash/create":415,"lodash/isObject":428}],465:[function(require,module,exports){
+},{"./XMLCData":465,"./XMLComment":466,"./XMLDTDAttList":467,"./XMLDTDElement":468,"./XMLDTDEntity":469,"./XMLDTDNotation":470,"./XMLProcessingInstruction":475,"lodash/create":423,"lodash/isObject":436}],473:[function(require,module,exports){
 (function() {
   var XMLAttribute, XMLElement, XMLNode, XMLProcessingInstruction, create, every, isFunction, isObject,
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -119288,7 +123320,7 @@ module.exports = v4;
 
 }).call(this);
 
-},{"./XMLAttribute":455,"./XMLNode":466,"./XMLProcessingInstruction":467,"lodash/create":415,"lodash/every":417,"lodash/isFunction":426,"lodash/isObject":428}],466:[function(require,module,exports){
+},{"./XMLAttribute":463,"./XMLNode":474,"./XMLProcessingInstruction":475,"lodash/create":423,"lodash/every":425,"lodash/isFunction":434,"lodash/isObject":436}],474:[function(require,module,exports){
 (function() {
   var XMLCData, XMLComment, XMLDeclaration, XMLDocType, XMLElement, XMLNode, XMLRaw, XMLText, isEmpty, isFunction, isObject,
     hasProp = {}.hasOwnProperty;
@@ -119620,7 +123652,7 @@ module.exports = v4;
 
 }).call(this);
 
-},{"./XMLCData":457,"./XMLComment":458,"./XMLDeclaration":463,"./XMLDocType":464,"./XMLElement":465,"./XMLRaw":468,"./XMLText":470,"lodash/isEmpty":425,"lodash/isFunction":426,"lodash/isObject":428}],467:[function(require,module,exports){
+},{"./XMLCData":465,"./XMLComment":466,"./XMLDeclaration":471,"./XMLDocType":472,"./XMLElement":473,"./XMLRaw":476,"./XMLText":478,"lodash/isEmpty":433,"lodash/isFunction":434,"lodash/isObject":436}],475:[function(require,module,exports){
 (function() {
   var XMLProcessingInstruction, create;
 
@@ -119672,7 +123704,7 @@ module.exports = v4;
 
 }).call(this);
 
-},{"lodash/create":415}],468:[function(require,module,exports){
+},{"lodash/create":423}],476:[function(require,module,exports){
 (function() {
   var XMLNode, XMLRaw, create,
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -119722,7 +123754,7 @@ module.exports = v4;
 
 }).call(this);
 
-},{"./XMLNode":466,"lodash/create":415}],469:[function(require,module,exports){
+},{"./XMLNode":474,"lodash/create":423}],477:[function(require,module,exports){
 (function() {
   var XMLStringifier,
     bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
@@ -119893,7 +123925,7 @@ module.exports = v4;
 
 }).call(this);
 
-},{}],470:[function(require,module,exports){
+},{}],478:[function(require,module,exports){
 (function() {
   var XMLNode, XMLText, create,
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -119943,7 +123975,7 @@ module.exports = v4;
 
 }).call(this);
 
-},{"./XMLNode":466,"lodash/create":415}],471:[function(require,module,exports){
+},{"./XMLNode":474,"lodash/create":423}],479:[function(require,module,exports){
 (function() {
   var XMLBuilder, assign;
 
@@ -119958,7 +123990,7 @@ module.exports = v4;
 
 }).call(this);
 
-},{"./XMLBuilder":456,"lodash/assign":413}],472:[function(require,module,exports){
+},{"./XMLBuilder":464,"lodash/assign":421}],480:[function(require,module,exports){
 require('./browser_loader');
 
 var AWS = require('./core');
@@ -119969,5 +124001,5 @@ if (typeof self !== 'undefined') self.AWS = AWS;
 
 
 require('../clients/browser_default');
-},{"../clients/browser_default":156,"./browser_loader":216,"./core":219}]},{},[472]);
+},{"../clients/browser_default":163,"./browser_loader":224,"./core":227}]},{},[480]);
 

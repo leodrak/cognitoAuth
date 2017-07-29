@@ -12,11 +12,11 @@ declare class AutoScaling extends Service {
   constructor(options?: AutoScaling.Types.ClientConfiguration)
   config: Config & AutoScaling.Types.ClientConfiguration;
   /**
-   * Attaches one or more EC2 instances to the specified Auto Scaling group. When you attach instances, Auto Scaling increases the desired capacity of the group by the number of instances being attached. If the number of instances being attached plus the desired capacity of the group exceeds the maximum size of the group, the operation fails. If there is a Classic load balancer attached to your Auto Scaling group, the instances are also registered with the load balancer. If there are target groups attached to your Auto Scaling group, the instances are also registered with the target groups. For more information, see Attach EC2 Instances to Your Auto Scaling Group in the Auto Scaling User Guide.
+   * Attaches one or more EC2 instances to the specified Auto Scaling group. When you attach instances, Auto Scaling increases the desired capacity of the group by the number of instances being attached. If the number of instances being attached plus the desired capacity of the group exceeds the maximum size of the group, the operation fails. If there is a Classic Load Balancer attached to your Auto Scaling group, the instances are also registered with the load balancer. If there are target groups attached to your Auto Scaling group, the instances are also registered with the target groups. For more information, see Attach EC2 Instances to Your Auto Scaling Group in the Auto Scaling User Guide.
    */
   attachInstances(params: AutoScaling.Types.AttachInstancesQuery, callback?: (err: AWSError, data: {}) => void): Request<{}, AWSError>;
   /**
-   * Attaches one or more EC2 instances to the specified Auto Scaling group. When you attach instances, Auto Scaling increases the desired capacity of the group by the number of instances being attached. If the number of instances being attached plus the desired capacity of the group exceeds the maximum size of the group, the operation fails. If there is a Classic load balancer attached to your Auto Scaling group, the instances are also registered with the load balancer. If there are target groups attached to your Auto Scaling group, the instances are also registered with the target groups. For more information, see Attach EC2 Instances to Your Auto Scaling Group in the Auto Scaling User Guide.
+   * Attaches one or more EC2 instances to the specified Auto Scaling group. When you attach instances, Auto Scaling increases the desired capacity of the group by the number of instances being attached. If the number of instances being attached plus the desired capacity of the group exceeds the maximum size of the group, the operation fails. If there is a Classic Load Balancer attached to your Auto Scaling group, the instances are also registered with the load balancer. If there are target groups attached to your Auto Scaling group, the instances are also registered with the target groups. For more information, see Attach EC2 Instances to Your Auto Scaling Group in the Auto Scaling User Guide.
    */
   attachInstances(callback?: (err: AWSError, data: {}) => void): Request<{}, AWSError>;
   /**
@@ -28,11 +28,11 @@ declare class AutoScaling extends Service {
    */
   attachLoadBalancerTargetGroups(callback?: (err: AWSError, data: AutoScaling.Types.AttachLoadBalancerTargetGroupsResultType) => void): Request<AutoScaling.Types.AttachLoadBalancerTargetGroupsResultType, AWSError>;
   /**
-   * Attaches one or more Classic load balancers to the specified Auto Scaling group. To attach an Application load balancer instead, see AttachLoadBalancerTargetGroups. To describe the load balancers for an Auto Scaling group, use DescribeLoadBalancers. To detach the load balancer from the Auto Scaling group, use DetachLoadBalancers. For more information, see Attach a Load Balancer to Your Auto Scaling Group in the Auto Scaling User Guide.
+   * Attaches one or more Classic Load Balancers to the specified Auto Scaling group. To attach an Application Load Balancer instead, see AttachLoadBalancerTargetGroups. To describe the load balancers for an Auto Scaling group, use DescribeLoadBalancers. To detach the load balancer from the Auto Scaling group, use DetachLoadBalancers. For more information, see Attach a Load Balancer to Your Auto Scaling Group in the Auto Scaling User Guide.
    */
   attachLoadBalancers(params: AutoScaling.Types.AttachLoadBalancersType, callback?: (err: AWSError, data: AutoScaling.Types.AttachLoadBalancersResultType) => void): Request<AutoScaling.Types.AttachLoadBalancersResultType, AWSError>;
   /**
-   * Attaches one or more Classic load balancers to the specified Auto Scaling group. To attach an Application load balancer instead, see AttachLoadBalancerTargetGroups. To describe the load balancers for an Auto Scaling group, use DescribeLoadBalancers. To detach the load balancer from the Auto Scaling group, use DetachLoadBalancers. For more information, see Attach a Load Balancer to Your Auto Scaling Group in the Auto Scaling User Guide.
+   * Attaches one or more Classic Load Balancers to the specified Auto Scaling group. To attach an Application Load Balancer instead, see AttachLoadBalancerTargetGroups. To describe the load balancers for an Auto Scaling group, use DescribeLoadBalancers. To detach the load balancer from the Auto Scaling group, use DetachLoadBalancers. For more information, see Attach a Load Balancer to Your Auto Scaling Group in the Auto Scaling User Guide.
    */
   attachLoadBalancers(callback?: (err: AWSError, data: AutoScaling.Types.AttachLoadBalancersResultType) => void): Request<AutoScaling.Types.AttachLoadBalancersResultType, AWSError>;
   /**
@@ -180,11 +180,11 @@ declare class AutoScaling extends Service {
    */
   describeLoadBalancerTargetGroups(callback?: (err: AWSError, data: AutoScaling.Types.DescribeLoadBalancerTargetGroupsResponse) => void): Request<AutoScaling.Types.DescribeLoadBalancerTargetGroupsResponse, AWSError>;
   /**
-   * Describes the load balancers for the specified Auto Scaling group. Note that this operation describes only Classic load balancers. If you have Application load balancers, use DescribeLoadBalancerTargetGroups instead.
+   * Describes the load balancers for the specified Auto Scaling group. Note that this operation describes only Classic Load Balancers. If you have Application Load Balancers, use DescribeLoadBalancerTargetGroups instead.
    */
   describeLoadBalancers(params: AutoScaling.Types.DescribeLoadBalancersRequest, callback?: (err: AWSError, data: AutoScaling.Types.DescribeLoadBalancersResponse) => void): Request<AutoScaling.Types.DescribeLoadBalancersResponse, AWSError>;
   /**
-   * Describes the load balancers for the specified Auto Scaling group. Note that this operation describes only Classic load balancers. If you have Application load balancers, use DescribeLoadBalancerTargetGroups instead.
+   * Describes the load balancers for the specified Auto Scaling group. Note that this operation describes only Classic Load Balancers. If you have Application Load Balancers, use DescribeLoadBalancerTargetGroups instead.
    */
   describeLoadBalancers(callback?: (err: AWSError, data: AutoScaling.Types.DescribeLoadBalancersResponse) => void): Request<AutoScaling.Types.DescribeLoadBalancersResponse, AWSError>;
   /**
@@ -240,11 +240,11 @@ declare class AutoScaling extends Service {
    */
   describeTerminationPolicyTypes(callback?: (err: AWSError, data: AutoScaling.Types.DescribeTerminationPolicyTypesAnswer) => void): Request<AutoScaling.Types.DescribeTerminationPolicyTypesAnswer, AWSError>;
   /**
-   * Removes one or more instances from the specified Auto Scaling group. After the instances are detached, you can manage them independently from the rest of the Auto Scaling group. If you do not specify the option to decrement the desired capacity, Auto Scaling launches instances to replace the ones that are detached. If there is a Classic load balancer attached to the Auto Scaling group, the instances are deregistered from the load balancer. If there are target groups attached to the Auto Scaling group, the instances are deregistered from the target groups. For more information, see Detach EC2 Instances from Your Auto Scaling Group in the Auto Scaling User Guide.
+   * Removes one or more instances from the specified Auto Scaling group. After the instances are detached, you can manage them independently from the rest of the Auto Scaling group. If you do not specify the option to decrement the desired capacity, Auto Scaling launches instances to replace the ones that are detached. If there is a Classic Load Balancer attached to the Auto Scaling group, the instances are deregistered from the load balancer. If there are target groups attached to the Auto Scaling group, the instances are deregistered from the target groups. For more information, see Detach EC2 Instances from Your Auto Scaling Group in the Auto Scaling User Guide.
    */
   detachInstances(params: AutoScaling.Types.DetachInstancesQuery, callback?: (err: AWSError, data: AutoScaling.Types.DetachInstancesAnswer) => void): Request<AutoScaling.Types.DetachInstancesAnswer, AWSError>;
   /**
-   * Removes one or more instances from the specified Auto Scaling group. After the instances are detached, you can manage them independently from the rest of the Auto Scaling group. If you do not specify the option to decrement the desired capacity, Auto Scaling launches instances to replace the ones that are detached. If there is a Classic load balancer attached to the Auto Scaling group, the instances are deregistered from the load balancer. If there are target groups attached to the Auto Scaling group, the instances are deregistered from the target groups. For more information, see Detach EC2 Instances from Your Auto Scaling Group in the Auto Scaling User Guide.
+   * Removes one or more instances from the specified Auto Scaling group. After the instances are detached, you can manage them independently from the rest of the Auto Scaling group. If you do not specify the option to decrement the desired capacity, Auto Scaling launches instances to replace the ones that are detached. If there is a Classic Load Balancer attached to the Auto Scaling group, the instances are deregistered from the load balancer. If there are target groups attached to the Auto Scaling group, the instances are deregistered from the target groups. For more information, see Detach EC2 Instances from Your Auto Scaling Group in the Auto Scaling User Guide.
    */
   detachInstances(callback?: (err: AWSError, data: AutoScaling.Types.DetachInstancesAnswer) => void): Request<AutoScaling.Types.DetachInstancesAnswer, AWSError>;
   /**
@@ -256,11 +256,11 @@ declare class AutoScaling extends Service {
    */
   detachLoadBalancerTargetGroups(callback?: (err: AWSError, data: AutoScaling.Types.DetachLoadBalancerTargetGroupsResultType) => void): Request<AutoScaling.Types.DetachLoadBalancerTargetGroupsResultType, AWSError>;
   /**
-   * Detaches one or more Classic load balancers from the specified Auto Scaling group. Note that this operation detaches only Classic load balancers. If you have Application load balancers, use DetachLoadBalancerTargetGroups instead. When you detach a load balancer, it enters the Removing state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using DescribeLoadBalancers. Note that the instances remain running.
+   * Detaches one or more Classic Load Balancers from the specified Auto Scaling group. Note that this operation detaches only Classic Load Balancers. If you have Application Load Balancers, use DetachLoadBalancerTargetGroups instead. When you detach a load balancer, it enters the Removing state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using DescribeLoadBalancers. Note that the instances remain running.
    */
   detachLoadBalancers(params: AutoScaling.Types.DetachLoadBalancersType, callback?: (err: AWSError, data: AutoScaling.Types.DetachLoadBalancersResultType) => void): Request<AutoScaling.Types.DetachLoadBalancersResultType, AWSError>;
   /**
-   * Detaches one or more Classic load balancers from the specified Auto Scaling group. Note that this operation detaches only Classic load balancers. If you have Application load balancers, use DetachLoadBalancerTargetGroups instead. When you detach a load balancer, it enters the Removing state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using DescribeLoadBalancers. Note that the instances remain running.
+   * Detaches one or more Classic Load Balancers from the specified Auto Scaling group. Note that this operation detaches only Classic Load Balancers. If you have Application Load Balancers, use DetachLoadBalancerTargetGroups instead. When you detach a load balancer, it enters the Removing state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using DescribeLoadBalancers. Note that the instances remain running.
    */
   detachLoadBalancers(callback?: (err: AWSError, data: AutoScaling.Types.DetachLoadBalancersResultType) => void): Request<AutoScaling.Types.DetachLoadBalancersResultType, AWSError>;
   /**
@@ -619,7 +619,7 @@ declare namespace AutoScaling {
      */
     NextToken?: XmlString;
     /**
-     * The maximum number of items to return with this call.
+     * The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
      */
     MaxRecords?: MaxRecords;
   }
@@ -656,7 +656,7 @@ declare namespace AutoScaling {
      */
     HealthStatus: XmlStringMaxLen32;
     /**
-     * The launch configuration associated with the instance.
+     * The launch configuration used to launch the instance. This value is not available if you attached the instance to the Auto Scaling group.
      */
     LaunchConfigurationName: XmlStringMaxLen255;
     /**
@@ -761,7 +761,7 @@ declare namespace AutoScaling {
      */
     AvailabilityZones?: AvailabilityZones;
     /**
-     * One or more Classic load balancers. To specify an Application load balancer, use TargetGroupARNs instead. For more information, see Using a Load Balancer With an Auto Scaling Group in the Auto Scaling User Guide.
+     * One or more Classic Load Balancers. To specify an Application Load Balancer, use TargetGroupARNs instead. For more information, see Using a Load Balancer With an Auto Scaling Group in the Auto Scaling User Guide.
      */
     LoadBalancerNames?: LoadBalancerNames;
     /**
@@ -877,6 +877,28 @@ declare namespace AutoScaling {
      */
     Tags: Tags;
   }
+  export interface CustomizedMetricSpecification {
+    /**
+     * The name of the metric.
+     */
+    MetricName: MetricName;
+    /**
+     * The namespace of the metric.
+     */
+    Namespace: MetricNamespace;
+    /**
+     * The dimensions of the metric.
+     */
+    Dimensions?: MetricDimensions;
+    /**
+     * The statistic of the metric.
+     */
+    Statistic: MetricStatistic;
+    /**
+     * The unit of the metric.
+     */
+    Unit?: MetricUnit;
+  }
   export interface DeleteAutoScalingGroupType {
     /**
      * The name of the group to delete.
@@ -965,7 +987,7 @@ declare namespace AutoScaling {
      */
     InstanceIds?: InstanceIds;
     /**
-     * The maximum number of items to return with this call.
+     * The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
      */
     MaxRecords?: MaxRecords;
     /**
@@ -1011,7 +1033,7 @@ declare namespace AutoScaling {
      */
     NextToken?: XmlString;
     /**
-     * The maximum number of items to return with this call.
+     * The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
      */
     MaxRecords?: MaxRecords;
   }
@@ -1035,7 +1057,7 @@ declare namespace AutoScaling {
      */
     NextToken?: XmlString;
     /**
-     * The maximum number of items to return with this call.
+     * The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
      */
     MaxRecords?: MaxRecords;
   }
@@ -1079,7 +1101,7 @@ declare namespace AutoScaling {
      */
     NextToken?: XmlString;
     /**
-     * The maximum number of items to return with this call.
+     * The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
      */
     MaxRecords?: MaxRecords;
   }
@@ -1101,7 +1123,7 @@ declare namespace AutoScaling {
      */
     NextToken?: XmlString;
     /**
-     * The maximum number of items to be returned with each call.
+     * The maximum number of items to be returned with each call. The default value is 50 and the maximum value is 100.
      */
     MaxRecords?: MaxRecords;
   }
@@ -1115,7 +1137,7 @@ declare namespace AutoScaling {
      */
     AutoScalingGroupName?: ResourceName;
     /**
-     * The maximum number of items to return with this call.
+     * The maximum number of items to return with this call. The default value is 100.
      */
     MaxRecords?: MaxRecords;
     /**
@@ -1145,7 +1167,7 @@ declare namespace AutoScaling {
      */
     NextToken?: XmlString;
     /**
-     * The maximum number of items to return with this call.
+     * The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
      */
     MaxRecords?: MaxRecords;
   }
@@ -1159,7 +1181,7 @@ declare namespace AutoScaling {
      */
     NextToken?: XmlString;
     /**
-     * The maximum number of items to return with this call.
+     * The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
      */
     MaxRecords?: MaxRecords;
   }
@@ -1223,6 +1245,7 @@ declare namespace AutoScaling {
      */
     Metrics?: Metrics;
   }
+  export type DisableScaleIn = boolean;
   export interface Ebs {
     /**
      * The ID of the snapshot.
@@ -1480,7 +1503,7 @@ declare namespace AutoScaling {
      */
     NextToken?: XmlString;
     /**
-     * The maximum number of items to return with this call. The default is 100.
+     * The maximum number of items to return with this call. The default value is 50 and the maximum value is 100.
      */
     MaxRecords?: MaxRecords;
   }
@@ -1572,6 +1595,19 @@ declare namespace AutoScaling {
     Metric?: XmlStringMaxLen255;
   }
   export type MetricCollectionTypes = MetricCollectionType[];
+  export interface MetricDimension {
+    /**
+     * The name of the dimension.
+     */
+    Name: MetricDimensionName;
+    /**
+     * The value of the dimension.
+     */
+    Value: MetricDimensionValue;
+  }
+  export type MetricDimensionName = string;
+  export type MetricDimensionValue = string;
+  export type MetricDimensions = MetricDimension[];
   export interface MetricGranularityType {
     /**
      * The granularity. The only valid value is 1Minute.
@@ -1579,7 +1615,12 @@ declare namespace AutoScaling {
     Granularity?: XmlStringMaxLen255;
   }
   export type MetricGranularityTypes = MetricGranularityType[];
+  export type MetricName = string;
+  export type MetricNamespace = string;
   export type MetricScale = number;
+  export type MetricStatistic = "Average"|"Minimum"|"Maximum"|"SampleCount"|"Sum"|string;
+  export type MetricType = "ASGAverageCPUUtilization"|"ASGAverageNetworkIn"|"ASGAverageNetworkOut"|"ALBRequestCountPerTarget"|string;
+  export type MetricUnit = string;
   export type Metrics = XmlStringMaxLen255[];
   export type MinAdjustmentMagnitude = number;
   export type MinAdjustmentStep = number;
@@ -1618,10 +1659,24 @@ declare namespace AutoScaling {
      * The Amazon Resource Name (ARN) of the policy.
      */
     PolicyARN?: ResourceName;
+    /**
+     * The CloudWatch alarms created for the target tracking policy. This parameter will be empty if the policy type is anything other than TargetTrackingScaling.
+     */
+    Alarms?: Alarms;
   }
   export type PolicyIncrement = number;
   export type PolicyNames = ResourceName[];
   export type PolicyTypes = XmlStringMaxLen64[];
+  export interface PredefinedMetricSpecification {
+    /**
+     * The metric type.
+     */
+    PredefinedMetricType: MetricType;
+    /**
+     * Identifies the resource associated with the metric type. For predefined metric types ASGAverageCPUUtilization, ASGAverageNetworkIn and ASGAverageNetworkOut, the parameter must not be specified as the resource associated with the metric type is the Auto Scaling group. For predefined metric type ALBRequestCountPerTarget, the parameter must be specified in the format app/load-balancer-name/load-balancer-id/targetgroup/target-group-name/target-group-id , where app/load-balancer-name/load-balancer-id  is the final portion of the load balancer ARN, and targetgroup/target-group-name/target-group-id  is the final portion of the target group ARN. The target group must be attached to the Auto Scaling group.
+     */
+    ResourceLabel?: XmlStringMaxLen1023;
+  }
   export type ProcessNames = XmlStringMaxLen255[];
   export interface ProcessType {
     /**
@@ -1699,19 +1754,19 @@ declare namespace AutoScaling {
      */
     PolicyName: XmlStringMaxLen255;
     /**
-     * The policy type. Valid values are SimpleScaling and StepScaling. If the policy type is null, the value is treated as SimpleScaling.
+     * The policy type. The valid values are SimpleScaling, StepScaling, and TargetTrackingScaling. If the policy type is null, the value is treated as SimpleScaling.
      */
     PolicyType?: XmlStringMaxLen64;
     /**
-     * The adjustment type. Valid values are ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity. For more information, see Dynamic Scaling in the Auto Scaling User Guide.
+     * The adjustment type. The valid values are ChangeInCapacity, ExactCapacity, and PercentChangeInCapacity. This parameter is supported if the policy type is SimpleScaling or StepScaling. For more information, see Dynamic Scaling in the Auto Scaling User Guide.
      */
-    AdjustmentType: XmlStringMaxLen255;
+    AdjustmentType?: XmlStringMaxLen255;
     /**
      * Available for backward compatibility. Use MinAdjustmentMagnitude instead.
      */
     MinAdjustmentStep?: MinAdjustmentStep;
     /**
-     * The minimum number of instances to scale. If the value of AdjustmentType is PercentChangeInCapacity, the scaling policy changes the DesiredCapacity of the Auto Scaling group by at least this many instances. Otherwise, the error is ValidationError.
+     * The minimum number of instances to scale. If the value of AdjustmentType is PercentChangeInCapacity, the scaling policy changes the DesiredCapacity of the Auto Scaling group by at least this many instances. Otherwise, the error is ValidationError. This parameter is supported if the policy type is SimpleScaling or StepScaling.
      */
     MinAdjustmentMagnitude?: MinAdjustmentMagnitude;
     /**
@@ -1719,11 +1774,11 @@ declare namespace AutoScaling {
      */
     ScalingAdjustment?: PolicyIncrement;
     /**
-     * The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start. If this parameter is not specified, the default cooldown period for the group applies. This parameter is not supported unless the policy type is SimpleScaling. For more information, see Auto Scaling Cooldowns in the Auto Scaling User Guide.
+     * The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start. If this parameter is not specified, the default cooldown period for the group applies. This parameter is supported if the policy type is SimpleScaling. For more information, see Auto Scaling Cooldowns in the Auto Scaling User Guide.
      */
     Cooldown?: Cooldown;
     /**
-     * The aggregation type for the CloudWatch metrics. Valid values are Minimum, Maximum, and Average. If the aggregation type is null, the value is treated as Average. This parameter is not supported if the policy type is SimpleScaling.
+     * The aggregation type for the CloudWatch metrics. The valid values are Minimum, Maximum, and Average. If the aggregation type is null, the value is treated as Average. This parameter is supported if the policy type is StepScaling.
      */
     MetricAggregationType?: XmlStringMaxLen32;
     /**
@@ -1731,9 +1786,13 @@ declare namespace AutoScaling {
      */
     StepAdjustments?: StepAdjustments;
     /**
-     * The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. The default is to use the value specified for the default cooldown period for the group. This parameter is not supported if the policy type is SimpleScaling.
+     * The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. The default is to use the value specified for the default cooldown period for the group. This parameter is supported if the policy type is StepScaling or TargetTrackingScaling.
      */
     EstimatedInstanceWarmup?: EstimatedInstanceWarmup;
+    /**
+     * The configuration of a target tracking policy. This parameter is required if the policy type is TargetTrackingScaling and not supported otherwise.
+     */
+    TargetTrackingConfiguration?: TargetTrackingConfiguration;
   }
   export interface PutScheduledUpdateGroupActionType {
     /**
@@ -1849,6 +1908,10 @@ declare namespace AutoScaling {
      * The CloudWatch alarms related to the policy.
      */
     Alarms?: Alarms;
+    /**
+     * A target tracking policy.
+     */
+    TargetTrackingConfiguration?: TargetTrackingConfiguration;
   }
   export interface ScalingProcessQuery {
     /**
@@ -2047,6 +2110,24 @@ declare namespace AutoScaling {
     NextToken?: XmlString;
   }
   export type TargetGroupARNs = XmlStringMaxLen511[];
+  export interface TargetTrackingConfiguration {
+    /**
+     * A predefined metric. You can specify either a predefined metric or a customized metric.
+     */
+    PredefinedMetricSpecification?: PredefinedMetricSpecification;
+    /**
+     * A customized metric.
+     */
+    CustomizedMetricSpecification?: CustomizedMetricSpecification;
+    /**
+     * The target value for the metric.
+     */
+    TargetValue: MetricScale;
+    /**
+     * If the parameter is true, then scale-in will be disabled for the target tracking policy, i.e. the target tracking policy will not scale in the Auto Scaling group. The default value is false.
+     */
+    DisableScaleIn?: DisableScaleIn;
+  }
   export interface TerminateInstanceInAutoScalingGroupType {
     /**
      * The ID of the instance.

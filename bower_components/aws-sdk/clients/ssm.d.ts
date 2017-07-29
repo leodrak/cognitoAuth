@@ -12,11 +12,11 @@ declare class SSM extends Service {
   constructor(options?: SSM.Types.ClientConfiguration)
   config: Config & SSM.Types.ClientConfiguration;
   /**
-   * Adds or overwrites one or more tags for the specified resource. Tags are metadata that you assign to your managed instances. Tags enable you to categorize your managed instances in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. For example, you could define a set of tags for your account's managed instances that helps you track each instance's owner and stack level. For example: Key=Owner and Value=DbAdmin, SysAdmin, or Dev. Or Key=Stack and Value=Production, Pre-Production, or Test. Each resource can have a maximum of 10 tags.  We recommend that you devise a set of tag keys that meets your needs for each resource type. Using a consistent set of tag keys makes it easier for you to manage your resources. You can search and filter the resources based on the tags you add. Tags don't have any semantic meaning to Amazon EC2 and are interpreted strictly as a string of characters.  For more information about tags, see Tagging Your Amazon EC2 Resources in the Amazon EC2 User Guide.
+   * Adds or overwrites one or more tags for the specified resource. Tags are metadata that you assign to your managed instances, Maintenance Windows, or Parameter Store parameters. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. For example, you could define a set of tags for your account's managed instances that helps you track each instance's owner and stack level. For example: Key=Owner and Value=DbAdmin, SysAdmin, or Dev. Or Key=Stack and Value=Production, Pre-Production, or Test. Each resource can have a maximum of 10 tags.  We recommend that you devise a set of tag keys that meets your needs for each resource type. Using a consistent set of tag keys makes it easier for you to manage your resources. You can search and filter the resources based on the tags you add. Tags don't have any semantic meaning to Amazon EC2 and are interpreted strictly as a string of characters.  For more information about tags, see Tagging Your Amazon EC2 Resources in the Amazon EC2 User Guide.
    */
   addTagsToResource(params: SSM.Types.AddTagsToResourceRequest, callback?: (err: AWSError, data: SSM.Types.AddTagsToResourceResult) => void): Request<SSM.Types.AddTagsToResourceResult, AWSError>;
   /**
-   * Adds or overwrites one or more tags for the specified resource. Tags are metadata that you assign to your managed instances. Tags enable you to categorize your managed instances in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. For example, you could define a set of tags for your account's managed instances that helps you track each instance's owner and stack level. For example: Key=Owner and Value=DbAdmin, SysAdmin, or Dev. Or Key=Stack and Value=Production, Pre-Production, or Test. Each resource can have a maximum of 10 tags.  We recommend that you devise a set of tag keys that meets your needs for each resource type. Using a consistent set of tag keys makes it easier for you to manage your resources. You can search and filter the resources based on the tags you add. Tags don't have any semantic meaning to Amazon EC2 and are interpreted strictly as a string of characters.  For more information about tags, see Tagging Your Amazon EC2 Resources in the Amazon EC2 User Guide.
+   * Adds or overwrites one or more tags for the specified resource. Tags are metadata that you assign to your managed instances, Maintenance Windows, or Parameter Store parameters. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. For example, you could define a set of tags for your account's managed instances that helps you track each instance's owner and stack level. For example: Key=Owner and Value=DbAdmin, SysAdmin, or Dev. Or Key=Stack and Value=Production, Pre-Production, or Test. Each resource can have a maximum of 10 tags.  We recommend that you devise a set of tag keys that meets your needs for each resource type. Using a consistent set of tag keys makes it easier for you to manage your resources. You can search and filter the resources based on the tags you add. Tags don't have any semantic meaning to Amazon EC2 and are interpreted strictly as a string of characters.  For more information about tags, see Tagging Your Amazon EC2 Resources in the Amazon EC2 User Guide.
    */
   addTagsToResource(callback?: (err: AWSError, data: SSM.Types.AddTagsToResourceResult) => void): Request<SSM.Types.AddTagsToResourceResult, AWSError>;
   /**
@@ -76,6 +76,14 @@ declare class SSM extends Service {
    */
   createPatchBaseline(callback?: (err: AWSError, data: SSM.Types.CreatePatchBaselineResult) => void): Request<SSM.Types.CreatePatchBaselineResult, AWSError>;
   /**
+   * Creates a resource data sync configuration to a single bucket in Amazon S3. This is an asynchronous operation that returns immediately. After a successful initial sync is completed, the system continuously syncs data to the Amazon S3 bucket. To check the status of the sync, use the ListResourceDataSync operation. By default, data is not encrypted in Amazon S3. We strongly recommend that you enable encryption in Amazon S3 to ensure secure data storage. We also recommend that you secure access to the Amazon S3 bucket by creating a restrictive bucket policy. To view an example of a restrictive Amazon S3 bucket policy for Resource Data Sync, see Configuring Resource Data Sync for Inventory.
+   */
+  createResourceDataSync(params: SSM.Types.CreateResourceDataSyncRequest, callback?: (err: AWSError, data: SSM.Types.CreateResourceDataSyncResult) => void): Request<SSM.Types.CreateResourceDataSyncResult, AWSError>;
+  /**
+   * Creates a resource data sync configuration to a single bucket in Amazon S3. This is an asynchronous operation that returns immediately. After a successful initial sync is completed, the system continuously syncs data to the Amazon S3 bucket. To check the status of the sync, use the ListResourceDataSync operation. By default, data is not encrypted in Amazon S3. We strongly recommend that you enable encryption in Amazon S3 to ensure secure data storage. We also recommend that you secure access to the Amazon S3 bucket by creating a restrictive bucket policy. To view an example of a restrictive Amazon S3 bucket policy for Resource Data Sync, see Configuring Resource Data Sync for Inventory.
+   */
+  createResourceDataSync(callback?: (err: AWSError, data: SSM.Types.CreateResourceDataSyncResult) => void): Request<SSM.Types.CreateResourceDataSyncResult, AWSError>;
+  /**
    * Deletes an activation. You are not required to delete an activation. If you delete an activation, you can no longer use it to register additional managed instances. Deleting an activation does not de-register managed instances. You must manually de-register managed instances.
    */
   deleteActivation(params: SSM.Types.DeleteActivationRequest, callback?: (err: AWSError, data: SSM.Types.DeleteActivationResult) => void): Request<SSM.Types.DeleteActivationResult, AWSError>;
@@ -116,6 +124,14 @@ declare class SSM extends Service {
    */
   deleteParameter(callback?: (err: AWSError, data: SSM.Types.DeleteParameterResult) => void): Request<SSM.Types.DeleteParameterResult, AWSError>;
   /**
+   * Delete a list of parameters.
+   */
+  deleteParameters(params: SSM.Types.DeleteParametersRequest, callback?: (err: AWSError, data: SSM.Types.DeleteParametersResult) => void): Request<SSM.Types.DeleteParametersResult, AWSError>;
+  /**
+   * Delete a list of parameters.
+   */
+  deleteParameters(callback?: (err: AWSError, data: SSM.Types.DeleteParametersResult) => void): Request<SSM.Types.DeleteParametersResult, AWSError>;
+  /**
    * Deletes a patch baseline.
    */
   deletePatchBaseline(params: SSM.Types.DeletePatchBaselineRequest, callback?: (err: AWSError, data: SSM.Types.DeletePatchBaselineResult) => void): Request<SSM.Types.DeletePatchBaselineResult, AWSError>;
@@ -124,11 +140,19 @@ declare class SSM extends Service {
    */
   deletePatchBaseline(callback?: (err: AWSError, data: SSM.Types.DeletePatchBaselineResult) => void): Request<SSM.Types.DeletePatchBaselineResult, AWSError>;
   /**
-   * Removes the server or virtual machine from the list of registered servers. You can reregister the instance again at any time. If you don’t plan to use Run Command on the server, we suggest uninstalling the SSM Agent first.
+   * Deletes a Resource Data Sync configuration. After the configuration is deleted, changes to inventory data on managed instances are no longer synced with the target Amazon S3 bucket. Deleting a sync configuration does not delete data in the target Amazon S3 bucket.
+   */
+  deleteResourceDataSync(params: SSM.Types.DeleteResourceDataSyncRequest, callback?: (err: AWSError, data: SSM.Types.DeleteResourceDataSyncResult) => void): Request<SSM.Types.DeleteResourceDataSyncResult, AWSError>;
+  /**
+   * Deletes a Resource Data Sync configuration. After the configuration is deleted, changes to inventory data on managed instances are no longer synced with the target Amazon S3 bucket. Deleting a sync configuration does not delete data in the target Amazon S3 bucket.
+   */
+  deleteResourceDataSync(callback?: (err: AWSError, data: SSM.Types.DeleteResourceDataSyncResult) => void): Request<SSM.Types.DeleteResourceDataSyncResult, AWSError>;
+  /**
+   * Removes the server or virtual machine from the list of registered servers. You can reregister the instance again at any time. If you don't plan to use Run Command on the server, we suggest uninstalling the SSM Agent first.
    */
   deregisterManagedInstance(params: SSM.Types.DeregisterManagedInstanceRequest, callback?: (err: AWSError, data: SSM.Types.DeregisterManagedInstanceResult) => void): Request<SSM.Types.DeregisterManagedInstanceResult, AWSError>;
   /**
-   * Removes the server or virtual machine from the list of registered servers. You can reregister the instance again at any time. If you don’t plan to use Run Command on the server, we suggest uninstalling the SSM Agent first.
+   * Removes the server or virtual machine from the list of registered servers. You can reregister the instance again at any time. If you don't plan to use Run Command on the server, we suggest uninstalling the SSM Agent first.
    */
   deregisterManagedInstance(callback?: (err: AWSError, data: SSM.Types.DeregisterManagedInstanceResult) => void): Request<SSM.Types.DeregisterManagedInstanceResult, AWSError>;
   /**
@@ -196,11 +220,11 @@ declare class SSM extends Service {
    */
   describeDocument(callback?: (err: AWSError, data: SSM.Types.DescribeDocumentResult) => void): Request<SSM.Types.DescribeDocumentResult, AWSError>;
   /**
-   * Describes the permissions for a Systems Manager document. If you created the document, you are the owner. If a document is shared, it can either be shared privately (by specifying a user’s AWS account ID) or publicly (All). 
+   * Describes the permissions for a Systems Manager document. If you created the document, you are the owner. If a document is shared, it can either be shared privately (by specifying a user's AWS account ID) or publicly (All). 
    */
   describeDocumentPermission(params: SSM.Types.DescribeDocumentPermissionRequest, callback?: (err: AWSError, data: SSM.Types.DescribeDocumentPermissionResponse) => void): Request<SSM.Types.DescribeDocumentPermissionResponse, AWSError>;
   /**
-   * Describes the permissions for a Systems Manager document. If you created the document, you are the owner. If a document is shared, it can either be shared privately (by specifying a user’s AWS account ID) or publicly (All). 
+   * Describes the permissions for a Systems Manager document. If you created the document, you are the owner. If a document is shared, it can either be shared privately (by specifying a user's AWS account ID) or publicly (All). 
    */
   describeDocumentPermission(callback?: (err: AWSError, data: SSM.Types.DescribeDocumentPermissionResponse) => void): Request<SSM.Types.DescribeDocumentPermissionResponse, AWSError>;
   /**
@@ -212,11 +236,11 @@ declare class SSM extends Service {
    */
   describeEffectiveInstanceAssociations(callback?: (err: AWSError, data: SSM.Types.DescribeEffectiveInstanceAssociationsResult) => void): Request<SSM.Types.DescribeEffectiveInstanceAssociationsResult, AWSError>;
   /**
-   * Retrieves the current effective patches (the patch and the approval state) for the specified patch baseline.
+   * Retrieves the current effective patches (the patch and the approval state) for the specified patch baseline. Note that this API applies only to Windows patch baselines.
    */
   describeEffectivePatchesForPatchBaseline(params: SSM.Types.DescribeEffectivePatchesForPatchBaselineRequest, callback?: (err: AWSError, data: SSM.Types.DescribeEffectivePatchesForPatchBaselineResult) => void): Request<SSM.Types.DescribeEffectivePatchesForPatchBaselineResult, AWSError>;
   /**
-   * Retrieves the current effective patches (the patch and the approval state) for the specified patch baseline.
+   * Retrieves the current effective patches (the patch and the approval state) for the specified patch baseline. Note that this API applies only to Windows patch baselines.
    */
   describeEffectivePatchesForPatchBaseline(callback?: (err: AWSError, data: SSM.Types.DescribeEffectivePatchesForPatchBaselineResult) => void): Request<SSM.Types.DescribeEffectivePatchesForPatchBaselineResult, AWSError>;
   /**
@@ -356,19 +380,19 @@ declare class SSM extends Service {
    */
   getCommandInvocation(callback?: (err: AWSError, data: SSM.Types.GetCommandInvocationResult) => void): Request<SSM.Types.GetCommandInvocationResult, AWSError>;
   /**
-   * Retrieves the default patch baseline.
+   * Retrieves the default patch baseline. Note that Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
    */
   getDefaultPatchBaseline(params: SSM.Types.GetDefaultPatchBaselineRequest, callback?: (err: AWSError, data: SSM.Types.GetDefaultPatchBaselineResult) => void): Request<SSM.Types.GetDefaultPatchBaselineResult, AWSError>;
   /**
-   * Retrieves the default patch baseline.
+   * Retrieves the default patch baseline. Note that Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
    */
   getDefaultPatchBaseline(callback?: (err: AWSError, data: SSM.Types.GetDefaultPatchBaselineResult) => void): Request<SSM.Types.GetDefaultPatchBaselineResult, AWSError>;
   /**
-   * Retrieves the current snapshot for the patch baseline the instance uses. This API is primarily used by the AWS-ApplyPatchBaseline Systems Manager document. 
+   * Retrieves the current snapshot for the patch baseline the instance uses. This API is primarily used by the AWS-RunPatchBaseline Systems Manager document. 
    */
   getDeployablePatchSnapshotForInstance(params: SSM.Types.GetDeployablePatchSnapshotForInstanceRequest, callback?: (err: AWSError, data: SSM.Types.GetDeployablePatchSnapshotForInstanceResult) => void): Request<SSM.Types.GetDeployablePatchSnapshotForInstanceResult, AWSError>;
   /**
-   * Retrieves the current snapshot for the patch baseline the instance uses. This API is primarily used by the AWS-ApplyPatchBaseline Systems Manager document. 
+   * Retrieves the current snapshot for the patch baseline the instance uses. This API is primarily used by the AWS-RunPatchBaseline Systems Manager document. 
    */
   getDeployablePatchSnapshotForInstance(callback?: (err: AWSError, data: SSM.Types.GetDeployablePatchSnapshotForInstanceResult) => void): Request<SSM.Types.GetDeployablePatchSnapshotForInstanceResult, AWSError>;
   /**
@@ -420,6 +444,14 @@ declare class SSM extends Service {
    */
   getMaintenanceWindowExecutionTask(callback?: (err: AWSError, data: SSM.Types.GetMaintenanceWindowExecutionTaskResult) => void): Request<SSM.Types.GetMaintenanceWindowExecutionTaskResult, AWSError>;
   /**
+   * Get information about a parameter by using the parameter name. 
+   */
+  getParameter(params: SSM.Types.GetParameterRequest, callback?: (err: AWSError, data: SSM.Types.GetParameterResult) => void): Request<SSM.Types.GetParameterResult, AWSError>;
+  /**
+   * Get information about a parameter by using the parameter name. 
+   */
+  getParameter(callback?: (err: AWSError, data: SSM.Types.GetParameterResult) => void): Request<SSM.Types.GetParameterResult, AWSError>;
+  /**
    * Query a list of all parameters used by the AWS account.
    */
   getParameterHistory(params: SSM.Types.GetParameterHistoryRequest, callback?: (err: AWSError, data: SSM.Types.GetParameterHistoryResult) => void): Request<SSM.Types.GetParameterHistoryResult, AWSError>;
@@ -435,6 +467,14 @@ declare class SSM extends Service {
    * Get details of a parameter.
    */
   getParameters(callback?: (err: AWSError, data: SSM.Types.GetParametersResult) => void): Request<SSM.Types.GetParametersResult, AWSError>;
+  /**
+   * Retrieve parameters in a specific hierarchy. For more information, see Working with Systems Manager Parameters. 
+   */
+  getParametersByPath(params: SSM.Types.GetParametersByPathRequest, callback?: (err: AWSError, data: SSM.Types.GetParametersByPathResult) => void): Request<SSM.Types.GetParametersByPathResult, AWSError>;
+  /**
+   * Retrieve parameters in a specific hierarchy. For more information, see Working with Systems Manager Parameters. 
+   */
+  getParametersByPath(callback?: (err: AWSError, data: SSM.Types.GetParametersByPathResult) => void): Request<SSM.Types.GetParametersByPathResult, AWSError>;
   /**
    * Retrieves information about a patch baseline.
    */
@@ -500,6 +540,14 @@ declare class SSM extends Service {
    */
   listInventoryEntries(callback?: (err: AWSError, data: SSM.Types.ListInventoryEntriesResult) => void): Request<SSM.Types.ListInventoryEntriesResult, AWSError>;
   /**
+   * Lists your resource data sync configurations. Includes information about the last time a sync attempted to start, the last sync status, and the last time a sync successfully completed. The number of sync configurations might be too large to return using a single call to ListResourceDataSync. You can limit the number of sync configurations returned by using the MaxResults parameter. To determine whether there are more sync configurations to list, check the value of NextToken in the output. If there are more sync configurations to list, you can request them by specifying the NextToken returned in the call to the parameter of a subsequent call. 
+   */
+  listResourceDataSync(params: SSM.Types.ListResourceDataSyncRequest, callback?: (err: AWSError, data: SSM.Types.ListResourceDataSyncResult) => void): Request<SSM.Types.ListResourceDataSyncResult, AWSError>;
+  /**
+   * Lists your resource data sync configurations. Includes information about the last time a sync attempted to start, the last sync status, and the last time a sync successfully completed. The number of sync configurations might be too large to return using a single call to ListResourceDataSync. You can limit the number of sync configurations returned by using the MaxResults parameter. To determine whether there are more sync configurations to list, check the value of NextToken in the output. If there are more sync configurations to list, you can request them by specifying the NextToken returned in the call to the parameter of a subsequent call. 
+   */
+  listResourceDataSync(callback?: (err: AWSError, data: SSM.Types.ListResourceDataSyncResult) => void): Request<SSM.Types.ListResourceDataSyncResult, AWSError>;
+  /**
    * Returns a list of the tags assigned to the specified resource.
    */
   listTagsForResource(params: SSM.Types.ListTagsForResourceRequest, callback?: (err: AWSError, data: SSM.Types.ListTagsForResourceResult) => void): Request<SSM.Types.ListTagsForResourceResult, AWSError>;
@@ -524,11 +572,11 @@ declare class SSM extends Service {
    */
   putInventory(callback?: (err: AWSError, data: SSM.Types.PutInventoryResult) => void): Request<SSM.Types.PutInventoryResult, AWSError>;
   /**
-   * Add one or more paramaters to the system.
+   * Add one or more parameters to the system.
    */
   putParameter(params: SSM.Types.PutParameterRequest, callback?: (err: AWSError, data: SSM.Types.PutParameterResult) => void): Request<SSM.Types.PutParameterResult, AWSError>;
   /**
-   * Add one or more paramaters to the system.
+   * Add one or more parameters to the system.
    */
   putParameter(callback?: (err: AWSError, data: SSM.Types.PutParameterResult) => void): Request<SSM.Types.PutParameterResult, AWSError>;
   /**
@@ -572,11 +620,11 @@ declare class SSM extends Service {
    */
   removeTagsFromResource(callback?: (err: AWSError, data: SSM.Types.RemoveTagsFromResourceResult) => void): Request<SSM.Types.RemoveTagsFromResourceResult, AWSError>;
   /**
-   * Executes commands on one or more remote instances.
+   * Executes commands on one or more managed instances.
    */
   sendCommand(params: SSM.Types.SendCommandRequest, callback?: (err: AWSError, data: SSM.Types.SendCommandResult) => void): Request<SSM.Types.SendCommandResult, AWSError>;
   /**
-   * Executes commands on one or more remote instances.
+   * Executes commands on one or more managed instances.
    */
   sendCommand(callback?: (err: AWSError, data: SSM.Types.SendCommandResult) => void): Request<SSM.Types.SendCommandResult, AWSError>;
   /**
@@ -714,6 +762,7 @@ declare namespace SSM {
   export interface AddTagsToResourceResult {
   }
   export type AgentErrorCode = string;
+  export type AllowedPattern = string;
   export type ApproveAfterDays = number;
   export interface Association {
     /**
@@ -1017,11 +1066,11 @@ declare namespace SSM {
      */
     Status?: CommandStatus;
     /**
-     * A detailed status of the command execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see Run Command Status. StatusDetails can be one of the following values:   Pending – The command has not been sent to any instances.   In Progress – The command has been sent to at least one instance but has not reached a final state on all instances.   Success – The command successfully executed on all invocations. This is a terminal state.   Delivery Timed Out – The value of MaxErrors or more command invocations shows a status of Delivery Timed Out. This is a terminal state.   Execution Timed Out – The value of MaxErrors or more command invocations shows a status of Execution Timed Out. This is a terminal state.   Failed – The value of MaxErrors or more command invocations shows a status of Failed. This is a terminal state.   Incomplete – The command was attempted on all instances and one or more invocations does not have a value of Success but not enough invocations failed for the status to be Failed. This is a terminal state.   Canceled – The command was terminated before it was completed. This is a terminal state.   Rate Exceeded – The number of instances targeted by the command exceeded the account limit for pending invocations. The system has canceled the command before executing it on any instance. This is a terminal state.  
+     * A detailed status of the command execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see Run Command Status. StatusDetails can be one of the following values:   Pending: The command has not been sent to any instances.   In Progress: The command has been sent to at least one instance but has not reached a final state on all instances.   Success: The command successfully executed on all invocations. This is a terminal state.   Delivery Timed Out: The value of MaxErrors or more command invocations shows a status of Delivery Timed Out. This is a terminal state.   Execution Timed Out: The value of MaxErrors or more command invocations shows a status of Execution Timed Out. This is a terminal state.   Failed: The value of MaxErrors or more command invocations shows a status of Failed. This is a terminal state.   Incomplete: The command was attempted on all instances and one or more invocations does not have a value of Success but not enough invocations failed for the status to be Failed. This is a terminal state.   Canceled: The command was terminated before it was completed. This is a terminal state.   Rate Exceeded: The number of instances targeted by the command exceeded the account limit for pending invocations. The system has canceled the command before executing it on any instance. This is a terminal state.  
      */
     StatusDetails?: StatusDetails;
     /**
-     * The region where the Amazon Simple Storage Service (Amazon S3) output bucket is located. The default value is the region where Run Command is being called.
+     * (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Amazon S3 bucket region.
      */
     OutputS3Region?: S3Region;
     /**
@@ -1063,11 +1112,11 @@ declare namespace SSM {
   }
   export interface CommandFilter {
     /**
-     * The name of the filter. For example, requested date and time.
+     * The name of the filter.
      */
     key: CommandFilterKey;
     /**
-     * The filter value. For example: June 30, 2015.
+     * The filter value. 
      */
     value: CommandFilterValue;
   }
@@ -1105,7 +1154,7 @@ declare namespace SSM {
      */
     Status?: CommandInvocationStatus;
     /**
-     * A detailed status of the command execution for each invocation (each instance targeted by the command). StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see Run Command Status. StatusDetails can be one of the following values:   Pending – The command has not been sent to the instance.   In Progress – The command has been sent to the instance but has not reached a terminal state.   Success – The execution of the command or plugin was successfully completed. This is a terminal state.   Delivery Timed Out – The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command’s MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.   Execution Timed Out – Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.   Failed – The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.   Canceled – The command was terminated before it was completed. This is a terminal state.   Undeliverable – The command can't be delivered to the instance. The instance might not exist or might not be responding. Undeliverable invocations don't count against the parent command’s MaxErrors limit and don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.   Terminated – The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.  
+     * A detailed status of the command execution for each invocation (each instance targeted by the command). StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see Run Command Status. StatusDetails can be one of the following values:   Pending: The command has not been sent to the instance.   In Progress: The command has been sent to the instance but has not reached a terminal state.   Success: The execution of the command or plugin was successfully completed. This is a terminal state.   Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.   Execution Timed Out: Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.   Failed: The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.   Canceled: The command was terminated before it was completed. This is a terminal state.   Undeliverable: The command can't be delivered to the instance. The instance might not exist or might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit and don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.   Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.  
      */
     StatusDetails?: StatusDetails;
     /**
@@ -1113,11 +1162,11 @@ declare namespace SSM {
      */
     TraceOutput?: InvocationTraceOutput;
     /**
-     * The URL to the plugin’s StdOut file in Amazon S3, if the Amazon S3 bucket was defined for the parent command. For an invocation, StandardOutputUrl is populated if there is just one plugin defined for the command, and the Amazon S3 bucket was defined for the command.
+     * The URL to the plugin's StdOut file in Amazon S3, if the Amazon S3 bucket was defined for the parent command. For an invocation, StandardOutputUrl is populated if there is just one plugin defined for the command, and the Amazon S3 bucket was defined for the command.
      */
     StandardOutputUrl?: Url;
     /**
-     * The URL to the plugin’s StdErr file in Amazon S3, if the Amazon S3 bucket was defined for the parent command. For an invocation, StandardErrorUrl is populated if there is just one plugin defined for the command, and the Amazon S3 bucket was defined for the command.
+     * The URL to the plugin's StdErr file in Amazon S3, if the Amazon S3 bucket was defined for the parent command. For an invocation, StandardErrorUrl is populated if there is just one plugin defined for the command, and the Amazon S3 bucket was defined for the command.
      */
     StandardErrorUrl?: Url;
     CommandPlugins?: CommandPluginList;
@@ -1144,7 +1193,7 @@ declare namespace SSM {
      */
     Status?: CommandPluginStatus;
     /**
-     * A detailed status of the plugin execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see Run Command Status. StatusDetails can be one of the following values:   Pending – The command has not been sent to the instance.   In Progress – The command has been sent to the instance but has not reached a terminal state.   Success – The execution of the command or plugin was successfully completed. This is a terminal state.   Delivery Timed Out – The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command’s MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.   Execution Timed Out – Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.   Failed – The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.   Canceled – The command was terminated before it was completed. This is a terminal state.   Undeliverable – The command can't be delivered to the instance. The instance might not exist, or it might not be responding. Undeliverable invocations don't count against the parent command’s MaxErrors limit, and they don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.   Terminated – The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.  
+     * A detailed status of the plugin execution. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see Run Command Status. StatusDetails can be one of the following values:   Pending: The command has not been sent to the instance.   In Progress: The command has been sent to the instance but has not reached a terminal state.   Success: The execution of the command or plugin was successfully completed. This is a terminal state.   Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.   Execution Timed Out: Command execution started on the instance, but the execution was not complete before the execution timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.   Failed: The command was not successful on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.   Canceled: The command was terminated before it was completed. This is a terminal state.   Undeliverable: The command can't be delivered to the instance. The instance might not exist, or it might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit, and they don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.   Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.  
      */
     StatusDetails?: StatusDetails;
     /**
@@ -1172,15 +1221,15 @@ declare namespace SSM {
      */
     StandardErrorUrl?: Url;
     /**
-     * The name of the region where the output is stored in Amazon S3.
+     * (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Amazon S3 bucket region.
      */
     OutputS3Region?: S3Region;
     /**
-     * The S3 bucket where the responses to the command executions should be stored. This was requested when issuing the command. For example, in the following response:  test_folder/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-1234567876543/awsrunShellScript   test_folder is the name of the Amazon S3 bucket;  ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix;  i-1234567876543 is the instance ID;  awsrunShellScript is the name of the plugin.
+     * The S3 bucket where the responses to the command executions should be stored. This was requested when issuing the command. For example, in the following response:  test_folder/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-1234567876543/awsrunShellScript  test_folder is the name of the Amazon S3 bucket;  ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix; i-1234567876543 is the instance ID; awsrunShellScript is the name of the plugin.
      */
     OutputS3BucketName?: S3BucketName;
     /**
-     * The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command. For example, in the following response:  test_folder/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-1234567876543/awsrunShellScript   test_folder is the name of the Amazon S3 bucket;  ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix;  i-1234567876543 is the instance ID;  awsrunShellScript is the name of the plugin.
+     * The S3 directory path inside the bucket where the responses to the command executions should be stored. This was requested when issuing the command. For example, in the following response:  test_folder/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix/i-1234567876543/awsrunShellScript  test_folder is the name of the Amazon S3 bucket;  ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix; i-1234567876543 is the instance ID; awsrunShellScript is the name of the plugin.
      */
     OutputS3KeyPrefix?: S3KeyPrefix;
   }
@@ -1194,7 +1243,7 @@ declare namespace SSM {
   export type ComputerName = string;
   export interface CreateActivationRequest {
     /**
-     * A user-defined description of the resource that you want to register with Amazon EC2. 
+     * A userdefined description of the resource that you want to register with Amazon EC2. 
      */
     Description?: ActivationDescription;
     /**
@@ -1233,11 +1282,11 @@ declare namespace SSM {
   export type CreateAssociationBatchRequestEntries = CreateAssociationBatchRequestEntry[];
   export interface CreateAssociationBatchRequestEntry {
     /**
-     *  The name of the configuration document. 
+     * The name of the configuration document. 
      */
     Name: DocumentName;
     /**
-     *  The ID of the instance. 
+     * The ID of the instance. 
      */
     InstanceId?: InstanceId;
     /**
@@ -1289,15 +1338,15 @@ declare namespace SSM {
      */
     Parameters?: Parameters;
     /**
-     * The targets (either instances or tags) for the association. Instances are specified using Key=instanceids,Values=&lt;instanceid1&gt;,&lt;instanceid2&gt;. Tags are specified using Key=&lt;tag name&gt;,Values=&lt;tag value&gt;.
+     * The targets (either instances or tags) for the association.
      */
     Targets?: Targets;
     /**
-     * A cron expression when the association will be applied to the target(s). Supported expressions are every half, 1, 2, 4, 8 or 12 hour(s); every specified day and time of the week. For example: cron(0 0/30 * 1/1 * ? *) to run every thirty minutes; cron(0 0 0/4 1/1 * ? *) to run every four hours; and cron(0 0 10 ? * SUN *) to run every Sunday at 10 a.m.
+     * A cron expression when the association will be applied to the target(s).
      */
     ScheduleExpression?: ScheduleExpression;
     /**
-     * An Amazon S3 bucket where you want to store the output details of the request. For example:  "{ \"S3Location\": { \"OutputS3Region\": \"&lt;region&gt;\", \"OutputS3BucketName\": \"bucket name\", \"OutputS3KeyPrefix\": \"folder name\" } }" 
+     * An Amazon S3 bucket where you want to store the output details of the request.
      */
     OutputLocation?: InstanceAssociationOutputLocation;
   }
@@ -1361,6 +1410,10 @@ declare namespace SSM {
   }
   export interface CreatePatchBaselineRequest {
     /**
+     * Defines the operating system the patch baseline applies to. Supported operating systems include WINDOWS, AMAZON_LINUX, UBUNTU and REDHAT_ENTERPRISE_LINUX. The Default value is WINDOWS.
+     */
+    OperatingSystem?: OperatingSystem;
+    /**
      * The name of the patch baseline.
      */
     Name: BaselineName;
@@ -1377,6 +1430,10 @@ declare namespace SSM {
      */
     ApprovedPatches?: PatchIdList;
     /**
+     * Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance severity levels include the following: CRITICAL, HIGH, MEDIUM, LOW, INFORMATIONAL, UNSPECIFIED. The default value is UNSPECIFIED.
+     */
+    ApprovedPatchesComplianceLevel?: PatchComplianceLevel;
+    /**
      * A list of explicitly rejected patches for the baseline.
      */
     RejectedPatches?: PatchIdList;
@@ -1385,7 +1442,7 @@ declare namespace SSM {
      */
     Description?: BaselineDescription;
     /**
-     * Caller-provided idempotency token.
+     * User-provided idempotency token.
      */
     ClientToken?: ClientToken;
   }
@@ -1394,6 +1451,18 @@ declare namespace SSM {
      * The ID of the created patch baseline.
      */
     BaselineId?: BaselineId;
+  }
+  export interface CreateResourceDataSyncRequest {
+    /**
+     * A name for the configuration.
+     */
+    SyncName: ResourceDataSyncName;
+    /**
+     * Amazon S3 configuration details for the sync.
+     */
+    S3Destination: ResourceDataSyncS3Destination;
+  }
+  export interface CreateResourceDataSyncResult {
   }
   export type CreatedDate = Date;
   export type DateTime = Date;
@@ -1451,6 +1520,22 @@ declare namespace SSM {
   }
   export interface DeleteParameterResult {
   }
+  export interface DeleteParametersRequest {
+    /**
+     * The names of the parameters to delete.
+     */
+    Names: ParameterNameList;
+  }
+  export interface DeleteParametersResult {
+    /**
+     * The names of the deleted parameters.
+     */
+    DeletedParameters?: ParameterNameList;
+    /**
+     * The names of parameters that weren't deleted because the parameters are not valid.
+     */
+    InvalidParameters?: ParameterNameList;
+  }
   export interface DeletePatchBaselineRequest {
     /**
      * The ID of the patch baseline to delete.
@@ -1462,6 +1547,14 @@ declare namespace SSM {
      * The ID of the deleted patch baseline.
      */
     BaselineId?: BaselineId;
+  }
+  export interface DeleteResourceDataSyncRequest {
+    /**
+     * The name of the configuration to delete.
+     */
+    SyncName: ResourceDataSyncName;
+  }
+  export interface DeleteResourceDataSyncResult {
   }
   export interface DeregisterManagedInstanceRequest {
     /**
@@ -1563,7 +1656,7 @@ declare namespace SSM {
      */
     ActivationList?: ActivationList;
     /**
-     *  The token for the next set of items to return. Use this token to get the next set of results. 
+     * The token for the next set of items to return. Use this token to get the next set of results. 
      */
     NextToken?: NextToken;
   }
@@ -1773,7 +1866,7 @@ declare namespace SSM {
      */
     PatchGroup: PatchGroup;
     /**
-     * Each entry in the array is a structure containing: Key (string 1 ≤ length ≤ 200)  Values (array containing a single string)  Type (string “Equal”, “NotEqual”, “LessThan”, “GreaterThan”)
+     * Each entry in the array is a structure containing: Key (string between 1 and 200 characters)  Values (array containing a single string)  Type (string "Equal", "NotEqual", "LessThan", "GreaterThan")
      */
     Filters?: InstancePatchStateFilterList;
     /**
@@ -1825,7 +1918,7 @@ declare namespace SSM {
      */
     InstanceId: InstanceId;
     /**
-     * Each entry in the array is a structure containing: Key (string, 1 ≤ length ≤ 128) Values (array of strings 1 ≤ length ≤ 256)
+     * Each entry in the array is a structure containing: Key (string, between 1 and 128 characters) Values (array of strings, each string between 1 and 256 characters)
      */
     Filters?: PatchOrchestratorFilterList;
     /**
@@ -1839,7 +1932,7 @@ declare namespace SSM {
   }
   export interface DescribeInstancePatchesResult {
     /**
-     * Each entry in the array is a structure containing: Title (string) KBId (string) Classification (string) Severity (string) State (string – “INSTALLED”, “INSTALLED_OTHER”, “MISSING”, “NOT_APPLICABLE”, “FAILED”) InstalledTime (DateTime) InstalledBy (string)
+     * Each entry in the array is a structure containing: Title (string) KBId (string) Classification (string) Severity (string) State (string: "INSTALLED", "INSTALLED OTHER", "MISSING", "NOT APPLICABLE", "FAILED") InstalledTime (DateTime) InstalledBy (string)
      */
     Patches?: PatchComplianceDataList;
     /**
@@ -1913,7 +2006,7 @@ declare namespace SSM {
      */
     WindowId: MaintenanceWindowId;
     /**
-     * Each entry in the array is a structure containing: Key (string, 1 ≤ length ≤ 128) Values (array of strings 1 ≤ length ≤ 256) The supported Keys are ExecutedBefore and ExecutedAfter with the value being a date/time string such as 2016-11-04T05:00:00Z.
+     * Each entry in the array is a structure containing: Key (string, between 1 and 128 characters) Values (array of strings, each string is between 1 and 256 characters) The supported Keys are ExecutedBefore and ExecutedAfter with the value being a date/time string such as 2016-11-04T05:00:00Z.
      */
     Filters?: MaintenanceWindowFilterList;
     /**
@@ -2021,6 +2114,10 @@ declare namespace SSM {
      */
     Filters?: ParametersFilterList;
     /**
+     * Filters to limit the request results.
+     */
+    ParameterFilters?: ParameterStringFilterList;
+    /**
      * The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
      */
     MaxResults?: MaxResults;
@@ -2041,7 +2138,7 @@ declare namespace SSM {
   }
   export interface DescribePatchBaselinesRequest {
     /**
-     * Each element in the array is a structure containing:  Key: (string, “NAME_PREFIX” or “OWNER”) Value: (array of strings, exactly 1 entry, 1 ≤ length ≤ 255)
+     * Each element in the array is a structure containing:  Key: (string, "NAME_PREFIX" or "OWNER") Value: (array of strings, exactly 1 entry, between 1 and 255 characters)
      */
     Filters?: PatchOrchestratorFilterList;
     /**
@@ -2079,7 +2176,7 @@ declare namespace SSM {
      */
     InstancesWithInstalledPatches?: Integer;
     /**
-     * The number of instances with patches installed that aren’t defined in the patch baseline.
+     * The number of instances with patches installed that aren't defined in the patch baseline.
      */
     InstancesWithInstalledOtherPatches?: Integer;
     /**
@@ -2091,7 +2188,7 @@ declare namespace SSM {
      */
     InstancesWithFailedPatches?: Integer;
     /**
-     * The number of instances with patches that aren’t applicable.
+     * The number of instances with patches that aren't applicable.
      */
     InstancesWithNotApplicablePatches?: Integer;
   }
@@ -2101,13 +2198,17 @@ declare namespace SSM {
      */
     MaxResults?: PatchBaselineMaxResults;
     /**
+     * One or more filters. Use a filter to return a more specific list of results.
+     */
+    Filters?: PatchOrchestratorFilterList;
+    /**
      * The token for the next set of items to return. (You received this token from a previous call.)
      */
     NextToken?: NextToken;
   }
   export interface DescribePatchGroupsResult {
     /**
-     * Each entry in the array contains: PatchGroup: string (1 ≤ length ≤ 256, Regex: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$) PatchBaselineIdentity: A PatchBaselineIdentity element. 
+     * Each entry in the array contains: PatchGroup: string (between 1 and 256 characters, Regex: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$) PatchBaselineIdentity: A PatchBaselineIdentity element. 
      */
     Mappings?: PatchGroupPatchBaselineMappingList;
     /**
@@ -2150,7 +2251,7 @@ declare namespace SSM {
      */
     Owner?: DocumentOwner;
     /**
-     *  The date when the document was created.
+     * The date when the document was created.
      */
     CreatedDate?: DateTime;
     /**
@@ -2162,7 +2263,7 @@ declare namespace SSM {
      */
     DocumentVersion?: DocumentVersion;
     /**
-     *  A description of the document. 
+     * A description of the document. 
      */
     Description?: DescriptionInDocument;
     /**
@@ -2240,7 +2341,7 @@ declare namespace SSM {
      */
     Name?: DocumentParameterName;
     /**
-     * The type of parameter. The type can be either “String” or “StringList”.
+     * The type of parameter. The type can be either String or StringList.
      */
     Type?: DocumentParameterType;
     /**
@@ -2312,6 +2413,20 @@ declare namespace SSM {
     Fault?: Fault;
   }
   export type FailedCreateAssociationList = FailedCreateAssociation[];
+  export interface FailureDetails {
+    /**
+     * The stage of the Automation execution when the failure occurred. The stages include the following: InputValidation, PreVerification, Invocation, PostVerification.
+     */
+    FailureStage?: String;
+    /**
+     * The type of Automation failure. Failure types include the following: Action, Permission, Throttling, Verification, Internal.
+     */
+    FailureType?: String;
+    /**
+     * Detailed information about the Automation step failure.
+     */
+    Details?: AutomationParameterMap;
+  }
   export type Fault = "Client"|"Server"|"Unknown"|string;
   export interface GetAutomationExecutionRequest {
     /**
@@ -2365,7 +2480,7 @@ declare namespace SSM {
      */
     ResponseCode?: ResponseCode;
     /**
-     * The date and time the plugin started executing. Date and time are written in ISO 8601 format. For example, August 28, 2016 is represented as 2016-08-28. If the plugin has not started to execute, the string is empty.
+     * The date and time the plugin started executing. Date and time are written in ISO 8601 format. For example, June 7, 2017 is represented as 2017-06-7. The following sample AWS CLI command uses the InvokedBefore filter.  aws ssm list-commands --filters key=InvokedBefore,value=2017-06-07T00:00:00Z  If the plugin has not started to execute, the string is empty.
      */
     ExecutionStartDateTime?: StringDateTime;
     /**
@@ -2373,7 +2488,7 @@ declare namespace SSM {
      */
     ExecutionElapsedTime?: StringDateTime;
     /**
-     * The date and time the plugin was finished executing. Date and time are written in ISO 8601 format. For example, August 28, 2016 is represented as 2016-08-28. If the plugin has not started to execute, the string is empty.
+     * The date and time the plugin was finished executing. Date and time are written in ISO 8601 format. For example, June 7, 2017 is represented as 2017-06-7. The following sample AWS CLI command uses the InvokedAfter filter.  aws ssm list-commands --filters key=InvokedAfter,value=2017-06-07T00:00:00Z  If the plugin has not started to execute, the string is empty.
      */
     ExecutionEndDateTime?: StringDateTime;
     /**
@@ -2381,7 +2496,7 @@ declare namespace SSM {
      */
     Status?: CommandInvocationStatus;
     /**
-     * A detailed status of the command execution for an invocation. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see Run Command Status. StatusDetails can be one of the following values:   Pending – The command has not been sent to the instance.   In Progress – The command has been sent to the instance but has not reached a terminal state.   Delayed – The system attempted to send the command to the target, but the target was not available. The instance might not be available because of network issues, the instance was stopped, etc. The system will try to deliver the command again.   Success – The command or plugin was executed successfully. This is a terminal state.   Delivery Timed Out – The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command’s MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.   Execution Timed Out – The command started to execute on the instance, but the execution was not complete before the timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.   Failed – The command wasn't executed successfully on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.   Canceled – The command was terminated before it was completed. This is a terminal state.   Undeliverable – The command can't be delivered to the instance. The instance might not exist or might not be responding. Undeliverable invocations don't count against the parent command’s MaxErrors limit and don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.   Terminated – The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.  
+     * A detailed status of the command execution for an invocation. StatusDetails includes more information than Status because it includes states resulting from error and concurrency control parameters. StatusDetails can show different results than Status. For more information about these statuses, see Run Command Status. StatusDetails can be one of the following values:   Pending: The command has not been sent to the instance.   In Progress: The command has been sent to the instance but has not reached a terminal state.   Delayed: The system attempted to send the command to the target, but the target was not available. The instance might not be available because of network issues, the instance was stopped, etc. The system will try to deliver the command again.   Success: The command or plugin was executed successfully. This is a terminal state.   Delivery Timed Out: The command was not delivered to the instance before the delivery timeout expired. Delivery timeouts do not count against the parent command's MaxErrors limit, but they do contribute to whether the parent command status is Success or Incomplete. This is a terminal state.   Execution Timed Out: The command started to execute on the instance, but the execution was not complete before the timeout expired. Execution timeouts count against the MaxErrors limit of the parent command. This is a terminal state.   Failed: The command wasn't executed successfully on the instance. For a plugin, this indicates that the result code was not zero. For a command invocation, this indicates that the result code for one or more plugins was not zero. Invocation failures count against the MaxErrors limit of the parent command. This is a terminal state.   Canceled: The command was terminated before it was completed. This is a terminal state.   Undeliverable: The command can't be delivered to the instance. The instance might not exist or might not be responding. Undeliverable invocations don't count against the parent command's MaxErrors limit and don't contribute to whether the parent command status is Success or Incomplete. This is a terminal state.   Terminated: The parent command exceeded its MaxErrors limit and subsequent command invocations were canceled by the system. This is a terminal state.  
      */
     StatusDetails?: StatusDetails;
     /**
@@ -2402,12 +2517,20 @@ declare namespace SSM {
     StandardErrorUrl?: Url;
   }
   export interface GetDefaultPatchBaselineRequest {
+    /**
+     * Returns the default patch baseline for the specified operating system.
+     */
+    OperatingSystem?: OperatingSystem;
   }
   export interface GetDefaultPatchBaselineResult {
     /**
      * The ID of the default patch baseline.
      */
     BaselineId?: BaselineId;
+    /**
+     * The operating system for the returned patch baseline. 
+     */
+    OperatingSystem?: OperatingSystem;
   }
   export interface GetDeployablePatchSnapshotForInstanceRequest {
     /**
@@ -2432,6 +2555,10 @@ declare namespace SSM {
      * A pre-signed Amazon S3 URL that can be used to download the patch snapshot.
      */
     SnapshotDownloadUrl?: SnapshotDownloadUrl;
+    /**
+     * Returns the specific operating system (for example Windows Server 2012 or Amazon Linux 2015.09) on the instance for the specified patch snapshot.
+     */
+    Product?: Product;
   }
   export interface GetDocumentRequest {
     /**
@@ -2578,7 +2705,7 @@ declare namespace SSM {
      */
     Type?: MaintenanceWindowTaskType;
     /**
-     * The parameters passed to the task when it was executed. The map has the following format: Key: string, 1 ≤ length ≤ 255 Value: an array of strings where each string 1 ≤ length ≤ 255
+     * The parameters passed to the task when it was executed. The map has the following format: Key: string, between 1 and 255 characters Value: an array of strings, each string is between 1 and 255 characters
      */
     TaskParameters?: MaintenanceWindowTaskParametersList;
     /**
@@ -2682,6 +2809,59 @@ declare namespace SSM {
      */
     NextToken?: NextToken;
   }
+  export interface GetParameterRequest {
+    /**
+     * The name of the parameter you want to query.
+     */
+    Name: PSParameterName;
+    /**
+     * Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
+     */
+    WithDecryption?: Boolean;
+  }
+  export interface GetParameterResult {
+    /**
+     * Information about a parameter.
+     */
+    Parameter?: Parameter;
+  }
+  export type GetParametersByPathMaxResults = number;
+  export interface GetParametersByPathRequest {
+    /**
+     * The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end with the parameter name. A hierarchy can have a maximum of five levels. Examples: /Environment/Test/DBString003 /Finance/Prod/IAD/OS/WinServ2016/license15
+     */
+    Path: PSParameterName;
+    /**
+     * Retrieve all parameters within a hierarchy.
+     */
+    Recursive?: Boolean;
+    /**
+     * Filters to limit the request results.
+     */
+    ParameterFilters?: ParameterStringFilterList;
+    /**
+     * Retrieve all parameters in a hierarchy with their value decrypted.
+     */
+    WithDecryption?: Boolean;
+    /**
+     * The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+     */
+    MaxResults?: GetParametersByPathMaxResults;
+    /**
+     * A token to start the list. Use this token to get the next set of results. 
+     */
+    NextToken?: NextToken;
+  }
+  export interface GetParametersByPathResult {
+    /**
+     * A list of parameters found in the specified hierarchy.
+     */
+    Parameters?: ParameterList;
+    /**
+     * The token for the next set of items to return. Use this token to get the next set of results.
+     */
+    NextToken?: NextToken;
+  }
   export interface GetParametersRequest {
     /**
      * Names of the parameters for which you want to query information.
@@ -2707,6 +2887,10 @@ declare namespace SSM {
      * The name of the patch group whose patch baseline should be retrieved.
      */
     PatchGroup: PatchGroup;
+    /**
+     * Returns he operating system rule specified for patch groups using the patch baseline.
+     */
+    OperatingSystem?: OperatingSystem;
   }
   export interface GetPatchBaselineForPatchGroupResult {
     /**
@@ -2717,6 +2901,10 @@ declare namespace SSM {
      * The name of the patch group.
      */
     PatchGroup?: PatchGroup;
+    /**
+     * The operating system rule specified for patch groups using the patch baseline.
+     */
+    OperatingSystem?: OperatingSystem;
   }
   export interface GetPatchBaselineRequest {
     /**
@@ -2734,6 +2922,10 @@ declare namespace SSM {
      */
     Name?: BaselineName;
     /**
+     * Returns the operating system specified for the patch baseline.
+     */
+    OperatingSystem?: OperatingSystem;
+    /**
      * A set of global filters used to exclude patches from the baseline.
      */
     GlobalFilters?: PatchFilterGroup;
@@ -2745,6 +2937,10 @@ declare namespace SSM {
      * A list of explicitly approved patches for the baseline.
      */
     ApprovedPatches?: PatchIdList;
+    /**
+     * Returns the specified compliance severity level for approved patches in the patch baseline.
+     */
+    ApprovedPatchesComplianceLevel?: PatchComplianceLevel;
     /**
      * A list of explicitly rejected patches for the baseline.
      */
@@ -2948,7 +3144,7 @@ declare namespace SSM {
   export type InstanceInformationList = InstanceInformation[];
   export interface InstanceInformationStringFilter {
     /**
-     * The filter key name to describe your instances. For example: "InstanceIds"|"AgentVersion"|"PingStatus"|"PlatformTypes"|"ActivationIds"|"IamRole"|"ResourceType"|”AssociationStatus”|”Tag Key”
+     * The filter key name to describe your instances. For example: "InstanceIds"|"AgentVersion"|"PingStatus"|"PlatformTypes"|"ActivationIds"|"IamRole"|"ResourceType"|"AssociationStatus"|"Tag Key"
      */
     Key: InstanceInformationStringFilterKey;
     /**
@@ -2988,7 +3184,7 @@ declare namespace SSM {
      */
     InstalledOtherCount?: PatchInstalledOtherCount;
     /**
-     * The number of patches from the patch baseline that are applicable for the instance but aren’t currently installed.
+     * The number of patches from the patch baseline that are applicable for the instance but aren't currently installed.
      */
     MissingCount?: PatchMissingCount;
     /**
@@ -2996,17 +3192,17 @@ declare namespace SSM {
      */
     FailedCount?: PatchFailedCount;
     /**
-     * The number of patches from the patch baseline that aren’t applicable for the instance and hence aren’t installed on the instance.
+     * The number of patches from the patch baseline that aren't applicable for the instance and hence aren't installed on the instance.
      */
     NotApplicableCount?: PatchNotApplicableCount;
     /**
      * The time the most recent patching operation was started on the instance.
      */
-    OperationStartTime: PatchOperationStartTime;
+    OperationStartTime: DateTime;
     /**
      * The time the most recent patching operation completed on the instance.
      */
-    OperationEndTime: PatchOperationEndTime;
+    OperationEndTime: DateTime;
     /**
      * The type of patching operation that was performed: SCAN (assess patch compliance state) or INSTALL (install missing patches).
      */
@@ -3150,6 +3346,9 @@ declare namespace SSM {
   export type InventoryResultItemMap = {[key: string]: InventoryResultItem};
   export type InvocationTraceOutput = string;
   export type KeyList = TagKey[];
+  export type LastResourceDataSyncStatus = "Successful"|"Failed"|"InProgress"|string;
+  export type LastResourceDataSyncTime = Date;
+  export type LastSuccessfulResourceDataSyncTime = Date;
   export interface ListAssociationsRequest {
     /**
      * One or more filters. Use a filter to return a more specific list of results.
@@ -3335,6 +3534,26 @@ declare namespace SSM {
     Entries?: InventoryItemEntryList;
     /**
      * The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+     */
+    NextToken?: NextToken;
+  }
+  export interface ListResourceDataSyncRequest {
+    /**
+     * A token to start the list. Use this token to get the next set of results. 
+     */
+    NextToken?: NextToken;
+    /**
+     * The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+     */
+    MaxResults?: MaxResults;
+  }
+  export interface ListResourceDataSyncResult {
+    /**
+     * A list of your current Resource Data Sync configurations and their statuses.
+     */
+    ResourceDataSyncItems?: ResourceDataSyncItemList;
+    /**
+     * The token for the next set of items to return. Use this token to get the next set of results.
      */
     NextToken?: NextToken;
   }
@@ -3663,6 +3882,7 @@ declare namespace SSM {
   export type NotificationEvent = "All"|"InProgress"|"Success"|"TimedOut"|"Cancelled"|"Failed"|string;
   export type NotificationEventList = NotificationEvent[];
   export type NotificationType = "Command"|"Invocation"|string;
+  export type OperatingSystem = "WINDOWS"|"AMAZON_LINUX"|"UBUNTU"|"REDHAT_ENTERPRISE_LINUX"|string;
   export type OwnerInformation = string;
   export type PSParameterName = string;
   export type PSParameterValue = string;
@@ -3710,6 +3930,10 @@ declare namespace SSM {
      * The parameter value.
      */
     Value?: PSParameterValue;
+    /**
+     * Parameter names can include the following letters and symbols. a-zA-Z0-9_.-
+     */
+    AllowedPattern?: AllowedPattern;
   }
   export type ParameterHistoryList = ParameterHistory[];
   export type ParameterKeyId = string;
@@ -3739,10 +3963,33 @@ declare namespace SSM {
      * Description of the parameter actions.
      */
     Description?: ParameterDescription;
+    /**
+     * A parameter name can include only the following letters and symbols. a-zA-Z0-9_.-
+     */
+    AllowedPattern?: AllowedPattern;
   }
   export type ParameterMetadataList = ParameterMetadata[];
   export type ParameterName = string;
   export type ParameterNameList = PSParameterName[];
+  export interface ParameterStringFilter {
+    /**
+     * The name of the filter.
+     */
+    Key: ParameterStringFilterKey;
+    /**
+     * Valid options are Equals and BeginsWith. For Path filter, valid options are Recursive and OneLevel.
+     */
+    Option?: ParameterStringQueryOption;
+    /**
+     * The value you want to search for.
+     */
+    Values?: ParameterStringFilterValueList;
+  }
+  export type ParameterStringFilterKey = string;
+  export type ParameterStringFilterList = ParameterStringFilter[];
+  export type ParameterStringFilterValue = string;
+  export type ParameterStringFilterValueList = ParameterStringFilterValue[];
+  export type ParameterStringQueryOption = string;
   export type ParameterType = "String"|"StringList"|"SecureString"|string;
   export type ParameterValue = string;
   export type ParameterValueList = ParameterValue[];
@@ -3751,7 +3998,7 @@ declare namespace SSM {
     /**
      * The name of the filter.
      */
-    Key?: ParametersFilterKey;
+    Key: ParametersFilterKey;
     /**
      * The filter values.
      */
@@ -3811,7 +4058,7 @@ declare namespace SSM {
      */
     MsrcNumber?: PatchMsrcNumber;
     /**
-     * The language of the patch if it’s language-specific.
+     * The language of the patch if it's language-specific.
      */
     Language?: PatchLanguage;
   }
@@ -3825,11 +4072,15 @@ declare namespace SSM {
      */
     BaselineName?: BaselineName;
     /**
+     * Defines the operating system the patch baseline applies to. Supported operating systems include WINDOWS, AMAZON_LINUX, UBUNTU and REDHAT_ENTERPRISE_LINUX. The Default value is WINDOWS. 
+     */
+    OperatingSystem?: OperatingSystem;
+    /**
      * The description of the patch baseline.
      */
     BaselineDescription?: BaselineDescription;
     /**
-     * Whether this is the default baseline.
+     * Whether this is the default baseline. Note that Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.
      */
     DefaultBaseline?: DefaultBaseline;
   }
@@ -3842,7 +4093,7 @@ declare namespace SSM {
      */
     Title: PatchTitle;
     /**
-     * The Microsoft Knowledge Base ID of the patch.
+     * The operating system-specific ID of the patch.
      */
     KBId: PatchKbNumber;
     /**
@@ -3858,12 +4109,13 @@ declare namespace SSM {
      */
     State: PatchComplianceDataState;
     /**
-     * The date/time the patch was installed on the instance.
+     * The date/time the patch was installed on the instance. Note that not all operating systems provide this level of information.
      */
-    InstalledTime: PatchInstalledTime;
+    InstalledTime: DateTime;
   }
   export type PatchComplianceDataList = PatchComplianceData[];
   export type PatchComplianceDataState = "INSTALLED"|"INSTALLED_OTHER"|"MISSING"|"NOT_APPLICABLE"|"FAILED"|string;
+  export type PatchComplianceLevel = "CRITICAL"|"HIGH"|"MEDIUM"|"LOW"|"INFORMATIONAL"|"UNSPECIFIED"|string;
   export type PatchComplianceMaxResults = number;
   export type PatchContentUrl = string;
   export type PatchDeploymentStatus = "APPROVED"|"PENDING_APPROVAL"|"EXPLICIT_APPROVED"|"EXPLICIT_REJECTED"|string;
@@ -3885,7 +4137,7 @@ declare namespace SSM {
      */
     PatchFilters: PatchFilterList;
   }
-  export type PatchFilterKey = "PRODUCT"|"CLASSIFICATION"|"MSRC_SEVERITY"|"PATCH_ID"|string;
+  export type PatchFilterKey = "PRODUCT"|"CLASSIFICATION"|"MSRC_SEVERITY"|"PATCH_ID"|"SECTION"|"PRIORITY"|"SEVERITY"|string;
   export type PatchFilterList = PatchFilter[];
   export type PatchFilterValue = string;
   export type PatchFilterValueList = PatchFilterValue[];
@@ -3906,7 +4158,6 @@ declare namespace SSM {
   export type PatchIdList = PatchId[];
   export type PatchInstalledCount = number;
   export type PatchInstalledOtherCount = number;
-  export type PatchInstalledTime = Date;
   export type PatchKbNumber = string;
   export type PatchLanguage = string;
   export type PatchList = Patch[];
@@ -3914,8 +4165,6 @@ declare namespace SSM {
   export type PatchMsrcNumber = string;
   export type PatchMsrcSeverity = string;
   export type PatchNotApplicableCount = number;
-  export type PatchOperationEndTime = Date;
-  export type PatchOperationStartTime = Date;
   export type PatchOperationType = "Scan"|"Install"|string;
   export interface PatchOrchestratorFilter {
     /**
@@ -3939,6 +4188,10 @@ declare namespace SSM {
      */
     PatchFilterGroup: PatchFilterGroup;
     /**
+     * A compliance severity level for all approved patches in a patch baseline. Valid compliance severity levels include the following: Unspecified, Critical, High, Medium, Low, and Informational.
+     */
+    ComplianceLevel?: PatchComplianceLevel;
+    /**
      * The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
      */
     ApproveAfterDays: ApproveAfterDays;
@@ -3957,6 +4210,10 @@ declare namespace SSM {
      */
     DeploymentStatus?: PatchDeploymentStatus;
     /**
+     * The compliance severity level for a patch.
+     */
+    ComplianceLevel?: PatchComplianceLevel;
+    /**
      * The date the patch was approved (or will be approved if the status is PENDING_APPROVAL).
      */
     ApprovalDate?: DateTime;
@@ -3966,6 +4223,7 @@ declare namespace SSM {
   export type PingStatus = "Online"|"ConnectionLost"|"Inactive"|string;
   export type PlatformType = "Windows"|"Linux"|string;
   export type PlatformTypeList = PlatformType[];
+  export type Product = string;
   export interface PutInventoryRequest {
     /**
      * One or more instance IDs where you want to add or update inventory items.
@@ -3996,13 +4254,17 @@ declare namespace SSM {
      */
     Type: ParameterType;
     /**
-     * The parameter key ID that you want to add to the system.
+     * The KMS Key ID that you want to use to encrypt a parameter when you choose the SecureString data type. If you don't specify a key ID, the system uses the default key associated with your AWS account.
      */
     KeyId?: ParameterKeyId;
     /**
      * Overwrite an existing parameter. If not specified, will default to "false".
      */
     Overwrite?: Boolean;
+    /**
+     * A regular expression used to validate the parameter value. For example, for String types with values restricted to numbers, you can specify the following: AllowedPattern=^\d+$ 
+     */
+    AllowedPattern?: AllowedPattern;
   }
   export interface PutParameterResult {
   }
@@ -4136,13 +4398,64 @@ declare namespace SSM {
   }
   export interface RemoveTagsFromResourceResult {
   }
+  export type ResourceDataSyncCreatedTime = Date;
+  export interface ResourceDataSyncItem {
+    /**
+     * The name of the Resource Data Sync.
+     */
+    SyncName?: ResourceDataSyncName;
+    /**
+     * Configuration information for the target Amazon S3 bucket.
+     */
+    S3Destination?: ResourceDataSyncS3Destination;
+    /**
+     * The last time the configuration attempted to sync (UTC).
+     */
+    LastSyncTime?: LastResourceDataSyncTime;
+    /**
+     * The last time the sync operations returned a status of SUCCESSFUL (UTC).
+     */
+    LastSuccessfulSyncTime?: LastSuccessfulResourceDataSyncTime;
+    /**
+     * The status reported by the last sync.
+     */
+    LastStatus?: LastResourceDataSyncStatus;
+    /**
+     * The date and time the configuration was created (UTC).
+     */
+    SyncCreatedTime?: ResourceDataSyncCreatedTime;
+  }
+  export type ResourceDataSyncItemList = ResourceDataSyncItem[];
+  export type ResourceDataSyncName = string;
+  export type ResourceDataSyncS3BucketName = string;
+  export interface ResourceDataSyncS3Destination {
+    /**
+     * The name of the Amazon S3 bucket where the aggregated data is stored.
+     */
+    BucketName: ResourceDataSyncS3BucketName;
+    /**
+     * An Amazon S3 prefix for the bucket.
+     */
+    Prefix?: ResourceDataSyncS3Prefix;
+    /**
+     * A supported sync format. The following format is currently supported: JsonSerDe
+     */
+    SyncFormat: ResourceDataSyncS3Format;
+    /**
+     * The AWS Region with the Amazon S3 bucket targeted by the Resource Data Sync.
+     */
+    Region: ResourceDataSyncS3Region;
+  }
+  export type ResourceDataSyncS3Format = "JsonSerDe"|string;
+  export type ResourceDataSyncS3Prefix = string;
+  export type ResourceDataSyncS3Region = string;
   export type ResourceId = string;
   export type ResourceType = "ManagedInstance"|"Document"|"EC2Instance"|string;
   export type ResourceTypeForTagging = "ManagedInstance"|"MaintenanceWindow"|"Parameter"|string;
   export type ResponseCode = number;
   export interface ResultAttribute {
     /**
-     * Name of the inventory item type. Valid value: “AWS:InstanceInformation”. Default Value: “AWS:InstanceInformation”.
+     * Name of the inventory item type. Valid value: AWS:InstanceInformation. Default Value: AWS:InstanceInformation.
      */
     TypeName: InventoryItemTypeName;
   }
@@ -4151,7 +4464,7 @@ declare namespace SSM {
   export type S3KeyPrefix = string;
   export interface S3OutputLocation {
     /**
-     * The Amazon S3 region where the association information is stored.
+     * (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Amazon S3 bucket region.
      */
     OutputS3Region?: S3Region;
     /**
@@ -4173,11 +4486,11 @@ declare namespace SSM {
   export type ScheduleExpression = string;
   export interface SendCommandRequest {
     /**
-     * Required. The instance IDs where the command should execute. You can specify a maximum of 50 IDs.
+     * The instance IDs where the command should execute. You can specify a maximum of 50 IDs. If you prefer not to list individual instance IDs, you can instead send commands to a fleet of instances using the Targets parameter, which accepts EC2 tags. For more information about how to use Targets, see Sending Commands to a Fleet.
      */
     InstanceIds?: InstanceIdList;
     /**
-     * (Optional) An array of search criteria that targets instances using a Key,Value combination that you specify. Targets is required if you don't provide one or more instance IDs in the call. For more information about how to use Targets, see Executing a Command Using Systems Manager Run Command.
+     * (Optional) An array of search criteria that targets instances using a Key,Value combination that you specify. Targets is required if you don't provide one or more instance IDs in the call. For more information about how to use Targets, see Sending Commands to a Fleet.
      */
     Targets?: Targets;
     /**
@@ -4205,7 +4518,7 @@ declare namespace SSM {
      */
     Parameters?: Parameters;
     /**
-     * (Optional) The region where the Amazon Simple Storage Service (Amazon S3) output bucket is located. The default value is the region where Run Command is being called.
+     * (Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Amazon S3 bucket region.
      */
     OutputS3Region?: S3Region;
     /**
@@ -4217,11 +4530,11 @@ declare namespace SSM {
      */
     OutputS3KeyPrefix?: S3KeyPrefix;
     /**
-     * (Optional) The maximum number of instances that are allowed to execute the command at the same time. You can specify a number such as “10” or a percentage such as “10%”. The default value is 50. For more information about how to use MaxConcurrency, see Executing a Command Using Systems Manager Run Command.
+     * (Optional) The maximum number of instances that are allowed to execute the command at the same time. You can specify a number such as 10 or a percentage such as 10%. The default value is 50. For more information about how to use MaxConcurrency, see Using Concurrency Controls.
      */
     MaxConcurrency?: MaxConcurrency;
     /**
-     * The maximum number of errors allowed without the command failing. When the command fails one more time beyond the value of MaxErrors, the systems stops sending the command to additional targets. You can specify a number like “10” or a percentage like “10%”. The default value is 50. For more information about how to use MaxErrors, see Executing a Command Using Systems Manager Run Command.
+     * The maximum number of errors allowed without the command failing. When the command fails one more time beyond the value of MaxErrors, the systems stops sending the command to additional targets. You can specify a number like 10 or a percentage like 10%. The default value is 50. For more information about how to use MaxErrors, see Using Error Controls.
      */
     MaxErrors?: MaxErrors;
     /**
@@ -4309,6 +4622,10 @@ declare namespace SSM {
      * If a step failed, this message explains why the execution failed.
      */
     FailureMessage?: String;
+    /**
+     * Information about the Automation failure.
+     */
+    FailureDetails?: FailureDetails;
   }
   export type StepExecutionList = StepExecution[];
   export interface StopAutomationExecutionRequest {
@@ -4365,13 +4682,21 @@ declare namespace SSM {
      */
     DocumentVersion?: DocumentVersion;
     /**
-     * The cron expression used to schedule the association that you want to update. Supported expressions are every half, 1, 2, 4, 8 or 12 hour(s); every specified day and time of the week. For example: cron(0 0/30 * 1/1 * ? *) to run every thirty minutes; cron(0 0 0/4 1/1 * ? *) to run every four hours; and cron(0 0 10 ? * SUN *) to run every Sunday at 10 a.m.
+     * The cron expression used to schedule the association that you want to update.
      */
     ScheduleExpression?: ScheduleExpression;
     /**
-     * An Amazon S3 bucket where you want to store the results of this request.  "{ \"S3Location\": { \"OutputS3Region\": \"&lt;region&gt;\", \"OutputS3BucketName\": \"bucket name\", \"OutputS3KeyPrefix\": \"folder name\" } }" 
+     * An Amazon S3 bucket where you want to store the results of this request.
      */
     OutputLocation?: InstanceAssociationOutputLocation;
+    /**
+     * The name of the association document.
+     */
+    Name?: DocumentName;
+    /**
+     * The targets of the association.
+     */
+    Targets?: Targets;
   }
   export interface UpdateAssociationResult {
     /**
@@ -4529,6 +4854,10 @@ declare namespace SSM {
      */
     ApprovedPatches?: PatchIdList;
     /**
+     * Assigns a new compliance severity level to an existing patch baseline.
+     */
+    ApprovedPatchesComplianceLevel?: PatchComplianceLevel;
+    /**
      * A list of explicitly rejected patches for the baseline.
      */
     RejectedPatches?: PatchIdList;
@@ -4547,6 +4876,10 @@ declare namespace SSM {
      */
     Name?: BaselineName;
     /**
+     * The operating system rule used by the updated patch baseline.
+     */
+    OperatingSystem?: OperatingSystem;
+    /**
      * A set of global filters used to exclude patches from the baseline.
      */
     GlobalFilters?: PatchFilterGroup;
@@ -4558,6 +4891,10 @@ declare namespace SSM {
      * A list of explicitly approved patches for the baseline.
      */
     ApprovedPatches?: PatchIdList;
+    /**
+     * The compliance severity level assigned to the patch baseline after the update completed.
+     */
+    ApprovedPatchesComplianceLevel?: PatchComplianceLevel;
     /**
      * A list of explicitly rejected patches for the baseline.
      */

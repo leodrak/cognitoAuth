@@ -158,7 +158,7 @@ angular.module('cognitoBlog.authService', ['cognitoBlog.utils'])
                             IdentityPoolId : IDENTITY_POOL_ID,// your identity pool id here
                             Logins : {
                                 // Change the key below according to the specific region your user pool is in.
-                                'cognito-idp.eu-west-1.amazonaws.com/eu-west-1_ILPYKmn7I' : session.getIdToken().getJwtToken()
+                                'cognito-idp.eu-west-1.amazonaws.com/eu-west-1_wI6eFpmu3' : session.getIdToken().getJwtToken()
                             }
                         });
 
