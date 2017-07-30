@@ -153,14 +153,16 @@ angular.module('cognitoBlog.authService', ['cognitoBlog.utils'])
 
                         console.log('session token: ' + session.getIdToken().getJwtToken());
 
+                        var paramsCredentials = {
+                            IdentityPoolId : IDENTITY_POOL_ID,
+                            Logins : {}
+                        };
+
+                        //passing dynamically the user pool id along with some constants
+                        paramsCredentials.Logins[YOUR_USER_POOL_ID_IDP] = session.getIdToken().getJwtToken();
+
                         AWS.config.region = 'eu-west-1';
-                        AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-                            IdentityPoolId : IDENTITY_POOL_ID,// your identity pool id here
-                            Logins : {
-                                // Change the key below according to the specific region your user pool is in.
-                                'cognito-idp.eu-west-1.amazonaws.com/eu-west-1_wI6eFpmu3' : session.getIdToken().getJwtToken()
-                            }
-                        });
+                        AWS.config.credentials = new AWS.CognitoIdentityCredentials(paramsCredentials);
 
                         AWS.config.credentials.clearCachedId();
                         AWS.config.credentials.get(function(err){
@@ -245,14 +247,16 @@ angular.module('cognitoBlog.authService', ['cognitoBlog.utils'])
 
                         console.log('session token: ' + session.getIdToken().getJwtToken());
 
+                        var paramsCredentials = {
+                            IdentityPoolId : IDENTITY_POOL_ID,
+                            Logins : {}
+                        };
+
+                        //passing dynamically the user pool id along with some constants
+                        paramsCredentials.Logins[YOUR_USER_POOL_ID_IDP] = session.getIdToken().getJwtToken();
+
                         AWS.config.region = 'eu-west-1';
-                        AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-                            IdentityPoolId : IDENTITY_POOL_ID,// your identity pool id here
-                            Logins : {
-                                // Change the key below according to the specific region your user pool is in.
-                                'cognito-idp.eu-west-1.amazonaws.com/eu-west-1_wI6eFpmu3' : session.getIdToken().getJwtToken()
-                            }
-                        });
+                        AWS.config.credentials = new AWS.CognitoIdentityCredentials(paramsCredentials);
 
 
                         AWS.config.credentials.get(function(err){
@@ -313,14 +317,16 @@ angular.module('cognitoBlog.authService', ['cognitoBlog.utils'])
 
                         console.log('session token: ' + session.getIdToken().getJwtToken());
 
+                        var paramsCredentials = {
+                            IdentityPoolId : IDENTITY_POOL_ID,
+                            Logins : {}
+                        };
+
+                        //passing dynamically the user pool id along with some constants
+                        paramsCredentials.Logins[YOUR_USER_POOL_ID_IDP] = session.getIdToken().getJwtToken();
+
                         AWS.config.region = 'eu-west-1';
-                        AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-                            IdentityPoolId : IDENTITY_POOL_ID,// your identity pool id here
-                            Logins : {
-                                // Change the key below according to the specific region your user pool is in.
-                                'cognito-idp.eu-west-1.amazonaws.com/eu-west-1_wI6eFpmu3' : session.getIdToken().getJwtToken()
-                            }
-                        });
+                        AWS.config.credentials = new AWS.CognitoIdentityCredentials(paramsCredentials);
 
                         AWS.config.credentials.get(function(err){
                             if (!err) {
